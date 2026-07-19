@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Academic homepage of Jiajie Jian — wireless systems, signal processing, publications, and research."
+    />
+    <meta name="theme-color" content="#fdfefe" />
+    <title>Jiajie Jian · Academic Homepage</title>
+    <link rel="icon" href="assets/favicon.svg?v=6" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css?v=5" />
+    <link rel="stylesheet" href="publication-gallery.css" />
+    <link rel="stylesheet" href="editorial.css?v=34" />
+    <script src="site-data.js?v=8" defer></script>
+    <script src="script.js?v=14" defer></script>
+    <script src="analytics.js" defer></script>
+  </head>
+  <body class="theme-editorial">
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <header class="mobile-header">
+      <a class="mobile-brand" href="#about" aria-label="Go to the top">
+        <span class="brand-mark" data-initials>JJ</span>
+        <span data-short-name>Jiajie Jian</span>
+      </a>
+      <button
+        class="menu-button"
+        type="button"
+        aria-expanded="false"
+        aria-controls="mobile-navigation"
+        aria-label="Open navigation"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </header>
+    <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation"></nav>
+
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a class="nav-home" href="#about" aria-label="Homepage">Homepage</a>
+      <div class="nav-links" id="desktop-navigation"></div>
+    </nav>
+
+    <div class="page-shell">
+      <aside class="sidebar" aria-label="Profile">
+        <div class="sidebar-inner">
+          <a class="brand" href="#about" aria-label="Go to the top">
+            <span class="brand-mark" data-initials>JJ</span>
+            <span class="brand-wordmark">Academic homepage</span>
+          </a>
+
+          <div class="profile">
+            <div class="portrait-frame">
+              <img
+                id="profile-photo"
+                src="assets/jiajie-jian-city-profile-v1.png"
+                alt="Professional headshot of Jiajie Jian"
+              />
+            </div>
+            <p class="eyebrow">Hello, I’m</p>
+            <h1 id="profile-name">Jiajie Jian</h1>
+            <p class="profile-role" id="profile-role">M.Sc. Student in Information and Communication Engineering</p>
+            <p class="profile-affiliation" id="profile-affiliation">Chongqing University</p>
+          </div>
+
+          <div class="profile-meta" id="profile-meta"></div>
+          <div class="profile-links" id="profile-links"></div>
+
+          <p class="sidebar-note">
+            Open to research conversations and collaborations.
+          </p>
+        </div>
+      </aside>
+
+      <div class="content-column">
+        <main id="main-content">
+          <section class="hero section-block" id="about" data-section="about">
+            <div class="section-kicker">About</div>
+            <h2 id="hero-heading">Researching questions that matter.</h2>
+            <div class="intro-copy" id="intro-copy"></div>
+            <div class="hero-actions" id="hero-actions"></div>
+            <div class="research-strip" id="research-strip"></div>
+          </section>
+
+          <div id="dynamic-sections"></div>
+        </main>
+
+        <footer>
+          <p>© <span id="current-year"></span> <span data-short-name>Jiajie Jian</span></p>
+          <p>Built as a lightweight, accessible academic homepage.</p>
+        </footer>
+      </div>
+    </div>
+
+    <noscript>
+      <div class="noscript-message">This site needs JavaScript enabled to display its content.</div>
+    </noscript>
+  </body>
+</html>

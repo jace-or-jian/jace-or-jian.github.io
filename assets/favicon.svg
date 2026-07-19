@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title">
+  <title id="title">JJ monogram</title>
+  <rect x="1" y="1" width="62" height="62" rx="15" fill="#fdfefe" stroke="#568596" stroke-opacity=".35" stroke-width="2"/>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="5.5">
+    <path d="M14 17h15M27 18v20c0 7-3.7 11-9.5 11-3.2 0-5.7-1.4-7.2-3.9" stroke="#568596"/>
+    <path d="M34 17h16M47.5 18v20c0 7.5-4.2 12-10.5 12-3.5 0-6.4-1.5-8-4.2" stroke="#29434f"/>
+  </g>
+  <circle cx="53" cy="12" r="3" fill="#568596"/>
+</svg>

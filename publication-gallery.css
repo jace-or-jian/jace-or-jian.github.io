@@ -1,0 +1,17 @@
+@media (max-width: 560px) {
+  .publication-figures,
+  .project-figures {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .publication-figure a,
+  .project-figure a {
+    min-height: 0;
+  }
+
+  .publication-figure img,
+  .project-figure img {
+    height: auto;
+    max-height: 270px;
+  }
+}
