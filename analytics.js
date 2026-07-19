@@ -2,7 +2,7 @@
   "use strict";
 
   const measurementId = "G-X6P8K4KZQJ";
-  const trackedHosts = new Set(["jiajie-jian.github.io"]);
+  const trackedHosts = new Set(["jace-or-jian.github.io"]);
   const currentHost = window.location.hostname.toLowerCase();
 
   // Never send analytics from local previews or copied versions of the site.
