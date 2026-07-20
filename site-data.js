@@ -18,9 +18,9 @@ window.SITE_DATA = {
     availability: "Open to research conversations and collaborations.",
     photo: "assets/jace-or-jian-city-profile.png",
     photoAlt: "Professional headshot of Jiajie Jian",
-    cv: "cv.html?v=3",
+    cv: "cv.html?v=4",
     links: [
-      { label: "Curriculum Vitae", url: "cv.html?v=3" },
+      { label: "Curriculum Vitae", url: "cv.html?v=4" },
     ],
   },
 
@@ -32,7 +32,7 @@ window.SITE_DATA = {
     ],
     actions: [
       { label: "Copy email", kind: "copy-email", style: "primary" },
-      { label: "View CV", url: "cv.html?v=3", style: "secondary" },
+      { label: "View CV", url: "cv.html?v=4", style: "secondary" },
     ],
     interests: [
       "5G/6G Wireless Systems",
