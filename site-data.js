@@ -16,7 +16,7 @@ window.SITE_DATA = {
     location: "Chongqing, China",
     email: "jiajiejian02@gmail.com",
     availability: "Enjoying the journey of learning, research, and discovery.",
-    photo: "assets/jace-or-jian-city-profile.png",
+    photo: "assets/jace-or-jian-city-profile.webp",
     photoAlt: "Professional headshot of Jiajie Jian",
     cv: "cv.html?v=6",
     links: [
