@@ -116,6 +116,12 @@ window.SITE_DATA = {
         title: "Bidirectional Covertness and Security Enhancement in FD-ISAC Systems",
         authors: "Jiajie Jian, Min Liu, Shu Fu, and Yongming Huang",
         description: "A secure full-duplex ISAC design that provides bidirectional protection through robust joint transceiver optimization and native-signal reuse.",
+        supplement: {
+          label: "Supplementary proof sketch",
+          description: "An information-theoretic characterization of when concurrent downlink transmission improves the covert square-root-law coefficient, and by how much.",
+          linkLabel: "Read note",
+          url: "files/publications/information-theoretic-proof-sketch.pdf",
+        },
         figures: [
           {
             src: "assets/publications/tvt-fd-isac-security-scenario.png",

@@ -694,8 +694,22 @@ body.theme-editorial::before {
 }
 
 .theme-editorial .publication-supplementary {
+  margin: 7px 0 1px;
+  padding-left: 9px;
+  border-left-color: rgb(var(--palette-accent-rgb) / 28%);
   color: var(--muted);
-  font-size: 10px;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.theme-editorial .publication-supplementary-label {
+  color: var(--palette-secondary);
+  font-weight: 650;
+}
+
+.theme-editorial .publication-supplementary-link {
+  color: var(--palette-accent);
+  font-weight: 650;
 }
 
 .theme-editorial .publication-links {

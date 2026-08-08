@@ -187,6 +187,15 @@
       if (item.featured) body.append(el("p", "featured-label", "Featured work"));
       body.append(el("h3", "", item.title), authorLine(item.authors));
       if (item.description) body.append(el("p", "publication-description", item.description));
+      if (item.supplement) {
+        const supplement = el("p", "publication-supplementary");
+        supplement.append(
+          el("span", "publication-supplementary-label", `${item.supplement.label}: `),
+          document.createTextNode(`${item.supplement.description} `),
+          externalLink(`${item.supplement.linkLabel} ↗`, item.supplement.url, "publication-supplementary-link"),
+        );
+        body.append(supplement);
+      }
       if (item.supplementaryNote) body.append(el("p", "publication-supplementary", item.supplementaryNote));
       if (item.manuscriptNote) body.append(el("p", "publication-manuscript-note", item.manuscriptNote));
       if (item.abstract) {

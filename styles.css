@@ -425,10 +425,22 @@ main {
 }
 
 .publication-supplementary {
-  margin: 2px 0 0;
+  margin: 7px 0 1px;
+  padding-left: 9px;
+  border-left: 2px solid var(--line);
   color: var(--muted);
   font-size: 12px;
   line-height: 1.5;
+}
+
+.publication-supplementary-label {
+  color: var(--heading);
+  font-weight: 700;
+}
+
+.publication-supplementary-link {
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .publication-links {
