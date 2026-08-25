@@ -1,4 +1,13 @@
 tmp/
 .agents/
+
+# Keep CV materials locally, but do not publish them with GitHub Pages.
+local-private/
+cv.html
+cv-viewer.css
+cv-viewer.js
+assets/cv/
+files/Jiajie_Jian_CV.pdf
+
 files/publications/Cross-Boundary_Covert_UAV_Service_Near_No-Fly_Zones_Risk-Aware_Trajectory_and_Scheduling.pdf
 files/publications/Resilient_Beamforming_for_Anti-Jamming_MIMO-ISAC.pdf

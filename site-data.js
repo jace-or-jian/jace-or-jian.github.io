@@ -18,10 +18,7 @@ window.SITE_DATA = {
     availability: "Enjoying the journey of learning, research, and discovery.",
     photo: "assets/jiajie-jian-library-portrait.webp",
     photoAlt: "Professional headshot of Jiajie Jian",
-    cv: "cv.html?v=6",
-    links: [
-      { label: "Curriculum Vitae", url: "cv.html?v=6" },
-    ],
+    links: [],
   },
 
   about: {
@@ -32,7 +29,6 @@ window.SITE_DATA = {
     ],
     actions: [
       { label: "Copy email", kind: "copy-email", style: "primary" },
-      { label: "View CV", url: "cv.html?v=6", style: "secondary" },
     ],
     interests: [
       "5G/6G Wireless Systems",
