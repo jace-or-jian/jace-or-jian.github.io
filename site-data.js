@@ -146,8 +146,8 @@ window.SITE_DATA = {
         figures: [
           {
             src: "assets/publications/tmc-risk-aware-path-construction.png",
-            alt: "Geometric illustration of risk-aware UAV path construction around a no-fly zone",
-            caption: "Risk-aware path construction",
+            alt: "Cross-boundary UAV task offloading scenario with edge servers, a monitor, and a jammer",
+            caption: "Cross-Boundary task offloading scenario.",
           },
           {
             src: "assets/publications/tmc-trajectory-scheduling-results.png",
