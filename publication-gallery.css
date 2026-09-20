@@ -16,21 +16,30 @@
   }
 }
 
-/* Keep the wide Tx/Rx figure fitted to its natural proportions. */
-.theme-editorial .content-column .publication-figures .publication-figure:has(a[href*="wcl-transmit-receive-beampatterns.png"]) {
-  align-self: start;
+/* Match the two panels in height without padding the stacked plots. */
+.theme-editorial .content-column .publication-figures:has(a[href*="wcl-transmit-receive-beampatterns.png"]) {
+  grid-template-columns: minmax(0, 1.9fr) minmax(0, 0.87fr);
+  align-items: stretch;
 }
-
-.theme-editorial .content-column .publication-figures .publication-figure a[href*="wcl-transmit-receive-beampatterns.png"] {
+.theme-editorial .content-column .publication-figures:has(a[href*="wcl-transmit-receive-beampatterns.png"]) .publication-figure {
+  display: flex;
+  flex-direction: column;
+}
+.theme-editorial .content-column .publication-figures:has(a[href*="wcl-transmit-receive-beampatterns.png"]) .publication-figure a {
   height: auto;
   min-height: 0;
-  aspect-ratio: auto;
-  padding: 5px;
+  padding: 0;
+  aspect-ratio: 1.9;
 }
-
-.theme-editorial .content-column .publication-figures .publication-figure a[href*="wcl-transmit-receive-beampatterns.png"] img {
-  display: block;
+.theme-editorial .content-column .publication-figures:has(a[href*="wcl-transmit-receive-beampatterns.png"]) .publication-figure a[href*="wcl-transmit-receive-beampatterns.png"] {
+  aspect-ratio: 1647 / 1895;
+}
+.theme-editorial .content-column .publication-figures:has(a[href*="wcl-transmit-receive-beampatterns.png"]) .publication-figure img {
   width: 100%;
-  height: auto;
+  height: 100%;
   max-height: none;
+  object-fit: contain;
+}
+.theme-editorial .content-column .publication-figures:has(a[href*="wcl-transmit-receive-beampatterns.png"]) figcaption {
+  flex: 1;
 }
