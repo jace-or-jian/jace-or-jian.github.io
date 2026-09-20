@@ -16,9 +16,9 @@
   }
 }
 
-/* Match the two panels in height without padding the stacked plots. */
+/* Equal-width, equal-height panels with Tx and Rx stacked on the right. */
 .theme-editorial .content-column .publication-figures:has(a[href*="wcl-transmit-receive-beampatterns.png"]) {
-  grid-template-columns: minmax(0, 1.9fr) minmax(0, 0.87fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
 }
 .theme-editorial .content-column .publication-figures:has(a[href*="wcl-transmit-receive-beampatterns.png"]) .publication-figure {
@@ -32,7 +32,7 @@
   aspect-ratio: 1.9;
 }
 .theme-editorial .content-column .publication-figures:has(a[href*="wcl-transmit-receive-beampatterns.png"]) .publication-figure a[href*="wcl-transmit-receive-beampatterns.png"] {
-  aspect-ratio: 1647 / 1895;
+  aspect-ratio: 1.9;
 }
 .theme-editorial .content-column .publication-figures:has(a[href*="wcl-transmit-receive-beampatterns.png"]) .publication-figure img {
   width: 100%;
