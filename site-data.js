@@ -172,7 +172,7 @@ window.SITE_DATA = {
           },
           {
             src: "assets/publications/wcl-transmit-receive-beampatterns.png",
-            alt: "Transmit and transmit-receive combined beampatterns for resilient MIMO-ISAC",
+            alt: "Transmit (Tx) and receive (Rx) beampatterns for resilient MIMO-ISAC",
             caption: "Transmit and receive beampatterns",
           },
         ],
