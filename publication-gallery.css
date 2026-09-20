@@ -15,3 +15,22 @@
     max-height: 270px;
   }
 }
+
+/* Keep the wide Tx/Rx figure fitted to its natural proportions. */
+.theme-editorial .content-column .publication-figures .publication-figure:has(a[href*="wcl-transmit-receive-beampatterns.png"]) {
+  align-self: start;
+}
+
+.theme-editorial .content-column .publication-figures .publication-figure a[href*="wcl-transmit-receive-beampatterns.png"] {
+  height: auto;
+  min-height: 0;
+  aspect-ratio: auto;
+  padding: 5px;
+}
+
+.theme-editorial .content-column .publication-figures .publication-figure a[href*="wcl-transmit-receive-beampatterns.png"] img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: none;
+}

@@ -449,8 +449,16 @@
         width = Math.min(sourceRect.width * scale, maxWidth, maxHeight);
         height = width;
       } else {
-        width = Math.min(680, maxWidth);
-        height = Math.min(400, maxHeight);
+        const aspectRatio = image.naturalWidth / image.naturalHeight;
+        const previewStyle = window.getComputedStyle(preview);
+        const horizontalInset = parseFloat(previewStyle.paddingLeft) + parseFloat(previewStyle.paddingRight)
+          + parseFloat(previewStyle.borderLeftWidth) + parseFloat(previewStyle.borderRightWidth);
+        const verticalInset = parseFloat(previewStyle.paddingTop) + parseFloat(previewStyle.paddingBottom)
+          + parseFloat(previewStyle.borderTopWidth) + parseFloat(previewStyle.borderBottomWidth);
+        const contentWidth = Math.min(680 - horizontalInset, maxWidth - horizontalInset,
+          (maxHeight - verticalInset) * aspectRatio);
+        width = contentWidth + horizontalInset;
+        height = contentWidth / aspectRatio + verticalInset;
       }
 
       const hasPointer = Number.isFinite(pointerEvent?.clientX) && Number.isFinite(pointerEvent?.clientY);
