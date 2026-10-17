@@ -138,7 +138,7 @@ window.SITE_DATA = {
       },
       {
         year: "2026",
-        venue: "IEEE Transactions on Mobile Computing · Revision under review",
+        venue: "IEEE Transactions on Mobile Computing · Accepted for publication",
         title: "Cross-Boundary Covert UAV Service Near No-Fly Zones: Risk-Aware Trajectory and Scheduling",
         authors: "Jiajie Jian, Zan Li, Shu Fu, Jiangbo Si, and Min Liu",
         description: "A risk-aware trajectory and scheduling framework that balances UAV service quality with instantaneous RF exposure near regulated areas.",
@@ -223,7 +223,9 @@ window.SITE_DATA = {
     title: "Honors and Awards",
     eyebrow: "Recognition",
     items: [
-      { year: "2024, 2025", title: "First-Class Academic Scholarship", organization: "Chongqing University" },
+      { year: "2027", title: "Selected as an Outstanding Graduate", organization: "Chongqing University" },
+      { year: "2026", title: "National Scholarship for Graduate Students", organization: "China" },
+      { year: "2024, 2025, 2026", title: "First-Class Academic Scholarship", organization: "Chongqing University" },
       { year: "2021, 2023", title: "First- and Second-Class Academic Scholarships", organization: "Sichuan Normal University" },
     ],
   },
@@ -244,6 +246,7 @@ window.SITE_DATA = {
     title: "News",
     eyebrow: "Updates",
     items: [
+      { date: "2026.10", text: "Our paper, “Cross-Boundary Covert UAV Service Near No-Fly Zones: Risk-Aware Trajectory and Scheduling,” has been accepted for publication in IEEE Transactions on Mobile Computing." },
       { date: "2026.06", text: "Our paper on bidirectional covertness and security in FD-ISAC was published in IEEE Transactions on Vehicular Technology." },
     ],
   },
