@@ -424,6 +424,57 @@ main {
   font-style: italic;
 }
 
+.publication-extension {
+  margin: 18px 0;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--palette-accent, #315a91);
+  border-radius: 8px;
+  background: rgba(70, 110, 170, 0.055);
+}
+
+.publication-extension .publication-extension-kicker {
+  margin: 0 0 8px;
+  color: var(--palette-accent, #315a91);
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.publication-extension .publication-extension-title {
+  margin: 0 0 8px;
+  color: var(--palette-primary, #243852);
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.publication-extension .publication-extension-description {
+  margin: 0 0 12px;
+  color: var(--palette-secondary, #43536a);
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+.publication-extension .publication-extension-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 5px 12px;
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  color: var(--palette-accent, #315a91);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.publication-extension-link:hover,
+.publication-extension-link:focus-visible {
+  background: rgba(70, 110, 170, 0.1);
+  text-decoration: underline;
+}
+
 .publication-supplementary {
   margin: 7px 0 1px;
   padding-left: 9px;

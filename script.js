@@ -188,11 +188,12 @@
       body.append(el("h3", "", item.title), authorLine(item.authors));
       if (item.description) body.append(el("p", "publication-description", item.description));
       if (item.supplement) {
-        const supplement = el("p", "publication-supplementary");
+        const supplement = el("aside", "publication-extension");
         supplement.append(
-          el("span", "publication-supplementary-label", `${item.supplement.label}: `),
-          document.createTextNode(`${item.supplement.description} `),
-          externalLink(`${item.supplement.linkLabel} ↗`, item.supplement.url, "publication-supplementary-link"),
+          el("p", "publication-extension-kicker", "Research Extension"),
+          el("h4", "publication-extension-title", item.supplement.label),
+          el("p", "publication-extension-description", item.supplement.description),
+          externalLink(`${item.supplement.linkLabel} ↗`, item.supplement.url, "publication-extension-link"),
         );
         body.append(supplement);
       }
