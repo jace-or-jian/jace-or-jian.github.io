@@ -11,12 +11,6 @@
   const link = (text, href, cls) => {
     const a = node("a", cls, text); a.href = href; return a;
   };
-  const meta = post => {
-    const row = node("div", "blog-meta");
-    post.tags.forEach(tag => row.append(node("span", "blog-tag", tag)));
-    if (post.example) row.append(node("span", "blog-tag", "示例文章 · Preview"));
-    return row;
-  };
   const render = (focus = false) => {
     root.replaceChildren();
     let slug;
@@ -25,15 +19,13 @@
     let title = "Notes & Reflections";
     let description = "Notes & Reflections";
     if (!slug) {
-      root.append(node("p", "blog-kicker", "THE NOTEBOOK"), node("h2", "blog-title", title));
-      root.append(node("p", "blog-count", `${posts.length} ${posts.length === 1 ? "entry" : "entries"}`));
+      root.append(node("h2", "blog-title", title));
       const list = node("div", "blog-list");
       posts.forEach(p => {
         const item = node("article", "blog-card"); item.lang = p.lang || "en";
         const heading = node("h3");
         heading.append(link(p.title, `#${encodeURIComponent(p.slug)}`, "blog-post-link"));
-        item.append(meta(p), heading, node("p", "blog-summary", p.summary),
-          link("Read entry →", `#${encodeURIComponent(p.slug)}`, "blog-read"));
+        item.append(heading);
         list.append(item);
       });
       if (!posts.length) list.append(node("p", "blog-intro", "No entries yet. Check back soon."));
@@ -46,7 +38,7 @@
       } else {
         title = post.title; description = post.summary;
         const article = node("article", "blog-article"); article.lang = post.lang || "en";
-        article.append(meta(post), node("h2", "blog-title", post.title), node("p", "blog-intro", post.summary));
+        article.append(node("h2", "blog-title", post.title));
         const body = node("div", "blog-prose");
         post.blocks.forEach(block => {
           if (!["p", "h2", "h3", "blockquote", "ul", "ol", "pre"].includes(block.type)) return;
