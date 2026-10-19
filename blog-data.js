@@ -535,7 +535,7 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "Multipath is the same signal arriving along different paths, with different amplitudes and phases. If everything stays still, those relationships stay fixed, so the interference at that point stays fixed too."
+        "text": "Multipath is the same signal arriving along different paths, with different amplitudes and phases. Across space, their superposition forms an invisible landscape: bright patches where waves reinforce, dark patches where they cancel. This is the interference pattern I picture. If everything stays still, the result at each point stays fixed."
       },
       {
         "type": "equation",
@@ -543,11 +543,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "When I move, paths arriving from different directions change length by different amounts. Their relative phases therefore change, so copies that reinforced each other can begin to cancel. This is what I mean by walking through an interference pattern. Even a small movement can matter because it changes the path difference by an appreciable fraction of a wavelength."
+        "text": "When I move, paths from different directions change length by different amounts, changing their relative phases. I therefore cross that landscape’s bright and dark patches. A path difference changing by a fraction of a wavelength can already rearrange the sum."
       },
       {
         "type": "p",
-        "text": "Moving faster produces the same phase change in less time, shortening coherence time. Those different rates of phase change also appear as different Doppler shifts: Doppler spread describes how quickly the paths drift out of step."
+        "text": "Moving faster carries me across the same patches sooner, so the channel stays similar for less time: a shorter coherence time. The unequal rates of phase change appear as different Doppler shifts; a wider spread makes the interference change faster."
       },
       {
         "type": "figure",
@@ -558,11 +558,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "At a fixed point, sweeping f leaves the delays unchanged. But a longer-delay path accumulates phase faster with frequency than a shorter-delay path. Their relative phase therefore turns as I sweep, producing peaks and dips. A larger delay difference gives more phase change for the same frequency step, bringing those peaks and dips closer together and reducing coherence bandwidth."
+        "text": "Staying at one point and sweeping f is like walking through a pattern along the frequency axis. Delays stay fixed, but a longer-delay path accumulates phase faster as f changes. Their relative phase therefore turns, creating peaks and dips. A larger delay difference produces more relative phase change for the same frequency step, narrowing these patches. Coherence bandwidth describes the width of a patch where the channel stays similar."
       },
       {
         "type": "p",
-        "text": "A narrow signal occupies a small patch where the paths add similarly across its frequencies: flat fading. A wider signal can cover different interference conditions, so its frequency components receive different gains: frequency-selective fading."
+        "text": "A signal occupying a nearly uniform patch sees flat fading; a wider signal spanning different gains experiences frequency-selective fading."
       }
     ]
   }
