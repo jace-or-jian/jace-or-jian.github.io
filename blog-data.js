@@ -32,22 +32,12 @@ window.BLOG_POSTS = [
         "text": "The qualification matters, though. If received power is fixed, increasing bandwidth also collects more noise, so SNR falls. Capacity then grows sublinearly and approaches a power-limited ceiling in this ideal model. Large bandwidth is an opportunity, not a guarantee of a proportionally larger rate."
       },
       {
-        "type": "source",
-        "label": "Capacity and the fixed-power bandwidth limit — MIT communication systems lecture notes",
-        "url": "https://ocw.mit.edu/courses/16-36-communication-systems-engineering-spring-2009/a49d9e2954b440def3794fe73e79756c_MIT16_36s09_lec13_14.pdf"
-      },
-      {
         "type": "p",
         "text": "My practical takeaway is that THz can reduce the pressure to chase very high modulation orders for a target rate. It does not remove the need for coding, efficient receivers, or a sufficient link budget. Also, the useful bandwidth is not one uninterrupted, equally good THz-wide channel: hardware capability and atmospheric transmission windows determine what a system can actually use."
       },
       {
         "type": "p",
         "text": "Bandwidth also helps sensing. For an ideal monostatic radar waveform, range resolution is approximately ΔR = c/(2B). A 10 GHz bandwidth gives about 1.5 cm range resolution. This is the ability to separate nearby targets in range, not a promise of 1.5 cm estimation accuracy in every environment. Angular resolution is a different issue, closely tied to antenna aperture and wavelength."
-      },
-      {
-        "type": "source",
-        "label": "Background on THz communications and sensing — Jiang et al.",
-        "url": "https://arxiv.org/abs/2307.10321"
       },
       {
         "type": "figure",
@@ -70,11 +60,6 @@ window.BLOG_POSTS = [
         "text": "Inter-satellite links are another interesting case because a path through space avoids atmospheric gas absorption. But “no air” does not mean “no loss”: geometric spreading, available transmit power, pointing accuracy, and terminal hardware still matter. A ground-to-satellite path also passes through the atmosphere, so it does not share that same simplification."
       },
       {
-        "type": "source",
-        "label": "Terrestrial and space-based THz considerations — A Perspective on Terahertz Next-Generation Wireless Communications",
-        "url": "https://doi.org/10.3390/technologies7020043"
-      },
-      {
         "type": "h2",
         "text": "3. Why the propagation is unforgiving"
       },
@@ -87,18 +72,8 @@ window.BLOG_POSTS = [
         "text": "First, diffraction around ordinary obstacles is often weak because those obstacles are large relative to the wavelength. A person or an object entering the direct path can therefore interrupt a link. Second, surface roughness becomes more important relative to wavelength and can produce diffuse scattering. This does not mean every surface only scatters: smooth surfaces can still provide useful specular reflections. THz links are often strongly directional and line-of-sight dependent, but non-line-of-sight paths are not impossible."
       },
       {
-        "type": "source",
-        "label": "Propagation mechanisms and channel measurements — Han et al., Terahertz Wireless Channels",
-        "url": "https://arxiv.org/abs/2111.04522"
-      },
-      {
         "type": "p",
         "text": "Third, gas absorption is frequency selective. Water vapour and oxygen have molecular resonances that create absorption features. The explanation is not that a water molecule is approximately as large as the wavelength; individual molecules are much smaller. Rain, fog, and other particles add different absorption and scattering effects, depending on their size, composition, and concentration. Some dry materials can be relatively transparent, but “dry” alone does not guarantee low attenuation."
-      },
-      {
-        "type": "source",
-        "label": "Atmospheric gas absorption — ITU-R P.676",
-        "url": "https://www.itu.int/rec/R-REC-p.676/en"
       },
       {
         "type": "h2",
@@ -121,11 +96,6 @@ window.BLOG_POSTS = [
         "text": "For a fixed antenna gain G, the effective receiving area Aₑ scales with wavelength squared. A smaller wavelength therefore means less intercepted power under that fixed-gain comparison. But if physical aperture and efficiency are held fixed instead, gain can increase as wavelength shrinks. It is important to state which quantity is fixed before claiming that higher frequency necessarily causes a particular antenna penalty."
       },
       {
-        "type": "source",
-        "label": "Gain and effective aperture — Antenna-Theory.com",
-        "url": "https://www.antenna-theory.com/basics/aperture.php"
-      },
-      {
         "type": "p",
         "text": "This is why large arrays are attractive. Short wavelengths allow many elements in a compact area, and coherent beamforming can concentrate radiated energy toward the receiver. They do not create energy, and adding elements inside a fixed aperture is not an unlimited source of gain. Hardware losses, power consumption, calibration, and aperture size still constrain the design."
       },
@@ -144,11 +114,6 @@ window.BLOG_POSTS = [
       {
         "type": "p",
         "text": "This is where sensing-assisted communication becomes interesting to me. Motion estimates can support predictive beamforming rather than waiting for the link to deteriorate. Sensing may also reveal an approaching blocker early enough to prepare another path. The sensing information could come from the radio itself or another sensor, with its own uncertainty and latency."
-      },
-      {
-        "type": "source",
-        "label": "An example of sensing-assisted tracking and beamwidth adaptation — Chen et al.",
-        "url": "https://arxiv.org/abs/2411.08264"
       },
       {
         "type": "p",
@@ -208,11 +173,6 @@ window.BLOG_POSTS = [
         "height": 460
       },
       {
-        "type": "source",
-        "label": "Array factor, steering, and beamwidth — Analog Devices, Phased Array Antenna Patterns, Part 1",
-        "url": "https://www.analog.com/en/resources/analog-dialogue/articles/phased-array-antenna-patterns-part1.html"
-      },
-      {
         "type": "p",
         "text": "The physical aperture measured in wavelengths largely sets how tightly the beam can be concentrated. As a rough far-field rule, beamwidth scales as λ/D, where D is aperture extent in the relevant direction. Element count alone is not enough: spacing, amplitude taper, scan angle, and array geometry also matter. At short distances from a large array, near-field focusing may be more appropriate than a direction-only beam model."
       },
@@ -245,11 +205,6 @@ window.BLOG_POSTS = [
         "text": "Hybrid beamforming places a smaller number of RF chains between digital processing and a larger antenna array. The analog network may connect every chain to every element, or use subarrays. Its useful spatial streams are bounded by RF-chain count, channel rank, and the receiver, not by RF-chain count alone. Hybrid design is therefore a compromise between flexibility and hardware cost, rather than an automatic substitute for fully digital processing."
       },
       {
-        "type": "source",
-        "label": "Practical analog and hybrid signal paths — Analog Devices, Phased Array Beamforming ICs",
-        "url": "https://www.analog.com/en/resources/analog-dialogue/articles/phased-array-beamforming-ics-simplify-antenna-design.html"
-      },
-      {
         "type": "h2",
         "text": "4. A phase shift is not the same as a time delay"
       },
@@ -270,11 +225,6 @@ window.BLOG_POSTS = [
         "text": "True-time-delay elements can help preserve alignment across frequency. They also add practical constraints, including delay range, resolution, insertion loss, and circuit complexity. This explains why a wideband hybrid architecture may include both phase shifters and delay elements: they solve related but different parts of the beamforming problem."
       },
       {
-        "type": "source",
-        "label": "Phase shifters, true time delay, and beam squint — Analog Devices, Part 2",
-        "url": "https://www.analog.com/en/resources/analog-dialogue/articles/phased-array-antenna-patterns-part2.html"
-      },
-      {
         "type": "h2",
         "text": "5. A lens turns direction into a port-selection problem"
       },
@@ -285,11 +235,6 @@ window.BLOG_POSTS = [
       {
         "type": "p",
         "text": "The useful intuition is that the lens implements a physical direction-to-port mapping. The discrete choices are the available feeds and their switch connections, not the propagation angles themselves. Selecting which ports are active—and possibly how many—is a discrete optimization problem, while digital weights on the selected paths may still be continuous. Beam leakage, finite port spacing, and wideband effects mean the mapping is not ideal."
-      },
-      {
-        "type": "source",
-        "label": "Lens arrays and wideband beam selection — Beamspace Precoding and Beam Selection for Wideband Millimeter-Wave MIMO",
-        "url": "https://arxiv.org/abs/2004.08071"
       },
       {
         "type": "h2",
