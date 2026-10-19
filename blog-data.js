@@ -535,7 +535,7 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "I picture a wireless environment as an interference pattern. Different paths bring copies of the same signal to the receiver, and their relative phases decide how they add together. One formula helps me connect the frequency and movement sides of this picture:"
+        "text": "I picture the space around a receiver as an interference pattern: moving means passing through its peaks and valleys. Frequency selectivity connects to the same picture through phase:"
       },
       {
         "type": "equation",
@@ -543,19 +543,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "First, keep the receiver still and slide the frequency. The delay difference stays fixed, but the formula shows that the phase difference changes with f. If two paths arrive 1 microsecond apart, increasing frequency by 0.5 MHz adds half a cycle to their relative phase. Reinforcement can become cancellation at the same location."
+        "text": "Keep the receiver still and sweep f. The delay differences stay fixed, but the relative phases change, producing peaks and dips across frequency. A narrow signal fits within a nearly flat patch; a wider one may span peaks and dips—flat versus frequency-selective fading. Greater delay spread makes those patches narrower, reducing coherence bandwidth."
       },
       {
         "type": "p",
-        "text": "So the received gain rises and falls as we move across frequency. Coherence bandwidth describes the frequency range over which the channel stays similar. A signal occupying a small, nearly flat patch experiences flat fading; a wider signal spanning peaks and dips experiences frequency-selective fading."
-      },
-      {
-        "type": "p",
-        "text": "A larger delay spread makes the relative phases change faster as frequency changes, giving a smaller coherence bandwidth. The relevant measure is RMS delay spread, which gives stronger paths more weight."
-      },
-      {
-        "type": "p",
-        "text": "Now keep frequency fixed and move the receiver. This changes the path lengths, so the same formula changes the relative phases through ΔL. Moving means passing through regions where the copies reinforce or cancel."
+        "text": "At fixed f, moving changes ΔL, so a short step can carry the receiver from reinforcement toward cancellation. For two equal waves travelling in opposite directions, peaks are λ/2 apart and the next null is λ/4 away. Multiple paths make the fringes irregular, with occasional deep valleys. A strong direct path makes the fluctuations gentler."
       },
       {
         "type": "figure",
@@ -566,19 +558,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "The blue curve shows a simulated walk through many scattered paths: continuous fluctuations with occasional deep valleys. Those valleys stand out on a dB scale because near-cancellation brings power close to zero. Adding a strong direct path gives the gentler orange curve."
+        "text": "Doppler is the time side of this changing phase. Paths arriving from different directions acquire different shifts, so their relative phases drift and the interference keeps changing. A wider Doppler spread gives a shorter coherence time. Moving twice as fast crosses the same spatial pattern in half the time."
       },
       {
         "type": "p",
-        "text": "The spatial scale is a fraction of a wavelength. For two equally strong waves arriving from opposite directions, adjacent peaks are λ/2 apart, with a null λ/4 from a peak. Many paths make the spacing irregular, but a small movement can still change reception substantially."
-      },
-      {
-        "type": "p",
-        "text": "Moving faster crosses that pattern sooner, leaving less time for the channel to stay similar: a shorter coherence time. The changing phase also explains Doppler. Moving toward an incoming wave means meeting its cycles faster. Paths arriving from different directions acquire different frequency shifts, so their relative phases keep drifting and the received strength changes."
-      },
-      {
-        "type": "p",
-        "text": "A wider spread of Doppler shifts means faster changes and a shorter coherence time. With the same arrival directions, coherence time scales roughly as λ/v. I can therefore trace both effects back to the same formula: changing frequency changes the phase accumulated over a delay; moving changes the delay itself."
+        "text": "Coherence bandwidth and coherence time then become connected intuitions: how far can I sweep in frequency, or move forward in time, before the paths add together quite differently?"
       }
     ]
   }
