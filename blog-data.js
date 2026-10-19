@@ -420,5 +420,102 @@ window.BLOG_POSTS = [
         "text": "Covertness and secrecy must be checked separately. Similarity between H₀ and H₁ hides activity; similarity between Eve’s laws for different messages hides content. A covert code may also require a shared key, depending on the channel model—public-codebook wiretap secrecy does not settle that assumption."
       }
     ]
+  },
+  {
+    "slug": "high-speed-train-doppler-and-cell-free",
+    "title": "A High-Speed Train Ride: Doppler, Handover, and Cell-Free Networks",
+    "lang": "en",
+    "published": true,
+    "summary": "A train-ride observation connected to electromagnetic timescales, Doppler shift, cellular mobility, and user-centric cooperation.",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "During high-speed train rides, the connection sometimes deteriorates suddenly. The first explanation that came to mind was Doppler: the train moves fast. Comparing its speed with the speed of light then made that explanation seem doubtful. Learning about cellular handover added another piece. The useful correction is that Doppler and network architecture both matter, on different timescales; the experience alone cannot identify the cause."
+      },
+      {
+        "type": "h2",
+        "text": "1. Build an intuition for electromagnetic speed"
+      },
+      {
+        "type": "equation",
+        "text": "c ≈ 3 × 10⁸ m/s\nv = 300 km/h ≈ 83.3 m/s\nv/c ≈ 2.8 × 10⁻⁷"
+      },
+      {
+        "type": "p",
+        "text": "An electromagnetic wave takes about 3.3 μs to travel 1 km in free space. The train takes 12 seconds to cover that distance. The train is clearly not moving too fast for the wave to reach it. But propagation speed alone says little about how stable the received carrier phase is."
+      },
+      {
+        "type": "h2",
+        "text": "2. A tiny speed ratio can still produce appreciable Doppler"
+      },
+      {
+        "type": "equation",
+        "text": "f_D = (v cos θ / c) f_c = v cos θ / λ\n|f_D|_max ≈ 972 Hz at 300 km/h and 3.5 GHz"
+      },
+      {
+        "type": "p",
+        "text": "θ describes motion relative to the path direction; the sign depends on approaching or receding. Although v/c is tiny, it multiplies a carrier frequency of billions of cycles per second. At 3.5 GHz, the wavelength is about 8.6 cm. In 1 ms, the train travels 8.3 cm—almost one wavelength. For motion along the path, this is nearly a full cycle of phase change."
+      },
+      {
+        "type": "p",
+        "text": "A common frequency shift can be estimated and compensated. Multipath components with different shifts also create Doppler spread and time variation, making channel estimates age. A dominant line-of-sight shift and a multipath Doppler spread are therefore different problems. High mobility increases receiver-tracking demands; it does not automatically imply disconnection."
+      },
+      {
+        "type": "h2",
+        "text": "3. Cellular architecture adds a slower mobility problem"
+      },
+      {
+        "type": "p",
+        "text": "A cellular network divides service among logical cells with overlapping coverage. As serving-link quality changes, the network may hand the connection to another cell. Speed reduces the time available for measurements, decisions, and execution."
+      },
+      {
+        "type": "equation",
+        "text": "T_region ≈ L / v\nFor an illustrative L = 1 km: T_region ≈ 12 s"
+      },
+      {
+        "type": "p",
+        "text": "L is an effective along-track service-region length, not a universal cell size or a fixed handover interval. Delayed decisions, weak coverage during execution, or a handover failure can interrupt service. A well-supported handover can preserve continuity; a cell boundary is not inherently a dead zone."
+      },
+      {
+        "type": "h2",
+        "text": "4. Signal drops do not identify a single mechanism"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Radio link: Doppler, fading, interference, and outdated channel estimates can reduce decoding reliability.",
+          "Coverage: the carriage body and coated windows can attenuate signals; tunnels, terrain, and trackside deployment change the available paths.",
+          "Network: handover procedures, scheduling, and shared capacity can reduce throughput even when signal strength remains usable."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Distinguishing these requires measurements: serving-cell changes and handover events, received signal quality, packet loss, and throughput. Better trackside coverage, mobility procedures, and exterior antennas feeding an onboard network address different parts of the problem. Cell-free is one architectural approach, not the only remedy."
+      },
+      {
+        "type": "h2",
+        "text": "5. Cell-free: move the serving set with the user"
+      },
+      {
+        "type": "p",
+        "text": "In user-centric cell-free massive MIMO, a selected group of distributed access points cooperates to serve a device. As the device moves, that group changes, potentially retaining common access points during the transition:"
+      },
+      {
+        "type": "equation",
+        "text": "Serving set: {AP₁, AP₂} → {AP₂, AP₃}"
+      },
+      {
+        "type": "p",
+        "text": "The aim is more consistent service and better interference management through cooperation, rather than independent cells serving each region in isolation. The overlap can make a change of serving set less abrupt, provided association, coordination, and resource allocation are well designed."
+      },
+      {
+        "type": "p",
+        "text": "“Cell-free” does not remove mobility management. Access-point selection, cluster updates, channel estimation, synchronization, and fronthaul signaling remain. High speed makes timely coordination harder, and the architecture does not eliminate Doppler, vehicle penetration loss, or tunnels."
+      },
+      {
+        "type": "p",
+        "text": "The main lesson from the train ride is to separate the scales: microseconds for propagation, milliseconds for carrier and channel tracking, and seconds for crossing coverage regions in this example. A small v/c does not dismiss Doppler, and a sudden connection drop does not by itself prove a handover problem."
+      }
+    ]
   }
 ];
