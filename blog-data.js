@@ -135,7 +135,6 @@ window.BLOG_POSTS = [
         "type": "figure",
         "src": "assets/notes/beamforming-interference.png",
         "alt": "Two phased arrays with opposite phase progressions. Overlapping wave fronts illustrate constructive interference along the steered beam and destructive interference in other directions.",
-        "caption": "The picture that makes beamforming click for me: phase adjustments make the waves reinforce one another in the chosen direction. Click to enlarge.",
         "width": 1024,
         "height": 572
       },
@@ -155,7 +154,6 @@ window.BLOG_POSTS = [
         "type": "figure",
         "src": "assets/notes/beamforming-architectures.svg",
         "alt": "Three simplified signal-flow rows compare fully digital beamforming, single-chain analog beamforming, and subarray hybrid beamforming.",
-        "caption": "Same antenna count, different freedom: four RF chains, one shared chain, and two chains driving subarrays.",
         "width": 900,
         "height": 680
       },
@@ -169,25 +167,24 @@ window.BLOG_POSTS = [
       },
       {
         "type": "h3",
-        "text": "Wide bandwidth makes delay important"
-      },
-      {
-        "type": "equation",
-        "text": "φ(f) = −2πfτ"
+        "text": "How I picture hybrid beamforming"
       },
       {
         "type": "p",
-        "text": "A time delay τ produces a phase shift that changes with frequency. A fixed phase shifter aligns the array around a chosen frequency; across a wide band, different frequencies can steer differently. This is beam squint."
+        "text": "The point that makes hybrid beamforming clear to me is the difference between producing independent waveforms and shaping one waveform across antennas. Different RF chains can carry different, independently controlled RF waveforms. The analog network then distributes and adjusts those signals across a larger antenna array."
       },
       {
         "type": "p",
-        "text": "The delay elements in a wideband architecture now have a clear purpose to me: they help keep the different frequency components aligned. The diagram brings together the digital, RF, phase, and delay parts of the same signal path."
+        "text": "In the grouped architecture below, each RF chain feeds one antenna subarray. Its phase shifters all work on copies of that chain’s waveform. Each branch can have its own phase setting at the same time, so the elements reinforce that waveform in a chosen direction. Many available phase settings give control over how the waveform is radiated; the independent waveform itself comes from the RF chain."
+      },
+      {
+        "type": "p",
+        "text": "This is the hybrid compromise that I find intuitive: a few RF chains provide independent signal paths, while many phase-controlled antenna branches provide directional gain. The diagram also includes delay elements that adjust timing along those paths. I read the architecture from left to right—first the digital and RF signals, then the analog controls that shape them into beams."
       },
       {
         "type": "figure",
         "src": "assets/notes/hybrid-beamforming-delays.png",
         "alt": "Digital baseband precoding feeds multiple RF chains. Each illustrated branch includes analog phase shifters and delay elements before its antenna subarray, with beams directed toward different users.",
-        "caption": "Putting the pieces together: digital processing, RF chains, phase control, and delays before the antenna subarrays. Click to enlarge.",
         "width": 2500,
         "height": 1347
       },
