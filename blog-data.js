@@ -125,6 +125,10 @@ window.BLOG_POSTS = [
       },
       {
         "type": "h2",
+        "text": "Antennas and beamforming architectures"
+      },
+      {
+        "type": "h3",
         "text": "An antenna gathers and directs energy"
       },
       {
@@ -144,7 +148,7 @@ window.BLOG_POSTS = [
         "text": "That picture makes electronic steering much easier to understand. Changing the phase progression changes the direction of reinforcement. In the far field, beamwidth scales roughly as λ/D, so a larger aperture D relative to wavelength produces a tighter beam."
       },
       {
-        "type": "h2",
+        "type": "h3",
         "text": "RF chains explain the architectural differences"
       },
       {
@@ -168,7 +172,7 @@ window.BLOG_POSTS = [
         ]
       },
       {
-        "type": "h2",
+        "type": "h3",
         "text": "Wide bandwidth makes delay important"
       },
       {
@@ -192,7 +196,7 @@ window.BLOG_POSTS = [
         "height": 1347
       },
       {
-        "type": "h2",
+        "type": "h3",
         "text": "A lens makes direction feel like a switch choice"
       },
       {
