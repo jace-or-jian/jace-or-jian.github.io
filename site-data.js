@@ -15,7 +15,7 @@ window.SITE_DATA = {
     affiliation: "Chongqing University",
     location: "Chongqing, China",
     email: "jiajiejian02@gmail.com",
-    availability: "Enjoying the journey of learning, research, and discovery.",
+    availability: "Below are Notes on interesting ideas and reflections from my learning.",
     photo: "assets/jiajie-jian-library-portrait.webp",
     photoAlt: "Professional headshot of Jiajie Jian",
     links: [],
