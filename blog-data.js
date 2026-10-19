@@ -231,6 +231,27 @@ window.BLOG_POSTS = [
       },
       {
         "type": "h2",
+        "text": "Think about computational cost while building the model"
+      },
+      {
+        "type": "p",
+        "text": "I want efficiency to start at the modeling stage. The size of the variable, the number of constraints, and the structure of those constraints already shape how much work the solver will face. A few examples make this concrete:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Variable dimension: K beamforming vectors for N antennas contain NK complex entries, or 2NK real variables. More users and antennas expand the problem together.",
+          "Constraint count: one quality-of-service constraint per user in each of T slots gives KT conditions. A finer time grid can quickly enlarge both the variables and the constraint set.",
+          "Constraint type: scalar power bounds and a large positive-semidefinite matrix constraint ask for very different computations. SDR also lifts one complex N-element vector into an N × N Hermitian matrix with N² real degrees of freedom. Gaining a convex formulation can come with a substantial increase in dimension.",
+          "Discrete choices: M binary activation variables allow 2ᴹ possible patterns. Even a short list of on/off decisions can introduce a large combinatorial search space."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "For me, a good model captures the important tradeoff with manageable computational work. Eliminating redundant variables and exposing sparsity, separable blocks, or shared structure can be as valuable as choosing a better solver. This is something to think about before the algorithm is built."
+      },
+      {
+        "type": "h2",
         "text": "Find structure in a difficult problem"
       },
       {
