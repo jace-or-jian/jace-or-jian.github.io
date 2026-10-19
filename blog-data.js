@@ -67,10 +67,6 @@ window.BLOG_POSTS = [
         "text": "The air also becomes a more active part of the link budget. Water vapour and oxygen have molecular absorption lines, producing frequency-dependent loss and useful transmission windows. Humidity, frequency, and distance now belong in the same decision: where can that large bandwidth actually be used efficiently?"
       },
       {
-        "type": "p",
-        "text": "Material penetration and weather deserve closer attention too. A wall, a coated window, moisture, or rain can change how much energy reaches the receiver. The challenge I see is moving from a fairly forgiving coverage picture to carefully finding and maintaining useful paths, with more attention to details that once felt minor."
-      },
-      {
         "type": "h2",
         "text": "Small elements, a large collective aperture"
       },
