@@ -162,15 +162,15 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "An array adds another degree of control. Signals from different elements travel different distances to a point in space. By adjusting their phases, we can make those fields add coherently in a chosen direction and less coherently elsewhere. Reversing the phase progression steers the main beam in the opposite direction. It does not cancel all radiation outside the main beam: sidelobes remain."
+        "text": "An array adds another degree of control. Signals from different elements travel different distances to a point in space. By adjusting their phases, we can make those fields add coherently in a chosen direction (constructive interference) and partially cancel in other directions (destructive interference). Reversing the phase progression steers the main beam in the opposite direction. It does not cancel all radiation outside the main beam: sidelobes remain."
       },
       {
         "type": "figure",
-        "src": "assets/notes/beam-steering.svg",
-        "alt": "Three arrays show equal phase for a broadside beam, then opposite progressive phase settings for beams steered left and right.",
-        "caption": "Figure 2. Relative phases control where fields add coherently. Arrows show intended main-beam directions only; they are not full radiation patterns. The sign of a steering phase depends on the coordinate and signal convention.",
-        "width": 900,
-        "height": 460
+        "src": "assets/notes/beamforming-interference.png",
+        "alt": "Two phased arrays with opposite phase progressions. Overlapping wave fronts illustrate constructive interference along the steered beam and destructive interference in other directions.",
+        "caption": "Figure 2. Constructive interference strengthens the field in the intended direction; destructive interference reduces it in other directions. Reversing the relative phase progression reverses the steering direction. This schematic illustrates the mechanism, rather than a complete radiation pattern. Click to view full size.",
+        "width": 1024,
+        "height": 572
       },
       {
         "type": "p",
@@ -223,6 +223,14 @@ window.BLOG_POSTS = [
       {
         "type": "p",
         "text": "True-time-delay elements can help preserve alignment across frequency. They also add practical constraints, including delay range, resolution, insertion loss, and circuit complexity. This explains why a wideband hybrid architecture may include both phase shifters and delay elements: they solve related but different parts of the beamforming problem."
+      },
+      {
+        "type": "figure",
+        "src": "assets/notes/hybrid-beamforming-delays.png",
+        "alt": "Digital baseband precoding feeds multiple RF chains. Each illustrated branch includes analog phase shifters and delay elements before its antenna subarray, with beams directed toward different users.",
+        "caption": "Figure 4. An example of hybrid beamforming with both analog phase control and delay elements. Read from left to right: digital precoding, RF chains, analog precoding, delays, and antenna subarrays. The diagram connects the hardware architecture to the wideband steering problem discussed above; the number of usable streams still depends on the channel and receiver. Click to view full size.",
+        "width": 2500,
+        "height": 1347
       },
       {
         "type": "h2",
