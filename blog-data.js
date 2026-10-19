@@ -84,7 +84,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Wavefront curvature matters across a large array because treating it as flat introduces path-length errors. At short wavelengths, even small errors become significant phase mismatches. This combination pushes the radiating near field out to ordinary communication distances. A common Rayleigh-distance estimate is:"
+        "text": "With a large array and a short wavelength, small differences in propagation distance already produce substantial phase differences across the aperture. Spherical wavefront curvature can therefore matter over practical link distances. A common Rayleigh-distance estimate is:"
       },
       {
         "type": "equation",
@@ -96,7 +96,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Across an array, a far-field wavefront looks almost planar. In the radiating near field, its curvature carries range information as well as direction. Compensating the element-to-target distances brings the waves together at a chosen position. Controlling amplitude and phase then shapes the field itself: beam focusing becomes one form of wavefront engineering."
+        "text": "This differs from the far-field case. Spherical wavefront curvature carries range information as well as direction. Compensating the element-to-target distances brings the waves together at a chosen position. Controlling amplitude and phase across the array opens up wavefront engineering."
       },
       {
         "type": "p",
