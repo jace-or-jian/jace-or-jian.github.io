@@ -529,5 +529,101 @@ window.BLOG_POSTS = [
         "text": "After that train ride, I started thinking about both sides of mobility: the receiver following a changing waveform, and the network following a moving user. Cell-free connects directly to the second question."
       }
     ]
+  },
+  {
+    "slug": "multipath-doppler-and-coherence",
+    "title": "Multipath and Motion: Reading the Interference Pattern",
+    "lang": "en",
+    "published": true,
+    "summary": "Connecting delayed paths, frequency selectivity, and motion through one picture of superposition.",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "I picture a wireless environment as an interference pattern. Reflections bring copies of the same signal to the receiver along different paths. Moving through that pattern changes how the copies add together. This connects several ideas that initially felt separate: multipath fading, Doppler, coherence bandwidth, and coherence time."
+      },
+      {
+        "type": "h2",
+        "text": "Delayed copies add as waves"
+      },
+      {
+        "type": "equation",
+        "text": "y(t) = Σℓ aℓ x(t − τℓ) + z(t)\nH(f) = Σℓ aℓ exp(−j2πfτℓ)"
+      },
+      {
+        "type": "p",
+        "text": "Each path has a complex gain aℓ and a delay τℓ. Their contributions add through superposition: phases that line up reinforce the received signal; phases that oppose each other weaken it. The frequency response H(f) is that same addition viewed frequency by frequency."
+      },
+      {
+        "type": "h2",
+        "text": "Slide the frequency, watch the phases separate"
+      },
+      {
+        "type": "p",
+        "text": "As frequency changes, each path rotates at a rate set by its delay. For two paths, shifting the frequency by Δf changes their relative phase by:"
+      },
+      {
+        "type": "equation",
+        "text": "|Δφ| = 2π |Δf| |τ₁ − τ₂|"
+      },
+      {
+        "type": "p",
+        "text": "With a small delay difference, a large frequency change is needed to rearrange the interference. With a large delay difference, even a small change can move the sum from reinforcement toward cancellation. For two equal-strength paths, the ripple repeats every 1/|τ₁ − τ₂| Hz. This is the picture I use for frequency selectivity."
+      },
+      {
+        "type": "p",
+        "text": "Coherence bandwidth B_c describes the frequency separation over which the channel response remains strongly correlated. If the signal bandwidth B is much smaller than B_c, its frequencies see roughly the same gain: flat fading. A wider signal can span peaks and notches, so different parts experience different gains: frequency-selective fading."
+      },
+      {
+        "type": "equation",
+        "text": "B_c ∝ 1/τ_rms"
+      },
+      {
+        "type": "p",
+        "text": "Here τ_rms is the power-weighted RMS delay spread. The significant paths and their relative delays matter together. The maximum excess delay instead describes the span of the echoes, useful when thinking about channel memory and an OFDM guard interval. Long echoes can overlap later symbols; OFDM handles the frequency selectivity using narrow subcarriers and a suitable cyclic prefix."
+      },
+      {
+        "type": "h2",
+        "text": "Walking through the pattern"
+      },
+      {
+        "type": "p",
+        "text": "Across a small region, path lengths change with position, shifting the relative phases again. The plot below samples a simulated field along one route. With many scattered paths and no dominant direct path, the fluctuations resemble Rayleigh fading. Adding a strong direct path gives a Rician picture with gentler fluctuations."
+      },
+      {
+        "type": "figure",
+        "src": "assets/notes/multipath-spatial.png",
+        "alt": "Simulated received power along a twelve-wavelength route: scattered paths produce repeated fluctuations and deep dips; adding a strong direct path reduces the fluctuations.",
+        "width": 1620,
+        "height": 864
+      },
+      {
+        "type": "p",
+        "text": "The deep dips stand out on a dB scale because near-cancellation can drive power close to zero. Between them, the signal keeps varying. So I would picture an uneven landscape with occasional sharp valleys, rather than a mostly flat surface. A strong direct path makes the flatter picture more plausible."
+      },
+      {
+        "type": "p",
+        "text": "The half-wavelength intuition is useful here. With two waves arriving from opposite directions, adjacent interference peaks are λ/2 apart; a peak and the next null are λ/4 apart. In a richer environment, the pattern is irregular, but moving a fraction of a wavelength can still change reception substantially."
+      },
+      {
+        "type": "h2",
+        "text": "Speed turns spatial variation into time variation"
+      },
+      {
+        "type": "equation",
+        "text": "f_D,ℓ = (v/λ) cos θℓ\nT_c ∝ 1/B_D"
+      },
+      {
+        "type": "p",
+        "text": "θℓ is the arrival angle relative to motion. Each path gets its own Doppler shift, and their spread B_D sets the time scale over which the combined channel changes. Coherence time T_c describes how long the channel remains strongly correlated."
+      },
+      {
+        "type": "p",
+        "text": "Moving faster crosses the same interference landscape sooner. For a fixed spread of arrival directions, T_c therefore scales roughly as λ/v. Speed and wavelength set the pace; the directions of the paths shape the pattern. This is why a tiny speed compared with light can still matter so much: the relevant distance is a wavelength."
+      },
+      {
+        "type": "p",
+        "text": "Delay differences set how quickly the pattern changes across frequency; motion sets how quickly it changes across time. Bandwidth asks how much of the frequency pattern a signal occupies. Symbol and training intervals ask how much the channel changes while the system is using it."
+      }
+    ]
   }
 ];
