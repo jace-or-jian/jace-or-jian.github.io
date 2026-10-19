@@ -24,9 +24,7 @@ window.SITE_DATA = {
   about: {
     heading: "Hi, and welcome! I’m Jiajie Jian — glad you’re here.",
     paragraphs: [
-      "A little about my work: I develop algorithms and system designs for next-generation wireless systems, drawing on signal processing, optimization, and machine learning. My current research focuses on integrated sensing and communication (ISAC) and physical-layer security in dynamic wireless environments.",
-      "I am currently seeking Ph.D. opportunities for Fall 2027.",
-    ],
+      "A little about my work: I develop algorithms and system designs for next-generation wireless systems, drawing on signal processing, optimization, and machine learning. My current research focuses on integrated sensing and communication (ISAC) and physical-layer security in dynamic wireless environments.",    ],
     actions: [
       { label: "Copy email", kind: "copy-email", style: "primary" },
     ],
@@ -57,22 +55,11 @@ window.SITE_DATA = {
       {
         period: "Sep. 2024 — Expected Jun. 2027",
         degree: "M.Sc. in Information and Communication Engineering",
-        school: "Chongqing University",
-        location: "Chongqing, China",
-        details: [
-          "Co-advisors: Prof. Shu Fu and Prof. Min Liu",
-          "Grade: 88.57/100",
-        ],
-      },
+        school: "Chongqing University",      },
       {
         period: "Sep. 2020 — Jun. 2024",
         degree: "B.Eng. in Electronic Information Engineering",
-        school: "Sichuan Normal University",
-        location: "Chengdu, China",
-        details: [
-          "Grade: 84.16/100",
-        ],
-      },
+        school: "Sichuan Normal University",      },
     ],
   },
 
