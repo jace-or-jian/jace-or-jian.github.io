@@ -317,7 +317,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Under H₀, Willie sees the background Zᵢ; under H₁, Alice’s signal is added. Keeping that addition small enough, or ambiguous enough, lets it blend into what Willie already expects to see."
+        "text": "Keeping Alice’s added signal small enough, or ambiguous enough, lets it blend into what Willie already expects to see."
       },
       {
         "type": "equation",
@@ -325,7 +325,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "P_FA is the false-alarm probability and P_MD the missed-detection probability. With equal priors, ξ*/2 is the best average detection error. A sum near one means the observations give Willie little advantage over guessing."
+        "text": "With equal priors, ξ*/2 is the best average detection error. A sum near one means the observations give Willie little advantage over guessing."
       },
       {
         "type": "p",
@@ -373,7 +373,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "For a state S known to Willie, let ξ*(S) be his best conditional error sum. The performance viewpoint can be written in three ways:"
+        "text": "For states S known to Willie, the metric can be chosen as:"
       },
       {
         "type": "equation",
@@ -420,10 +420,6 @@ window.BLOG_POSTS = [
         "text": "Bob: Pr{M̂_B ≠ M} → 0\nEve: I(M; Z_Eⁿ ∣ C) → 0"
       },
       {
-        "type": "p",
-        "text": "Here M is the message, C the public codebook, and Z_Eⁿ Eve’s observation. The first line describes reliable reception. The second captures the confusion that matters for secrecy: how little the received signal tells Eve about the message, including individual parts of it."
-      },
-      {
         "type": "h3",
         "text": "The advantage appears directly in secrecy capacity"
       },
@@ -437,7 +433,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Here [a]⁺ = max(a, 0), with rates per real channel use. The difference between Bob’s and Eve’s channel capacities makes the design goal visible: improve Bob’s reception, reduce Eve’s useful information, and use the resulting gap to carry secret bits. Channel shaping creates the opportunity; wiretap coding uses it."
+        "text": "The capacity gap gives the design goal: improve Bob’s reception, reduce Eve’s useful information, and use the difference to carry secret bits. Channel shaping creates the opportunity; wiretap coding uses it."
       },
       {
         "type": "h2",
@@ -547,23 +543,19 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Here Δφ is the phase lag caused by an extra travel time Δτ, or an extra path length ΔL. Frequency f counts cycles per second, so fΔτ counts the extra cycles; multiplying by 2π turns them into radians. Copies that line up reinforce each other. Equally strong copies half a cycle apart cancel."
-      },
-      {
-        "type": "p",
         "text": "First, keep the receiver still and slide the frequency. The delay difference stays fixed, but the formula shows that the phase difference changes with f. If two paths arrive 1 microsecond apart, increasing frequency by 0.5 MHz adds half a cycle to their relative phase. Reinforcement can become cancellation at the same location."
       },
       {
         "type": "p",
-        "text": "So the received gain rises and falls as we move across frequency. Coherence bandwidth describes the frequency range over which the channel stays similar. A signal occupying a small, nearly flat patch experiences flat fading; a wider signal spanning peaks and dips experiences frequency-selective fading. The comparison is between the signal’s bandwidth and the width of those patches."
+        "text": "So the received gain rises and falls as we move across frequency. Coherence bandwidth describes the frequency range over which the channel stays similar. A signal occupying a small, nearly flat patch experiences flat fading; a wider signal spanning peaks and dips experiences frequency-selective fading."
       },
       {
         "type": "p",
-        "text": "A larger delay spread makes the relative phases change faster as frequency changes, giving a smaller coherence bandwidth. RMS delay spread captures this by weighting the arrival times by path power. The latest echo indicates the overall delay span, while RMS delay spread also reflects which echoes carry most of the energy."
+        "text": "A larger delay spread makes the relative phases change faster as frequency changes, giving a smaller coherence bandwidth. The relevant measure is RMS delay spread, which gives stronger paths more weight."
       },
       {
         "type": "p",
-        "text": "Now keep frequency fixed and move the receiver. This changes the path lengths, so the same formula changes the relative phases through ΔL. Moving means passing through regions where the copies reinforce or cancel. That is the interference landscape I had in mind."
+        "text": "Now keep frequency fixed and move the receiver. This changes the path lengths, so the same formula changes the relative phases through ΔL. Moving means passing through regions where the copies reinforce or cancel."
       },
       {
         "type": "figure",
