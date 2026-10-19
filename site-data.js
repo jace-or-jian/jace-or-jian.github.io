@@ -212,8 +212,6 @@ window.SITE_DATA = {
     items: [
       { year: "2027", title: "Selected as an Outstanding Graduate", organization: "Chongqing University" },
       { year: "2026", title: "National Scholarship for Graduate Students", organization: "China" },
-      { year: "2024, 2025, 2026", title: "First-Class Academic Scholarship", organization: "Chongqing University" },
-      { year: "2021, 2023", title: "First- and Second-Class Academic Scholarships", organization: "Sichuan Normal University" },
     ],
   },
 

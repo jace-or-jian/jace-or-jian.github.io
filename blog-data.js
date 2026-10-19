@@ -126,11 +126,11 @@ window.BLOG_POSTS = [
     "title": "From Radio Links to Beamforming: How I Think About Wireless Systems",
     "lang": "en",
     "published": true,
-    "summary": "A physical view of PHY and MAC, antenna architectures, and the system constraints behind a useful research question.",
+    "summary": "My understanding of PHY and MAC, antenna operation, and the hardware choices behind beamforming.",
     "blocks": [
       {
         "type": "p",
-        "text": "When I read about a wireless technique, I find it helpful to ask two questions first: what problem is the system actually facing, and where does this technique act? Starting from the radio link makes PHY, MAC, and antenna architectures easier to connect. It also helps me judge whether a research idea addresses a real bottleneck."
+        "text": "When I read about a wireless technique, I find it helpful to ask what problem the system faces and where the technique acts. Starting from the radio link makes PHY, MAC, and antenna architectures easier to connect. This note follows that path from system responsibilities to the hardware that shapes a beam."
       },
       {
         "type": "h2",
@@ -243,35 +243,75 @@ window.BLOG_POSTS = [
       {
         "type": "p",
         "text": "The useful intuition is that the lens implements a physical direction-to-port mapping. The discrete choices are the available feeds and their switch connections, not the propagation angles themselves. Selecting which ports are active—and possibly how many—is a discrete optimization problem, while digital weights on the selected paths may still be continuous. Beam leakage, finite port spacing, and wideband effects mean the mapping is not ideal."
+      }
+    ]
+  },
+  {
+    "slug": "optimization-starts-with-the-system",
+    "title": "Optimization Starts with a Real System Problem",
+    "lang": "en",
+    "published": true,
+    "summary": "Why optimize, what makes a formulation meaningful, and how I understand SCA, Lagrangian methods, and SDR.",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "To me, optimization starts with a decision: resources are limited, choices compete, and improving one aspect of a system can make another worse. More transmit power may improve reliability but consume more energy or create more interference. More frequent beam training may improve alignment but leave less time for data. Optimization helps us make a good decision within those tradeoffs."
       },
       {
         "type": "h2",
-        "text": "6. Start a research question from the bottleneck"
+        "text": "1. Give the objective and constraints a physical meaning"
       },
       {
         "type": "p",
-        "text": "I see physical-layer security, covert communication, NOMA, and RIS as tools or problem frameworks, not as contributions by themselves. Physical-layer security concerns limiting information leakage under a specified model; covert communication concerns hiding the existence of a transmission. NOMA explores non-orthogonal resource sharing, while RIS attempts to control part of the propagation environment. Each has value only in relation to a concrete system need."
+        "text": "A meaningful objective should represent something the system actually needs: delivered data rate, outage probability, latency, energy consumption, or information leakage. A convenient mathematical proxy is useful only if its connection to that goal is clear. For example, maximizing instantaneous rate may miss the overhead that reduces the data actually delivered."
       },
       {
         "type": "p",
-        "text": "What I want to avoid is a research question built mainly by combining technology names and optimizing the resulting expression. I would rather start with a bottleneck: insufficient RF chains, an unreliable reflected path, stale channel information, a limited training budget, or a hardware delay range. Then the mathematical constraints have a reason to be there."
+        "text": "Constraints should describe the bottleneck: a power budget, a latency deadline, a limited number of RF chains, imperfect channel knowledge, or a hardware phase or delay range. I want to know why each constraint exists, what its value represents, and whether the system can operate at that value."
       },
       {
-        "type": "ul",
-        "items": [
-          "What observable failure or cost motivates the problem?",
-          "Which controllable variable can change it?",
-          "What competing objective prevents a trivial solution?",
-          "Does the benefit survive realistic overhead and a strong, simpler baseline?"
-        ]
+        "type": "h2",
+        "text": "2. Identify the bottleneck before combining techniques"
       },
       {
         "type": "p",
-        "text": "For example, narrowing a THz beam increases directional gain but also makes pointing errors more costly. More frequent tracking improves alignment but consumes time and energy. More RF chains allow richer control but raise hardware cost. These are the kinds of tradeoffs I find meaningful: the same design choice helps one part of the system while making another part harder."
+        "text": "Adding RIS, NOMA, physical-layer security, or another technique does not by itself create a research contribution. I would first ask what limits the existing system, whether the proposed control can change that limit, and what competing cost prevents a trivial solution. The formulation should follow from those answers."
       },
       {
         "type": "p",
-        "text": "That is the connection I want to keep in mind when moving between PHY, MAC, and antenna hardware. A useful optimization problem should explain something about the system—not just produce a better objective value for a combination of techniques."
+        "text": "Benchmarks make this argument testable. Compare against a strong, simpler design under the same resources and assumptions; include training and computational overhead; and use an ablation to isolate what produces the gain. A bound or small-instance exhaustive search can help assess how much improvement is still possible. A better objective value matters when it translates into better system performance."
+      },
+      {
+        "type": "h2",
+        "text": "3. Nonconvexity: distinguish reformulation from approximation"
+      },
+      {
+        "type": "p",
+        "text": "Interference coupling, discrete selections, and rank constraints often make wireless problems nonconvex. Some admit an equivalent convex reformulation, but there is no general conversion that preserves every nonconvex problem. Before choosing a method, I want to know whether it solves the original problem, approximates it locally, or relaxes it to obtain a bound."
+      },
+      {
+        "type": "h2",
+        "text": "4. Three tools, three different roles"
+      },
+      {
+        "type": "p",
+        "text": "Successive convex approximation (SCA) replaces difficult terms with suitable convex surrogate problems around the current iterate, solves one, and repeats. The surrogate bounds, first-order consistency, and update rule matter. Under appropriate assumptions, convergence can be established to a stationary point; global optimality is generally not guaranteed. Initialization and feasibility deserve attention."
+      },
+      {
+        "type": "p",
+        "text": "Lagrangian methods attach multipliers to constraints, making resource tradeoffs explicit and sometimes enabling decomposition. The dual problem of a minimization problem provides a lower bound. Strong duality can hold for convex problems under conditions such as Slater’s condition; a nonconvex problem may have a duality gap. Introducing multipliers alone does not make the original problem convex."
+      },
+      {
+        "type": "p",
+        "text": "Semidefinite relaxation (SDR) is useful for certain quadratic formulations. A beamforming vector w can be lifted to W = wwᴴ. Quadratic terms become linear in W; the difficult rank-one constraint is dropped while W remains positive semidefinite. This yields an SDP when the remaining formulation is convex. A rank-one solution permits exact recovery; otherwise, a recovery procedure is needed, followed by feasibility and performance checks in the original problem."
+      },
+      {
+        "type": "h2",
+        "text": "5. Check the decision, not just the solver output"
+      },
+      {
+        "type": "p",
+        "text": "After solving, I would check the original constraints, sensitivity to uncertain inputs, runtime, and performance against the benchmarks. The question I care about is whether the model captures a real limitation and the resulting decision improves the system enough to justify its cost."
       }
     ]
   }
