@@ -1,19 +1,19 @@
-// Notes are displayed in array order. Text blocks are rendered safely as plain text.
+// Personal study notes, displayed in array order.
 window.BLOG_POSTS = [
   {
     "slug": "thz-bandwidth-and-beam-alignment",
-    "title": "THz Communications: Bandwidth, Propagation, and Beam Alignment",
+    "title": "What I Find Interesting About THz",
     "lang": "en",
     "published": true,
-    "summary": "Bandwidth gains, propagation mechanisms, aperture scaling, and the distinction between beam tracking and blockage mitigation.",
+    "summary": "Why the bandwidth appeals to me, how I picture THz propagation, and why sensing fits naturally into beam maintenance.",
     "blocks": [
       {
         "type": "p",
-        "text": "The main attraction of THz is large bandwidth. The main difficulty is maintaining enough received power and keeping a narrow beam aligned. These are linked: the antenna gain needed to close the link budget makes connectivity sensitive to motion and blockage."
+        "text": "What I like most about THz is the large bandwidth. High data rates become possible without putting all the pressure on spectral efficiency and increasingly high modulation orders. That feels like a different way of approaching the rate problem: start with more spectrum, then work out how to keep the link alive."
       },
       {
         "type": "h2",
-        "text": "1. Bandwidth: the fixed quantity matters"
+        "text": "More bandwidth, more room"
       },
       {
         "type": "equation",
@@ -21,60 +21,47 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "For an ideal flat AWGN channel, C is capacity, B is bandwidth, Pᵣ is received power, and N₀ is noise power spectral density. At fixed SNR, capacity grows linearly with B. At fixed Pᵣ, more bandwidth collects more noise, SNR falls, and capacity approaches a power-limited ceiling."
+        "text": "At fixed SNR, capacity grows linearly with bandwidth B. With fixed received power Pᵣ, the wider band also collects more noise, so the rate grows more slowly. The point that stays with me is that bandwidth gives another route to a high rate, alongside better use of each hertz."
       },
       {
         "type": "p",
-        "text": "Large bandwidth can deliver a target rate at lower spectral efficiency, reducing reliance on very high modulation orders. Coding and a sufficient link budget remain necessary. Usable bandwidth is limited by hardware and atmospheric transmission windows, rather than one uniformly good THz-wide channel."
-      },
-      {
-        "type": "p",
-        "text": "For ideal monostatic radar, range resolution is approximately ΔR = c/(2B): 10 GHz gives 1.5 cm. Resolution means separating targets in range; it is distinct from estimation accuracy. Angular resolution depends mainly on aperture relative to wavelength."
+        "text": "The sensing benefit is just as appealing. Range resolution is approximately ΔR = c/(2B) for a monostatic radar waveform: 10 GHz gives about 1.5 cm. Wider bandwidth helps separate nearby objects in range, while aperture and wavelength shape angular resolution."
       },
       {
         "type": "figure",
         "src": "assets/notes/thz-link.svg",
         "alt": "A flow diagram connecting wide bandwidth and short wavelength to their benefits, link constraints, and sensing-assisted control.",
-        "caption": "Figure 1. Bandwidth and short wavelength offer different benefits and impose different constraints. Closing the link budget and maintaining connectivity require separate responses. Conceptual diagram.",
+        "caption": "The connection that makes THz interesting to me: more bandwidth and compact arrays, followed by the challenge of keeping the link usable.",
         "width": 900,
         "height": 650
       },
       {
         "type": "h2",
-        "text": "2. Scenarios and distance"
+        "text": "Where I picture it being useful"
       },
       {
         "type": "p",
-        "text": "Short-range indoor access and dense outdoor hotspots are natural scenarios, often over a few metres to tens of metres. “Below 100 metres” is a useful access-link intuition, not a physical limit. Fixed directional links and moving handheld terminals have different power and pointing budgets."
+        "text": "My first picture is indoor communication and dense outdoor hotspots: a few metres to tens of metres, with high rates over a short link. I keep “tens of metres, often below a hundred” as an intuition for access scenarios. Inter-satellite communication is also interesting because the path through space avoids atmospheric gas absorption."
       },
       {
         "type": "p",
-        "text": "Inter-satellite paths avoid atmospheric gas absorption. Geometric spreading, limited transmit power, and pointing errors remain. Ground-to-satellite paths still cross the atmosphere."
+        "text": "THz sits between electronics and photonics, where producing useful transmit power is difficult. Add wideband thermal noise, kTB, and antenna gain becomes central to the whole design."
       },
       {
         "type": "h2",
-        "text": "3. Separate the propagation mechanisms"
+        "text": "The propagation picture"
       },
       {
         "type": "p",
-        "text": "The broad 0.1–10 THz range corresponds to wavelengths of about 3 mm to 30 μm. Several effects need to be distinguished:"
+        "text": "Across roughly 0.1–10 THz, wavelengths run from millimetres down to tens of micrometres. This helps explain why the channel feels so different from lower-frequency wireless: ordinary obstacles are electrically large, diffraction is weak, and surface roughness matters much more."
       },
       {
-        "type": "ul",
-        "items": [
-          "Diffraction: ordinary obstacles are large relative to wavelength, so bending around them is often weak. Blocking the direct path can interrupt the link.",
-          "Surface interaction: roughness relative to wavelength affects diffuse scattering. Smooth surfaces can still provide useful specular reflections; non-line-of-sight paths are possible.",
-          "Gas absorption: water vapour and oxygen have frequency-selective molecular resonances. This is not a wavelength–molecule size match; individual molecules are much smaller.",
-          "Weather and materials: rain, fog, and particles introduce absorption and scattering depending on size, composition, and concentration. Some dry materials are relatively transparent, but dryness alone is insufficient."
-        ]
+        "type": "p",
+        "text": "A direct path is valuable, and blocking it can be costly. Smooth surfaces may offer reflections, while rough surfaces scatter energy. Water vapour and oxygen absorb at particular molecular resonances; rain, fog, and material composition add their own effects. I find this frequency-dependent view more useful than treating all THz propagation as one large loss."
       },
       {
         "type": "h2",
-        "text": "4. Aperture, gain, and noise"
-      },
-      {
-        "type": "p",
-        "text": "THz lies between electronic and photonic technologies. Efficient power generation is difficult near device frequency limits. Wide bandwidth also increases integrated thermal noise, kTB, before receiver noise contributions. The bandwidth, rather than an inherently higher temperature, causes this increase."
+        "text": "Small elements, a large collective aperture"
       },
       {
         "type": "equation",
@@ -82,104 +69,96 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "At fixed gain G, effective receiving area Aₑ decreases with λ². At fixed physical aperture and efficiency, gain instead increases as wavelength decreases. Frequency-dependent link-loss claims therefore need to specify the antenna assumptions."
-      },
-      {
-        "type": "p",
-        "text": "Short wavelengths allow many elements in a compact array. Coherent beamforming concentrates supplied energy toward the receiver; it does not generate energy. Aperture, losses, calibration, and circuit power limit the benefit of adding elements."
+        "text": "For a fixed antenna gain G, a shorter wavelength gives a smaller effective receiving area Aₑ. An array lets many small elements work together, building directional gain in a compact space. This is why massive arrays make sense to me at THz: the short wavelength creates a challenge for individual elements and an opportunity to combine many of them."
       },
       {
         "type": "h2",
-        "text": "5. Alignment and blockage require different responses"
+        "text": "The beam has to stay useful"
       },
       {
         "type": "p",
-        "text": "High gain usually means a narrow beam. Link establishment finds an initial beam pair; link tracking maintains alignment during motion. Tracking corrects pointing, while blockage requires a viable alternative: a reflection, another access point, a relay, or a fallback band."
+        "text": "The cost of high gain is a narrow beam. Finding the beam pair establishes the link; keeping it aligned maintains the link. With motion, that becomes a continuous task."
       },
       {
         "type": "p",
-        "text": "Sensing supports predictive beamforming through motion estimates and can give advance warning of blockage. The information may come from the radio or another sensor. Its uncertainty, acquisition overhead, and latency determine whether the system can act before the link fails."
+        "text": "This is where sensing-assisted communication feels particularly natural. Motion estimates can guide predictive beamforming, and an approaching blocker can trigger preparation of a reflected path or another connection. Sensing becomes part of keeping communication available."
       },
       {
         "type": "p",
-        "text": "The central tradeoff is directional gain versus tracking tolerance. Narrower beams demand more accurate prediction and faster updates; preparing backup paths adds overhead. A rate improvement is useful only if the sensing and control loop can sustain it."
+        "text": "The tradeoff I keep coming back to is gain versus tolerance: a tighter beam reaches farther, but asks for better alignment and faster updates. For me, that is the most interesting part of THz—the bandwidth is attractive, and maintaining the link is where the system design comes alive."
       }
     ]
   },
   {
     "slug": "wireless-layers-and-beamforming",
-    "title": "Wireless Systems: PHY, MAC, and Beamforming",
+    "title": "My Understanding of Wireless Systems and Beamforming",
     "lang": "en",
     "published": true,
-    "summary": "Layer responsibilities, interference-based beam steering, RF-chain freedom, wideband delays, and lens beam selection.",
+    "summary": "The mental picture I use for PHY, MAC, antennas, and the control offered by different beamforming architectures.",
     "blocks": [
       {
-        "type": "h2",
-        "text": "1. PHY and MAC: link operation and resource use"
-      },
-      {
         "type": "p",
-        "text": "PHY maps bits to electromagnetic waveforms and recovers them through an imperfect channel. Channel estimation characterizes the link; beamforming controls transmission and combining; modulation and coding balance rate and reliability. Synchronization and equalization support reception."
-      },
-      {
-        "type": "p",
-        "text": "MAC schedules users and time-frequency resources, coordinates simultaneous transmissions, and handles retransmission decisions. The boundary is implementation-dependent: link adaptation uses PHY feedback, while HARQ combines retransmission control with physical-layer decoding and combining."
-      },
-      {
-        "type": "p",
-        "text": "Beam weights belong to PHY; deciding which users and beams operate together is a scheduling problem. Scheduling speed depends on slots, traffic, deadlines, processing, and channel-information freshness. Frequent feedback alone does not guarantee a useful decision."
+        "text": "Wireless systems are easier for me to follow when I first separate two questions: how does one radio link work, and how do several links share the system? That is the picture I use for PHY and MAC."
       },
       {
         "type": "h2",
-        "text": "2. Antennas redistribute energy"
+        "text": "PHY handles the link; MAC organizes its use"
       },
       {
         "type": "p",
-        "text": "A transmitting antenna directs supplied power; a receiving antenna couples part of the incident field into a receiver. Gain combines directivity and efficiency. It is not an independent source of energy."
+        "text": "PHY takes bits, maps them into an electromagnetic waveform, and tries to recover them reliably after the channel. Channel estimation helps describe that channel; beamforming improves transmission and combining; modulation and coding manage rate and errors."
       },
       {
         "type": "p",
-        "text": "Array elements have different propagation distances to a point in space. Relative phase adjustments make their fields add coherently in a chosen direction—constructive interference—and partially cancel elsewhere—destructive interference. Reversing the phase progression reverses steering. Radiation outside the main beam is not eliminated; sidelobes remain."
+        "text": "MAC decides who transmits, when, and on which resources. It also coordinates retransmissions. Choosing a beam’s weights fits into the link side; choosing which users and beams operate together fits into scheduling. Channel feedback connects the two, and its freshness matters for both."
+      },
+      {
+        "type": "h2",
+        "text": "An antenna gathers and directs energy"
+      },
+      {
+        "type": "p",
+        "text": "The intuition I like is that an antenna controls where energy goes. A transmitting array brings the fields from several elements together. Adjust their phases, and the waves reinforce each other in one direction and partially cancel elsewhere: constructive and destructive interference."
       },
       {
         "type": "figure",
         "src": "assets/notes/beamforming-interference.png",
         "alt": "Two phased arrays with opposite phase progressions. Overlapping wave fronts illustrate constructive interference along the steered beam and destructive interference in other directions.",
-        "caption": "Figure 2. Relative phases produce constructive interference along the intended beam and partial cancellation elsewhere. Reversing the phase progression reverses the steering direction. Sidelobes are omitted. Click to view full size.",
+        "caption": "The picture that makes beamforming click for me: phase adjustments make the waves reinforce one another in the chosen direction. Click to enlarge.",
         "width": 1024,
         "height": 572
       },
       {
         "type": "p",
-        "text": "In the far field, beamwidth scales roughly as λ/D, where D is aperture extent in the relevant direction. Aperture in wavelengths matters more than element count alone. Spacing, taper, geometry, and scan angle also affect the pattern. Close to a large array, near-field focusing may require a range-dependent model."
+        "text": "That picture makes electronic steering much easier to understand. Changing the phase progression changes the direction of reinforcement. In the far field, beamwidth scales roughly as λ/D, so a larger aperture D relative to wavelength produces a tighter beam."
       },
       {
         "type": "h2",
-        "text": "3. RF chains and independent signal dimensions"
+        "text": "RF chains explain the architectural differences"
       },
       {
         "type": "p",
-        "text": "A phase shifter weights an existing RF signal. An RF chain provides an independently controllable signal path with frequency conversion and associated hardware. Many antenna elements sharing one chain therefore have different phase settings but share the same spatial input."
+        "text": "I think of an RF chain as an independently controlled signal path, and a phase shifter as a way to adjust an existing signal. That distinction explains why a large antenna array can still have limited spatial freedom."
       },
       {
         "type": "figure",
         "src": "assets/notes/beamforming-architectures.svg",
         "alt": "Three simplified signal-flow rows compare fully digital beamforming, single-chain analog beamforming, and subarray hybrid beamforming.",
-        "caption": "Figure 3. Four antenna elements driven by four, one, or two RF chains. The hybrid example uses subarrays; fully connected networks are also possible. RF-chain count bounds signal dimensions, not the number of guaranteed usable streams.",
+        "caption": "Same antenna count, different freedom: four RF chains, one shared chain, and two chains driving subarrays.",
         "width": 900,
         "height": 680
       },
       {
         "type": "ul",
         "items": [
-          "Fully digital: conventionally one RF chain per element, with digital complex weights and frequency-dependent control. Flexible, but costly in converters, circuit power, and calibration.",
-          "Single-chain analog: one RF waveform is distributed through an analog weighting network. At a given frequency, all element signals are weighted copies of that input. The waveform can contain multiple tones or users’ data, but only one independent spatial input is available.",
-          "Hybrid: fewer RF chains drive more antenna elements through a fully connected network or subarrays. Spatial streams are limited by chain count, channel rank, and receiver capability. The saving in hardware comes with restrictions on controllable weights."
+          "Digital: conventionally one RF chain per antenna element. Independent complex weights give flexible control, including different weights across subcarriers, with more circuit and converter cost.",
+          "Analog: one RF signal is distributed across the array with different phase settings. Many elements cooperate on one spatial input.",
+          "Hybrid: a smaller number of RF chains works with a larger analog array. It sits between digital flexibility and analog hardware economy. Channel rank and receiver capability also shape how many streams are useful."
         ]
       },
       {
         "type": "h2",
-        "text": "4. Phase shift versus time delay"
+        "text": "Wide bandwidth makes delay important"
       },
       {
         "type": "equation",
@@ -187,133 +166,125 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "A true delay τ produces a phase shift proportional to frequency. A fixed phase setting that aligns a beam at the carrier does not reproduce that delay across a wide band. Different frequencies can then point in different directions: beam squint. The loss is especially important when the intended beam is narrow."
+        "text": "A time delay τ produces a phase shift that changes with frequency. A fixed phase shifter aligns the array around a chosen frequency; across a wide band, different frequencies can steer differently. This is beam squint."
       },
       {
         "type": "p",
-        "text": "True-time-delay elements can preserve wideband alignment, at the cost of delay-range limits, finite resolution, insertion loss, and circuit complexity. Phase shifters and delays can be combined; they are not interchangeable wideband components."
+        "text": "The delay elements in a wideband architecture now have a clear purpose to me: they help keep the different frequency components aligned. The diagram brings together the digital, RF, phase, and delay parts of the same signal path."
       },
       {
         "type": "figure",
         "src": "assets/notes/hybrid-beamforming-delays.png",
         "alt": "Digital baseband precoding feeds multiple RF chains. Each illustrated branch includes analog phase shifters and delay elements before its antenna subarray, with beams directed toward different users.",
-        "caption": "Figure 4. Digital precoding → RF chains → analog phase control → delays → antenna subarrays. Phase shifters and delay elements address different parts of wideband steering. Click to view full size.",
+        "caption": "Putting the pieces together: digital processing, RF chains, phase control, and delays before the antenna subarrays. Click to enlarge.",
         "width": 2500,
         "height": 1347
       },
       {
         "type": "h2",
-        "text": "5. Lens arrays: direction mapped to feed position"
+        "text": "A lens makes direction feel like a switch choice"
       },
       {
         "type": "p",
-        "text": "On reception, a lens focuses waves from different directions near different feed positions. By reciprocity, exciting different feeds produces different beam directions. A switch network connects a limited number of RF chains to selected feeds."
+        "text": "A lens maps different arrival directions to different feed positions. In transmission, exciting different feeds produces beams in different directions. Switches can therefore connect a few RF chains to the feeds that matter."
       },
       {
         "type": "p",
-        "text": "Available feeds and switch connections are discrete; propagation angles are continuous. Port selection is therefore a discrete decision, while digital weights on selected paths may remain continuous. Finite feed spacing, beam leakage, and wideband effects limit the ideal direction-to-port mapping."
+        "text": "What I find interesting here is how the physics shapes the optimization: choosing feeds becomes discrete, while the digital weights on those paths can remain continuous. A hardware structure has turned part of beamforming into a selection problem."
       }
     ]
   },
   {
     "slug": "optimization-starts-with-the-system",
-    "title": "Optimization: Modeling, Benchmarks, and Solution Structure",
+    "title": "What Makes an Optimization Problem Worth Solving",
     "lang": "en",
     "published": true,
-    "summary": "Physical objectives and constraints, performance references, convex approximations, and the cost and insight of alternating updates.",
+    "summary": "My view of meaningful objectives, real system bottlenecks, performance benchmarks, and solutions that reveal structure.",
     "blocks": [
       {
         "type": "p",
-        "text": "Optimization allocates limited resources when choices compete. More transmit power can improve reliability but consume energy or increase interference. More beam training can improve alignment but reduce data time. The objective and constraints specify which tradeoff is acceptable."
+        "text": "For me, optimization matters because resources are limited and choices compete. More power can improve a link but cost energy or create interference. More beam training can improve alignment but take time away from data. The point is to make a good decision within those tradeoffs."
       },
       {
         "type": "h2",
-        "text": "1. Start from the system bottleneck"
+        "text": "Start with the problem the system actually has"
       },
       {
         "type": "p",
-        "text": "The objective needs a physical meaning: delivered rate, outage, latency, energy, or information leakage. A proxy must track that goal. Instantaneous rate, for example, can overstate delivered throughput if training overhead is ignored."
+        "text": "I care most about objectives that mean something in the real system: useful throughput, reliability, latency, energy, or secrecy. The constraints should come from the same place—available power, RF chains, hardware settings, and what the system actually knows about its channels."
       },
       {
         "type": "p",
-        "text": "Constraints describe the actual limits: power, deadlines, RF-chain count, uncertain channel knowledge, and hardware phase or delay ranges. Each constraint needs a physical origin and a defensible value."
-      },
-      {
-        "type": "p",
-        "text": "Combining RIS, NOMA, or security techniques is insufficient by itself. The useful questions are what limits the existing system, which control can change it, and what competing cost prevents a trivial solution. The formulation follows from those answers."
+        "text": "This is why I am less interested in combining technique names and then optimizing the combination. The more compelling starting point is a real bottleneck: what is holding the system back, what can be changed, and what must be sacrificed to improve it? That gives the mathematics a reason to exist."
       },
       {
         "type": "h2",
-        "text": "2. Optimization as a performance benchmark"
+        "text": "Optimization also gives a benchmark"
       },
       {
         "type": "p",
-        "text": "A practical implementation may need a fast, reusable rule instead of solving a new optimization problem for each instance. Comparing it with a carefully optimized reference under the same model and resource limits quantifies the performance sacrificed for speed and simplicity. Training overhead, computation time, and application requirements determine whether that gap is acceptable."
+        "text": "A practical system may need a fast, reusable solution rather than run an optimizer every time. An optimized reference helps show the price of that convenience: how much performance is exchanged for speed and simplicity, under the same resources and assumptions? That gap makes the engineering decision tangible."
       },
       {
         "type": "p",
-        "text": "A local reference measures the gap to that particular design, not necessarily to the global optimum. A global solution or proven bound supports an optimality-gap assessment. Modeled performance also needs validation against measurements before it represents a real deployment."
+        "text": "A local solution supplies a useful design reference; a global solution or proven bound tells more about the remaining room for improvement. The comparison becomes especially meaningful when it includes computation and training overhead."
       },
       {
         "type": "h2",
-        "text": "3. Reformulation, approximation, and relaxation"
+        "text": "Find structure in a difficult problem"
       },
       {
         "type": "p",
-        "text": "Interference coupling, discrete variables, and rank constraints often cause nonconvexity. An equivalent reformulation preserves the problem; a local approximation changes it near an iterate; a relaxation enlarges the feasible set and may provide a bound. A tractable subproblem is not automatically an exact solution to the original problem."
+        "text": "Wireless problems often become nonconvex through interference, variable coupling, discrete choices, or rank constraints. I find it useful to look for an equivalent reformulation first, then for approximations or relaxations that expose a manageable structure."
       },
       {
-        "type": "p",
-        "text": "SCA: solve successive convex surrogate problems around the current iterate. Bounds, first-order consistency, and update rules determine feasibility and convergence. Under suitable assumptions, stationary-point convergence is possible; global optimality is generally not guaranteed."
-      },
-      {
-        "type": "p",
-        "text": "Lagrangian methods: attach multipliers to constraints to expose resource tradeoffs or enable decomposition. The dual provides a lower bound for minimization. Strong duality holds under appropriate conditions, such as convexity with Slater’s condition; nonconvex problems may retain a duality gap."
-      },
-      {
-        "type": "p",
-        "text": "SDR: lift a quadratic beamforming variable to W = wwᴴ, then drop the rank-one constraint while keeping W positive semidefinite. The result is an SDP if the remaining formulation is convex. Rank-one recovery can be exact; higher-rank solutions need a recovery step and feasibility checks in the original problem."
+        "type": "ul",
+        "items": [
+          "SCA builds convex surrogate problems around the current iterate and solves them successively. Well-chosen surrogates can lead to a stationary solution.",
+          "Lagrangian methods attach multipliers to constraints. The multipliers make resource tradeoffs visible and can help decompose the problem; the dual also provides a bound.",
+          "SDR lifts a quadratic variable to W = wwᴴ and relaxes the rank-one requirement. For suitable formulations this gives a semidefinite program, followed by recovering a usable vector solution."
+        ]
       },
       {
         "type": "h2",
-        "text": "4. Alternating optimization: count the inner work"
+        "text": "Alternating updates should be cheap"
       },
       {
         "type": "p",
-        "text": "A jointly nonconvex problem may be convex in each variable block with the others fixed. Alternating optimization updates these blocks in turn. Exact block minimization makes the objective nonincreasing, but objective convergence alone does not guarantee a global optimum; stationarity requires further assumptions."
+        "text": "A jointly difficult problem can become convex in one group of variables when the others are fixed. Alternating optimization uses that structure. What makes it especially appealing to me is finding explicit updates for the individual blocks."
       },
       {
         "type": "p",
-        "text": "Closed-form updates avoid repeatedly running an inner solver. Total cost still includes outer iterations, any inner searches, and matrix operations. A closed-form expression involving a large linear-system solve may remain expensive. Nested iteration is acceptable when its accuracy and total runtime justify it."
+        "text": "If every outer update launches another expensive iterative search, much of that practical appeal disappears. The work per update matters just as much as the number of outer iterations. Closed-form updates are worth pursuing because they can make the algorithm simpler to run and easier to inspect."
       },
       {
         "type": "p",
-        "text": "WMMSE exposes simple updates for receive filters, MSE weights, and precoders. Receive filters and weights have closed-form expressions. With power constraints, the precoder is typically explicit for a given multiplier, which may still require a one-dimensional search such as bisection."
+        "text": "WMMSE is a useful example: receive filters and MSE weights have explicit updates, and a power-constrained precoder can be expressed through a multiplier found by a scalar search. The joint problem becomes a sequence of structured steps."
       },
       {
         "type": "h2",
-        "text": "5. Extract insight as well as a decision"
+        "text": "The best part is understanding the answer"
       },
       {
         "type": "p",
-        "text": "An explicit solution can reveal how power, interference, and uncertainty change the decision. When no exact closed form is available, bounds, limiting cases, and sensitivity analysis can still expose structure. Final checks belong to the original problem: feasibility, runtime, robustness, and performance against a strong, simpler benchmark."
+        "text": "My ideal result is a closed-form expression that shows how a decision changes with power, interference, or another system parameter. There is something satisfying about seeing the tradeoff directly in the answer. Even when numerical optimization is needed, a bound, a limiting case, or a sensitivity result can provide that same kind of insight."
       }
     ]
   },
   {
     "slug": "covert-communication-and-physical-layer-security",
-    "title": "Covert Communication and PLS: Detection and Information Leakage",
+    "title": "How I Understand Covert Communication and PLS",
     "lang": "en",
     "published": true,
-    "summary": "The square-root law, persistent uncertainty, average and outage guarantees, and public-codebook secrecy.",
+    "summary": "Hiding a transmission, hiding its message, and why the kind of uncertainty and the chosen performance measure matter.",
     "blocks": [
       {
         "type": "p",
-        "text": "Covert communication hides whether a transmission occurs. Physical-layer security (PLS), in the wiretap setting, hides the message even when transmission is known. Both exploit physical channels, noise, and coding, but constrain different inferences from the received waveform. Willie is the detector; Eve is the eavesdropper. They may be the same device, but the two requirements remain distinct."
+        "text": "The distinction that helps me most is simple: covert communication hides the existence of a transmission; physical-layer security (PLS) hides its content. One asks whether Willie can notice activity, while the other asks what Eve can learn from the waveform. I find both interesting because the channel itself becomes part of the protection."
       },
       {
         "type": "h2",
-        "text": "1. Covertness is a hypothesis-testing constraint"
+        "text": "Hiding a signal inside the background"
       },
       {
         "type": "equation",
@@ -321,91 +292,99 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "H₀ means no covert signal; Zᵢ includes the modeled background. H₁ adds Alice’s signal through channel h_W. A channel use is one input–output opportunity in the discrete-time model, usually a real or complex symbol dimension. It is not one bit: a codeword spans n uses. Increasing samples beyond the independent signal dimensions does not create free channel uses."
+        "text": "Under H₀, Willie sees the background Zᵢ; under H₁, Alice’s signal is added. My picture of covert communication is to keep that addition small enough, or ambiguous enough, that it blends into what Willie already expects to see."
       },
       {
         "type": "equation",
-        "text": "ξ* = min_detector (P_FA + P_MD)\nξ* = 1 − TV(P₀ⁿ, P₁ⁿ) ≥ 1 − ε"
+        "text": "ξ* = min_detector (P_FA + P_MD) ≥ 1 − ε"
       },
       {
         "type": "p",
-        "text": "P_FA is a false alarm and P_MD a missed detection. P₀ⁿ and P₁ⁿ are Willie’s full observation laws under the two hypotheses, including the information available to him. For equal priors, the minimum average detection error is ξ*/2; ξ* near one means little advantage over guessing. Low received power helps by keeping the laws close, rather than making the signal literally absent."
+        "text": "P_FA is the false-alarm probability and P_MD the missed-detection probability. With equal priors, ξ*/2 is the best average detection error. A sum near one means the observations give Willie little advantage over guessing."
+      },
+      {
+        "type": "p",
+        "text": "A channel use is one input–output opportunity in the signal model, usually a symbol dimension. A codeword spans n such uses, carrying the message across them. This makes blocklength a physical resource to think about alongside power."
       },
       {
         "type": "h2",
-        "text": "2. Why the square-root law appears"
+        "text": "Why the square root stays in my mind"
       },
       {
         "type": "p",
-        "text": "In the standard fixed-channel AWGN setting with known noise statistics and a fixed covertness budget, uncertainty in the sample-average noise energy shrinks as observations accumulate. For real independent Gaussian observations, noise variance σ² and added received signal variance q give:"
+        "text": "In the classical AWGN model with known noise statistics, Willie estimates average energy more accurately as n grows. For real independent Gaussian observations with noise variance σ² and added signal variance q:"
       },
       {
         "type": "equation",
-        "text": "D(P₁ⁿ ∥ P₀ⁿ) = (n/2)[r − ln(1 + r)]\n≈ nr²/4,   r = q/σ² ≪ 1"
+        "text": "D(P₁ⁿ ∥ P₀ⁿ) ≈ nr²/4\nr = q/σ² ≪ 1"
       },
       {
         "type": "p",
-        "text": "D uses natural logarithms. By Pinsker’s inequality, D ≤ 2ε² is sufficient for TV ≤ ε. Keeping this Gaussian divergence bounded therefore requires q = O(n⁻¹ᐟ²). With a fixed nonzero Bob-to-Willie gain ratio, Bob’s low-SNR rate per use scales with power, giving:"
+        "text": "This is the scaling that makes the square-root law intuitive to me. Keeping the divergence bounded asks for received signal power of order 1/√n. Bob’s low-SNR rate per use then has the same scaling, leading to:"
       },
       {
         "type": "equation",
-        "text": "Covert payload: O(√n) bits\nRate per use: O(1/√n) → 0"
+        "text": "Total covert bits: O(√n)\nBits per channel use: O(1/√n)"
       },
       {
         "type": "p",
-        "text": "The square root concerns total bits, not bits per use. Achievability also depends on coding and any shared randomness. A finite-block power budget is therefore not the same as a positive asymptotic covert rate."
+        "text": "There is still more information to send with a longer block, but the per-use rate gets smaller. Low power is the price of hiding from an observer who keeps accumulating evidence."
       },
       {
         "type": "h2",
-        "text": "3. Noise randomness is not persistent uncertainty"
+        "text": "The uncertainty under H₀ feels especially important"
       },
       {
         "type": "p",
-        "text": "Known-variance AWGN is already random; Willie can still estimate its average energy increasingly well. Unknown background power can create a different ambiguity: an energy increase may be attributable to the background under H₀. Certain noise-uncertainty models support positive rates under specified covertness criteria, provided the uncertainty survives longer observation and calibration."
+        "text": "What interests me is the difference between random noise samples and uncertainty about the background power itself. If Willie has a stable, known baseline, averaging helps expose an added signal. If that baseline is genuinely uncertain, an energy increase may look like background variation even under H₀."
       },
       {
         "type": "p",
-        "text": "Randomizing only the signal under H₁ does not automatically defeat detection. If it only changes constants while the per-use divergence remains quadratic in small signal power, square-root scaling remains. But “H₁ uncertainty only changes the coefficient” is not a universal theorem. Timing, spatial structure, and other model changes can alter distinguishability. H₀ uncertainty alone is neither a universal necessity nor sufficient proof of a positive rate."
+        "text": "That is the intuition behind looking for ways beyond square-root scaling. In suitable noise-uncertainty models, ambiguity that survives observation can support a positive rate. The important question for me is what Willie can actually learn about that baseline from calibration or other observations."
+      },
+      {
+        "type": "p",
+        "text": "I also find it useful to separate a coefficient gain from a scaling gain. If a modification leaves divergence proportional to nq², it improves the power budget’s constant while retaining the square root. Changing the scaling calls for a deeper change in how H₀ and H₁ can be distinguished."
       },
       {
         "type": "h2",
-        "text": "4. Average, outage, and per-state guarantees"
+        "text": "The viewpoint changes what counts as covert"
       },
       {
         "type": "p",
-        "text": "For a channel state S known to Willie, let ξ*(S) be his optimal conditional detection error sum. Three different covertness requirements are:"
+        "text": "For a state S known to Willie, let ξ*(S) be his best conditional error sum. The performance viewpoint can be written in three ways:"
       },
       {
         "type": "equation",
-        "text": "Average: E_S[ξ*(S)] ≥ 1 − ε\nOutage: Pr_S{ξ*(S) < 1 − ε} ≤ δ\nPer-state: inf_s ξ*(s) ≥ 1 − ε"
+        "text": "Average: E_S[ξ*(S)] ≥ 1 − ε\nOutage: Pr_S{ξ*(S) < 1 − ε} ≤ δ\nEvery state: inf_s ξ*(s) ≥ 1 − ε"
       },
       {
         "type": "p",
-        "text": "An average can hide bad realizations. An outage constraint limits how often the requirement fails; a per-state guarantee covers every state in the specified set. These are not interchangeable. Per-state covertness means no violating state, not zero detection error: zero error would mean Willie detects perfectly."
+        "text": "This is one of the parts I find most thought-provoking. A good average can coexist with rare, highly exposed states. An outage target puts a budget on those events; an every-state requirement asks for protection across the whole chosen set. The same channel variability can look helpful or troublesome depending on that choice."
       },
       {
         "type": "p",
-        "text": "If S is hidden from Willie, his test must use the corresponding mixture laws; giving him a state-specific threshold changes the model. Deep fading on Bob’s link hurts reliability, while fading on Willie’s link can help covertness. The harmful tail depends on which link varies and what information each terminal has."
+        "text": "The link also matters: a deep fade toward Bob hurts delivery, while a deep fade toward Willie helps concealment. When the state is hidden from Willie, the detector works with the corresponding mixture of observations. What each terminal knows is part of the problem."
       },
       {
         "type": "h2",
-        "text": "5. PLS: public codebooks, private messages"
+        "text": "PLS: knowing the codebook and still learning little"
       },
       {
         "type": "p",
-        "text": "In standard wiretap coding, the codebook and encoding rule can be public. The encoder privately randomizes among multiple codewords associated with the same message. Suitable randomization makes Eve’s observation distributions nearly independent of that message, while Bob can still decode reliably."
+        "text": "The public-codebook idea is what makes wiretap coding interesting to me. Everyone can know the encoding scheme. Alice privately randomizes among several codewords associated with a message, using Bob’s channel advantage to support reliable reception while leaving Eve uncertain about the message."
       },
       {
         "type": "equation",
-        "text": "Reliability: Pr{M̂_B ≠ M} → 0\nStrong secrecy: I(M; Z_Eⁿ ∣ C) → 0"
+        "text": "Bob: Pr{M̂_B ≠ M} → 0\nEve: I(M; Z_Eⁿ ∣ C) → 0"
       },
       {
         "type": "p",
-        "text": "M is the message, Z_Eⁿ Eve’s observation, and C the public codebook. Eve may fail to identify the complete codeword yet still learn message bits; decoding error alone is therefore insufficient. “Corrupting the codeword” is a useful noise intuition, but controlling information leakage is the actual secrecy requirement."
+        "text": "M is the message, C the public codebook, and Z_Eⁿ Eve’s observation. The information-leakage expression gives a precise meaning to the intuition of Eve struggling to distinguish the possibilities. It also captures partial knowledge of the message, beyond whether a whole codeword was decoded."
       },
       {
         "type": "p",
-        "text": "For the scalar real Gaussian wiretap channel with an average-power constraint:"
+        "text": "For a scalar real Gaussian wiretap channel, the secrecy-capacity expression is especially revealing:"
       },
       {
         "type": "equation",
@@ -413,28 +392,28 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Here [a]⁺ = max(a, 0); units are secret bits per real channel use. The factor ½ is omitted for a complex scalar use. Secrecy capacity depends on Bob’s advantage over Eve, not Eve’s capacity alone. Beamforming and artificial noise can help by improving that advantage, subject to their effect on Bob. The scalar difference formula is not a general formula for arbitrary channels."
+        "text": "Here [a]⁺ = max(a, 0), with rates per real channel use. The quantity that matters is Bob’s advantage over Eve. This is why beamforming, artificial noise, and channel asymmetry feel central to PLS: they help create room for reliable communication that leaks little."
       },
       {
         "type": "p",
-        "text": "Covertness and secrecy must be checked separately. Similarity between H₀ and H₁ hides activity; similarity between Eve’s laws for different messages hides content. A covert code may also require a shared key, depending on the channel model—public-codebook wiretap secrecy does not settle that assumption."
+        "text": "The common thread, for me, is uncertainty in the received waveform. Covert communication keeps activity ambiguous; wiretap coding keeps the message ambiguous. Thinking about who is uncertain, about what, and after which observations makes both ideas much easier to connect."
       }
     ]
   },
   {
     "slug": "high-speed-train-doppler-and-cell-free",
-    "title": "A High-Speed Train Ride: Doppler, Handover, and Cell-Free Networks",
+    "title": "Thoughts from a High-Speed Train Ride",
     "lang": "en",
     "published": true,
-    "summary": "A train-ride observation connected to electromagnetic timescales, Doppler shift, cellular mobility, and user-centric cooperation.",
+    "summary": "How intermittent train connectivity led me from Doppler intuition to thinking about cells and user-centric service.",
     "blocks": [
       {
         "type": "p",
-        "text": "During high-speed train rides, the connection sometimes deteriorates suddenly. The first explanation that came to mind was Doppler: the train moves fast. Comparing its speed with the speed of light then made that explanation seem doubtful. Learning about cellular handover added another piece. The useful correction is that Doppler and network architecture both matter, on different timescales; the experience alone cannot identify the cause."
+        "text": "Sometimes the connection suddenly gets worse on a high-speed train. My first thought was Doppler: perhaps the train was simply moving too fast. Later, comparing that speed with the speed of electromagnetic waves made me hesitate. Learning about cellular handover then gave the experience a different meaning: I had been thinking mainly about the wave, while the network also had to keep changing how it served me."
       },
       {
         "type": "h2",
-        "text": "1. Build an intuition for electromagnetic speed"
+        "text": "Getting a feel for the speed of the wave"
       },
       {
         "type": "equation",
@@ -442,11 +421,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "An electromagnetic wave takes about 3.3 μs to travel 1 km in free space. The train takes 12 seconds to cover that distance. The train is clearly not moving too fast for the wave to reach it. But propagation speed alone says little about how stable the received carrier phase is."
+        "text": "A wave travels 1 km in about 3.3 μs; the train takes 12 seconds. Putting those numbers together makes the scale difference feel real. The wave reaches the train quickly. What keeps changing is the propagation path, its phase, and the infrastructure serving the connection."
       },
       {
         "type": "h2",
-        "text": "2. A tiny speed ratio can still produce appreciable Doppler"
+        "text": "The Doppler intuition still has something to it"
       },
       {
         "type": "equation",
@@ -454,51 +433,35 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "θ describes motion relative to the path direction; the sign depends on approaching or receding. Although v/c is tiny, it multiplies a carrier frequency of billions of cycles per second. At 3.5 GHz, the wavelength is about 8.6 cm. In 1 ms, the train travels 8.3 cm—almost one wavelength. For motion along the path, this is nearly a full cycle of phase change."
+        "text": "The small speed ratio multiplies a carrier frequency of billions of cycles per second. At 3.5 GHz, a wavelength is about 8.6 cm, and the train travels 8.3 cm in just 1 ms. That comparison makes more sense to me than v/c alone: moving almost one wavelength changes the received phase substantially."
       },
       {
         "type": "p",
-        "text": "A common frequency shift can be estimated and compensated. Multipath components with different shifts also create Doppler spread and time variation, making channel estimates age. A dominant line-of-sight shift and a multipath Doppler spread are therefore different problems. High mobility increases receiver-tracking demands; it does not automatically imply disconnection."
+        "text": "Receivers track frequency shifts and changing channels. With several propagation paths, their different Doppler shifts add another tracking task. So the original Doppler thought was pointing at something real; the missing piece was the network’s service structure."
       },
       {
         "type": "h2",
-        "text": "3. Cellular architecture adds a slower mobility problem"
+        "text": "Passing through cells"
       },
       {
         "type": "p",
-        "text": "A cellular network divides service among logical cells with overlapping coverage. As serving-link quality changes, the network may hand the connection to another cell. Speed reduces the time available for measurements, decisions, and execution."
+        "text": "As the train moves, one serving cell becomes less suitable and another becomes more useful. The network measures, decides, and executes a handover. What feels like one continuous connection from my seat is supported by a sequence of network decisions."
       },
       {
         "type": "equation",
-        "text": "T_region ≈ L / v\nFor an illustrative L = 1 km: T_region ≈ 12 s"
+        "text": "Time across a service region ≈ L / v\nFor an illustrative L = 1 km: about 12 s"
       },
       {
         "type": "p",
-        "text": "L is an effective along-track service-region length, not a universal cell size or a fixed handover interval. Delayed decisions, weak coverage during execution, or a handover failure can interrupt service. A well-supported handover can preserve continuity; a cell boundary is not inherently a dead zone."
+        "text": "That is the architectural part that changed how I look at the problem. A train moves through coverage quickly, leaving less time for each transition. Carriage attenuation, tunnels, weak coverage, and shared capacity also affect the experience. Handover became an important explanation to keep in mind alongside those radio conditions."
       },
       {
         "type": "h2",
-        "text": "4. Signal drops do not identify a single mechanism"
-      },
-      {
-        "type": "ul",
-        "items": [
-          "Radio link: Doppler, fading, interference, and outdated channel estimates can reduce decoding reliability.",
-          "Coverage: the carriage body and coated windows can attenuate signals; tunnels, terrain, and trackside deployment change the available paths.",
-          "Network: handover procedures, scheduling, and shared capacity can reduce throughput even when signal strength remains usable."
-        ]
+        "text": "Why cell-free caught my attention"
       },
       {
         "type": "p",
-        "text": "Distinguishing these requires measurements: serving-cell changes and handover events, received signal quality, packet loss, and throughput. Better trackside coverage, mobility procedures, and exterior antennas feeding an onboard network address different parts of the problem. Cell-free is one architectural approach, not the only remedy."
-      },
-      {
-        "type": "h2",
-        "text": "5. Cell-free: move the serving set with the user"
-      },
-      {
-        "type": "p",
-        "text": "In user-centric cell-free massive MIMO, a selected group of distributed access points cooperates to serve a device. As the device moves, that group changes, potentially retaining common access points during the transition:"
+        "text": "User-centric cell-free massive MIMO offers a different picture: a group of distributed access points cooperates around the user, and the group changes as the user moves."
       },
       {
         "type": "equation",
@@ -506,15 +469,15 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "The aim is more consistent service and better interference management through cooperation, rather than independent cells serving each region in isolation. The overlap can make a change of serving set less abrupt, provided association, coordination, and resource allocation are well designed."
+        "text": "I like the idea that the service follows the user. A shared access point can maintain continuity while another joins or leaves the serving group. That feels more natural for a moving train than thinking entirely in terms of separate regions and cell edges."
       },
       {
         "type": "p",
-        "text": "“Cell-free” does not remove mobility management. Access-point selection, cluster updates, channel estimation, synchronization, and fronthaul signaling remain. High speed makes timely coordination harder, and the architecture does not eliminate Doppler, vehicle penetration loss, or tunnels."
+        "text": "The coordination still has work to do—updating the group, obtaining channel estimates, synchronizing access points, and exchanging information over the fronthaul. To me, the interesting shift is where that work happens: organizing several access points around a connection, instead of treating each cell as its own little world."
       },
       {
         "type": "p",
-        "text": "The main lesson from the train ride is to separate the scales: microseconds for propagation, milliseconds for carrier and channel tracking, and seconds for crossing coverage regions in this example. A small v/c does not dismiss Doppler, and a sudden connection drop does not by itself prove a handover problem."
+        "text": "The train ride left me thinking about wireless communication at two levels: how a moving receiver follows the waveform, and how a moving user is followed by the network. Connecting those two pictures is what made cell-free interesting to me."
       }
     ]
   }
