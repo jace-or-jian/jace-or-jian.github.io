@@ -251,7 +251,7 @@ window.BLOG_POSTS = [
     "title": "Optimization Starts with a Real System Problem",
     "lang": "en",
     "published": true,
-    "summary": "Why optimize, what makes a formulation meaningful, and how I understand SCA, Lagrangian methods, and SDR.",
+    "summary": "Meaningful system models, SCA, Lagrangian methods, SDR, and alternating optimization with efficient, interpretable updates.",
     "blocks": [
       {
         "type": "p",
@@ -307,11 +307,27 @@ window.BLOG_POSTS = [
       },
       {
         "type": "h2",
-        "text": "5. Check the decision, not just the solver output"
+        "text": "5. Alternating optimization: keep each update cheap"
       },
       {
         "type": "p",
-        "text": "After solving, I would check the original constraints, sensitivity to uncertain inputs, runtime, and performance against the benchmarks. The question I care about is whether the model captures a real limitation and the resulting decision improves the system enough to justify its cost."
+        "text": "A jointly nonconvex problem may become convex in one block of variables when the others are fixed. Alternating optimization exploits this structure by updating the blocks in turn. Exact block minimization can make the objective nonincreasing, but convergence of objective values alone does not establish a globally optimal solution; stationarity requires additional assumptions."
+      },
+      {
+        "type": "p",
+        "text": "I would look for closed-form block updates wherever possible. Repeatedly calling an inner iterative solver inside an outer alternating loop can be expensive. A useful cost comparison counts outer iterations, inner iterations, and the work in each update. Closed-form matrix expressions also have a cost: large linear-system solves can dominate runtime. Nested iteration can still be worthwhile if its accuracy and total cost are justified."
+      },
+      {
+        "type": "p",
+        "text": "WMMSE illustrates both the benefit and the qualification. Its reformulation exposes simple block updates: the receive filters and MSE weights have closed-form expressions. With transmit-power constraints, the precoder update is typically explicit only for a given Lagrange multiplier, which may require a one-dimensional search such as bisection. Its appeal comes from the exploitable block structure, rather than every step being entirely search-free."
+      },
+      {
+        "type": "h2",
+        "text": "6. Prefer a solution that also explains the system"
+      },
+      {
+        "type": "p",
+        "text": "Ideally, I want an explicit solution that shows how the decision changes with power, interference, or uncertainty. When an exact closed form is unavailable, useful bounds, limiting cases, and sensitivity analysis can still reveal the system. I would then check original feasibility, runtime, and benchmark performance: an optimizer should produce both a practical decision and an understandable explanation."
       }
     ]
   }
