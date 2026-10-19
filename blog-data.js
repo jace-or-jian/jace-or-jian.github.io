@@ -299,5 +299,126 @@ window.BLOG_POSTS = [
         "text": "An explicit solution can reveal how power, interference, and uncertainty change the decision. When no exact closed form is available, bounds, limiting cases, and sensitivity analysis can still expose structure. Final checks belong to the original problem: feasibility, runtime, robustness, and performance against a strong, simpler benchmark."
       }
     ]
+  },
+  {
+    "slug": "covert-communication-and-physical-layer-security",
+    "title": "Covert Communication and PLS: Detection and Information Leakage",
+    "lang": "en",
+    "published": true,
+    "summary": "The square-root law, persistent uncertainty, average and outage guarantees, and public-codebook secrecy.",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Covert communication hides whether a transmission occurs. Physical-layer security (PLS), in the wiretap setting, hides the message even when transmission is known. Both exploit physical channels, noise, and coding, but constrain different inferences from the received waveform. Willie is the detector; Eve is the eavesdropper. They may be the same device, but the two requirements remain distinct."
+      },
+      {
+        "type": "h2",
+        "text": "1. Covertness is a hypothesis-testing constraint"
+      },
+      {
+        "type": "equation",
+        "text": "H₀: Yᵢ = Zᵢ\nH₁: Yᵢ = h_W Xᵢ + Zᵢ,   i = 1, …, n"
+      },
+      {
+        "type": "p",
+        "text": "H₀ means no covert signal; Zᵢ includes the modeled background. H₁ adds Alice’s signal through channel h_W. A channel use is one input–output opportunity in the discrete-time model, usually a real or complex symbol dimension. It is not one bit: a codeword spans n uses. Increasing samples beyond the independent signal dimensions does not create free channel uses."
+      },
+      {
+        "type": "equation",
+        "text": "ξ* = min_detector (P_FA + P_MD)\nξ* = 1 − TV(P₀ⁿ, P₁ⁿ) ≥ 1 − ε"
+      },
+      {
+        "type": "p",
+        "text": "P_FA is a false alarm and P_MD a missed detection. P₀ⁿ and P₁ⁿ are Willie’s full observation laws under the two hypotheses, including the information available to him. For equal priors, the minimum average detection error is ξ*/2; ξ* near one means little advantage over guessing. Low received power helps by keeping the laws close, rather than making the signal literally absent."
+      },
+      {
+        "type": "h2",
+        "text": "2. Why the square-root law appears"
+      },
+      {
+        "type": "p",
+        "text": "In the standard fixed-channel AWGN setting with known noise statistics and a fixed covertness budget, uncertainty in the sample-average noise energy shrinks as observations accumulate. For real independent Gaussian observations, noise variance σ² and added received signal variance q give:"
+      },
+      {
+        "type": "equation",
+        "text": "D(P₁ⁿ ∥ P₀ⁿ) = (n/2)[r − ln(1 + r)]\n≈ nr²/4,   r = q/σ² ≪ 1"
+      },
+      {
+        "type": "p",
+        "text": "D uses natural logarithms. By Pinsker’s inequality, D ≤ 2ε² is sufficient for TV ≤ ε. Keeping this Gaussian divergence bounded therefore requires q = O(n⁻¹ᐟ²). With a fixed nonzero Bob-to-Willie gain ratio, Bob’s low-SNR rate per use scales with power, giving:"
+      },
+      {
+        "type": "equation",
+        "text": "Covert payload: O(√n) bits\nRate per use: O(1/√n) → 0"
+      },
+      {
+        "type": "p",
+        "text": "The square root concerns total bits, not bits per use. Achievability also depends on coding and any shared randomness. A finite-block power budget is therefore not the same as a positive asymptotic covert rate."
+      },
+      {
+        "type": "h2",
+        "text": "3. Noise randomness is not persistent uncertainty"
+      },
+      {
+        "type": "p",
+        "text": "Known-variance AWGN is already random; Willie can still estimate its average energy increasingly well. Unknown background power can create a different ambiguity: an energy increase may be attributable to the background under H₀. Certain noise-uncertainty models support positive rates under specified covertness criteria, provided the uncertainty survives longer observation and calibration."
+      },
+      {
+        "type": "p",
+        "text": "Randomizing only the signal under H₁ does not automatically defeat detection. If it only changes constants while the per-use divergence remains quadratic in small signal power, square-root scaling remains. But “H₁ uncertainty only changes the coefficient” is not a universal theorem. Timing, spatial structure, and other model changes can alter distinguishability. H₀ uncertainty alone is neither a universal necessity nor sufficient proof of a positive rate."
+      },
+      {
+        "type": "h2",
+        "text": "4. Average, outage, and per-state guarantees"
+      },
+      {
+        "type": "p",
+        "text": "For a channel state S known to Willie, let ξ*(S) be his optimal conditional detection error sum. Three different covertness requirements are:"
+      },
+      {
+        "type": "equation",
+        "text": "Average: E_S[ξ*(S)] ≥ 1 − ε\nOutage: Pr_S{ξ*(S) < 1 − ε} ≤ δ\nPer-state: inf_s ξ*(s) ≥ 1 − ε"
+      },
+      {
+        "type": "p",
+        "text": "An average can hide bad realizations. An outage constraint limits how often the requirement fails; a per-state guarantee covers every state in the specified set. These are not interchangeable. Per-state covertness means no violating state, not zero detection error: zero error would mean Willie detects perfectly."
+      },
+      {
+        "type": "p",
+        "text": "If S is hidden from Willie, his test must use the corresponding mixture laws; giving him a state-specific threshold changes the model. Deep fading on Bob’s link hurts reliability, while fading on Willie’s link can help covertness. The harmful tail depends on which link varies and what information each terminal has."
+      },
+      {
+        "type": "h2",
+        "text": "5. PLS: public codebooks, private messages"
+      },
+      {
+        "type": "p",
+        "text": "In standard wiretap coding, the codebook and encoding rule can be public. The encoder privately randomizes among multiple codewords associated with the same message. Suitable randomization makes Eve’s observation distributions nearly independent of that message, while Bob can still decode reliably."
+      },
+      {
+        "type": "equation",
+        "text": "Reliability: Pr{M̂_B ≠ M} → 0\nStrong secrecy: I(M; Z_Eⁿ ∣ C) → 0"
+      },
+      {
+        "type": "p",
+        "text": "M is the message, Z_Eⁿ Eve’s observation, and C the public codebook. Eve may fail to identify the complete codeword yet still learn message bits; decoding error alone is therefore insufficient. “Corrupting the codeword” is a useful noise intuition, but controlling information leakage is the actual secrecy requirement."
+      },
+      {
+        "type": "p",
+        "text": "For the scalar real Gaussian wiretap channel with an average-power constraint:"
+      },
+      {
+        "type": "equation",
+        "text": "C_s = [C_B − C_E]⁺\n= [½ log₂(1 + γ_B) − ½ log₂(1 + γ_E)]⁺"
+      },
+      {
+        "type": "p",
+        "text": "Here [a]⁺ = max(a, 0); units are secret bits per real channel use. The factor ½ is omitted for a complex scalar use. Secrecy capacity depends on Bob’s advantage over Eve, not Eve’s capacity alone. Beamforming and artificial noise can help by improving that advantage, subject to their effect on Bob. The scalar difference formula is not a general formula for arbitrary channels."
+      },
+      {
+        "type": "p",
+        "text": "Covertness and secrecy must be checked separately. Similarity between H₀ and H₁ hides activity; similarity between Eve’s laws for different messages hides content. A covert code may also require a shared key, depending on the channel model—public-codebook wiretap secrecy does not settle that assumption."
+      }
+    ]
   }
 ];
