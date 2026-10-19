@@ -340,11 +340,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "That is the intuition behind looking for ways beyond square-root scaling. In suitable noise-uncertainty models, ambiguity that survives observation can support a positive rate. The important question for me is what Willie can actually learn about that baseline from calibration or other observations."
-      },
-      {
-        "type": "p",
-        "text": "I also find it useful to separate a coefficient gain from a scaling gain. If a modification leaves divergence proportional to nq², it improves the power budget’s constant while retaining the square root. Changing the scaling calls for a deeper change in how H₀ and H₁ can be distinguished."
+        "text": "My understanding is that uncertainty introduced under H₁ often increases the coefficient of the square-root law: more covert bits can be sent, while the growth remains proportional to √n. What interests me more is uncertainty already present under H₀, such as background noise power that Willie cannot accurately determine. If that uncertainty persists as observations accumulate, it may allow growth beyond the square-root law."
       },
       {
         "type": "h2",
@@ -360,11 +356,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "This is one of the parts I find most thought-provoking. A good average can coexist with rare, highly exposed states. An outage target puts a budget on those events; an every-state requirement asks for protection across the whole chosen set. The same channel variability can look helpful or troublesome depending on that choice."
+        "text": "What I find interesting is that the relationship between uncertainty and covertness depends strongly on the metric. Greater channel variability may improve average covertness because favorable realizations contribute to the average. Under an outage metric, however, the unfavorable tail becomes particularly important: larger fluctuations may create more states in which the covertness requirement fails. The same variability can therefore improve the average while increasing outage risk. For me, this makes the choice of metric part of the physical interpretation—what looks like useful uncertainty from one viewpoint may become a source of risk from another."
       },
       {
         "type": "p",
-        "text": "The link also matters: a deep fade toward Bob hurts delivery, while a deep fade toward Willie helps concealment. When the state is hidden from Willie, the detector works with the corresponding mixture of observations. What each terminal knows is part of the problem."
+        "text": "For a specific system, choosing the metric that matches its actual operating needs is essential. Average performance, tolerance for occasional exposure, and protection in every state correspond to different requirements; the metric should reflect the one the system actually needs."
       },
       {
         "type": "h2",
