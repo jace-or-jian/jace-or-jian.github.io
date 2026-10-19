@@ -9,7 +9,7 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "What I like most about THz is the large bandwidth. High data rates become possible without putting all the pressure on spectral efficiency and increasingly high modulation orders. That feels like a different way of approaching the rate problem: start with more spectrum, then work out how to keep the link alive."
+        "text": "The large bandwidth is what draws me to THz. High data rates become possible without putting all the pressure on spectral efficiency and increasingly high modulation orders. Start with more spectrum, then work out how to keep the link alive."
       },
       {
         "type": "h2",
@@ -21,7 +21,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "At fixed SNR, capacity grows linearly with bandwidth B. With fixed received power Pᵣ, the wider band also collects more noise, so the rate grows more slowly. The point that stays with me is that bandwidth gives another route to a high rate, alongside better use of each hertz."
+        "text": "At fixed SNR, capacity grows linearly with bandwidth B. With fixed received power Pᵣ, the wider band also collects more noise, so the rate grows more slowly. Increasing bandwidth gives another route to a high rate, alongside better use of each hertz."
       },
       {
         "type": "p",
@@ -40,7 +40,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "My first picture is indoor communication and dense outdoor hotspots: a few metres to tens of metres, with high rates over a short link. I keep “tens of metres, often below a hundred” as an intuition for access scenarios. Inter-satellite communication is also interesting because the path through space avoids atmospheric gas absorption."
+        "text": "Indoor communication and dense outdoor hotspots are the first scenarios that come to mind: a few metres to tens of metres, with high rates over a short link. I keep “tens of metres, often below a hundred” as an intuition for access scenarios. Inter-satellite paths are also appealing because they avoid atmospheric gas absorption."
       },
       {
         "type": "p",
@@ -52,7 +52,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "What makes THz propagation different to me is how much the wavelength changes the importance of everyday details. Across roughly 0.1–10 THz, it runs from millimetres down to tens of micrometres. Obstacles, surface texture, and the atmosphere start to shape the link much more strongly."
+        "text": "A shorter wavelength brings small environmental details into the link budget. Across roughly 0.1–10 THz, it runs from millimetres down to tens of micrometres. Obstacles, surface texture, and the atmosphere start to shape the link much more strongly."
       },
       {
         "type": "p",
@@ -60,7 +60,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Surface roughness is another change that I find easy to overlook. A 0.1 mm surface feature is only one-thousandth of a wavelength at 3 GHz, but one-tenth at 300 GHz. The same physical surface can therefore scatter much more of the energy that a lower-frequency model treats as a clean reflection. Even the texture of a wall starts to matter when choosing a reflected path."
+        "text": "Take surface roughness: a 0.1 mm surface feature is only one-thousandth of a wavelength at 3 GHz, but one-tenth at 300 GHz. The same physical surface can therefore scatter much more of the energy that a lower-frequency model treats as a clean reflection. Even the texture of a wall starts to matter when choosing a reflected path."
       },
       {
         "type": "p",
@@ -76,7 +76,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "For a fixed antenna gain G, a shorter wavelength gives a smaller effective receiving area Aₑ. An array lets many small elements work together, building directional gain in a compact space. This is why massive arrays make sense to me at THz: the short wavelength creates a challenge for individual elements and an opportunity to combine many of them."
+        "text": "For a fixed antenna gain G, a shorter wavelength gives a smaller effective receiving area Aₑ. An array lets many small elements work together, building directional gain in a compact space. The short wavelength creates both a challenge for individual elements and an opportunity to combine many of them."
       },
       {
         "type": "h2",
@@ -88,11 +88,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "This is where sensing-assisted communication feels particularly natural. Motion estimates can guide predictive beamforming, and an approaching blocker can trigger preparation of a reflected path or another connection. Sensing becomes part of keeping communication available."
+        "text": "Sensing fits naturally into this task. Motion estimates can guide predictive beamforming, and an approaching blocker can trigger preparation of a reflected path or another connection. Sensing becomes part of keeping communication available."
       },
       {
         "type": "p",
-        "text": "The tradeoff I keep coming back to is gain versus tolerance: a tighter beam reaches farther, but asks for better alignment and faster updates. For me, that is the most interesting part of THz—the bandwidth is attractive, and maintaining the link is where the system design comes alive."
+        "text": "A tighter beam reaches farther, but asks for better alignment and faster updates. This gain-versus-tolerance tradeoff is why I keep connecting THz with sensing: the two problems fit together at the point where the link needs to stay usable."
       }
     ]
   },
@@ -105,7 +105,7 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "Wireless systems are easier for me to follow when I first separate two questions: how does one radio link work, and how do several links share the system? That is the picture I use for PHY and MAC."
+        "text": "I usually start with two questions: how does one radio link work, and how do several links share the system? PHY and MAC fit into those two questions."
       },
       {
         "type": "h2",
@@ -129,7 +129,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "The intuition I like is that an antenna controls where energy goes. A transmitting array brings the fields from several elements together. Adjust their phases, and the waves reinforce each other in one direction and partially cancel elsewhere: constructive and destructive interference."
+        "text": "An antenna controls where energy goes. A transmitting array brings the fields from several elements together. Adjust their phases, and the waves reinforce each other in one direction and partially cancel elsewhere: constructive and destructive interference."
       },
       {
         "type": "figure",
@@ -140,7 +140,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "That picture makes electronic steering much easier to understand. Changing the phase progression changes the direction of reinforcement. In the far field, beamwidth scales roughly as λ/D, so a larger aperture D relative to wavelength produces a tighter beam."
+        "text": "Changing the phase progression changes the direction of reinforcement. In the far field, beamwidth scales roughly as λ/D, so a larger aperture D relative to wavelength produces a tighter beam."
       },
       {
         "type": "h3",
@@ -148,7 +148,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "I think of an RF chain as an independently controlled signal path, and a phase shifter as a way to adjust an existing signal. That distinction explains why a large antenna array can still have limited spatial freedom."
+        "text": "An RF chain supplies an independently controlled signal path; a phase shifter adjusts an existing signal. Many antennas can share one RF input, which explains why element count alone says little about the available spatial freedom."
       },
       {
         "type": "figure",
@@ -171,7 +171,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "The point that makes hybrid beamforming clear to me is the difference between producing independent waveforms and shaping one waveform across antennas. Different RF chains can carry different, independently controlled RF waveforms. The analog network then distributes and adjusts those signals across a larger antenna array."
+        "text": "Different RF chains can carry different, independently controlled RF waveforms. The analog network distributes and adjusts those signals across a larger antenna array. Producing the waveforms and shaping how they radiate are two different jobs."
       },
       {
         "type": "p",
@@ -179,7 +179,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "This is the hybrid compromise that I find intuitive: a few RF chains provide independent signal paths, while many phase-controlled antenna branches provide directional gain. The diagram also includes delay elements that adjust timing along those paths. I read the architecture from left to right—first the digital and RF signals, then the analog controls that shape them into beams."
+        "text": "Hybrid combines a few independent RF signal paths with many phase-controlled antenna branches. The diagram also includes delay elements that adjust timing along those paths. Reading it from left to right follows the signal: digital processing, RF chains, then the analog controls that shape the beams."
       },
       {
         "type": "figure",
@@ -198,7 +198,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "What I find interesting here is how the physics shapes the optimization: choosing feeds becomes discrete, while the digital weights on those paths can remain continuous. A hardware structure has turned part of beamforming into a selection problem."
+        "text": "Choosing feeds becomes a discrete decision, while the digital weights on those paths can remain continuous. A hardware choice has turned part of beamforming into a selection problem."
       }
     ]
   },
@@ -211,7 +211,7 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "For me, optimization matters because resources are limited and choices compete. More power can improve a link but cost energy or create interference. More beam training can improve alignment but take time away from data. The point is to make a good decision within those tradeoffs."
+        "text": "With limited power and time, improving one part of a system usually costs something elsewhere. More power can improve a link but cost energy or create interference. More beam training can improve alignment but take time away from data. Optimization is a way to make a good decision within those tradeoffs."
       },
       {
         "type": "h2",
@@ -219,11 +219,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "I care most about objectives that mean something in the real system: useful throughput, reliability, latency, energy, or secrecy. The constraints should come from the same place—available power, RF chains, hardware settings, and what the system actually knows about its channels."
+        "text": "The objective should mean something in the real system: useful throughput, reliability, latency, energy, or secrecy. The constraints should come from the same place—available power, RF chains, hardware settings, and what the system actually knows about its channels."
       },
       {
         "type": "p",
-        "text": "This is why I am less interested in combining technique names and then optimizing the combination. The more compelling starting point is a real bottleneck: what is holding the system back, what can be changed, and what must be sacrificed to improve it? That gives the mathematics a reason to exist."
+        "text": "Combining technique names and then optimizing the combination rarely feels like a satisfying starting point. I care more about the bottleneck: what is holding the system back, what can be changed, and what must be sacrificed to improve it? That gives the mathematics a reason to exist."
       },
       {
         "type": "h2",
@@ -243,7 +243,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "I want efficiency to start at the modeling stage. The size of the variable, the number of constraints, and the structure of those constraints already shape how much work the solver will face. A few examples make this concrete:"
+        "text": "Efficiency starts at the modeling stage. Variable dimensions, constraint count, and constraint structure already shape how much work the solver will face. A few examples make this concrete:"
       },
       {
         "type": "ul",
@@ -256,7 +256,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "For me, a good model captures the important tradeoff with manageable computational work. Eliminating redundant variables and exposing sparsity, separable blocks, or shared structure can be as valuable as choosing a better solver. This is something to think about before the algorithm is built."
+        "text": "A good model captures the important tradeoff with manageable computational work. Eliminating redundant variables and exposing sparsity, separable blocks, or shared structure can be as valuable as choosing a better solver. These decisions belong in the modeling stage."
       },
       {
         "type": "h2",
@@ -264,7 +264,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Wireless problems often become nonconvex through interference, variable coupling, discrete choices, or rank constraints. I find it useful to look for an equivalent reformulation first, then for approximations or relaxations that expose a manageable structure."
+        "text": "Wireless problems often become nonconvex through interference, variable coupling, discrete choices, or rank constraints. An equivalent reformulation can reveal a simpler problem; approximations and relaxations offer other ways to expose useful structure."
       },
       {
         "type": "ul",
@@ -280,7 +280,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "A jointly difficult problem can become convex in one group of variables when the others are fixed. Alternating optimization uses that structure. What makes it especially appealing to me is finding explicit updates for the individual blocks."
+        "text": "A jointly difficult problem can become convex in one group of variables when the others are fixed. Alternating optimization uses that structure. Explicit updates for the individual blocks make this approach especially attractive."
       },
       {
         "type": "p",
@@ -296,7 +296,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "My ideal result is a closed-form expression that shows how a decision changes with power, interference, or another system parameter. There is something satisfying about seeing the tradeoff directly in the answer. Even when numerical optimization is needed, a bound, a limiting case, or a sensitivity result can provide that same kind of insight."
+        "text": "A closed-form solution lets me see how a decision changes with power, interference, or another system parameter. Getting both a decision and an explanation makes the derivation worth the effort. When numerical optimization is needed, a bound, a limiting case, or a sensitivity result can still provide insight."
       }
     ]
   },
@@ -309,7 +309,7 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "The distinction that helps me most is simple: covert communication hides the existence of a transmission; physical-layer security (PLS) hides its content. One asks whether Willie can notice activity, while the other asks what Eve can learn from the waveform. I find both interesting because the channel itself becomes part of the protection."
+        "text": "Covert communication hides the existence of a transmission; physical-layer security (PLS) hides its content. Willie tries to notice activity, while Eve tries to learn the message. In both cases, the physical channel becomes part of the protection."
       },
       {
         "type": "h2",
@@ -321,7 +321,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Under H₀, Willie sees the background Zᵢ; under H₁, Alice’s signal is added. My picture of covert communication is to keep that addition small enough, or ambiguous enough, that it blends into what Willie already expects to see."
+        "text": "Under H₀, Willie sees the background Zᵢ; under H₁, Alice’s signal is added. Keeping that addition small enough, or ambiguous enough, lets it blend into what Willie already expects to see."
       },
       {
         "type": "equation",
@@ -349,7 +349,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "This is the scaling that makes the square-root law intuitive to me. Keeping the divergence bounded asks for received signal power of order 1/√n. Bob’s low-SNR rate per use then has the same scaling, leading to:"
+        "text": "Keeping this divergence bounded asks for received signal power of order 1/√n. Bob’s low-SNR rate per use then has the same scaling, leading to:"
       },
       {
         "type": "equation",
@@ -365,11 +365,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "What interests me is the difference between random noise samples and uncertainty about the background power itself. If Willie has a stable, known baseline, averaging helps expose an added signal. If that baseline is genuinely uncertain, an energy increase may look like background variation even under H₀."
+        "text": "Random noise samples and an unknown background power create different kinds of uncertainty. With a stable, known baseline, averaging helps Willie expose an added signal. With an uncertain baseline, the same energy increase may look like background variation even under H₀."
       },
       {
         "type": "p",
-        "text": "My understanding is that uncertainty introduced under H₁ often increases the coefficient of the square-root law: more covert bits can be sent, while the growth remains proportional to √n. What interests me more is uncertainty already present under H₀, such as background noise power that Willie cannot accurately determine. If that uncertainty persists as observations accumulate, it may allow growth beyond the square-root law."
+        "text": "Uncertainty introduced under H₁ often increases the coefficient of the square-root law: more covert bits can be sent, while the growth remains proportional to √n. The more promising possibility for changing that growth is uncertainty already present under H₀, such as background noise power that Willie cannot accurately determine. If it persists as observations accumulate, it may allow growth beyond the square-root law."
       },
       {
         "type": "h2",
@@ -385,7 +385,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "What I find interesting is that the relationship between uncertainty and covertness depends strongly on the metric. Greater channel variability may improve average covertness because favorable realizations contribute to the average. Under an outage metric, however, the unfavorable tail becomes particularly important: larger fluctuations may create more states in which the covertness requirement fails. The same variability can therefore improve the average while increasing outage risk. For me, this makes the choice of metric part of the physical interpretation—what looks like useful uncertainty from one viewpoint may become a source of risk from another."
+        "text": "The relationship between uncertainty and covertness depends strongly on the metric. Greater channel variability may improve average covertness because favorable realizations contribute to the average. Under an outage metric, larger fluctuations may create more states in which the covertness requirement fails. The same variability can therefore improve the average while increasing outage risk. Something useful from one viewpoint becomes a source of risk from another."
       },
       {
         "type": "p",
@@ -397,11 +397,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "My picture of PLS starts with the difference between Bob’s channel and Eve’s. The same transmission reaches them through different paths, so the observations can have very different quality. What interests me is that this advantage can also be actively created: steer more useful energy toward Bob, inject artificial noise toward Eve, or choose a favorable transmission opportunity."
+        "text": "Bob and Eve receive the same transmission through different paths, so their observations can have very different quality. This advantage can also be actively created: steer more useful energy toward Bob, inject artificial noise toward Eve, or choose a favorable transmission opportunity."
       },
       {
         "type": "p",
-        "text": "The aim is to give Bob a clearer signal while making Eve’s observation less informative. That turns propagation and signal design into resources for security. It also connects PLS to the beamforming ideas that already feel intuitive to me."
+        "text": "The aim is to give Bob a clearer signal while making Eve’s observation less informative. Propagation and signal design become resources for security, and beamforming takes on another purpose."
       },
       {
         "type": "h3",
@@ -409,7 +409,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "I imagine the codebook as a collection of possible transmitted waveforms. Through Bob’s better channel, the received waveform is easier to match to the intended codeword. Through Eve’s noisier channel, many candidates can remain plausible. This is the codeword-confusion picture that makes wiretap coding click for me."
+        "text": "I picture a codebook as a collection of possible transmitted waveforms. Through Bob’s better channel, the received waveform is easier to match to the intended codeword. Through Eve’s noisier channel, many candidates can remain plausible."
       },
       {
         "type": "equation",
@@ -417,7 +417,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Wiretap coding builds on that picture by assigning multiple codewords to each message and randomly choosing one for transmission. The codebook and the grouping can be public; the random choice is private. With suitable coding rates, Bob can distinguish the transmission reliably, while Eve’s observations stay compatible with different messages."
+        "text": "Wiretap coding assigns multiple codewords to each message and randomly chooses one for transmission. The codebook and the grouping can be public; the random choice is private. With suitable coding rates, Bob can distinguish the transmission reliably, while Eve’s observations stay compatible with different messages."
       },
       {
         "type": "equation",
@@ -449,7 +449,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "For me, PLS and covert communication add another route to secure communication alongside mathematical cryptography and wired connections. They can work together with those established choices, adding protection through the physical channel and the waveform itself. That extra possibility is part of what makes them interesting to study. Who knows what these ideas might grow into in the future?"
+        "text": "PLS and covert communication add another route to secure communication alongside mathematical cryptography and wired connections. They can work together with those established choices, adding protection through the physical channel and the waveform itself. Having that extra possibility is exciting. Who knows what these ideas might grow into in the future?"
       }
     ]
   },
@@ -486,7 +486,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "The small speed ratio multiplies a carrier frequency of billions of cycles per second. At 3.5 GHz, a wavelength is about 8.6 cm, and the train travels 8.3 cm in just 1 ms. That comparison makes more sense to me than v/c alone: moving almost one wavelength changes the received phase substantially."
+        "text": "The small speed ratio multiplies a carrier frequency of billions of cycles per second. At 3.5 GHz, a wavelength is about 8.6 cm, and the train travels 8.3 cm in just 1 ms. Moving almost one wavelength changes the received phase substantially. That was the comparison I had been missing when looking only at v/c."
       },
       {
         "type": "p",
@@ -506,7 +506,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "That is the architectural part that changed how I look at the problem. A train moves through coverage quickly, leaving less time for each transition. Carriage attenuation, tunnels, weak coverage, and shared capacity also affect the experience. Handover became an important explanation to keep in mind alongside those radio conditions."
+        "text": "A train moves through coverage quickly, leaving less time for each transition. Carriage attenuation, tunnels, weak coverage, and shared capacity also affect the experience. Handover became an important explanation to keep in mind alongside those radio conditions."
       },
       {
         "type": "h2",
@@ -526,11 +526,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "The coordination still has work to do—updating the group, obtaining channel estimates, synchronizing access points, and exchanging information over the fronthaul. To me, the interesting shift is where that work happens: organizing several access points around a connection, instead of treating each cell as its own little world."
+        "text": "The coordination still has work to do—updating the group, obtaining channel estimates, synchronizing access points, and exchanging information over the fronthaul. The work shifts toward organizing several access points around a connection, instead of treating each cell as its own little world."
       },
       {
         "type": "p",
-        "text": "The train ride left me thinking about wireless communication at two levels: how a moving receiver follows the waveform, and how a moving user is followed by the network. Connecting those two pictures is what made cell-free interesting to me."
+        "text": "After that train ride, I started thinking about both sides of mobility: the receiver following a changing waveform, and the network following a moving user. Cell-free connects directly to the second question."
       }
     ]
   }
