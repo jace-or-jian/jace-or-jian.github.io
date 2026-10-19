@@ -279,7 +279,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Benchmarks make this argument testable. Compare against a strong, simpler design under the same resources and assumptions; include training and computational overhead; and use an ablation to isolate what produces the gain. A bound or small-instance exhaustive search can help assess how much improvement is still possible. A better objective value matters when it translates into better system performance."
+        "text": "Optimization also provides a performance benchmark. A practical system may favor a fast, reusable solution over solving an optimization problem for every new instance. Under the same model and resource constraints, comparing that solution with a carefully optimized reference reveals the performance sacrificed for speed and simplicity. This gap helps us judge whether the tradeoff is acceptable for the application. Training and computational overhead should be included in the comparison."
+      },
+      {
+        "type": "p",
+        "text": "The reference must be labeled honestly: a locally optimized solution is not necessarily the global optimum, and modeled performance is not the same as measured system performance. A proven bound or global solution can help assess distance from optimality; a local reference shows the gap to that particular design."
       },
       {
         "type": "h2",
