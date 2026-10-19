@@ -178,10 +178,6 @@ window.BLOG_POSTS = [
         "text": "In the grouped architecture below, each RF chain feeds one antenna subarray. Its phase shifters all work on copies of that chain’s waveform. Each branch can have its own phase setting at the same time, so the elements reinforce that waveform in a chosen direction. Many available phase settings give control over how the waveform is radiated; the independent waveform itself comes from the RF chain."
       },
       {
-        "type": "p",
-        "text": "Hybrid combines a few independent RF signal paths with many phase-controlled antenna branches. The diagram also includes delay elements that adjust timing along those paths. Reading it from left to right follows the signal: digital processing, RF chains, then the analog controls that shape the beams."
-      },
-      {
         "type": "figure",
         "src": "assets/notes/hybrid-beamforming-delays.png",
         "alt": "Digital baseband precoding feeds multiple RF chains. Each illustrated branch includes analog phase shifters and delay elements before its antenna subarray, with beams directed toward different users.",
@@ -190,15 +186,15 @@ window.BLOG_POSTS = [
       },
       {
         "type": "h3",
-        "text": "A lens makes direction feel like a switch choice"
+        "text": "Lens antennas: focusing waves and switching feeds"
       },
       {
         "type": "p",
-        "text": "A lens maps different arrival directions to different feed positions. In transmission, exciting different feeds produces beams in different directions. Switches can therefore connect a few RF chains to the feeds that matter."
+        "text": "A lens antenna uses the lens shape and material to bend the waves and bring their phases together. On reception, waves arriving from different directions are focused near different feed positions. The lens turns a direction in space into a location where the energy is collected."
       },
       {
         "type": "p",
-        "text": "Choosing feeds becomes a discrete decision, while the digital weights on those paths can remain continuous. A hardware choice has turned part of beamforming into a selection problem."
+        "text": "On transmission, exciting a feed at one position sends a beam in its corresponding direction. Exciting another feed changes the direction. A switch network can turn these feed connections on or off, selecting which beams are active. Much of the beam shaping is built into the lens itself; changing the electrical connections makes switching among the available directions flexible and straightforward."
       }
     ]
   },
