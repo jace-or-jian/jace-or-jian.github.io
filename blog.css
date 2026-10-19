@@ -1,3 +1,7 @@
+.theme-editorial .sidebar-inner .sidebar-note {
+  font-size: 14px;
+  line-height: 1.65;
+}
 .theme-editorial .blog-entry {
   display: flex;
   align-items: center;
