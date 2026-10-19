@@ -555,39 +555,47 @@ window.BLOG_POSTS = [
       },
       {
         "type": "h2",
-        "text": "Slide the frequency, watch the phases separate"
+        "text": "Why changing frequency changes the sum"
       },
       {
         "type": "p",
-        "text": "As frequency changes, each path rotates at a rate set by its delay. For two paths, shifting the frequency by Δf changes their relative phase by:"
-      },
-      {
-        "type": "equation",
-        "text": "|Δφ| = 2π |Δf| |τ₁ − τ₂|"
+        "text": "Keep the receiver still and compare nearby frequencies. The paths have the same delay difference, but a higher frequency fits more wave cycles into that delay. Their relative phase—the difference between where the copies are in their cycles—therefore changes."
       },
       {
         "type": "p",
-        "text": "With a small delay difference, a large frequency change is needed to rearrange the interference. With a large delay difference, even a small change can move the sum from reinforcement toward cancellation. For two equal-strength paths, the ripple repeats every 1/|τ₁ − τ₂| Hz. This is the picture I use for frequency selectivity."
+        "text": "Suppose two equally strong paths arrive 1 microsecond apart. Increasing frequency by 0.5 MHz adds half a cycle to their relative difference. Copies that reinforced each other now cancel. The same location can therefore have a strong signal at one frequency and a deep dip at another."
       },
       {
         "type": "p",
-        "text": "Coherence bandwidth B_c describes the frequency separation over which the channel response remains strongly correlated. If the signal bandwidth B is much smaller than B_c, its frequencies see roughly the same gain: flat fading. A wider signal can span peaks and notches, so different parts experience different gains: frequency-selective fading."
-      },
-      {
-        "type": "equation",
-        "text": "B_c ∝ 1/τ_rms"
-      },
-      {
-        "type": "p",
-        "text": "Here τ_rms is the power-weighted RMS delay spread. The significant paths and their relative delays matter together. The maximum excess delay instead describes the span of the echoes, useful when thinking about channel memory and an OFDM guard interval. Long echoes can overlap later symbols; OFDM handles the frequency selectivity using narrow subcarriers and a suitable cyclic prefix."
+        "text": "A larger delay difference makes this happen over a smaller frequency change. That is the link between multipath delays and the bumps and dips in a channel’s frequency response."
       },
       {
         "type": "h2",
-        "text": "Walking through the pattern"
+        "text": "Coherence bandwidth: how wide is a similar patch?"
       },
       {
         "type": "p",
-        "text": "Across a small region, path lengths change with position, shifting the relative phases again. The plot below samples a simulated field along one route. With many scattered paths and no dominant direct path, the fluctuations resemble Rayleigh fading. Adding a strong direct path gives a Rician picture with gentler fluctuations."
+        "text": "Imagine sliding across frequency and tracing the received gain. It may change little over a small interval, then rise or fall as the copies add differently. Coherence bandwidth B_c gives a scale for how far apart frequencies can be while still experiencing a similar channel."
+      },
+      {
+        "type": "p",
+        "text": "Now place a signal’s bandwidth on that trace. In a small, nearly flat patch, its frequency components experience roughly the same gain: flat fading. Across peaks and dips, different components experience different gains: frequency-selective fading. “Flat” describes the variation across the band; that whole band can still sit in a deep fade."
+      },
+      {
+        "type": "equation",
+        "text": "Larger delay spread → smaller coherence bandwidth\nB_c ∝ 1/τ_rms"
+      },
+      {
+        "type": "p",
+        "text": "τ_rms measures how spread out the arrival times are, giving stronger paths more weight. The latest echo helps describe the delay span; RMS delay spread also accounts for how much power those echoes carry."
+      },
+      {
+        "type": "h2",
+        "text": "Moving through the interference pattern"
+      },
+      {
+        "type": "p",
+        "text": "Next, keep frequency fixed and move the receiver. Changing path lengths changes the relative phases again. I picture the surrounding space as a landscape of reinforcement and cancellation. Moving means walking through that landscape."
       },
       {
         "type": "figure",
@@ -598,31 +606,35 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "The deep dips stand out on a dB scale because near-cancellation can drive power close to zero. Between them, the signal keeps varying. So I would picture an uneven landscape with occasional sharp valleys, rather than a mostly flat surface. A strong direct path makes the flatter picture more plausible."
+        "text": "The blue curve shows many scattered paths: repeated fluctuations with sharp, deep dips where the copies nearly cancel. The dB scale makes those dips especially prominent. The orange curve adds a strong direct path, making the fluctuations gentler. These resemble the familiar Rayleigh and Rician fading pictures, respectively."
       },
       {
         "type": "p",
-        "text": "The half-wavelength intuition is useful here. With two waves arriving from opposite directions, adjacent interference peaks are λ/2 apart; a peak and the next null are λ/4 apart. In a richer environment, the pattern is irregular, but moving a fraction of a wavelength can still change reception substantially."
+        "text": "For two waves arriving from opposite directions, adjacent peaks are half a wavelength apart; the next null is a quarter-wavelength from a peak. Many paths make the spacing irregular. The useful intuition is that moving even a fraction of a wavelength can take the receiver into a very different part of the pattern."
       },
       {
         "type": "h2",
-        "text": "Speed turns spatial variation into time variation"
+        "text": "Coherence time: how quickly do we cross it?"
+      },
+      {
+        "type": "p",
+        "text": "Moving faster crosses the same pattern sooner. The signal changes more quickly, leaving a shorter interval during which the channel stays similar. That interval is described by coherence time T_c."
+      },
+      {
+        "type": "p",
+        "text": "Doppler describes the same motion from the wave’s side. Moving toward an incoming wave means meeting its cycles more quickly, so its observed frequency increases. Different paths arrive from different directions and acquire different Doppler shifts. Their phases then drift relative to one another, changing how they add together."
       },
       {
         "type": "equation",
-        "text": "f_D,ℓ = (v/λ) cos θℓ\nT_c ∝ 1/B_D"
+        "text": "f_D,ℓ = (v/λ) cos θℓ"
       },
       {
         "type": "p",
-        "text": "θℓ is the arrival angle relative to motion. Each path gets its own Doppler shift, and their spread B_D sets the time scale over which the combined channel changes. Coherence time T_c describes how long the channel remains strongly correlated."
+        "text": "Here v is speed, λ is wavelength, and θℓ describes the path’s angle relative to motion. The range of shifts across paths is called Doppler spread. Wider spread means faster changes in the interference and shorter coherence time. With the same arrival directions, T_c scales roughly as λ/v."
       },
       {
         "type": "p",
-        "text": "Moving faster crosses the same interference landscape sooner. For a fixed spread of arrival directions, T_c therefore scales roughly as λ/v. Speed and wavelength set the pace; the directions of the paths shape the pattern. This is why a tiny speed compared with light can still matter so much: the relevant distance is a wavelength."
-      },
-      {
-        "type": "p",
-        "text": "Delay differences set how quickly the pattern changes across frequency; motion sets how quickly it changes across time. Bandwidth asks how much of the frequency pattern a signal occupies. Symbol and training intervals ask how much the channel changes while the system is using it."
+        "text": "I can now use the same interference picture in two ways: slide across frequency, or move through space and time. Coherence bandwidth and coherence time describe how far I can go in each direction before the channel looks substantially different."
       }
     ]
   }
