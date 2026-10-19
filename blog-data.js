@@ -364,11 +364,31 @@ window.BLOG_POSTS = [
       },
       {
         "type": "h2",
-        "text": "PLS: knowing the codebook and still learning little"
+        "text": "PLS: create a channel advantage, then use it"
       },
       {
         "type": "p",
-        "text": "The public-codebook idea is what makes wiretap coding interesting to me. Everyone can know the encoding scheme. Alice privately randomizes among several codewords associated with a message, using Bob’s channel advantage to support reliable reception while leaving Eve uncertain about the message."
+        "text": "My picture of PLS starts with the difference between Bob’s channel and Eve’s. The same transmission reaches them through different paths, so the observations can have very different quality. What interests me is that this advantage can also be actively created: steer more useful energy toward Bob, inject artificial noise toward Eve, or choose a favorable transmission opportunity."
+      },
+      {
+        "type": "p",
+        "text": "The aim is to give Bob a clearer signal while making Eve’s observation less informative. That turns propagation and signal design into resources for security. It also connects PLS to the beamforming ideas that already feel intuitive to me."
+      },
+      {
+        "type": "h3",
+        "text": "Wiretap coding: a public codebook with deliberate confusion"
+      },
+      {
+        "type": "p",
+        "text": "I imagine the codebook as a collection of possible transmitted waveforms. Through Bob’s better channel, the received waveform is easier to match to the intended codeword. Through Eve’s noisier channel, many candidates can remain plausible. This is the codeword-confusion picture that makes wiretap coding click for me."
+      },
+      {
+        "type": "equation",
+        "text": "Message m + private random choice r → codeword xⁿ(m, r)"
+      },
+      {
+        "type": "p",
+        "text": "Wiretap coding builds on that picture by assigning multiple codewords to each message and randomly choosing one for transmission. The codebook and the grouping can be public; the random choice is private. With suitable coding rates, Bob can distinguish the transmission reliably, while Eve’s observations stay compatible with different messages."
       },
       {
         "type": "equation",
@@ -376,11 +396,15 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "M is the message, C the public codebook, and Z_Eⁿ Eve’s observation. The information-leakage expression gives a precise meaning to the intuition of Eve struggling to distinguish the possibilities. It also captures partial knowledge of the message, beyond whether a whole codeword was decoded."
+        "text": "Here M is the message, C the public codebook, and Z_Eⁿ Eve’s observation. The first line describes reliable reception. The second captures the confusion that matters for secrecy: how little the received signal tells Eve about the message, including individual parts of it."
+      },
+      {
+        "type": "h3",
+        "text": "The advantage appears directly in secrecy capacity"
       },
       {
         "type": "p",
-        "text": "For a scalar real Gaussian wiretap channel, the secrecy-capacity expression is especially revealing:"
+        "text": "For a scalar real Gaussian wiretap channel:"
       },
       {
         "type": "equation",
@@ -388,11 +412,15 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Here [a]⁺ = max(a, 0), with rates per real channel use. The quantity that matters is Bob’s advantage over Eve. This is why beamforming, artificial noise, and channel asymmetry feel central to PLS: they help create room for reliable communication that leaks little."
+        "text": "Here [a]⁺ = max(a, 0), with rates per real channel use. The difference between Bob’s and Eve’s channel capacities makes the design goal visible: improve Bob’s reception, reduce Eve’s useful information, and use the resulting gap to carry secret bits. Channel shaping creates the opportunity; wiretap coding uses it."
+      },
+      {
+        "type": "h2",
+        "text": "Another route to secure communication"
       },
       {
         "type": "p",
-        "text": "The common thread, for me, is uncertainty in the received waveform. Covert communication keeps activity ambiguous; wiretap coding keeps the message ambiguous. Thinking about who is uncertain, about what, and after which observations makes both ideas much easier to connect."
+        "text": "For me, PLS and covert communication add another route to secure communication alongside mathematical cryptography and wired connections. They can work together with those established choices, adding protection through the physical channel and the waveform itself. That extra possibility is part of what makes them interesting to study. Who knows what these ideas might grow into in the future?"
       }
     ]
   },
