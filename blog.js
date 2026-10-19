@@ -41,6 +41,22 @@
         article.append(node("h2", "blog-title", post.title));
         const body = node("div", "blog-prose");
         post.blocks.forEach(block => {
+          if (block.type === "figure") {
+            const figure = node("figure", "note-figure");
+            const a = link("", block.src, "note-figure-link");
+            const img = node("img");
+            img.src = block.src; img.alt = block.alt; img.loading = "lazy";
+            img.width = block.width || 900; img.height = block.height || 560;
+            a.append(img); figure.append(a, node("figcaption", "", block.caption));
+            body.append(figure); return;
+          }
+          if (block.type === "source") {
+            const p = node("p", "note-source");
+            p.append(link(block.label, block.url)); body.append(p); return;
+          }
+          if (block.type === "equation") {
+            body.append(node("div", "note-equation", block.text)); return;
+          }
           if (!["p", "h2", "h3", "blockquote", "ul", "ol", "pre"].includes(block.type)) return;
           const element = node(block.type);
           if (["ul", "ol"].includes(block.type)) block.items.forEach(text => element.append(node("li", "", text)));
