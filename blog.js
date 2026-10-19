@@ -47,7 +47,8 @@
             const img = node("img");
             img.src = block.src; img.alt = block.alt; img.loading = "lazy";
             img.width = block.width || 900; img.height = block.height || 560;
-            a.append(img); figure.append(a, node("figcaption", "", block.caption));
+            a.append(img); figure.append(a);
+            if (block.caption) figure.append(node("figcaption", "", block.caption));
             body.append(figure); return;
           }
           if (block.type === "source") {

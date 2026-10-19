@@ -31,7 +31,6 @@ window.BLOG_POSTS = [
         "type": "figure",
         "src": "assets/notes/thz-link.svg",
         "alt": "A flow diagram connecting wide bandwidth and short wavelength to their benefits, link constraints, and sensing-assisted control.",
-        "caption": "The connection that makes THz interesting to me: more bandwidth and compact arrays, followed by the challenge of keeping the link usable.",
         "width": 900,
         "height": 650
       },
@@ -53,11 +52,23 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Across roughly 0.1–10 THz, wavelengths run from millimetres down to tens of micrometres. This helps explain why the channel feels so different from lower-frequency wireless: ordinary obstacles are electrically large, diffraction is weak, and surface roughness matters much more."
+        "text": "What makes THz propagation different to me is how much the wavelength changes the importance of everyday details. Across roughly 0.1–10 THz, it runs from millimetres down to tens of micrometres. Obstacles, surface texture, and the atmosphere start to shape the link much more strongly."
       },
       {
         "type": "p",
-        "text": "A direct path is valuable, and blocking it can be costly. Smooth surfaces may offer reflections, while rough surfaces scatter energy. Water vapour and oxygen absorb at particular molecular resonances; rain, fog, and material composition add their own effects. I find this frequency-dependent view more useful than treating all THz propagation as one large loss."
+        "text": "At lower microwave frequencies, diffraction can help a signal reach around an obstacle. With THz wavelengths, a person or an object looks much larger electrically, and bending around it becomes weak. This makes a clear path more valuable and an unexpected blockage more disruptive. Preparing another usable path becomes part of maintaining the connection."
+      },
+      {
+        "type": "p",
+        "text": "Surface roughness is another change that I find easy to overlook. A 0.1 mm surface feature is only one-thousandth of a wavelength at 3 GHz, but one-tenth at 300 GHz. The same physical surface can therefore scatter much more of the energy that a lower-frequency model treats as a clean reflection. Even the texture of a wall starts to matter when choosing a reflected path."
+      },
+      {
+        "type": "p",
+        "text": "The air also becomes a more active part of the link budget. Water vapour and oxygen have molecular absorption lines, producing frequency-dependent loss and useful transmission windows. Humidity, frequency, and distance now belong in the same decision: where can that large bandwidth actually be used efficiently?"
+      },
+      {
+        "type": "p",
+        "text": "Material penetration and weather deserve closer attention too. A wall, a coated window, moisture, or rain can change how much energy reaches the receiver. The challenge I see is moving from a fairly forgiving coverage picture to carefully finding and maintaining useful paths, with more attention to details that once felt minor."
       },
       {
         "type": "h2",
