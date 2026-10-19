@@ -80,6 +80,30 @@ window.BLOG_POSTS = [
       },
       {
         "type": "h2",
+        "text": "Near-field wavefronts"
+      },
+      {
+        "type": "p",
+        "text": "Wavefront curvature matters across a large array because treating it as flat introduces path-length errors. At short wavelengths, even small errors become significant phase mismatches. This combination pushes the radiating near field out to ordinary communication distances. A common Rayleigh-distance estimate is:"
+      },
+      {
+        "type": "equation",
+        "text": "R ≈ 2D²/λ"
+      },
+      {
+        "type": "p",
+        "text": "At 300 GHz, λ ≈ 1 mm. A 20 cm linear aperture gives a Rayleigh distance of about 80 m. Spherical wavefronts can therefore matter across an entire indoor link."
+      },
+      {
+        "type": "p",
+        "text": "Across an array, a far-field wavefront looks almost planar. In the radiating near field, its curvature carries range information as well as direction. Compensating the element-to-target distances brings the waves together at a chosen position. Controlling amplitude and phase then shapes the field itself: beam focusing becomes one form of wavefront engineering."
+      },
+      {
+        "type": "p",
+        "text": "Water waves emerging as curved ripples from a gap give me a familiar picture of the wavefront. Their strong spreading occurs when the gap is comparable to the wavelength. A THz aperture spans many wavelengths, giving strong directionality while its phase profile shapes the wavefront."
+      },
+      {
+        "type": "h2",
         "text": "The beam has to stay useful"
       },
       {
