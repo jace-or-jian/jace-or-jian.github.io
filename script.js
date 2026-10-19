@@ -78,7 +78,7 @@
       const sectionData = item.id === "about" ? { show: true } : data[item.id];
       if (sectionData && sectionData.show !== false) {
         [desktop, mobile].forEach((container) => {
-          const link = externalLink(item.label, `#${item.id}`, "nav-link");
+          const link = externalLink(item.label, `${document.body.dataset.page === "blog" ? "index.html" : ""}#${item.id}`, "nav-link");
           link.dataset.target = item.id;
           container.append(link);
         });
@@ -518,8 +518,10 @@
 
   renderProfile();
   renderNavigation();
-  renderAbout();
-  renderSections();
+  if (document.body.dataset.page !== "blog") {
+    renderAbout();
+    renderSections();
+  }
   addInteractions();
   document.getElementById("current-year").textContent = new Date().getFullYear();
 })();
