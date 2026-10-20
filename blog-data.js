@@ -611,7 +611,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "OFDM’s subcarrier symbols change with the data, so their sum looks irregular and changes from message to message. A radar chirp sweeps frequency at a known rate. For a stationary target, its delayed echo corresponds to an earlier point on that sweep, so the frequency difference reveals the round-trip delay and hence range. Adding data can disturb that regularity and the echo response, so ISAC design has to carry information while keeping target estimates reliable."
+        "text": "Communication needs the waveform to vary with the message; that data-dependent variation gives OFDM its random-looking shape. Radar needs echoes from different delays and velocities to be easy to distinguish, so it favors deliberately designed structure, as in the chirp. Fixing more of the waveform to preserve its sensing properties leaves fewer choices for embedding data. Letting data change it more freely can change the quality of the sensing estimates. Different waveforms therefore offer different combinations of communication rate and sensing accuracy."
       },
       {
         "type": "figure",
