@@ -589,5 +589,49 @@ window.BLOG_POSTS = [
         "text": "A signal occupying a nearly uniform patch sees flat fading; a wider signal spanning different gains experiences frequency-selective fading."
       }
     ]
+  },
+  {
+    "slug": "isac-the-same-wave-different-unknowns",
+    "title": "ISAC: The Same Wave, Different Unknowns",
+    "lang": "en",
+    "published": true,
+    "summary": "Connecting waveform design, multipath, and sensing architectures through the same observation model.",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "Communication and radar both send electromagnetic waves and interpret the received signal. I connect them through one model:"
+      },
+      {
+        "type": "equation",
+        "text": "Y = HX + N"
+      },
+      {
+        "type": "p",
+        "text": "Communication uses an estimate of H to recover unknown X. Sensing uses known X to infer H and extract delay, angle, and Doppler. The same data-bearing X can be unknown to the communication receiver and already known to the sensing processor."
+      },
+      {
+        "type": "p",
+        "text": "Information comes from choosing among possible waveforms, so data-bearing OFDM changes with the message and looks irregular in time. A radar chirp follows a prescribed frequency sweep, giving a controlled reference against which to compare the echo. The design tension is giving data enough freedom while keeping the waveform’s delay–Doppler response useful for sensing."
+      },
+      {
+        "type": "figure",
+        "src": "assets/notes/isac-ofdm-and-chirp.png",
+        "alt": "Simulated OFDM with random QPSK data compared with a linear-frequency radar chirp at equal duration and mean power. Real waveforms appear above time-frequency energy maps; the chirp has a clear frequency sweep.",
+        "width": 1800,
+        "height": 1152
+      },
+      {
+        "type": "p",
+        "text": "Once transmitted, the particular OFDM waveform is known to its transmitter and can also serve as a sensing reference. Joint design controls how its changing data affects echo estimation."
+      },
+      {
+        "type": "p",
+        "text": "Propagation brings another tension. Paths with distinguishable spatial responses can increase MIMO channel rank and support independent streams. The usual single-path plane-wave model has rank one; near-field geometry can also support multiple LoS modes. For radar, an indirect reflection can look like an echo from another location, producing a ghost target. The same extra path can add communication freedom and complicate environmental interpretation."
+      },
+      {
+        "type": "p",
+        "text": "In a monostatic system listening while transmitting, direct leakage can overwhelm weak echoes, requiring isolation and self-interference cancellation. Separating transmitter and receiver reduces local leakage but introduces a synchronization problem: timing offsets can resemble propagation delays, and frequency offsets can resemble Doppler. The architecture trades one measurement difficulty for another."
+      }
+    ]
   }
 ];
