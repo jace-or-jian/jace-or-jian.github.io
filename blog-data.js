@@ -599,7 +599,7 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "Communication and radar both send electromagnetic waves and interpret the received signal. I connect them through one model:"
+        "text": "The search for wider available bandwidth takes communication toward higher bands such as THz, bringing benefits for sensing too. More bandwidth helps separate echoes with closer delays, improving range resolution. Shorter wavelengths let many antenna elements fit into a compact aperture; a larger aperture relative to wavelength gives finer angular resolution. Massive-MIMO beamforming and radar phased arrays already share the idea of controlling signals across an array. This makes ISAC feel like a natural convergence: the same hardware, the same spectrum, and the same electromagnetic waveform can carry data and probe the environment. Both tasks fit the same model:"
       },
       {
         "type": "equation",
