@@ -611,22 +611,22 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Information comes from choosing among possible waveforms, so data-bearing OFDM changes with the message and looks irregular in time. A radar chirp follows a prescribed frequency sweep, giving a controlled reference against which to compare the echo. The design tension is giving data enough freedom while keeping the waveform’s delay–Doppler response useful for sensing."
+        "text": "OFDM’s subcarrier symbols change with the data, so their sum looks irregular and changes from message to message. A radar chirp sweeps frequency at a known rate. For a stationary target, its delayed echo corresponds to an earlier point on that sweep, so the frequency difference reveals the round-trip delay and hence range. Adding data can disturb that regularity and the echo response, so ISAC design has to carry information while keeping target estimates reliable."
       },
       {
         "type": "figure",
-        "src": "assets/notes/isac-ofdm-and-chirp.png",
+        "src": "assets/notes/isac-ofdm-and-chirp.png?v=2",
         "alt": "Simulated OFDM with random QPSK data compared with a linear-frequency radar chirp at equal duration and mean power. Real waveforms appear above time-frequency energy maps; the chirp has a clear frequency sweep.",
         "width": 1800,
         "height": 1152
       },
       {
         "type": "p",
-        "text": "Once transmitted, the particular OFDM waveform is known to its transmitter and can also serve as a sensing reference. Joint design controls how its changing data affects echo estimation."
+        "text": "The exact transmitted OFDM waveform is also known to its transmitter, so it can be used as the sensing reference."
       },
       {
         "type": "p",
-        "text": "Propagation brings another tension. Paths with distinguishable spatial responses can increase MIMO channel rank and support independent streams. The usual single-path plane-wave model has rank one; near-field geometry can also support multiple LoS modes. For radar, an indirect reflection can look like an echo from another location, producing a ghost target. The same extra path can add communication freedom and complicate environmental interpretation."
+        "text": "Propagation brings another tension. Paths with distinguishable spatial responses can increase MIMO channel rank and support independent streams. The usual single-path plane-wave model has rank one. For radar, an indirect reflection can look like an echo from another location, producing a ghost target. The same extra path can add communication freedom and complicate environmental interpretation."
       },
       {
         "type": "p",
