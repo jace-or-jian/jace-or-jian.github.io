@@ -611,6 +611,18 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
+        "text": "RF sensing takes this idea into the surrounding space. The transmitted wave interacts with objects through reflection, refraction, scattering, and diffraction before reaching the receiver. Those interactions change the paths’ strengths, phases, and delays. CSI records their combined effect; for one antenna pair, a multipath model is:"
+      },
+      {
+        "type": "equation",
+        "text": "H(f, t) = Σℓ αℓ(f, t) exp(−j2πfτℓ(t))"
+      },
+      {
+        "type": "p",
+        "text": "Each path contributes a complex gain αℓ and a delay τℓ. A reflecting surface adds a path; an edge can bend energy into a shadowed region. Reading these traces across frequency, time, and antennas gives clues about the environment. The idea reaches beyond visible objects: water vapor leaves molecular absorption lines, while dust can alter attenuation and scattering depending on particle size and frequency. A communication receiver estimates H to recover the message. RF sensing turns that same H into something worth reading in its own right—the environment has written itself into the signal."
+      },
+      {
+        "type": "p",
         "text": "Communication needs the waveform to vary with the message; that data-dependent variation gives OFDM its random-looking shape. Radar needs echoes from different delays and velocities to be easy to distinguish, so it favors deliberately designed structure, as in the chirp. Fixing more of the waveform to preserve its sensing properties leaves fewer choices for embedding data. Letting data change it more freely can change the quality of the sensing estimates. Different waveforms therefore offer different combinations of communication rate and sensing accuracy. Yet once the data waveform is generated, its exact form is known to the transmitter. The same OFDM transmission can therefore also serve as a sensing reference."
       },
       {
