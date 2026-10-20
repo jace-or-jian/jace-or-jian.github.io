@@ -611,7 +611,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Communication needs the waveform to vary with the message; that data-dependent variation gives OFDM its random-looking shape. Radar needs echoes from different delays and velocities to be easy to distinguish, so it favors deliberately designed structure, as in the chirp. Fixing more of the waveform to preserve its sensing properties leaves fewer choices for embedding data. Letting data change it more freely can change the quality of the sensing estimates. Different waveforms therefore offer different combinations of communication rate and sensing accuracy."
+        "text": "Communication needs the waveform to vary with the message; that data-dependent variation gives OFDM its random-looking shape. Radar needs echoes from different delays and velocities to be easy to distinguish, so it favors deliberately designed structure, as in the chirp. Fixing more of the waveform to preserve its sensing properties leaves fewer choices for embedding data. Letting data change it more freely can change the quality of the sensing estimates. Different waveforms therefore offer different combinations of communication rate and sensing accuracy. Yet once the data waveform is generated, its exact form is known to the transmitter. The same OFDM transmission can therefore also serve as a sensing reference."
       },
       {
         "type": "figure",
@@ -621,8 +621,8 @@ window.BLOG_POSTS = [
         "height": 1152
       },
       {
-        "type": "p",
-        "text": "The exact transmitted OFDM waveform is also known to its transmitter, so it can be used as the sensing reference."
+        "type": "h2",
+        "text": "Practical challenges"
       },
       {
         "type": "p",
