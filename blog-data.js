@@ -626,7 +626,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Propagation brings another tension. Paths with distinguishable spatial responses can increase MIMO channel rank and support independent streams. The usual single-path plane-wave model has rank one. For radar, an indirect reflection can look like an echo from another location, producing a ghost target. The same extra path can add communication freedom and complicate environmental interpretation."
+        "text": "Multipath can help MIMO because different spatial paths give the receiver different mixtures of the transmitted streams. When those mixtures are independent, the channel rank increases and more streams can be separated. Radar uses echo delay to infer target range. A reflected detour adds delay without adding a new target; if treated as a direct echo, that extra delay becomes a false target position. The same path can therefore help recover data while making the target’s location ambiguous."
       },
       {
         "type": "p",
