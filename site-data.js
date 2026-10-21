@@ -206,13 +206,12 @@ window.SITE_DATA = {
   },
 
   awards: {
-    show: true,
+    show: false,
     title: "Honors and Awards",
     eyebrow: "Recognition",
     items: [
       { year: "2027", title: "Selected as an Outstanding Graduate", organization: "Chongqing University" },
-      { year: "2026", title: "National Scholarship for Graduate Students", organization: "China" },
-    ],
+      { year: "2026", title: "National Scholarship for Graduate Students", organization: "China" },    ],
   },
 
   skills: {

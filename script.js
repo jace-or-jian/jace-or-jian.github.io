@@ -32,7 +32,7 @@
       ? title
       : `${icons[id] ?? ""} ${title}`.trim();
     text.append(el("p", "section-kicker", eyebrow), el("h2", "section-title", headingText));
-    const sectionNumber = document.querySelectorAll("#dynamic-sections .section-block").length + 1;
+    const sectionNumber = document.querySelectorAll("#dynamic-sections > .section-block").length + 1;
     heading.append(text, el("span", "section-index", String(sectionNumber).padStart(2, "0")));
     section.append(heading);
     return section;
@@ -45,7 +45,6 @@
     document.querySelectorAll("[data-short-name]").forEach((node) => (node.textContent = profile.shortName));
     document.querySelectorAll("[data-initials]").forEach((node) => (node.textContent = profile.initials));
     document.getElementById("profile-name").textContent = profile.name;
-    document.querySelector(".sidebar-note").textContent = profile.availability;
 
     const photo = document.getElementById("profile-photo");
     photo.src = profile.photo;
@@ -74,8 +73,13 @@
   const renderNavigation = () => {
     const desktop = document.getElementById("desktop-navigation");
     const mobile = document.getElementById("mobile-navigation");
-    data.navigation.forEach((item) => {
-      const sectionData = item.id === "about" ? { show: true } : data[item.id];
+    const navigation = data.navigation.flatMap(item => {
+      if (["publications", "projects", "awards"].includes(item.id)) return [];
+      if (item.id === "research") return [item, { id: "experience", label: "Research Experience" }, { id: "notes", label: "Notes" }];
+      return [item];
+    });
+    navigation.forEach((item) => {
+      const sectionData = ["about", "experience", "notes"].includes(item.id) ? { show: true } : data[item.id];
       if (sectionData && sectionData.show !== false) {
         [desktop, mobile].forEach((container) => {
           const link = externalLink(item.label, `${document.body.dataset.page === "blog" ? "index.html" : ""}#${item.id}`, "nav-link");
@@ -330,12 +334,73 @@
     root.append(section);
   };
 
+  const makeDisclosure = (id, title, subtitle) => {
+    const section = el("section", "section-block disclosure-section");
+    section.id = id;
+    section.dataset.section = id;
+    const details = el("details", "section-disclosure");
+    const summary = el("summary", "disclosure-toggle");
+    const copy = el("div", "disclosure-copy");
+    copy.append(el("h2", "", title), el("p", "", subtitle));
+    const action = el("span", "disclosure-action");
+    action.setAttribute("aria-hidden", "true");
+    action.append(el("span", "disclosure-show", "Explore"), el("span", "disclosure-hide", "Collapse"), el("span", "disclosure-chevron", "⌄"));
+    summary.append(copy, action);
+    const content = el("div", "disclosure-content");
+    details.append(summary, content);
+    section.append(details);
+    return { section, content };
+  };
+
+  const renderExperience = (root) => {
+    const { section, content } = makeDisclosure("experience", "Research Experience", "Publications & projects");
+    if (data.publications?.show !== false) renderPublications(content);
+    if (data.projects?.show !== false) renderProjects(content);
+    content.querySelectorAll("h3").forEach(heading => {
+      const replacement = el("h4", heading.className, heading.textContent);
+      heading.replaceWith(replacement);
+    });
+    content.querySelectorAll("h2").forEach(heading => {
+      heading.replaceWith(el("h3", heading.className, heading.textContent));
+    });
+    content.querySelectorAll("[data-section]").forEach(child => child.removeAttribute("data-section"));
+    root.append(section);
+  };
+
+  const renderNotes = (root) => {
+    const { section, content } = makeDisclosure("notes", "Notes & Reflections", "Interesting ideas and reflections from my learning.");
+    const list = el("ul", "homepage-notes");
+    (window.BLOG_POSTS || []).filter(post => post.published !== false).forEach(post => {
+      const item = el("li");
+      const link = externalLink(post.title, `blog.html#${encodeURIComponent(post.slug)}`);
+      link.lang = post.lang || "en";
+      const arrow = el("span", "", "↗");
+      arrow.setAttribute("aria-hidden", "true");
+      link.append(arrow);
+      item.append(link);
+      list.append(item);
+    });
+    content.append(list);
+    root.append(section);
+  };
+
   const renderSections = () => {
     const root = document.getElementById("dynamic-sections");
-    const renderers = { education: renderEducation, research: renderResearch, publications: renderPublications, projects: renderProjects, awards: renderAwards, skills: renderSkills, news: renderNews };
+    const renderers = { education: renderEducation, research: renderResearch, experience: renderExperience, notes: renderNotes, skills: renderSkills, news: renderNews };
     Object.entries(renderers).forEach(([key, renderer]) => {
       if (data[key]?.show !== false) renderer(root);
     });
+    const revealAnchor = () => {
+      const target = document.getElementById(location.hash.slice(1));
+      if (!target) return;
+      const details = target.matches(".disclosure-section") ? target.querySelector("details") : target.closest("details");
+      if (details) {
+        details.open = true;
+        requestAnimationFrame(() => target.scrollIntoView({ block: "start" }));
+      }
+    };
+    window.addEventListener("hashchange", revealAnchor);
+    revealAnchor();
   };
 
   const addInteractions = () => {

@@ -31,7 +31,7 @@
       if (!posts.length) list.append(node("p", "blog-intro", "No entries yet. Check back soon."));
       root.append(list);
     } else {
-      root.append(link("← All entries", "blog.html", "blog-back"));
+      root.append(link("← All notes", "index.html#notes", "blog-back"));
       if (!post) {
         title = "Entry not found";
         root.append(node("h2", "blog-title", title), node("p", "blog-intro", "This entry is unavailable. Browse all entries to continue."));
@@ -64,7 +64,7 @@
           else element.textContent = block.text;
           body.append(element);
         });
-        article.append(body, link("← Back to all entries", "blog.html", "blog-back"));
+        article.append(body, link("← Back to all notes", "index.html#notes", "blog-back"));
         root.append(article);
       }
     }
@@ -76,7 +76,6 @@
       root.scrollIntoView({ block: "start" });
     }
   };
-  document.querySelector(".blog-entry").setAttribute("aria-current", "page");
   window.addEventListener("hashchange", () => render(true));
   render();
 })();
