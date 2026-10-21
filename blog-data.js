@@ -60,7 +60,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Take surface roughness: a 0.1 mm surface feature is only one-thousandth of a wavelength at 3 GHz, but one-tenth at 300 GHz. The same physical surface can therefore scatter much more of the energy that a lower-frequency model treats as a clean reflection. Even the texture of a wall starts to matter when choosing a reflected path."
+        "text": "Take surface roughness: a 0.1 mm surface feature is only one-thousandth of a wavelength at 3 GHz, but one-tenth at 300 GHz. Many surfaces therefore look much rougher to THz waves. Height variations give the reflected waves different phases, weakening the specular component and spreading more energy into diffuse scattering. A wall’s texture can determine how much energy remains in a useful reflected path."
+      },
+      {
+        "type": "p",
+        "text": "This gives RIS a clear role: deliberately creating a useful reflected path. A reconfigurable intelligent surface controls reflection phases across its elements so their contributions reinforce toward the receiver, redirecting energy into a controlled route around a blockage."
       },
       {
         "type": "p",
