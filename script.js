@@ -368,7 +368,7 @@
   };
 
   const renderNotes = (root) => {
-    const { section, content } = makeDisclosure("notes", "Notes & Reflections", "Interesting ideas and reflections from my learning.");
+    const { section, content } = makeDisclosure("notes", "Notes & Reflections", "Some thoughts I’ve written down.");
     const list = el("ul", "homepage-notes");
     (window.BLOG_POSTS || []).filter(post => post.published !== false).forEach(post => {
       const item = el("li");
