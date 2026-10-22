@@ -563,7 +563,18 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "Multipath is the same signal arriving along different paths, with different amplitudes and phases. Across space, their superposition forms an invisible landscape: bright patches where waves reinforce, dark patches where they cancel. This is the interference pattern I picture. If everything stays still, the result at each point stays fixed."
+        "text": "The same transmitted signal can reach the receiver directly, by reflection, by scattering, or by diffraction around an edge. These routes bring copies with different amplitudes, phases, and delays—the physical picture behind multipath."
+      },
+      {
+        "type": "figure",
+        "src": "assets/notes/wireless-propagation-paths.png",
+        "alt": "A transmitter reaches a vehicle through a direct line-of-sight path, reflection from a building, scattering from a tree, and diffraction around a rooftop.",
+        "width": 2400,
+        "height": 1790
+      },
+      {
+        "type": "p",
+        "text": "Across space, their superposition forms an invisible landscape: bright patches where waves reinforce, dark patches where they cancel. This is the interference pattern I picture. If everything stays still, the result at each point stays fixed."
       },
       {
         "type": "equation",
