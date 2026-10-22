@@ -152,6 +152,28 @@ window.BLOG_POSTS = [
         "text": "Antennas and beamforming architectures"
       },
       {
+        "type": "p",
+        "text": "From broad coverage to sectors and steerable beams, the change is increasingly precise control over where electromagnetic energy goes. Focusing it toward a user strengthens the useful signal and can reduce interference elsewhere."
+      },
+      {
+        "type": "figure",
+        "src": "assets/notes/antenna-radiation-evolution.png",
+        "alt": "A schematic progression from omnidirectional horizontal coverage to sector radiation and an antenna array producing multiple beams in azimuth and elevation.",
+        "width": 2048,
+        "height": 1536
+      },
+      {
+        "type": "p",
+        "text": "When users have sufficiently distinct spatial channels, beamforming can also let them share the same time–frequency resources—space becomes another resource to use."
+      },
+      {
+        "type": "figure",
+        "src": "assets/notes/multiuser-beamforming.png",
+        "alt": "An antenna array directs separate beams toward users, vehicles, and buildings to illustrate spatially directed communication.",
+        "width": 750,
+        "height": 507
+      },
+      {
         "type": "h3",
         "text": "An antenna gathers and directs energy"
       },
