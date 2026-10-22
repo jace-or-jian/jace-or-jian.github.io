@@ -16,7 +16,7 @@ window.SITE_DATA = {
     location: "Chongqing, China",
     email: "jiajiejian02@gmail.com",
     availability: "Below are Notes on interesting ideas and reflections from my learning.",
-    photo: "assets/jiajie-jian-library-portrait.webp",
+    photo: "assets/jiajie-jian-library-portrait-blurred.png",
     photoAlt: "Professional headshot of Jiajie Jian",
     links: [],
   },
