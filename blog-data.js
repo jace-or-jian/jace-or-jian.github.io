@@ -686,5 +686,42 @@ window.BLOG_POSTS = [
         "text": "Each path contributes a complex gain αℓ and a delay τℓ. A reflecting surface adds a path; an edge can bend energy into a shadowed region. Reading these traces across frequency, time, and antennas gives clues about the environment. More intriguingly, even humid air and dry dust particles can noticeably affect the signal, leaving traces of their presence. A communication receiver estimates H to recover the message. RF sensing turns that same H into something worth reading in its own right—the environment has written itself into the signal."
       }
     ]
+  },
+  {
+    "slug": "some-thoughts-on-6g-making-space-more-useful",
+    "title": "Some Thoughts on 6G: Making Space More Useful",
+    "lang": "en",
+    "published": true,
+    "summary": "How higher frequencies, larger arrays, and wider bandwidth interact—and what remains after the costs of using them.",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "The part of 6G that draws my attention is how precisely we might control electromagnetic energy in space. Three research trends keep appearing together: higher carrier frequencies, larger antenna arrays, and wider bandwidths. Their value becomes clearer when I think about how they affect one another."
+      },
+      {
+        "type": "p",
+        "text": "Moving from mmWave toward sub-THz and THz opens opportunities for wider bandwidth. Making those links useful brings stronger demands on transmit hardware, directional gain, and blockage recovery. Higher frequency offers resources; the system still has to turn them into a reliable connection."
+      },
+      {
+        "type": "p",
+        "text": "XL-MIMO helps concentrate energy and distinguish users spatially. With a sufficiently large aperture, spherical-wave curvature makes the phase pattern depend on both angle and distance. Compensating those path differences lets an array focus around a chosen position, potentially separating users along the same direction at different ranges. This also connects communication with sensing."
+      },
+      {
+        "type": "p",
+        "text": "Near-field operation therefore belongs to a broader story than THz. From R ≈ 2D²/λ, a 1.5 m aperture at 10 GHz gives a Rayleigh distance of roughly 150 m. Aperture size can make near-field effects relevant well below THz."
+      },
+      {
+        "type": "p",
+        "text": "Wider bandwidth complicates that control. A phase setting designed at the centre frequency can steer or focus different frequency components differently. More bandwidth may then bring less benefit than expected unless the beamforming architecture can use it effectively."
+      },
+      {
+        "type": "p",
+        "text": "This is why channel estimation, beam training and tracking, wideband beamforming, and beam-squint mitigation seem closely connected to me. A sharper focus needs more precise channel knowledge; obtaining that knowledge costs training, and keeping it current costs updates. True-time-delay hardware adds control while introducing loss and implementation cost."
+      },
+      {
+        "type": "p",
+        "text": "The useful research question is how much of these additional physical freedoms survives those costs. A design becomes convincing when its gains remain after accounting for training, mobility, hardware, and computation."
+      }
+    ]
   }
 ];
