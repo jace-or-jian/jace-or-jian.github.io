@@ -712,7 +712,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "The wider bandwidth that motivated the frequency shift adds another difficulty: a phase setting chosen at the centre frequency can steer or focus different frequency components differently. Using the extra spectrum effectively therefore calls for wideband beamforming, with true-time-delay hardware offering additional control at a cost in loss and complexity."
+        "text": "Maintaining a useful focus also means keeping the waves aligned across the signal’s bandwidth. Because propagation phase changes with frequency, phase-shifter settings that align the waves at the centre frequency can leave them misaligned elsewhere in the band, shifting the beam direction or focal position. This calls for wideband beamforming; true-time-delay hardware can help maintain alignment across frequencies, with added loss and complexity."
       },
       {
         "type": "p",
