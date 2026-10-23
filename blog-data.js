@@ -704,7 +704,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Expanding the aperture also changes how that energy can be controlled. A common near-field boundary estimate is R ≈ 2D²/λ: at 10 GHz, a 1.5 m aperture gives about 150 m. Near-field effects can therefore matter well below THz. Wavefront curvature makes the array response depend on distance as well as angle; compensating the path differences lets an array focus around a position, potentially separating users along the same direction at different ranges. Locating the receiver then helps keep the focus where it is needed, linking sensing with transmission."
+        "text": "Expanding the aperture also changes how that energy can be controlled. A common near-field boundary estimate is R ≈ 2D²/λ: at 10 GHz, a 1.5 m aperture gives about 150 m. Near-field effects can therefore matter well below THz. Wavefront curvature makes the array response depend on distance as well as angle. Adjusting the phases across the array lets the waves reinforce around a chosen position. This makes distance another dimension for separating users, even when they lie in the same direction."
       },
       {
         "type": "p",
