@@ -704,11 +704,15 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "XL-MIMO helps concentrate energy and distinguish users spatially. With a sufficiently large aperture, spherical-wave curvature makes the phase pattern depend on both angle and distance. Compensating those path differences lets an array focus around a chosen position, potentially separating users along the same direction at different ranges. This also connects communication with sensing."
+        "text": "XL-MIMO helps concentrate energy and distinguish users spatially. With a sufficiently large aperture, spherical-wave curvature makes the phase pattern depend on both angle and distance. Compensating those path differences lets an array focus around a chosen position, potentially separating users along the same direction at different ranges. Keeping that focus on a moving receiver connects communication with sensing."
       },
       {
         "type": "p",
-        "text": "Near-field operation therefore belongs to a broader story than THz. From R ≈ 2D²/λ, a 1.5 m aperture at 10 GHz gives a Rayleigh distance of roughly 150 m. Aperture size can make near-field effects relevant well below THz."
+        "text": "Even when a phone stays in the same place, rotating it changes its antennas’ orientation and polarization relative to the incoming field, which can weaken the link. With tightly focused near-field transmission, tracking the receiver therefore means considering its antenna geometry and orientation alongside its position."
+      },
+      {
+        "type": "p",
+        "text": "The aperture–wavelength relationship also makes near-field effects relevant below THz. From R ≈ 2D²/λ, a 1.5 m aperture at 10 GHz gives a Rayleigh distance of roughly 150 m."
       },
       {
         "type": "p",
@@ -716,7 +720,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "This is why channel estimation, beam training and tracking, wideband beamforming, and beam-squint mitigation seem closely connected to me. A sharper focus needs more precise channel knowledge; obtaining that knowledge costs training, and keeping it current costs updates. True-time-delay hardware adds control while introducing loss and implementation cost."
+        "text": "This is why channel estimation, beam training and tracking, wideband beamforming, and beam-squint mitigation seem closely connected to me. A sharper focus needs channel knowledge that stays current as the receiver moves or rotates. Obtaining it costs training; maintaining it costs repeated updates. True-time-delay hardware adds control while introducing loss and implementation cost."
       },
       {
         "type": "p",
