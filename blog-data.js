@@ -696,27 +696,19 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "Three 6G research trends keep appearing together: higher carrier frequencies, larger arrays, and wider bandwidths. I find them most interesting as connected design choices, because each changes what the others require."
+        "text": "In 6G research, higher carrier frequencies, wider bandwidths, and larger arrays form a tightly coupled triad: each solves a problem created by the others while introducing new constraints. Higher frequencies open up wider bandwidths but suffer from severe blockage and limited transmit power, forcing systems to adopt larger array apertures to concentrate energy at the receiver."
       },
       {
         "type": "p",
-        "text": "Higher frequencies open opportunities for wider bandwidth, but useful transmit power and blockage become harder problems. Larger arrays help concentrate energy toward the receiver. That makes array size part of the answer to a high-frequency link’s difficulties."
+        "text": "Expanding the aperture, in turn, shifts the propagation physics. Under the common near-field boundary R ≈ 2D²/λ, a 1.5 m array at 10 GHz extends the near field to about 150 m, making near-field propagation relevant well below THz. Because spherical wavefronts depend on both angle and distance, phase control across the array can focus energy onto a specific location—enabling distance-based user separation, but making the link far harder to maintain."
       },
       {
         "type": "p",
-        "text": "Expanding the aperture also changes how that energy can be controlled. A common near-field boundary estimate is R ≈ 2D²/λ: at 10 GHz, a 1.5 m aperture gives about 150 m. Near-field effects can therefore matter well below THz. Wavefront curvature makes the array response depend on distance as well as angle. Adjusting the phases across the array lets the waves reinforce around a chosen position. This makes distance another dimension for separating users, even when they lie in the same direction."
+        "text": "Sustaining this focus requires overcoming both spatial and spectral sensitivities. In space, coordinates alone are insufficient: even at a fixed position, device rotation alters antenna orientation and polarization relative to the local field, demanding joint tracking of location and orientation. Across frequency, the wide bandwidths unlocked by higher carriers induce beam squint: phase shifters tuned to the center frequency misalign waves elsewhere in the band, requiring true-time-delay hardware at the cost of added loss and complexity."
       },
       {
         "type": "p",
-        "text": "Keeping the focus useful also means looking beyond coordinates. Even at a fixed location, a phone’s rotation changes its antennas’ orientation and polarization relative to the incoming field, which can weaken reception. Position, antenna geometry, and orientation therefore belong together when estimating the channel and tracking the link."
-      },
-      {
-        "type": "p",
-        "text": "Maintaining a useful focus also means keeping the waves aligned across the signal’s bandwidth. Because propagation phase changes with frequency, phase-shifter settings that align the waves at the centre frequency can leave them misaligned elsewhere in the band, shifting the beam direction or focal position. This calls for wideband beamforming; true-time-delay hardware can help maintain alignment across frequencies, with added loss and complexity."
-      },
-      {
-        "type": "p",
-        "text": "These dependencies give channel estimation, beam training, tracking, and beam-squint mitigation a shared purpose: making spatial control usable. Training must find a useful focus; tracking must maintain it as the receiver moves or turns; hardware must support it across the bandwidth. Each step consumes resources. The question I keep returning to is how much gain remains after training, mobility, hardware, and computation are included."
+        "text": "Channel estimation, beam tracking, and wideband hardware thus converge on a single goal: keeping spatial focusing viable in practice. Because every safeguard consumes resources, the central question is how much net gain survives after accounting for training overhead, mobility, hardware loss, and computation."
       }
     ]
   }
