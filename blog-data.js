@@ -696,35 +696,27 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "The part of 6G that draws my attention is how precisely we might control electromagnetic energy in space. Three research trends keep appearing together: higher carrier frequencies, larger antenna arrays, and wider bandwidths. Their value becomes clearer when I think about how they affect one another."
+        "text": "Three 6G research trends keep appearing together: higher carrier frequencies, larger arrays, and wider bandwidths. I find them most interesting as connected design choices, because each changes what the others require."
       },
       {
         "type": "p",
-        "text": "Moving from mmWave toward sub-THz and THz opens opportunities for wider bandwidth. Making those links useful brings stronger demands on transmit hardware, directional gain, and blockage recovery. Higher frequency offers resources; the system still has to turn them into a reliable connection."
+        "text": "Higher frequencies open opportunities for wider bandwidth, but useful transmit power and blockage become harder problems. Larger arrays help concentrate energy toward the receiver. That makes array size part of the answer to a high-frequency link’s difficulties."
       },
       {
         "type": "p",
-        "text": "XL-MIMO helps concentrate energy and distinguish users spatially. With a sufficiently large aperture, spherical-wave curvature makes the phase pattern depend on both angle and distance. Compensating those path differences lets an array focus around a chosen position, potentially separating users along the same direction at different ranges. Keeping that focus on a moving receiver connects communication with sensing."
+        "text": "Expanding the aperture also changes how that energy can be controlled. A common near-field boundary estimate is R ≈ 2D²/λ: at 10 GHz, a 1.5 m aperture gives about 150 m. Near-field effects can therefore matter well below THz. Wavefront curvature makes the array response depend on distance as well as angle; compensating the path differences lets an array focus around a position, potentially separating users along the same direction at different ranges. Locating the receiver then helps keep the focus where it is needed, linking sensing with transmission."
       },
       {
         "type": "p",
-        "text": "Even when a phone stays in the same place, rotating it changes its antennas’ orientation and polarization relative to the incoming field, which can weaken the link. With tightly focused near-field transmission, tracking the receiver therefore means considering its antenna geometry and orientation alongside its position."
+        "text": "Keeping the focus useful also means looking beyond coordinates. Even at a fixed location, a phone’s rotation changes its antennas’ orientation and polarization relative to the incoming field, which can weaken reception. Position, antenna geometry, and orientation therefore belong together when estimating the channel and tracking the link."
       },
       {
         "type": "p",
-        "text": "The aperture–wavelength relationship also makes near-field effects relevant below THz. From R ≈ 2D²/λ, a 1.5 m aperture at 10 GHz gives a Rayleigh distance of roughly 150 m."
+        "text": "The wider bandwidth that motivated the frequency shift adds another difficulty: a phase setting chosen at the centre frequency can steer or focus different frequency components differently. Using the extra spectrum effectively therefore calls for wideband beamforming, with true-time-delay hardware offering additional control at a cost in loss and complexity."
       },
       {
         "type": "p",
-        "text": "Wider bandwidth complicates that control. A phase setting designed at the centre frequency can steer or focus different frequency components differently. More bandwidth may then bring less benefit than expected unless the beamforming architecture can use it effectively."
-      },
-      {
-        "type": "p",
-        "text": "This is why channel estimation, beam training and tracking, wideband beamforming, and beam-squint mitigation seem closely connected to me. A sharper focus needs channel knowledge that stays current as the receiver moves or rotates. Obtaining it costs training; maintaining it costs repeated updates. True-time-delay hardware adds control while introducing loss and implementation cost."
-      },
-      {
-        "type": "p",
-        "text": "The useful research question is how much of these additional physical freedoms survives those costs. A design becomes convincing when its gains remain after accounting for training, mobility, hardware, and computation."
+        "text": "These dependencies give channel estimation, beam training, tracking, and beam-squint mitigation a shared purpose: making spatial control usable. Training must find a useful focus; tracking must maintain it as the receiver moves or turns; hardware must support it across the bandwidth. Each step consumes resources. The question I keep returning to is how much gain remains after training, mobility, hardware, and computation are included."
       }
     ]
   }
