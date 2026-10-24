@@ -309,15 +309,15 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Efficiency starts at the modeling stage. Variable dimensions, constraint count, and constraint structure already shape how much work the solver will face. A few examples make this concrete:"
+        "text": "Solver efficiency is shaped long before the solver starts. The way a problem is modeled determines not only how many variables the solver must handle, but also the structure of the constraints and the complexity of the search. A few examples show why these details matter."
       },
       {
         "type": "ul",
         "items": [
-          "Variable dimension: K beamforming vectors for N antennas contain NK complex entries, or 2NK real variables. More users and antennas expand the problem together.",
-          "Constraint count: one quality-of-service constraint per user in each of T slots gives KT conditions. A finer time grid can quickly enlarge both the variables and the constraint set.",
-          "Constraint type: scalar power bounds and a large positive-semidefinite matrix constraint ask for very different computations. SDR also lifts one complex N-element vector into an N × N Hermitian matrix with N² real degrees of freedom. Gaining a convex formulation can come with a substantial increase in dimension.",
-          "Discrete choices: M binary activation variables allow 2ᴹ possible patterns. Even a short list of on/off decisions can introduce a large combinatorial search space."
+          "Variable dimension. If each of K users has an N-element complex beamforming vector, the model contains NK complex entries, equivalent to 2NK real variables. Increasing the number of users or antennas expands the optimization problem. If the beamformers are optimized independently over T time slots, the variable count grows with T as well.",
+          "Constraint count. Suppose each user must satisfy one quality-of-service (QoS) requirement in every time slot. Across T slots, this gives KT constraints. A finer time grid can therefore increase both the number of decisions and the number of conditions that must be satisfied.",
+          "Constraint structure. The number of constraints alone does not tell us how difficult a problem is to solve. Simple scalar power limits are generally much easier to handle than a large positive-semidefinite matrix constraint. Semidefinite relaxation (SDR), for example, lifts a complex beamforming vector into an N × N Hermitian matrix. This matrix has N² real degrees of freedom, a substantial increase over the original vector representation. The relaxation can make the problem convex, but that improvement in mathematical structure may come at a higher computational cost.",
+          "Discrete decisions. Suppose M binary variables represent whether individual components are active or inactive. They define 2ᴹ possible activation patterns. Unlike a simple increase in continuous variables, adding binary decisions can introduce combinatorial complexity that grows exponentially with M."
         ]
       },
       {
