@@ -651,8 +651,16 @@ window.BLOG_POSTS = [
     "summary": "Connecting waveform design, multipath, and sensing architectures through the same observation model.",
     "blocks": [
       {
+        "type": "h2",
+        "text": "Integrated Sensing and Communication: One Waveform, Two Purposes"
+      },
+      {
         "type": "p",
-        "text": "The search for wider available bandwidth takes communication toward higher bands such as THz, bringing benefits for sensing too. More bandwidth helps separate echoes with closer delays, improving range resolution. Shorter wavelengths let many antenna elements fit into a compact aperture; a larger aperture relative to wavelength gives finer angular resolution. Massive-MIMO beamforming and radar phased arrays already share the idea of controlling signals across an array. This makes ISAC feel like a natural convergence: the same hardware, the same spectrum, and the same electromagnetic waveform can carry data and probe the environment. Both tasks fit the same model:"
+        "text": "The search for wider bandwidths pushes communication toward higher frequency bands, including THz. This benefits sensing as well as communication. Wider bandwidth improves range resolution by making echoes with small delay differences easier to distinguish. Shorter wavelengths also allow more antenna elements to fit into a given physical aperture, improving angular resolution."
+      },
+      {
+        "type": "p",
+        "text": "This is why integrated sensing and communication (ISAC) feels like a natural convergence. Both functions transmit and receive electromagnetic waves, and both can be described using a common signal model:"
       },
       {
         "type": "equation",
@@ -660,11 +668,19 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Communication uses an estimate of H to recover unknown X. Sensing uses known X to infer H and extract delay, angle, and Doppler. The same data-bearing X can be unknown to the communication receiver and already known to the sensing processor."
+        "text": "Here, X is the transmitted signal, H represents the channel or propagation environment, and N is noise. The difference lies in what we want to recover. Communication estimates the channel and uses it to decode the unknown data in X. Sensing, by contrast, uses a known reference signal to infer the environment from the received echoes. The delays, angles, and Doppler shifts in those echoes reveal information about the targets."
       },
       {
         "type": "p",
-        "text": "Communication needs the waveform to vary with the message; that data-dependent variation gives OFDM its random-looking shape. Radar needs echoes from different delays and velocities to be easy to distinguish, so it favors deliberately designed structure, as in the chirp. Fixing more of the waveform to preserve its sensing properties leaves fewer choices for embedding data. Letting data change it more freely can change the quality of the sensing estimates. Different waveforms therefore offer different combinations of communication rate and sensing accuracy. Yet once the data waveform is generated, its exact form is known to the transmitter. The same OFDM transmission can therefore also serve as a sensing reference."
+        "text": "This distinction also explains why the same data-bearing waveform can serve both purposes. The communication receiver initially treats the transmitted data as unknown, while a sensing processor with access to the transmitted symbols can use them as a reference for analyzing the echoes. The waveform does not have to be designed exclusively for either communication or sensing."
+      },
+      {
+        "type": "p",
+        "text": "There is still a tradeoff in how that waveform is designed. Communication needs to encode information efficiently, while sensing benefits from waveforms whose delay and Doppler responses make targets easy to distinguish. Chirps are a familiar radar example because their structure can provide useful sensing properties. OFDM, on the other hand, carries data through symbols distributed across multiple subcarriers. Even its transmitted waveform depends on those data symbols, but once the symbols are known, the actual OFDM signal can also serve as a sensing reference."
+      },
+      {
+        "type": "p",
+        "text": "The key trade-off is between randomness and deterministic structure in waveform design. Random data symbols provide the flexibility needed to carry information, while a more deterministic waveform can be designed to provide desirable sensing properties. ISAC waveform design must balance these two needs, allowing the signal to carry data while preserving its usefulness for sensing."
       },
       {
         "type": "figure",
