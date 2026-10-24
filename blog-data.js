@@ -9,7 +9,7 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "The large bandwidth is what draws me to THz. High data rates become possible without putting all the pressure on spectral efficiency and increasingly high modulation orders. Start with more spectrum, then work out how to keep the link alive."
+        "text": "What draws me to THz is the possibility of accessing much wider bandwidths. With more spectrum available, high data rates become possible without relying so heavily on spectral efficiency or ever-higher modulation orders. The challenge is then to make those wideband links work reliably."
       },
       {
         "type": "h2",
@@ -21,11 +21,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "At fixed SNR, capacity grows linearly with bandwidth B. With fixed received power Pᵣ, the wider band also collects more noise, so the rate grows more slowly. Increasing bandwidth gives another route to a high rate, alongside better use of each hertz."
+        "text": "Bandwidth offers another way to increase communication rate. At a fixed SNR, channel capacity grows linearly with bandwidth B. But if the received power stays fixed, increasing bandwidth also increases the total noise power, so capacity grows more slowly than linearly. In other words, a wider band can increase data rates without relying solely on higher spectral efficiency."
       },
       {
         "type": "p",
-        "text": "The sensing benefit is just as appealing. Range resolution is approximately ΔR = c/(2B) for a monostatic radar waveform: 10 GHz gives about 1.5 cm. Wider bandwidth helps separate nearby objects in range, while aperture and wavelength shape angular resolution."
+        "text": "The same bandwidth is valuable for sensing, too. For a monostatic radar, range resolution is approximately ΔR = c/(2B), so a 10 GHz bandwidth corresponds to about 1.5 cm. Wider bandwidth makes it easier to distinguish objects that are close together in range, while angular resolution depends more on antenna aperture and wavelength."
       },
       {
         "type": "figure",
@@ -40,11 +40,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Indoor communication and dense outdoor hotspots are the first scenarios that come to mind: a few metres to tens of metres, with high rates over a short link. I keep “tens of metres, often below a hundred” as an intuition for access scenarios. Inter-satellite paths are also appealing because they avoid atmospheric gas absorption."
+        "text": "The most immediate THz use cases I think of are short-range, high-rate access links, such as indoor communications and dense outdoor hotspots. For these scenarios, I picture links spanning a few to a few tens of metres, usually under 100 m. Inter-satellite links are another interesting case because the signal path avoids atmospheric gas absorption."
       },
       {
         "type": "p",
-        "text": "THz sits between electronics and photonics, where producing useful transmit power is difficult. Add wideband thermal noise, kTB, and antenna gain becomes central to the whole design."
+        "text": "The challenge is making these links practical. At THz frequencies, the hardware sits near the boundary between electronics and photonics, and generating sufficient transmit power remains difficult. Wide bandwidth also means higher thermal noise power kTB. With limited transmit power and substantial noise over a wide bandwidth, antenna gain becomes central to closing the link budget."
       },
       {
         "type": "h2",
@@ -52,23 +52,23 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "A shorter wavelength brings small environmental details into the link budget. Across roughly 0.1–10 THz, it runs from millimetres down to tens of micrometres. Obstacles, surface texture, and the atmosphere start to shape the link much more strongly."
+        "text": "A shorter wavelength makes the propagation environment much more important to a THz link. Across roughly 0.1–10 THz, the wavelength shrinks from about 3 mm to 30 μm. At these scales, obstacles, surface texture, and atmospheric absorption can all have a significant impact on how the signal propagates."
       },
       {
         "type": "p",
-        "text": "At lower microwave frequencies, diffraction can help a signal reach around an obstacle. With THz wavelengths, a person or an object looks much larger electrically, and bending around it becomes weak. This makes a clear path more valuable and an unexpected blockage more disruptive. Preparing another usable path becomes part of maintaining the connection."
+        "text": "At lower microwave frequencies, diffraction can help a signal bend around obstacles. As the wavelength gets shorter, obstacles become electrically larger and diffraction generally becomes weaker. A person or an object can therefore block a THz link much more severely, making a clear path more valuable and unexpected blockage more disruptive. Maintaining a reliable connection may require an alternative propagation path."
       },
       {
         "type": "p",
-        "text": "Take surface roughness: a 0.1 mm surface feature is only one-thousandth of a wavelength at 3 GHz, but one-tenth at 300 GHz. Many surfaces therefore look much rougher to THz waves. Height variations give the reflected waves different phases, weakening the specular component and spreading more energy into diffuse scattering. A wall’s texture can determine how much energy remains in a useful reflected path."
+        "text": "Shorter wavelengths also make ordinary surface features more significant. Consider a surface variation of 0.1 mm: it is only one-thousandth of a wavelength at 3 GHz, but one-tenth of a wavelength at 300 GHz. The same surface can therefore behave much more roughly at THz frequencies. Surface roughness reduces the strength of specular reflection and scatters more energy in other directions. As a result, the texture of a wall can determine how useful its reflected path is."
       },
       {
         "type": "p",
-        "text": "This gives RIS a clear role: deliberately creating a useful reflected path. A reconfigurable intelligent surface controls reflection phases across its elements so their contributions reinforce toward the receiver, redirecting energy into a controlled route around a blockage."
+        "text": "If natural reflections are unreliable, a reconfigurable intelligent surface (RIS) offers a way to shape them deliberately. By adjusting the reflection phases across its elements, an RIS can make the reflected contributions reinforce toward a receiver, helping establish a useful alternative path around a blockage when the geometry allows it."
       },
       {
         "type": "p",
-        "text": "The air also becomes a more active part of the link budget. Water vapour and oxygen have molecular absorption lines, producing frequency-dependent loss and useful transmission windows. Humidity, frequency, and distance now belong in the same decision: where can that large bandwidth actually be used efficiently?"
+        "text": "Obstacles and surfaces are only part of the problem. Water vapour and oxygen also absorb electromagnetic energy at specific molecular resonance frequencies, creating frequency-dependent propagation loss and transmission windows. The usable bandwidth therefore depends not just on the available spectrum, but also on the carrier frequency, humidity, and link distance. The key question becomes: where can the available bandwidth be used most effectively while maintaining a reliable link?"
       },
       {
         "type": "h2",
@@ -80,7 +80,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "For a fixed antenna gain G, a shorter wavelength gives a smaller effective receiving area Aₑ. An array lets many small elements work together, building directional gain in a compact space. The short wavelength creates both a challenge for individual elements and an opportunity to combine many of them."
+        "text": "For a given antenna gain, the effective aperture decreases with the square of the wavelength. However, shorter wavelengths also allow more antenna elements to fit into a given physical area. By combining these elements in an array, their signals can be steered to form a directional beam with high gain."
       },
       {
         "type": "h2",
@@ -88,7 +88,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "With a large array and a short wavelength, small differences in propagation distance already produce substantial phase differences across the aperture. Spherical wavefront curvature can therefore matter over practical link distances. A common Rayleigh-distance estimate is:"
+        "text": "With a large array and a short wavelength, even modest differences in propagation distance across the aperture can produce substantial phase differences. As a result, wavefront curvature can matter even at typical indoor communication distances. A common estimate of the far-field boundary is the Rayleigh distance:"
       },
       {
         "type": "equation",
@@ -96,15 +96,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "At 300 GHz, λ ≈ 1 mm. A 20 cm linear aperture gives a Rayleigh distance of about 80 m. Spherical wavefronts can therefore matter across an entire indoor link."
+        "text": "At 300 GHz, the wavelength is about 1 mm. For an aperture of 20 cm, the Rayleigh distance is approximately 80 m. This means that an indoor receiver may lie in the radiative near field, where the wavefront is still noticeably curved."
       },
       {
         "type": "p",
-        "text": "This differs from the far-field case. Spherical wavefront curvature carries range information as well as direction. Compensating the element-to-target distances brings the waves together at a chosen position. Controlling amplitude and phase across the array opens up wavefront engineering."
-      },
-      {
-        "type": "p",
-        "text": "Water waves emerging as curved ripples from a gap give me a familiar picture of the wavefront. Their strong spreading occurs when the gap is comparable to the wavelength. A THz aperture spans many wavelengths, giving strong directionality while its phase profile shapes the wavefront."
+        "text": "In the far field, the wavefront can often be approximated as planar, and the array mainly steers the beam toward a particular direction. In the near field, the phase pattern across the array also depends on the receiver's distance. By compensating for the different path lengths from each element to a target point, the array can make the signals arrive in phase at that point, focusing energy there. This is the basic idea behind near-field focusing and wavefront engineering."
       },
       {
         "type": "h2",
@@ -112,15 +108,15 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "The cost of high gain is a narrow beam. Finding the beam pair establishes the link; keeping it aligned maintains the link. With motion, that becomes a continuous task."
+        "text": "High antenna gain helps compensate for the propagation losses at THz frequencies, but it comes at the cost of a narrower beam. The transmitter and receiver first need to find a suitable beam pair to establish the link. Once the link is established, they must keep the beams aligned. As users move or obstacles enter the path, maintaining that alignment becomes an ongoing task."
       },
       {
         "type": "p",
-        "text": "Sensing fits naturally into this task. Motion estimates can guide predictive beamforming, and an approaching blocker can trigger preparation of a reflected path or another connection. Sensing becomes part of keeping communication available."
+        "text": "This is where sensing can help. By tracking movement, the system can predict where the user will be and adjust the beam before the link loses alignment. Sensing can also detect an approaching blockage early enough for the system to prepare an alternative reflected path or switch to another connection. In this way, sensing helps communication remain reliable as the environment changes."
       },
       {
         "type": "p",
-        "text": "A tighter beam reaches farther, but asks for better alignment and faster updates. This gain-versus-tolerance tradeoff is why I keep connecting THz with sensing: the two problems fit together at the point where the link needs to stay usable."
+        "text": "The tradeoff is clear: narrower beams provide higher gain, but they also demand more precise alignment and more frequent updates. This is why I see THz communication and sensing as closely connected. The more directional the link becomes, the more valuable it is to know where the user and potential blockers are, and how they are moving."
       }
     ]
   },
