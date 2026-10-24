@@ -645,15 +645,11 @@ window.BLOG_POSTS = [
   },
   {
     "slug": "isac-the-same-wave-different-unknowns",
-    "title": "ISAC: The Same Wave, Different Unknowns",
+    "title": "Integrated Sensing and Communication: One Waveform, Two Purposes",
     "lang": "en",
     "published": true,
     "summary": "Connecting waveform design, multipath, and sensing architectures through the same observation model.",
     "blocks": [
-      {
-        "type": "h2",
-        "text": "Integrated Sensing and Communication: One Waveform, Two Purposes"
-      },
       {
         "type": "p",
         "text": "The search for wider bandwidths pushes communication toward higher frequency bands, including THz. This benefits sensing as well as communication. Wider bandwidth improves range resolution by making echoes with small delay differences easier to distinguish. Shorter wavelengths also allow more antenna elements to fit into a given physical aperture, improving angular resolution."
