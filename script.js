@@ -241,6 +241,45 @@
         item.links.forEach((link) => links.append(externalLink(`${link.label} ↗`, link.url)));
         body.append(links);
       }
+      if (item.highlights) {
+        const details = el("details", "publication-highlights");
+        const summary = el("summary", "publication-highlights-toggle", "Method & key results");
+        const panel = el("div", "publication-highlights-content");
+        panel.append(el("p", "publication-highlights-intro", item.highlights.intro));
+        const grid = el("div", "publication-highlights-grid");
+        if (item.highlights.steps?.length) {
+          const flow = el("figure", "method-flow");
+          flow.append(el("figcaption", "highlight-title", "From observations to resilient beamforming"));
+          const steps = el("ol", "method-flow-steps");
+          item.highlights.steps.forEach((step) => {
+            const node = el("li");
+            node.append(el("strong", "", step.title), el("span", "", step.text));
+            steps.append(node);
+          });
+          flow.append(steps, el("p", "highlight-source", "Method overview · based on the paper"));
+          grid.append(flow);
+        }
+        item.highlights.figures.forEach((figure) => {
+          const card = el("figure", `publication-figure highlight-figure${figure.featured ? " highlight-featured" : ""}`);
+          const link = externalLink("", figure.src);
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.setAttribute("aria-label", `Open full-size figure: ${figure.title}`);
+          const image = el("img");
+          image.src = figure.src;
+          image.alt = figure.alt;
+          image.loading = "lazy";
+          image.decoding = "async";
+          link.append(image);
+          const caption = el("figcaption");
+          caption.append(el("strong", "highlight-title", figure.title), el("p", "", figure.caption), el("span", "highlight-source", figure.source));
+          card.append(link, caption);
+          grid.append(card);
+        });
+        panel.append(grid);
+        details.append(summary, panel);
+        body.append(details);
+      }
       article.append(meta, body);
       list.append(article);
     });

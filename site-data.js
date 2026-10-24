@@ -24,7 +24,8 @@ window.SITE_DATA = {
   about: {
     heading: "Hi, and welcome! I’m Jiajie Jian — glad you’re here.",
     paragraphs: [
-      "A little about my work: I develop algorithms and system designs for next-generation wireless systems, drawing on signal processing, optimization, and machine learning. My current research focuses on integrated sensing and communication (ISAC) and physical-layer security in dynamic wireless environments.",    ],
+      "A little about my work: I develop algorithms and system designs for next-generation wireless systems, drawing on signal processing, optimization, and machine learning. My current research focuses on integrated sensing and communication (ISAC) and physical-layer security in dynamic wireless environments.",
+    ],
     actions: [
       { label: "Copy email", kind: "copy-email", style: "primary" },
     ],
@@ -55,11 +56,13 @@ window.SITE_DATA = {
       {
         period: "Sep. 2024 — Expected Jun. 2027",
         degree: "M.Sc. in Information and Communication Engineering",
-        school: "Chongqing University",      },
+        school: "Chongqing University",
+      },
       {
         period: "Sep. 2020 — Jun. 2024",
         degree: "B.Eng. in Electronic Information Engineering",
-        school: "Sichuan Normal University",      },
+        school: "Sichuan Normal University",
+      },
     ],
   },
 
@@ -111,12 +114,15 @@ window.SITE_DATA = {
             alt: "Full-duplex ISAC security scenario with covert users, a warden, an eavesdropper, and a sensing target",
             caption: "FD-ISAC security scenario",
           },
-          {
-            src: "assets/publications/tvt-dual-functional-waveform.png",
-            alt: "Combined transmit-receive beampattern comparing the proposed dual-functional waveform with baseline designs",
-            caption: "Joint radar-communication waveform design",
-          },
         ],
+        highlights: {
+          intro: "Balancing uplink covertness, downlink secrecy, and radar sensing with the same full-duplex system.",
+          figures: [
+            { src: "assets/publications/tvt-secrecy-sensing-tradeoff.png", alt: "Downlink secrecy spectral efficiency versus radar SINR requirement for optimized artificial noise and baseline designs", title: "Security under sensing constraints", caption: "Optimized artificial noise preserves higher secrecy rates as the radar requirement tightens in the evaluated setting.", source: "Paper Fig. 3(a)" },
+            { src: "assets/publications/tvt-channel-uncertainty.png", alt: "Covert and public spectral efficiency versus channel uncertainty for joint cover and reference schemes", title: "Covertness with uncertain channels", caption: "Joint cover balances covert uplink performance with public traffic; radar-only cover achieves higher covert rates but omits public uplink interference.", source: "Paper Fig. 2" },
+            { src: "assets/publications/tvt-dual-functional-waveform.png", alt: "Combined transmit-receive beampattern comparing the proposed dual-functional waveform with baseline designs", title: "Focused sensing with controlled sidelobes", caption: "The combined transmit–receive response preserves target illumination while suppressing unintended radiation away from the target.", source: "Paper Fig. 3(b)", featured: true },
+          ],
+        },
         featured: true,
         links: [
           { label: "PDF", url: "files/publications/Bidirectional_Covertness_and_Security_Enhancement_in_FD-ISAC_Systems.pdf" },
@@ -136,12 +142,15 @@ window.SITE_DATA = {
             alt: "Cross-boundary UAV task offloading scenario with edge servers, a monitor, and a jammer",
             caption: "Cross-Boundary task offloading scenario.",
           },
-          {
-            src: "assets/publications/tmc-trajectory-scheduling-results.png",
-            alt: "System topology, UAV trajectories, service rates, and risk values for the cross-boundary UAV service study",
-            caption: "Topology, trajectories, rates, and risk",
-          },
         ],
+        highlights: {
+          intro: "From a non-convex no-fly zone to tractable flight corridors for joint trajectory and offloading optimization.",
+          figures: [
+            { src: "assets/publications/tmc-homotopy-paths.png", alt: "Two distinct routes around opposite sides of a polygonal no-fly zone on a visibility graph", title: "Choose distinct bypass routes", caption: "A visibility graph identifies routes around different sides of the no-fly zone, retaining distinct homotopy classes.", source: "Paper Fig. 3(a)" },
+            { src: "assets/publications/tmc-convex-corridor.png", alt: "Convex corridor cells and a separating hyperplane around a selected no-fly-zone bypass", title: "Build safe convex corridors", caption: "Separating half-spaces turn the selected bypass into convex cells, keeping trajectory refinement outside the no-fly zone.", source: "Paper Fig. 3(b)" },
+            { src: "assets/publications/tmc-trajectory-scheduling-results.png", alt: "System topology, UAV trajectories, service rates, and risk values for the cross-boundary UAV service study", title: "Trajectories, scheduling, and covert risk", caption: "The spatial and temporal results show how flight paths, offloading rates, and covert risk are coordinated across the mission.", source: "Trajectory and scheduling results", featured: true },
+          ],
+        },
         featured: false,
       },
       {
@@ -157,12 +166,19 @@ window.SITE_DATA = {
             alt: "MIMO-ISAC system with a target, communication users, clutter, and an unknown jammer",
             caption: "Anti-jamming ISAC system model",
           },
-          {
-            src: "assets/publications/wcl-transmit-receive-beampatterns.png",
-            alt: "Transmit (Tx) and receive (Rx) beampatterns for resilient MIMO-ISAC",
-            caption: "Transmit and receive beampatterns",
-          },
         ],
+        highlights: {
+          intro: "Estimate unknown interference from ongoing observations, then use those statistics to design communication and sensing beamformers.",
+          steps: [
+            { title: "Observe", text: "Collect ongoing transmit–receive samples." },
+            { title: "Estimate", text: "Project out the waveform-correlated component and estimate jamming-plus-noise covariance." },
+            { title: "Optimize", text: "Jointly design transmit and receive beamformers under sensing and power constraints." },
+          ],
+          figures: [
+            { src: "assets/publications/wcl-covariance-estimation.png", alt: "Covariance-estimation NMSE decreases with sample size; theoretical curves agree with Monte Carlo results at three jamming powers", title: "Finite-sample estimation accuracy", caption: "Theoretical and Monte Carlo results agree; more observation samples reduce covariance-estimation error across the tested jamming powers.", source: "Paper Fig. 3(a)" },
+            { src: "assets/publications/wcl-transmit-receive-beampatterns.png", alt: "Transmit (Tx) and receive (Rx) beampatterns for resilient MIMO-ISAC", title: "Complementary transmit and receive responses", caption: "Transmit shaping illuminates the target and serves users, while receive filtering attenuates dominant jamming and clutter directions.", source: "Paper Fig. 2", featured: true },
+          ],
+        },
         featured: false,
       },
     ],
@@ -211,7 +227,8 @@ window.SITE_DATA = {
     eyebrow: "Recognition",
     items: [
       { year: "2027", title: "Selected as an Outstanding Graduate", organization: "Chongqing University" },
-      { year: "2026", title: "National Scholarship for Graduate Students", organization: "China" },    ],
+      { year: "2026", title: "National Scholarship for Graduate Students", organization: "China" },
+    ],
   },
 
   skills: {
