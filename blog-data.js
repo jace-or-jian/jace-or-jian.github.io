@@ -601,7 +601,7 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "The same transmitted signal can reach the receiver directly, by reflection, by scattering, or by diffraction around an edge. These routes bring copies with different amplitudes, phases, and delays—the physical picture behind multipath."
+        "text": "A transmitted signal rarely reaches the receiver along just one path. It may arrive directly, reflect off a wall, scatter from objects, or diffract around an edge. These copies arrive with different amplitudes, phases, and delays. When they combine at the receiver, they can reinforce or cancel one another, creating the phenomenon known as multipath fading."
       },
       {
         "type": "figure",
@@ -612,7 +612,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Across space, their superposition forms an invisible landscape: bright patches where waves reinforce, dark patches where they cancel. This is the interference pattern I picture. If everything stays still, the result at each point stays fixed."
+        "text": "I like to picture this as an invisible interference landscape spread across space: bright patches where the waves reinforce each other, and dark patches where they cancel. If the environment and the receiver stay still, this pattern stays fixed."
+      },
+      {
+        "type": "p",
+        "text": "The key is the relative phase between paths. For two paths with a delay difference Δτ, the phase difference at frequency f is"
       },
       {
         "type": "equation",
@@ -620,11 +624,15 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "When I move, paths from different directions change length by different amounts, changing their relative phases. I therefore cross that landscape’s bright and dark patches. A path difference changing by a fraction of a wavelength can already rearrange the sum."
+        "text": "where ΔL is the path-length difference and λ is the wavelength. Even a small change in path length can alter the relative phase and change how the waves combine."
       },
       {
         "type": "p",
-        "text": "Moving faster carries me across the same patches sooner, so the channel stays similar for less time: a shorter coherence time. The unequal rates of phase change appear as different Doppler shifts; a wider spread makes the interference change faster."
+        "text": "When I move, the lengths of paths arriving from different directions change at different rates. Their relative phases shift, so I move through the interference landscape, passing through regions of stronger and weaker signal."
+      },
+      {
+        "type": "p",
+        "text": "This also explains how motion changes the channel over time. As I move, each path experiences a Doppler shift determined by my motion relative to that path. The wider the spread of these shifts, the faster the relative phases change and the more quickly the interference pattern evolves. This is why a larger Doppler spread generally means a shorter coherence time."
       },
       {
         "type": "figure",
@@ -635,11 +643,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Staying at one point and sweeping f is like walking through a pattern along the frequency axis. Delays stay fixed, but a longer-delay path accumulates phase faster as f changes. Their relative phase therefore turns, creating peaks and dips. A larger delay difference produces more relative phase change for the same frequency step, narrowing these patches. Coherence bandwidth describes the width of a patch where the channel stays similar."
+        "text": "The same idea applies along the frequency axis. Imagine staying in one place and sweeping the signal frequency. The physical path lengths remain fixed, but the phase difference between paths changes with frequency. A path with a larger delay difference accumulates relative phase more quickly as the frequency changes, causing the peaks and dips in the channel response to occur more closely together."
       },
       {
         "type": "p",
-        "text": "A signal occupying a nearly uniform patch sees flat fading; a wider signal spanning different gains experiences frequency-selective fading."
+        "text": "Finally, the relationship between coherence bandwidth and signal bandwidth determines the type of fading we observe. If the signal bandwidth is much smaller than the coherence bandwidth, the channel response is approximately uniform across the signal band, producing flat fading. If the signal bandwidth is wide enough to span substantial variations in the channel response, different frequency components experience different gains and phases, producing frequency-selective fading."
       }
     ]
   },
