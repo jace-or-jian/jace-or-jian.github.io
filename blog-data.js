@@ -326,18 +326,22 @@ window.BLOG_POSTS = [
       },
       {
         "type": "h2",
-        "text": "Find structure in a difficult problem"
+        "text": "Find Structure in a Difficult Problem"
       },
       {
         "type": "p",
-        "text": "Wireless problems often become nonconvex through interference, variable coupling, discrete choices, or rank constraints. An equivalent reformulation can reveal a simpler problem; approximations and relaxations offer other ways to expose useful structure."
+        "text": "Wireless optimization problems can be difficult for different reasons. Interference couples the decisions made for different users, some constraints are nonconvex, and discrete choices introduce combinatorial complexity."
+      },
+      {
+        "type": "p",
+        "text": "The first step is to understand where the difficulty comes from. Sometimes an equivalent reformulation reveals useful structure. When an exact reformulation is not enough, approximations and relaxations offer other ways to make the problem more manageable. Three techniques illustrate these different approaches, for example."
       },
       {
         "type": "ul",
         "items": [
-          "SCA builds convex surrogate problems around the current iterate and solves them successively. Well-chosen surrogates can lead to a stationary solution.",
-          "Lagrangian methods attach multipliers to constraints. The multipliers make resource tradeoffs visible and can help decompose the problem; the dual also provides a bound.",
-          "SDR lifts a quadratic variable to W = wwᴴ and relaxes the rank-one requirement. For suitable formulations this gives a semidefinite program, followed by recovering a usable vector solution."
+          "SCA: solve a sequence of simpler problems. Instead of tackling the original nonconvex problem directly, successive convex approximation (SCA) constructs a convex surrogate around the current iterate and solves it repeatedly. Each solution provides a new point around which to build the next subproblem. Under suitable conditions, this process can converge to a stationary point, although it does not generally guarantee a global optimum.",
+          "Lagrangian methods: expose the relationships between constraints and decisions. By attaching multipliers to constraints, we can interpret them as prices associated with limited resources or constraint violations. When the problem has suitable separable structure, dualizing coupling constraints can break it into smaller subproblems that are easier to handle individually. The dual problem can also provide a bound on the primal optimum, although a nonzero duality gap may remain.",
+          "SDR: trade a difficult constraint for a larger convex problem. For a quadratic beamforming problem with a complex vector w, define W = wwᴴ. The quadratic expressions can then be represented using the matrix W, but the exact formulation also requires W to have rank one. Dropping that rank constraint gives a semidefinite relaxation (SDR), which is convex for suitable formulations. The tradeoff is that the matrix variable is much larger, and the relaxed solution may not have rank one. If so, an additional recovery step, such as randomization, may be needed to obtain a feasible beamforming vector for the original problem."
         ]
       },
       {
