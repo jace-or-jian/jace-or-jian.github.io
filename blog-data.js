@@ -128,28 +128,36 @@ window.BLOG_POSTS = [
     "summary": "The mental picture I use for PHY, MAC, antennas, and the control offered by different beamforming architectures.",
     "blocks": [
       {
+        "type": "h2",
+        "text": "1. Wireless System in the bottom layer"
+      },
+      {
         "type": "p",
-        "text": "I usually start with two questions: how does one radio link work, and how do several links share the system? PHY and MAC fit into those two questions."
+        "text": "I find wireless systems easier to understand by starting with two questions: how does a radio link work, and how do multiple links share the same system?"
+      },
+      {
+        "type": "p",
+        "text": "The first question belongs mainly to the physical layer (PHY). The PHY takes bits, encodes and modulates them into a waveform, sends that waveform through the channel, and tries to recover the original information at the receiver. Along the way, channel estimation helps characterize the channel, modulation and coding determine how information is represented and how errors are handled, and beamforming shapes how signals are transmitted and received."
+      },
+      {
+        "type": "p",
+        "text": "The second question belongs mainly to the medium access control layer (MAC). Even if an individual link works well, multiple users still need to share limited time, frequency, and spatial resources. The MAC decides who gets access to which resources and when, and coordinates retransmissions when necessary."
+      },
+      {
+        "type": "p",
+        "text": "The boundary between these two layers is not completely separate. Consider beamforming: choosing the weights that shape a beam is a physical-layer operation, while deciding which users should be served by which beams is closely tied to scheduling. Channel feedback connects the two. The PHY needs channel information to make transmission decisions, while the MAC needs sufficiently fresh information to decide how to allocate resources."
       },
       {
         "type": "h2",
-        "text": "PHY handles the link; MAC organizes its use"
+        "text": "2. Why Beamforming Changes the Way We Use Space"
       },
       {
         "type": "p",
-        "text": "PHY takes bits, maps them into an electromagnetic waveform, and tries to recover them reliably after the channel. Channel estimation helps describe that channel; beamforming improves transmission and combining; modulation and coding manage rate and errors."
+        "text": "One way to improve a wireless link is to make better use of the available spectrum. Another is to control where the transmitted energy goes."
       },
       {
         "type": "p",
-        "text": "MAC decides who transmits, when, and on which resources. It also coordinates retransmissions. Choosing a beam’s weights fits into the link side; choosing which users and beams operate together fits into scheduling. Channel feedback connects the two, and its freshness matters for both."
-      },
-      {
-        "type": "h2",
-        "text": "Antennas and beamforming architectures"
-      },
-      {
-        "type": "p",
-        "text": "From broad coverage to sectors and steerable beams, the change is increasingly precise control over where electromagnetic energy goes. Focusing it toward a user strengthens the useful signal and can reduce interference elsewhere."
+        "text": "Wireless coverage can be organized into broad coverage areas, sectors, and eventually steerable beams. Each step allows more precise control over the direction in which energy is concentrated. By directing more energy toward a user, beamforming strengthens the useful signal and can reduce interference in other directions."
       },
       {
         "type": "figure",
@@ -160,7 +168,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "When users have sufficiently distinct spatial channels, beamforming can also let them share the same time–frequency resources—space becomes another resource to use."
+        "text": "This becomes particularly valuable when several users have sufficiently distinct spatial channels. Instead of assigning each user a separate time or frequency resource, the system may be able to serve multiple users on the same time–frequency resources using different spatial beams. Space then becomes another resource that can be exploited."
       },
       {
         "type": "figure",
@@ -170,12 +178,8 @@ window.BLOG_POSTS = [
         "height": 507
       },
       {
-        "type": "h3",
-        "text": "An antenna gathers and directs energy"
-      },
-      {
         "type": "p",
-        "text": "An antenna controls where energy goes. A transmitting array brings the fields from several elements together. Adjust their phases, and the waves reinforce each other in one direction and partially cancel elsewhere: constructive and destructive interference."
+        "text": "An antenna has a radiation pattern that determines how it radiates energy. When several antenna elements operate together, their electromagnetic fields combine. By adjusting the relative phases of the signals sent to different elements, we can make the waves reinforce each other in some directions and partially cancel in others. This is constructive and destructive interference, and it is the basic physical principle behind beamforming."
       },
       {
         "type": "figure",
@@ -185,16 +189,36 @@ window.BLOG_POSTS = [
         "height": 572
       },
       {
-        "type": "p",
-        "text": "Changing the phase progression changes the direction of reinforcement. In the far field, beamwidth scales roughly as λ/D, so a larger aperture D relative to wavelength produces a tighter beam."
-      },
-      {
-        "type": "h3",
-        "text": "RF chains explain the architectural differences"
+        "type": "h2",
+        "text": "3. The Difference Between Antennas and RF Chains"
       },
       {
         "type": "p",
-        "text": "An RF chain supplies an independently controlled signal path; a phase shifter adjusts an existing signal. Many antennas can share one RF input, which explains why element count alone says little about the available spatial freedom."
+        "text": "An antenna element radiates or receives electromagnetic energy. An RF chain, by contrast, provides an independently controlled signal path, typically including the circuitry needed to convert and process signals at radio frequencies. A phase shifter adjusts the phase of a signal that already exists."
+      },
+      {
+        "type": "p",
+        "text": "These are different functions, and the distinction matters. Adding antenna elements increases the physical aperture and gives the array more elements with which to shape its radiation pattern. Adding independent RF chains increases the number of independently generated signal paths available to control that array."
+      },
+      {
+        "type": "p",
+        "text": "The main beamforming architectures make different tradeoffs here."
+      },
+      {
+        "type": "h2",
+        "text": "4. Digital, Analog, and Hybrid Beamforming"
+      },
+      {
+        "type": "p",
+        "text": "In a fully digital array, each antenna element typically has its own RF chain. The system can apply independent complex weights to the signals sent to different elements, with flexible control across users and, in many implementations, across subcarriers. This offers substantial freedom, but the RF circuitry, data converters, power consumption, and cost can become significant as the array grows."
+      },
+      {
+        "type": "p",
+        "text": "Analog beamforming takes the opposite approach. A single RF chain feeds many antenna elements through a network of phase shifters. The elements cooperate to form a directional beam, but the array has much less freedom to generate multiple independent waveforms. It is a more hardware-efficient way to obtain antenna gain, especially when the system does not need full digital control of every element."
+      },
+      {
+        "type": "p",
+        "text": "Hybrid beamforming sits between these two approaches. It uses fewer RF chains than antenna elements and combines digital processing with an analog phase-shifting network. The RF chains provide multiple independently controlled signals, while the analog network distributes those signals across the larger array and shapes their radiation."
       },
       {
         "type": "figure",
@@ -204,24 +228,16 @@ window.BLOG_POSTS = [
         "height": 680
       },
       {
-        "type": "ul",
-        "items": [
-          "Digital: conventionally one RF chain per antenna element. Independent complex weights give flexible control, including different weights across subcarriers, with more circuit and converter cost.",
-          "Analog: one RF signal is distributed across the array with different phase settings. Many elements cooperate on one spatial input.",
-          "Hybrid: a smaller number of RF chains works with a larger analog array. It sits between digital flexibility and analog hardware economy. Channel rank and receiver capability also shape how many streams are useful."
-        ]
-      },
-      {
-        "type": "h3",
-        "text": "How I picture hybrid beamforming"
+        "type": "h2",
+        "text": "5. What a Hybrid Array Actually Controls"
       },
       {
         "type": "p",
-        "text": "Different RF chains can carry different, independently controlled RF waveforms. The analog network distributes and adjusts those signals across a larger antenna array. Producing the waveforms and shaping how they radiate are two different jobs."
+        "text": "An RF chain generates and processes its own signal. The analog network then distributes that signal across antenna elements and adjusts their relative phases. The resulting fields combine to form a beam."
       },
       {
         "type": "p",
-        "text": "In the grouped architecture below, each RF chain feeds one antenna subarray. Its phase shifters all work on copies of that chain’s waveform. Each branch can have its own phase setting at the same time, so the elements reinforce that waveform in a chosen direction. Many available phase settings give control over how the waveform is radiated; the independent waveform itself comes from the RF chain."
+        "text": "In a subarray-based hybrid architecture, each RF chain feeds its own group of antenna elements. The phase shifters within that subarray can apply different phase settings to the elements, allowing the subarray to steer its beam. Multiple subarrays can operate simultaneously, each driven by a different RF chain and its own waveform."
       },
       {
         "type": "figure",
@@ -231,16 +247,24 @@ window.BLOG_POSTS = [
         "height": 1347
       },
       {
-        "type": "h3",
-        "text": "Lens antennas: focusing waves and switching feeds"
+        "type": "p",
+        "text": "The important point is that phase shifters do not create additional independent data streams. They control how an existing waveform is distributed in space. The RF chains provide the independent signal paths; the analog network determines how those signals are radiated."
+      },
+      {
+        "type": "h2",
+        "text": "6. A Different Approach: Lens Antennas"
       },
       {
         "type": "p",
-        "text": "A lens antenna uses the lens shape and material to bend the waves and bring their phases together. On reception, waves arriving from different directions are focused near different feed positions. The lens turns a direction in space into a location where the energy is collected."
+        "text": "A lens antenna offers another way to control where electromagnetic energy goes. Instead of relying entirely on an electronically controlled phase-shifting network, it uses the lens's geometry and electromagnetic properties to focus or redirect waves."
       },
       {
         "type": "p",
-        "text": "On transmission, exciting a feed at one position sends a beam in its corresponding direction. Exciting another feed changes the direction. A switch network can turn these feed connections on or off, selecting which beams are active. Much of the beam shaping is built into the lens itself; changing the electrical connections makes switching among the available directions flexible and straightforward."
+        "text": "On reception, waves arriving from a particular direction are focused near a corresponding feed position. The lens effectively maps an incoming direction to a location where the energy can be collected. On transmission, exciting a feed at a particular position produces a beam in the corresponding direction, with the mapping determined by the lens design."
+      },
+      {
+        "type": "p",
+        "text": "A switching network can select among available feeds, allowing the system to switch between different beam directions. Much of the spatial transformation is built into the lens itself, so beam selection can be achieved without independently controlling every antenna element."
       }
     ]
   },
