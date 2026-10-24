@@ -712,19 +712,27 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "In 6G research, higher carrier frequencies, wider bandwidths, and larger arrays form a tightly coupled triad: each solves a problem created by the others while introducing new constraints. Higher frequencies open up wider bandwidths but suffer from severe blockage and limited transmit power, forcing systems to adopt larger array apertures to concentrate energy at the receiver."
+        "text": "Higher carrier frequencies, wider bandwidths, and larger antenna arrays are closely connected in 6G research. Higher frequencies provide access to wider bandwidths, but they also bring challenges such as severe blockage and the difficulty of generating sufficient transmit power. Large antenna arrays help compensate for these limitations by concentrating energy toward the receiver. In this sense, the three technologies reinforce one another, but each also introduces new design challenges."
       },
       {
         "type": "p",
-        "text": "Expanding the aperture, in turn, shifts the propagation physics. Under the common near-field boundary R ≈ 2D²/λ, a 1.5 m array at 10 GHz extends the near field to about 150 m, making near-field propagation relevant well below THz. Because spherical wavefronts depend on both angle and distance, phase control across the array can focus energy onto a specific location—enabling distance-based user separation, but making the link far harder to maintain."
+        "text": "A larger array does more than increase antenna gain. It also changes how the wave propagates across practical link distances. A common estimate of the far-field boundary is the Rayleigh distance, R ≈ 2D²/λ, where D is the array aperture and λ is the wavelength. At 10 GHz, where the wavelength is about 3 cm, an aperture of 1.5 m gives a Rayleigh distance of roughly 150 m. Even at frequencies well below THz, a sufficiently large array can therefore operate in the radiative near field over typical communication distances."
       },
       {
         "type": "p",
-        "text": "Sustaining this focus requires overcoming both spatial and spectral sensitivities. In space, coordinates alone are insufficient: even at a fixed position, device rotation alters antenna orientation and polarization relative to the local field, demanding joint tracking of location and orientation. Across frequency, the wide bandwidths unlocked by higher carriers induce beam squint: phase shifters tuned to the center frequency misalign waves elsewhere in the band, requiring true-time-delay hardware at the cost of added loss and complexity."
+        "text": "This creates an opportunity as well as a challenge. In the far field, beamforming mainly controls the direction of the transmitted energy. In the near field, the curvature of the wavefront also depends on the receiver's distance. By adjusting the phase across the array, the system can focus energy at a particular location, potentially separating users by both angle and distance. But this more precise spatial control also makes the link more sensitive to changes in the user's position and the array's orientation."
       },
       {
         "type": "p",
-        "text": "Channel estimation, beam tracking, and wideband hardware thus converge on a single goal: keeping spatial focusing viable in practice. Because every safeguard consumes resources, the central question is how much net gain survives after accounting for training overhead, mobility, hardware loss, and computation."
+        "text": "Maintaining a near-field focus is therefore not just a matter of tracking coordinates. If a device rotates, its antenna orientation and polarization alignment with the incoming field can change even when its position remains the same. A practical system may need to track both position and orientation to maintain a reliable link."
+      },
+      {
+        "type": "p",
+        "text": "Wide bandwidth introduces a different challenge. Conventional phase shifters apply frequency-independent phase shifts, so a beam designed for the center frequency may point in slightly different directions at other frequencies. This effect, known as beam squint, can become significant for wideband signals and large arrays. True-time-delay hardware can reduce this problem by aligning signals across the band, but it adds hardware complexity, loss, and cost."
+      },
+      {
+        "type": "p",
+        "text": "These issues point to a broader question. Near-field focusing promises more precise spatial control, but realizing that benefit requires accurate channel estimation, continuous beam tracking, and hardware that can handle wide bandwidths. Each comes with its own overhead or implementation cost. The real question for 6G is how much of that gain remains after accounting for mobility, training overhead, hardware limitations, and computational complexity."
       }
     ]
   }
