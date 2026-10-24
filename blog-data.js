@@ -346,27 +346,19 @@ window.BLOG_POSTS = [
       },
       {
         "type": "h2",
-        "text": "Alternating updates should be cheap"
+        "text": "Alternating Updates Should Be Cheap"
       },
       {
         "type": "p",
-        "text": "A jointly difficult problem can become convex in one group of variables when the others are fixed. Alternating optimization uses that structure. Explicit updates for the individual blocks make this approach especially attractive."
+        "text": "A jointly difficult optimization problem can sometimes be handled more easily by optimizing one block of variables at a time while keeping the others fixed. If each block update has a simpler structure than the original problem, alternating optimization can turn a difficult joint optimization into a sequence of manageable subproblems."
       },
       {
         "type": "p",
-        "text": "If every outer update launches another expensive iterative search, much of that practical appeal disappears. The work per update matters just as much as the number of outer iterations. Closed-form updates are worth pursuing because they can make the algorithm simpler to run and easier to inspect."
+        "text": "But splitting the problem is only part of the solution. What matters in practice is how expensive each update is. If every block requires another costly iterative optimization, the algorithm may still be slow even when each subproblem is smaller. This is why closed-form updates are especially valuable: they reduce the computational effort per iteration and make the algorithm easier to implement and analyze."
       },
       {
         "type": "p",
-        "text": "WMMSE is a useful example: receive filters and MSE weights have explicit updates, and a power-constrained precoder can be expressed through a multiplier found by a scalar search. The joint problem becomes a sequence of structured steps."
-      },
-      {
-        "type": "h2",
-        "text": "The best part is understanding the answer"
-      },
-      {
-        "type": "p",
-        "text": "A closed-form solution lets me see how a decision changes with power, interference, or another system parameter. Getting both a decision and an explanation makes the derivation worth the effort. When numerical optimization is needed, a bound, a limiting case, or a sensitivity result can still provide insight."
+        "text": "WMMSE provides a useful example. In the standard formulation, the receiver filters and MSE weights can be updated explicitly when the other variables are fixed. The precoder update is also structured: under a sum-power constraint, it can often be expressed in terms of a Lagrange multiplier found through a one-dimensional search. Instead of solving the entire problem at once, WMMSE alternates between these updates, making each step relatively efficient."
       }
     ]
   },
