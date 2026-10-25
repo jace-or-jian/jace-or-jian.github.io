@@ -125,7 +125,6 @@ window.SITE_DATA = {
         },
         featured: true,
         links: [
-          { label: "PDF", url: "files/publications/Bidirectional_Covertness_and_Security_Enhancement_in_FD-ISAC_Systems.pdf" },
           { label: "DOI", url: "https://doi.org/10.1109/TVT.2026.3701923" },
         ],
       },
@@ -152,6 +151,9 @@ window.SITE_DATA = {
           ],
         },
         featured: false,
+        links: [
+          { label: "DOI", url: "https://doi.org/10.1109/TMC.2026.3745408" },
+        ],
       },
       {
         year: "2026",

@@ -256,7 +256,7 @@
             node.append(el("strong", "", step.title), el("span", "", step.text));
             steps.append(node);
           });
-          flow.append(steps, el("p", "highlight-source", "Method overview · based on the paper"));
+          flow.append(steps, el("p", "highlight-source", "Method overview"));
           grid.append(flow);
         }
         item.highlights.figures.forEach((figure) => {
