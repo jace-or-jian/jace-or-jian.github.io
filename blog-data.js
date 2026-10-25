@@ -236,6 +236,49 @@ window.BLOG_POSTS = [
         "text": "An RF chain generates and processes its own signal. The analog network then distributes that signal across antenna elements and adjusts their relative phases. The resulting fields combine to form a beam."
       },
       {
+        "type": "equation",
+        "text": "x = FRF FBB s",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "x"
+          },
+          {
+            "text": " = "
+          },
+          {
+            "tag": "strong",
+            "text": "F"
+          },
+          {
+            "tag": "sub",
+            "text": "RF"
+          },
+          {
+            "text": " "
+          },
+          {
+            "tag": "strong",
+            "text": "F"
+          },
+          {
+            "tag": "sub",
+            "text": "BB"
+          },
+          {
+            "text": " "
+          },
+          {
+            "tag": "strong",
+            "text": "s"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Data streams s are first mapped to RF-chain signals by the digital weights, then distributed across the antennas by the analog network."
+      },
+      {
         "type": "p",
         "text": "In a subarray-based hybrid architecture, each RF chain feeds its own group of antenna elements. The phase shifters within that subarray can apply different phase settings to the elements, allowing the subarray to steer its beam. Multiple subarrays can operate simultaneously, each driven by a different RF chain and its own waveform."
       },
@@ -343,6 +386,63 @@ window.BLOG_POSTS = [
           "Lagrangian methods: expose the relationships between constraints and decisions. By attaching multipliers to constraints, we can interpret them as prices associated with limited resources or constraint violations. When the problem has suitable separable structure, dualizing coupling constraints can break it into smaller subproblems that are easier to handle individually. The dual problem can also provide a bound on the primal optimum, although a nonzero duality gap may remain.",
           "SDR: trade a difficult constraint for a larger convex problem. For a quadratic beamforming problem with a complex vector w, define W = wwᴴ. The quadratic expressions can then be represented using the matrix W, but the exact formulation also requires W to have rank one. Dropping that rank constraint gives a semidefinite relaxation (SDR), which is convex for suitable formulations. The tradeoff is that the matrix variable is much larger, and the relaxed solution may not have rank one. If so, an additional recovery step, such as randomization, may be needed to obtain a feasible beamforming vector for the original problem."
         ]
+      },
+      {
+        "type": "equation",
+        "text": "wH A w = tr(AW),   W = wwH",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "w"
+          },
+          {
+            "tag": "sup",
+            "text": "H"
+          },
+          {
+            "text": " "
+          },
+          {
+            "tag": "strong",
+            "text": "A"
+          },
+          {
+            "text": " "
+          },
+          {
+            "tag": "strong",
+            "text": "w"
+          },
+          {
+            "text": " = tr("
+          },
+          {
+            "tag": "strong",
+            "text": "AW"
+          },
+          {
+            "text": "),   "
+          },
+          {
+            "tag": "strong",
+            "text": "W"
+          },
+          {
+            "text": " = "
+          },
+          {
+            "tag": "strong",
+            "text": "ww"
+          },
+          {
+            "tag": "sup",
+            "text": "H"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The quadratic expression in w becomes linear in W; the rank-one requirement carries the remaining difficulty."
       },
       {
         "type": "h2",
@@ -646,6 +746,44 @@ window.BLOG_POSTS = [
         "text": "The same idea applies along the frequency axis. Imagine staying in one place and sweeping the signal frequency. The physical path lengths remain fixed, but the phase difference between paths changes with frequency. A path with a larger delay difference accumulates relative phase more quickly as the frequency changes, causing the peaks and dips in the channel response to occur more closely together."
       },
       {
+        "type": "equation",
+        "text": "Tc ∝ 1/BD\nBc ∝ 1/στ",
+        "parts": [
+          {
+            "text": "T"
+          },
+          {
+            "tag": "sub",
+            "text": "c"
+          },
+          {
+            "text": " ∝ 1/B"
+          },
+          {
+            "tag": "sub",
+            "text": "D"
+          },
+          {
+            "text": "\nB"
+          },
+          {
+            "tag": "sub",
+            "text": "c"
+          },
+          {
+            "text": " ∝ 1/σ"
+          },
+          {
+            "tag": "sub",
+            "text": "τ"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A wider Doppler spread shortens coherence time; a larger RMS delay spread narrows coherence bandwidth."
+      },
+      {
         "type": "p",
         "text": "Finally, the relationship between coherence bandwidth and signal bandwidth determines the type of fading we observe. If the signal bandwidth is much smaller than the coherence bandwidth, the channel response is approximately uniform across the signal band, producing flat fading. If the signal bandwidth is wide enough to span substantial variations in the channel response, different frequency components experience different gains and phases, producing frequency-selective fading."
       }
@@ -748,7 +886,34 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Wide bandwidth introduces a different challenge. Conventional phase shifters apply frequency-independent phase shifts, so a beam designed for the center frequency may point in slightly different directions at other frequencies. This effect, known as beam squint, can become significant for wideband signals and large arrays. True-time-delay hardware can reduce this problem by aligning signals across the band, but it adds hardware complexity, loss, and cost."
+        "text": "Wide bandwidth introduces a different challenge. Conventional phase shifters apply frequency-independent phase shifts, so a beam designed for the center frequency may point in slightly different directions at other frequencies. This effect, known as beam squint, can become significant for wideband signals and large arrays."
+      },
+      {
+        "type": "equation",
+        "text": "Δφres(f) = 2π(f − fc)Δτ",
+        "parts": [
+          {
+            "text": "Δφ"
+          },
+          {
+            "tag": "sub",
+            "text": "res"
+          },
+          {
+            "text": "(f) = 2π(f − f"
+          },
+          {
+            "tag": "sub",
+            "text": "c"
+          },
+          {
+            "text": ")Δτ"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Here Δτ is the propagation-delay difference between elements. Moving farther from the design frequency leaves a larger phase mismatch, especially when the delay differences across the array are large. True-time-delay hardware can reduce this problem by aligning signals across the band, but it adds hardware complexity, loss, and cost."
       },
       {
         "type": "p",

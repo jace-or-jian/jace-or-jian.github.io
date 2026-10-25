@@ -56,7 +56,14 @@
             p.append(link(block.label, block.url)); body.append(p); return;
           }
           if (block.type === "equation") {
-            body.append(node("div", "note-equation", block.text)); return;
+            const equation = node("div", "note-equation");
+            if (Array.isArray(block.parts) && block.parts.length) {
+              block.parts.forEach(part => {
+                const tag = ["sub", "sup", "strong"].includes(part.tag) ? part.tag : "span";
+                equation.append(node(tag, "", part.text));
+              });
+            } else equation.textContent = block.text;
+            body.append(equation); return;
           }
           if (!["p", "h2", "h3", "blockquote", "ul", "ol", "pre"].includes(block.type)) return;
           const element = node(block.type);
