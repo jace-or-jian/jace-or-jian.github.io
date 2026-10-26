@@ -746,6 +746,14 @@ window.BLOG_POSTS = [
         "text": "The same idea applies along the frequency axis. Imagine staying in one place and sweeping the signal frequency. The physical path lengths remain fixed, but the phase difference between paths changes with frequency. A path with a larger delay difference accumulates relative phase more quickly as the frequency changes, causing the peaks and dips in the channel response to occur more closely together."
       },
       {
+        "type": "p",
+        "text": "Finally, the relationship between coherence bandwidth and signal bandwidth determines the type of fading we observe. If the signal bandwidth is much smaller than the coherence bandwidth, the channel response is approximately uniform across the signal band, producing flat fading. If the signal bandwidth is wide enough to span substantial variations in the channel response, different frequency components experience different gains and phases, producing frequency-selective fading."
+      },
+      {
+        "type": "p",
+        "text": "A wider Doppler spread shortens coherence time; a larger RMS delay spread narrows coherence bandwidth."
+      },
+      {
         "type": "equation",
         "text": "Tc ∝ 1/BD\nBc ∝ 1/στ",
         "parts": [
@@ -778,14 +786,6 @@ window.BLOG_POSTS = [
             "text": "τ"
           }
         ]
-      },
-      {
-        "type": "p",
-        "text": "A wider Doppler spread shortens coherence time; a larger RMS delay spread narrows coherence bandwidth."
-      },
-      {
-        "type": "p",
-        "text": "Finally, the relationship between coherence bandwidth and signal bandwidth determines the type of fading we observe. If the signal bandwidth is much smaller than the coherence bandwidth, the channel response is approximately uniform across the signal band, producing flat fading. If the signal bandwidth is wide enough to span substantial variations in the channel response, different frequency components experience different gains and phases, producing frequency-selective fading."
       }
     ]
   },
