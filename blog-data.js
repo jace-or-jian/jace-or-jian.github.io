@@ -9,7 +9,7 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "What draws me to THz is the possibility of accessing much wider bandwidths. With more spectrum available, high data rates become possible without relying so heavily on spectral efficiency or ever-higher modulation orders. The challenge is then to make those wideband links work reliably."
+        "text": "THz offers much wider bandwidths, so higher data rates can come from using more spectrum without pushing spectral efficiency ever higher through more complex modulation. The main challenge is keeping those wideband links reliable."
       },
       {
         "type": "h2",
@@ -25,7 +25,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "The same bandwidth is valuable for sensing, too. For a monostatic radar, range resolution is approximately ΔR = c/(2B), so a 10 GHz bandwidth corresponds to about 1.5 cm. Wider bandwidth makes it easier to distinguish objects that are close together in range, while angular resolution depends more on antenna aperture and wavelength."
+        "text": "The same bandwidth is valuable for sensing, too. For a monostatic radar, range resolution is approximately ΔR = c/(2B), so a 10 GHz bandwidth corresponds to about 1.5 cm. Wider bandwidth also makes it easier to distinguish objects that are close together in range."
       },
       {
         "type": "figure",
