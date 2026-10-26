@@ -29,7 +29,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "figure",
-        "src": "assets/notes/thz-link.svg",
+        "src": "assets/notes/thz-link.svg?v=2",
         "alt": "A flow diagram connecting wide bandwidth and short wavelength to their benefits, link constraints, and sensing-assisted control.",
         "width": 900,
         "height": 650
