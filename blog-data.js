@@ -202,15 +202,15 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "In a fully digital array, each antenna element typically has its own RF chain. The system can apply independent complex weights to the signals sent to different elements, with flexible control across users and, in many implementations, across subcarriers. This offers substantial freedom, but the RF circuitry, data converters, power consumption, and cost can become significant as the array grows."
+        "text": "Fully digital beamforming typically uses one RF chain per antenna element. Digital processing controls the amplitude and phase of each element’s signal independently, giving the array flexibility to form beams and carry multiple data streams. The cost is a large number of RF chains and data converters, with higher power consumption."
       },
       {
         "type": "p",
-        "text": "Analog beamforming takes the opposite approach. A single RF chain feeds many antenna elements through a network of phase shifters. The elements cooperate to form a directional beam, but the array has much less freedom to generate multiple independent waveforms. It is a more hardware-efficient way to obtain antenna gain, especially when the system does not need full digital control of every element."
+        "text": "Analog beamforming uses one RF chain shared by many antenna elements. The elements transmit copies of the same waveform, and phase shifters adjust how those copies combine into a beam. It uses much less RF hardware, but provides only one independently controlled RF waveform for the whole array."
       },
       {
         "type": "p",
-        "text": "Hybrid beamforming sits between these two approaches. It uses fewer RF chains than antenna elements and combines digital processing with an analog phase-shifting network. The RF chains provide multiple independently controlled signals, while the analog network distributes those signals across the larger array and shapes their radiation."
+        "text": "Hybrid beamforming uses several RF chains shared across a larger antenna array. The RF chains supply different, independently controlled waveforms, and the analog network distributes and phase-shifts them across the elements. This allows multiple signal paths while keeping the number of RF chains smaller than the number of antennas."
       },
       {
         "type": "figure",
