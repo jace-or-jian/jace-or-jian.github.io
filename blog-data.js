@@ -632,7 +632,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "A wave travels 1 km in about 3.3 μs; the train takes 12 seconds. Putting those numbers together makes the scale difference feel real. The wave reaches the train quickly. What keeps changing is the propagation path, its phase, and the infrastructure serving the connection."
+        "text": "A wave travels 1 km in about 3.3 μs; the train takes 12 seconds. Putting those numbers together makes the scale difference feel real. The wave reaches the train quickly."
       },
       {
         "type": "h2",
