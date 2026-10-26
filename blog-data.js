@@ -684,11 +684,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "The coordination still has work to do—updating the group, obtaining channel estimates, synchronizing access points, and exchanging information over the fronthaul. The work shifts toward organizing several access points around a connection, instead of treating each cell as its own little world."
-      },
-      {
-        "type": "p",
-        "text": "After that train ride, I started thinking about both sides of mobility: the receiver following a changing waveform, and the network following a moving user. Cell-free connects directly to the second question."
+        "text": "The challenge is keeping the serving group up to date as the train moves. The access points need fresh channel information and synchronized transmission, and the network has to decide when each one should join or leave. These updates create coordination overhead. For the train journey, the useful question is whether the network can make those changes smoothly enough to maintain the connection without noticeable interruptions."
       }
     ]
   },
