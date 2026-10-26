@@ -133,7 +133,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "I find wireless systems easier to understand by starting with two questions: how does a radio link work, and how do multiple links share the same system?"
+        "text": "Wireless systems involve two closely connected questions: how to transmit information reliably over a radio link, and how to let multiple users share limited resources."
       },
       {
         "type": "p",
