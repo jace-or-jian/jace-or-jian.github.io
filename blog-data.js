@@ -644,11 +644,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "The small speed ratio multiplies a carrier frequency of billions of cycles per second. At 3.5 GHz, a wavelength is about 8.6 cm, and the train travels 8.3 cm in just 1 ms. Moving almost one wavelength changes the received phase substantially. That was the comparison I had been missing when looking only at v/c."
+        "text": "At 3.5 GHz, the wavelength is about 8.6 cm, and a train moving at 300 km/h covers 8.3 cm in just 1 ms. For a path along the direction of motion, that changes the received phase by almost a full cycle. Comparing movement with wavelength explains why Doppler can matter even when v/c is tiny."
       },
       {
         "type": "p",
-        "text": "Receivers track frequency shifts and changing channels. With several propagation paths, their different Doppler shifts add another tracking task. So the original Doppler thought was pointing at something real; the missing piece was the network’s service structure."
+        "text": "At train speeds, larger Doppler shifts and faster channel variations make accurate reception harder. If frequency compensation or channel tracking falls behind, decoding errors and retransmissions increase, slowing the connection. Along the route, maintaining the connection also requires the network to transfer service between cells."
       },
       {
         "type": "h2",
