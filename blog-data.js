@@ -190,15 +190,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "An antenna element radiates or receives electromagnetic energy. An RF chain, by contrast, provides an independently controlled signal path, typically including the circuitry needed to convert and process signals at radio frequencies. A phase shifter adjusts the phase of a signal that already exists."
+        "text": "On transmission, an RF chain supplies a waveform, and the antenna elements radiate it into space. If one RF chain feeds many elements, they transmit copies of the same waveform. Phase shifters adjust the phases of those copies so their fields reinforce in a chosen direction."
       },
       {
         "type": "p",
-        "text": "These are different functions, and the distinction matters. Adding antenna elements increases the physical aperture and gives the array more elements with which to shape its radiation pattern. Adding independent RF chains increases the number of independently generated signal paths available to control that array."
-      },
-      {
-        "type": "p",
-        "text": "The main beamforming architectures make different tradeoffs here."
+        "text": "Adding antenna elements gives the array more radiating points for shaping the beam. Adding RF chains allows more signals to be controlled independently. Digital, analog, and hybrid beamforming make different choices about how these RF chains connect to the antenna elements."
       },
       {
         "type": "h2",
