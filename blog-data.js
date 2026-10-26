@@ -64,7 +64,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "If natural reflections are unreliable, a reconfigurable intelligent surface (RIS) offers a way to shape them deliberately. By adjusting the reflection phases across its elements, an RIS can make the reflected contributions reinforce toward a receiver, helping establish a useful alternative path around a blockage when the geometry allows it."
+        "text": "When the direct link is blocked, natural reflections may still provide an alternative route. Sensing or a channel map can help locate useful reflecting surfaces and identify the directions in which the transmitter and receiver should point their beams. This environmental information gives the system a starting point for finding and tracking a reflected path. At THz, precise alignment remains essential because the beams are narrow. Propagation and reflection losses also mean that a geometrically available path may deliver too little power to support the link."
+      },
+      {
+        "type": "p",
+        "text": "An RIS provides more control over the reflected wave. By adjusting the reflection phases across its elements, it can make those contributions reinforce toward the receiver. Rather than relying entirely on how an ordinary surface happens to reflect energy, the system can deliberately shape a reflected path around the blockage."
       },
       {
         "type": "p",
