@@ -141,11 +141,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "The second question belongs mainly to the medium access control layer (MAC). Even if an individual link works well, multiple users still need to share limited time, frequency, and spatial resources. The MAC decides who gets access to which resources and when, and coordinates retransmissions when necessary."
-      },
-      {
-        "type": "p",
-        "text": "The boundary between these two layers is not completely separate. Consider beamforming: choosing the weights that shape a beam is a physical-layer operation, while deciding which users should be served by which beams is closely tied to scheduling. Channel feedback connects the two. The PHY needs channel information to make transmission decisions, while the MAC needs sufficiently fresh information to decide how to allocate resources."
+        "text": "The second question belongs mainly to the medium access control layer (MAC). Multiple users compete for limited time, frequency, and spatial resources, and their transmissions can interfere when those resources overlap. The MAC coordinates who transmits, when, and on which resources to manage this competition and limit harmful interference. It also coordinates retransmissions when necessary."
       },
       {
         "type": "h2",
