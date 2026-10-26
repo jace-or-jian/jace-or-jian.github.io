@@ -291,15 +291,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "A lens antenna offers another way to control where electromagnetic energy goes. Instead of relying entirely on an electronically controlled phase-shifting network, it uses the lens's geometry and electromagnetic properties to focus or redirect waves."
+        "text": "Like an optical lens, a lens antenna uses its material and shape to refract and focus electromagnetic waves. Different arrival directions focus near different feed antennas; in transmission, each feed produces a beam in its corresponding direction."
       },
       {
         "type": "p",
-        "text": "On reception, waves arriving from a particular direction are focused near a corresponding feed position. The lens effectively maps an incoming direction to a location where the energy can be collected. On transmission, exciting a feed at a particular position produces a beam in the corresponding direction, with the mapping determined by the lens design."
-      },
-      {
-        "type": "p",
-        "text": "A switching network can select among available feeds, allowing the system to switch between different beam directions. Much of the spatial transformation is built into the lens itself, so beam selection can be achieved without independently controlling every antenna element."
+        "text": "An RF switching network connects the RF chains to selected feed antennas. Switching these connections on or off selects which beams are active: the lens performs the focusing, while the switches choose the directions to use."
       }
     ]
   },
