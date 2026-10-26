@@ -36,15 +36,15 @@ window.BLOG_POSTS = [
       },
       {
         "type": "h2",
-        "text": "Where I picture it being useful"
+        "text": "Where THz could be useful"
       },
       {
         "type": "p",
-        "text": "The most immediate THz use cases I think of are short-range, high-rate access links, such as indoor communications and dense outdoor hotspots. For these scenarios, I picture links spanning a few to a few tens of metres, usually under 100 m. Inter-satellite links are another interesting case because the signal path avoids atmospheric gas absorption."
+        "text": "THz is well suited to short-range links that need high data rates, such as indoor communications and dense outdoor hotspots. Typical distances are a few to a few tens of metres, usually under 100 m. Inter-satellite links are another interesting use case because the signal travels through space without atmospheric gas absorption."
       },
       {
         "type": "p",
-        "text": "The challenge is making these links practical. At THz frequencies, the hardware sits near the boundary between electronics and photonics, and generating sufficient transmit power remains difficult. Wide bandwidth also means higher thermal noise power kTB. With limited transmit power and substantial noise over a wide bandwidth, antenna gain becomes central to closing the link budget."
+        "text": "Making these links practical requires enough received power. THz sits between electronics and photonics, where generating sufficient transmit power remains difficult. Meanwhile, wider bandwidth increases thermal noise power, kTB. With limited transmit power and more noise across the band, high antenna gain becomes essential to maintaining a usable SNR."
       },
       {
         "type": "h2",
