@@ -43,6 +43,10 @@
         post.blocks.forEach(block => {
           if (block.type === "figure") {
             const figure = node("figure", "note-figure");
+            if (Number.isFinite(block.maxWidth) && block.maxWidth > 0) {
+              figure.style.maxWidth = `${block.maxWidth}px`;
+              figure.style.marginInline = "auto";
+            }
             const a = link("", block.src, "note-figure-link");
             const img = node("img");
             img.src = block.src; img.alt = block.alt; img.loading = "lazy";

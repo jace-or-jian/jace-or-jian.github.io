@@ -67,8 +67,24 @@ window.BLOG_POSTS = [
         "text": "When the direct link is blocked, natural reflections may still provide an alternative route. Sensing or a channel map can help locate useful reflecting surfaces and identify the directions in which the transmitter and receiver should point their beams. This environmental information gives the system a starting point for finding and tracking a reflected path. At THz, precise alignment remains essential because the beams are narrow. Propagation and reflection losses also mean that a geometrically available path may deliver too little power to support the link."
       },
       {
+        "type": "figure",
+        "src": "assets/notes/blocked-link-wall-reflection.png",
+        "alt": "A direct wireless path is blocked by a person while a wall-reflected path remains available with lower received signal strength.",
+        "width": 941,
+        "height": 967,
+        "maxWidth": 640
+      },
+      {
         "type": "p",
         "text": "An RIS provides more control over the reflected wave. By adjusting the reflection phases across its elements, it can make those contributions reinforce toward the receiver. Rather than relying entirely on how an ordinary surface happens to reflect energy, the system can deliberately shape a reflected path around the blockage."
+      },
+      {
+        "type": "figure",
+        "src": "assets/notes/ris-reflected-path.png",
+        "alt": "A reconfigurable intelligent surface redirects a reflected wireless path around a line-of-sight blockage.",
+        "width": 320,
+        "height": 320,
+        "maxWidth": 320
       },
       {
         "type": "p",
