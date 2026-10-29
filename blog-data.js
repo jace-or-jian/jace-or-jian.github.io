@@ -845,7 +845,19 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "In a monostatic system listening while transmitting, direct leakage can overwhelm weak echoes, requiring isolation and self-interference cancellation. Separating transmitter and receiver reduces local leakage but introduces a synchronization problem: timing offsets can resemble propagation delays, and frequency offsets can resemble Doppler. The architecture trades one measurement difficulty for another."
+        "text": "Another challenge is self-interference. In a monostatic system that transmits while listening, direct leakage from the transmitter can overwhelm weak target echoes."
+      },
+      {
+        "type": "p",
+        "text": "THz could offer an opportunity to reduce self-interference within a compact device. At 300 GHz, just 1 cm of antenna spacing already spans ten wavelengths. For wavelength-scaled antennas, the reactive near field is confined to a small physical region, so a short separation can move the receiving antenna beyond the region of strong reactive coupling. Together with suitable antenna orientation and shielding, this could provide useful isolation while keeping the transmitter and receiver close together."
+      },
+      {
+        "type": "p",
+        "text": "Their proximity also gives the remaining direct leakage a useful timing feature. It travels only the short distance between the antennas, while a target echo makes a much longer round trip: τₗₑₐₖ ≈ d/c, compared with τₑ꜀ₕₒ ≈ 2R/c. With sufficient bandwidth, receiver processing can exploit this delay difference to distinguish direct leakage from distant echoes. Combining physical isolation with this separation could make simultaneous transmission and sensing more practical."
+      },
+      {
+        "type": "p",
+        "text": "Separating the transmitter and receiver reduces direct coupling, but the two stations must synchronize their clocks and frequency references. A clock mismatch can make an echo appear to have travelled longer or shorter than it actually did, giving an incorrect target range. A frequency mismatch can likewise be mistaken for a Doppler shift from target motion."
       },
       {
         "type": "h2",
