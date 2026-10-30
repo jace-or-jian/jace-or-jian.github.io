@@ -2,7 +2,7 @@
 window.BLOG_POSTS = [
   {
     "slug": "thz-bandwidth-and-beam-alignment",
-    "title": "What I Find Interesting About THz",
+    "title": "THz Communication: Bandwidth, Propagation, and Beam Alignment",
     "lang": "en",
     "published": true,
     "summary": "Why the bandwidth appeals to me, how I picture THz propagation, and why sensing fits naturally into beam maintenance.",
@@ -142,7 +142,7 @@ window.BLOG_POSTS = [
   },
   {
     "slug": "wireless-layers-and-beamforming",
-    "title": "My Understanding of Wireless Systems and Beamforming",
+    "title": "Beamforming: Principles and Architectures",
     "lang": "en",
     "published": true,
     "summary": "The mental picture I use for PHY, MAC, antennas, and the control offered by different beamforming architectures.",
@@ -241,7 +241,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "h2",
-        "text": "5. What a Hybrid Array Actually Controls"
+        "text": "5. Hybrid Array Architecture"
       },
       {
         "type": "p",
