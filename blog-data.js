@@ -886,7 +886,15 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "Higher carrier frequencies, wider bandwidths, and larger antenna arrays are closely connected in 6G research. Higher frequencies provide access to wider bandwidths, but they also bring challenges such as severe blockage and the difficulty of generating sufficient transmit power. Large antenna arrays help compensate for these limitations by concentrating energy toward the receiver. In this sense, the three technologies reinforce one another, but each also introduces new design challenges."
+        "text": "One goal of 6G is to support higher data rates, which requires access to wider bandwidths. With lower frequency bands already crowded, finding large blocks of available spectrum pushes research toward higher carrier frequencies."
+      },
+      {
+        "type": "p",
+        "text": "The next challenge is receiving enough energy. With comparable antenna gains, higher frequencies bring greater free-space path loss. This is closely related to antenna size: elements are often roughly half a wavelength in size, so shorter wavelengths mean smaller elements with smaller effective receiving areas. Combining many elements into a larger array helps collect more of the incoming energy."
+      },
+      {
+        "type": "p",
+        "text": "The transmitter faces a related limitation: generating sufficient power becomes difficult at very high frequencies. Transmit arrays help by directing the available power toward the receiver. Both ends therefore depend heavily on antenna gain, producing highly directional links with narrow beams. This makes precise alignment essential: user movement can move the receiver outside the beam, while blockage can interrupt the path. Maintaining the link becomes as important as providing more bandwidth."
       },
       {
         "type": "p",
