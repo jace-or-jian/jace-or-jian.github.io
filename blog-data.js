@@ -902,11 +902,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "This creates an opportunity as well as a challenge. In the far field, beamforming mainly controls the direction of the transmitted energy. In the near field, the curvature of the wavefront also depends on the receiver's distance. By adjusting the phase across the array, the system can focus energy at a particular location, potentially separating users by both angle and distance. But this more precise spatial control also makes the link more sensitive to changes in the user's position and the array's orientation."
-      },
-      {
-        "type": "p",
-        "text": "Maintaining a near-field focus is therefore not just a matter of tracking coordinates. If a device rotates, its antenna orientation and polarization alignment with the incoming field can change even when its position remains the same. A practical system may need to track both position and orientation to maintain a reliable link."
+        "text": "This creates an opportunity as well as a challenge. In the far field, beamforming mainly controls the direction of the transmitted energy. In the near field, the curvature of the wavefront also depends on the receiver's distance. By adjusting the phase across the array, the system can focus energy at a particular location, potentially separating users by both angle and distance. But this more precise spatial control also makes the link more sensitive to changes in the user's position and the array's orientation. If a device rotates, its antenna orientation and polarization alignment with the incoming field can change even when its position remains the same. A practical system may need to track both position and orientation to maintain a reliable link."
       },
       {
         "type": "p",
