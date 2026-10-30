@@ -937,7 +937,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "These issues point to a broader question. Near-field focusing promises more precise spatial control, but realizing that benefit requires accurate channel estimation, continuous beam tracking, and hardware that can handle wide bandwidths. Each comes with its own overhead or implementation cost. The real question for 6G is how much of that gain remains after accounting for mobility, training overhead, hardware limitations, and computational complexity."
+        "text": "Engineering is about trade-offs: gains in one direction usually come at a cost elsewhere. The same applies to 6G. Higher performance may demand more power, more complex hardware, or greater computational effort. A useful design should strike a balance that fits the application. Different requirements call for different choices of frequency, bandwidth, array size, and architecture. The task is to understand which gains are worth their cost, and how much complexity the actual requirements justify."
       }
     ]
   }
