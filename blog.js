@@ -11,6 +11,14 @@
   const link = (text, href, cls) => {
     const a = node("a", cls, text); a.href = href; return a;
   };
+  const appendInline = (element, content) => {
+    if (content && Array.isArray(content.parts) && content.parts.length) {
+      content.parts.forEach(part => {
+        const tag = ["strong", "em", "sub", "sup"].includes(part.tag) ? part.tag : "span";
+        element.append(node(tag, "", part.text));
+      });
+    } else element.textContent = typeof content === "string" ? content : content.text;
+  };
   const render = (focus = false) => {
     root.replaceChildren();
     let slug;
@@ -71,8 +79,10 @@
           }
           if (!["p", "h2", "h3", "blockquote", "ul", "ol", "pre"].includes(block.type)) return;
           const element = node(block.type);
-          if (["ul", "ol"].includes(block.type)) block.items.forEach(text => element.append(node("li", "", text)));
-          else element.textContent = block.text;
+          if (["ul", "ol"].includes(block.type)) block.items.forEach(item => {
+            const li = node("li"); appendInline(li, item); element.append(li);
+          });
+          else appendInline(element, block);
           body.append(element);
         });
         article.append(body, link("← Back to all notes", "index.html#notes", "blog-back"));

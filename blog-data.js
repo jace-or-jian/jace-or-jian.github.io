@@ -940,5 +940,256 @@ window.BLOG_POSTS = [
         "text": "Engineering is about trade-offs: gains in one direction usually come at a cost elsewhere. The same applies to 6G. Higher performance may demand more power, more complex hardware, or greater computational effort. A useful design should strike a balance that fits the application. Different requirements call for different choices of frequency, bandwidth, array size, and architecture. The task is to understand which gains are worth their cost, and how much complexity the actual requirements justify."
       }
     ]
+  },
+  {
+    "slug": "deep-learning-reinforcement-learning-and-optimization",
+    "title": "Deep Learning, Reinforcement Learning, and Optimization in Wireless Communications: Roles and Integration",
+    "lang": "en",
+    "published": true,
+    "summary": "The roles, advantages, limitations, and integration of deep learning, reinforcement learning, and optimization in wireless communications.",
+    "blocks": [
+      {
+        "type": "h2",
+        "text": "1. Deep Learning (DL)"
+      },
+      {
+        "type": "p",
+        "text": "Deep learning is a representation learning approach built around multilayer neural networks. It uses training data to learn complex feature representations and input–output mappings. In wireless communications, it is mainly used for channel estimation, signal detection, modulation recognition, and channel prediction. It can also be used to approximate solutions to optimization problems such as beamforming and resource allocation."
+      },
+      {
+        "type": "p",
+        "text": "Advantages: It can automatically extract features from complex data and fit nonlinear relationships that are difficult to describe with traditional analytical models. It offers advantages in high-dimensional signal processing, complex pattern recognition, and state prediction.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Advantages:"
+          },
+          {
+            "text": " It can automatically extract features from complex data and fit nonlinear relationships that are difficult to describe with traditional analytical models. It offers advantages in high-dimensional signal processing, complex pattern recognition, and state prediction."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Limitations: It usually relies on large amounts of representative training data and is constrained by the distribution of that data. Changes in the channel model, SNR, antenna configuration, or communication environment may reduce its ability to generalize. Model interpretability is also relatively limited, and the outputs do not inherently satisfy physical constraints such as limits on transmit power and spectrum resources. Additional design is needed to enforce these constraints.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Limitations:"
+          },
+          {
+            "text": " It usually relies on large amounts of representative training data and is constrained by the distribution of that data. Changes in the channel model, SNR, antenna configuration, or communication environment may reduce its ability to generalize. Model interpretability is also relatively limited, and the outputs do not inherently satisfy physical constraints such as limits on transmit power and spectrum resources. Additional design is needed to enforce these constraints."
+          }
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "2. Reinforcement Learning (RL)"
+      },
+      {
+        "type": "p",
+        "text": "Reinforcement learning is a learning paradigm for sequential decision-making. An agent observes the state of the environment, takes an action, and updates its policy using rewards from the environment, with the aim of maximizing long-term cumulative return. Deep reinforcement learning (DRL) further uses deep neural networks to represent a policy or value function."
+      },
+      {
+        "type": "p",
+        "text": "In wireless communications, RL is mainly used for dynamic resource allocation, user scheduling, power control, beam management, and interference coordination. It is particularly suited to situations in which current decisions continue to affect future network states."
+      },
+      {
+        "type": "p",
+        "text": "Advantages: It does not necessarily require an accurate state-transition model in advance. Through interaction with the environment, it can learn complex decision-making policies and account for how current actions affect future network performance.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Advantages:"
+          },
+          {
+            "text": " It does not necessarily require an accurate state-transition model in advance. Through interaction with the environment, it can learn complex decision-making policies and account for how current actions affect future network performance."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Limitations: Training usually requires extensive interaction with the environment, resulting in low sample efficiency. Reward design directly affects the learning outcome; a poorly designed reward may lead the policy away from the actual communication objectives. Differences between a simulation environment and a real network—the sim-to-real gap—also mean that a trained policy may not transfer directly to a real system. Safe exploration, training stability, and policy generalization are further important concerns.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Limitations:"
+          },
+          {
+            "text": " Training usually requires extensive interaction with the environment, resulting in low sample efficiency. Reward design directly affects the learning outcome; a poorly designed reward may lead the policy away from the actual communication objectives. Differences between a simulation environment and a real network—the sim-to-real gap—also mean that a trained policy may not transfer directly to a real system. Safe exploration, training stability, and policy generalization are further important concerns."
+          }
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "3. Optimization"
+      },
+      {
+        "type": "p",
+        "text": "Optimization is a mathematical framework for modeling and solving problems. It defines objective functions, decision variables, and constraints to find optimal or approximately optimal decisions. It is not a machine learning method. In wireless communications, it is widely used for power control, spectrum allocation, beamforming, resource scheduling, and network energy-efficiency optimization."
+      },
+      {
+        "type": "p",
+        "text": "Advantages: It uses mathematical models and physical constraints to explicitly describe the objectives and the feasible solution space. Problems with suitable mathematical structure can offer rigorous guarantees of optimality or convergence, and the results are relatively easy to interpret.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Advantages:"
+          },
+          {
+            "text": " It uses mathematical models and physical constraints to explicitly describe the objectives and the feasible solution space. Problems with suitable mathematical structure can offer rigorous guarantees of optimality or convergence, and the results are relatively easy to interpret."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Limitations: The quality of the solution depends on the accuracy of the mathematical model. When wireless channels, user behavior, and network traffic are difficult to model accurately, the optimization results may differ from those of the real system. Nonconvex, combinatorial, and high-dimensional problems can also be computationally expensive, making it difficult to meet the real-time decision-making requirements of dynamic wireless networks.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Limitations:"
+          },
+          {
+            "text": " The quality of the solution depends on the accuracy of the mathematical model. When wireless channels, user behavior, and network traffic are difficult to model accurately, the optimization results may differ from those of the real system. Nonconvex, combinatorial, and high-dimensional problems can also be computationally expensive, making it difficult to meet the real-time decision-making requirements of dynamic wireless networks."
+          }
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "4. Relationships and Method Selection"
+      },
+      {
+        "type": "p",
+        "text": "The three approaches are not mutually exclusive. They provide different ways to address a problem:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          {
+            "text": "Optimization: Specify the objectives, mathematical model, and feasibility constraints to determine how to solve for optimal decisions.",
+            "parts": [
+              {
+                "tag": "strong",
+                "text": "Optimization:"
+              },
+              {
+                "text": " Specify the objectives, mathematical model, and feasibility constraints to determine how to solve for optimal decisions."
+              }
+            ]
+          },
+          {
+            "text": "Deep learning: Learn complex feature representations and input–output mappings from data to extract patterns, predict states, or approximate solutions.",
+            "parts": [
+              {
+                "tag": "strong",
+                "text": "Deep learning:"
+              },
+              {
+                "text": " Learn complex feature representations and input–output mappings from data to extract patterns, predict states, or approximate solutions."
+              }
+            ]
+          },
+          {
+            "text": "Reinforcement learning: Learn sequential decision-making policies through interaction with the environment to improve long-term returns in a dynamic setting.",
+            "parts": [
+              {
+                "tag": "strong",
+                "text": "Reinforcement learning:"
+              },
+              {
+                "text": " Learn sequential decision-making policies through interaction with the environment to improve long-term returns in a dynamic setting."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "In practical wireless communications research, the choice of method should depend on the problem itself:"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "If the system model is well defined, the objectives and constraints are clear, and traditional algorithms can solve the problem efficiently, mathematical optimization should be considered first.",
+          "If the task mainly involves extracting complex signal features, learning nonlinear mappings, or predicting states, deep learning can be considered.",
+          "If the system state keeps changing, current actions affect future states, and long-term decision-making returns matter, reinforcement learning can be considered."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A dynamic problem does not necessarily require reinforcement learning. Repeated optimization and model predictive control (MPC) can also handle dynamic systems. RL should be introduced only when it offers practical advantages in areas such as incomplete models, long-term decision-making, or online computational efficiency."
+      },
+      {
+        "type": "p",
+        "text": "The three approaches can also be combined. For example, communication theory can provide the physical model, deep learning can extract complex features, and reinforcement learning can perform dynamic resource allocation."
+      },
+      {
+        "type": "h2",
+        "text": "5. Integrating Wireless Domain Knowledge with AI (Domain-Knowledge-Guided AI)"
+      },
+      {
+        "type": "p",
+        "text": "An important research idea in combining wireless communications with AI goes beyond simply applying deep learning or reinforcement learning to a communication problem. It incorporates existing domain theories, physical laws, mathematical models, and system constraints into AI learning and decision-making, helping AI learn more efficiently and produce more reliable solutions."
+      },
+      {
+        "type": "p",
+        "text": "The central idea is to use domain knowledge to provide AI with prior information and structural constraints, narrowing the learning space, reducing unproductive exploration, and lowering dependence on training data and environmental interaction, while improving generalization and decision reliability.",
+        "parts": [
+          {
+            "text": "The central idea is to "
+          },
+          {
+            "tag": "strong",
+            "text": "use domain knowledge to provide AI with prior information and structural constraints, narrowing the learning space, reducing unproductive exploration, and lowering dependence on training data and environmental interaction, while improving generalization and decision reliability."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "This can be achieved in several ways:"
+      },
+      {
+        "type": "h3",
+        "text": "(1) Knowledge-Guided Deep Learning"
+      },
+      {
+        "type": "p",
+        "text": "The physical models and mathematical structure of communication systems can be incorporated into a neural network’s input representations, architecture, and loss functions. For example, multipath propagation, time–frequency correlations, and MIMO signal models can guide the design of feature-extraction modules. Physical equations can be used to construct a physics-informed loss, or traditional signal-processing and iterative optimization algorithms can be unfolded into trainable networks through deep unfolding. This retains the structural strengths of traditional communication theory while using data to learn complex relationships that traditional models cannot describe accurately."
+      },
+      {
+        "type": "h3",
+        "text": "(2) Knowledge-Guided Reinforcement Learning"
+      },
+      {
+        "type": "p",
+        "text": "Communication system knowledge can be incorporated into the design of states, actions, rewards, and environments. For example, CSI, SINR, channel capacity, and queue states can be used to construct the state space. Spectrum, power, and QoS constraints can restrict the action space. Throughput, latency, and energy consumption can inform the reward function, while channel models and network protocols can provide a training environment consistent with real communication behavior. This can reduce unproductive exploration and help the agent learn policies that meet communication requirements more effectively."
+      },
+      {
+        "type": "h3",
+        "text": "(3) Combining Optimization Theory with Machine Learning (Learning to Optimize)"
+      },
+      {
+        "type": "p",
+        "text": "The mathematical structure of traditional optimization algorithms can guide neural network design, or machine learning can approximate the process of solving complex optimization problems. For example, deep unfolding maps an iterative algorithm into multiple trainable network layers. Learning to optimize uses neural networks to learn algorithm parameters or decision-making policies to improve the efficiency of solving complex problems."
+      },
+      {
+        "type": "p",
+        "text": "With these combinations, AI can use existing wireless communications knowledge to guide learning rather than relying entirely on data-driven black-box learning. This can improve sample efficiency, model generalization, physical consistency, and reliability in practical deployment."
+      },
+      {
+        "type": "p",
+        "text": "More domain knowledge is not always better. Inaccurate physical models or assumptions that do not match the real communication environment may instead restrict AI’s ability to learn. It is therefore necessary to decide which knowledge is reliable, which knowledge is suitable for incorporation, and which complex relationships should be learned from data."
+      },
+      {
+        "type": "p",
+        "text": "The ultimate goal is not to replace communication theory with AI, but to let communication theory guide AI learning, then use AI to address the limitations of traditional models and algorithms, enabling more efficient, reliable, and intelligent wireless communication systems.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "The ultimate goal is not to replace communication theory with AI, but to let communication theory guide AI learning, then use AI to address the limitations of traditional models and algorithms, enabling more efficient, reliable, and intelligent wireless communication systems."
+          }
+        ]
+      }
+    ]
   }
 ];
