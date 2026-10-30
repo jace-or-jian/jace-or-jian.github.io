@@ -320,153 +320,253 @@ window.BLOG_POSTS = [
     ]
   },
   {
-    "slug": "optimization-starts-with-the-system",
-    "title": "What Makes an Optimization Problem Worth Solving",
+    "slug": "deep-learning-reinforcement-learning-and-optimization",
+    "title": "Deep Learning, Reinforcement Learning, and Optimization in Wireless Communications: Roles and Integration",
     "lang": "en",
     "published": true,
-    "summary": "My view of meaningful objectives, real system bottlenecks, performance benchmarks, and solutions that reveal structure.",
+    "summary": "The roles, advantages, limitations, and integration of deep learning, reinforcement learning, and optimization in wireless communications.",
     "blocks": [
       {
-        "type": "p",
-        "text": "With limited power and time, improving one part of a system usually costs something elsewhere. More power can improve a link but cost energy or create interference. More beam training can improve alignment but take time away from data. Optimization is a way to make a good decision within those tradeoffs."
-      },
-      {
         "type": "h2",
-        "text": "Start with the problem the system actually has"
+        "text": "1. Deep Learning (DL)"
       },
       {
         "type": "p",
-        "text": "The objective should mean something in the real system: useful throughput, reliability, latency, energy, or secrecy. The constraints should come from the same place—available power, RF chains, hardware settings, and what the system actually knows about its channels."
+        "text": "Deep learning is a representation learning approach built around multilayer neural networks. It uses training data to learn complex feature representations and input–output mappings. In wireless communications, it is mainly used for channel estimation, signal detection, modulation recognition, and channel prediction. It can also be used to approximate solutions to optimization problems such as beamforming and resource allocation."
       },
       {
         "type": "p",
-        "text": "Combining technique names and then optimizing the combination rarely feels like a satisfying starting point. I care more about the bottleneck: what is holding the system back, what can be changed, and what must be sacrificed to improve it? That gives the mathematics a reason to exist."
-      },
-      {
-        "type": "h2",
-        "text": "Optimization also gives a benchmark"
-      },
-      {
-        "type": "p",
-        "text": "A practical system may need a fast, reusable solution rather than run an optimizer every time. An optimized reference helps show the price of that convenience: how much performance is exchanged for speed and simplicity, under the same resources and assumptions? That gap makes the engineering decision tangible."
-      },
-      {
-        "type": "p",
-        "text": "A local solution supplies a useful design reference; a global solution or proven bound tells more about the remaining room for improvement. The comparison becomes especially meaningful when it includes computation and training overhead."
-      },
-      {
-        "type": "h2",
-        "text": "Think about computational cost while building the model"
-      },
-      {
-        "type": "p",
-        "text": "Solver efficiency is shaped long before the solver starts. The way a problem is modeled determines not only how many variables the solver must handle, but also the structure of the constraints and the complexity of the search. A few examples show why these details matter."
-      },
-      {
-        "type": "ul",
-        "items": [
-          "Variable dimension. If each of K users has an N-element complex beamforming vector, the model contains NK complex entries, equivalent to 2NK real variables. Increasing the number of users or antennas expands the optimization problem. If the beamformers are optimized independently over T time slots, the variable count grows with T as well.",
-          "Constraint count. Suppose each user must satisfy one quality-of-service (QoS) requirement in every time slot. Across T slots, this gives KT constraints. A finer time grid can therefore increase both the number of decisions and the number of conditions that must be satisfied.",
-          "Constraint structure. The number of constraints alone does not tell us how difficult a problem is to solve. Simple scalar power limits are generally much easier to handle than a large positive-semidefinite matrix constraint. Semidefinite relaxation (SDR), for example, lifts a complex beamforming vector into an N × N Hermitian matrix. This matrix has N² real degrees of freedom, a substantial increase over the original vector representation. The relaxation can make the problem convex, but that improvement in mathematical structure may come at a higher computational cost.",
-          "Discrete decisions. Suppose M binary variables represent whether individual components are active or inactive. They define 2ᴹ possible activation patterns. Unlike a simple increase in continuous variables, adding binary decisions can introduce combinatorial complexity that grows exponentially with M."
-        ]
-      },
-      {
-        "type": "p",
-        "text": "A good model captures the important tradeoff with manageable computational work. Eliminating redundant variables and exposing sparsity, separable blocks, or shared structure can be as valuable as choosing a better solver. These decisions belong in the modeling stage."
-      },
-      {
-        "type": "h2",
-        "text": "Find Structure in a Difficult Problem"
-      },
-      {
-        "type": "p",
-        "text": "Wireless optimization problems can be difficult for different reasons. Interference couples the decisions made for different users, some constraints are nonconvex, and discrete choices introduce combinatorial complexity."
-      },
-      {
-        "type": "p",
-        "text": "The first step is to understand where the difficulty comes from. Sometimes an equivalent reformulation reveals useful structure. When an exact reformulation is not enough, approximations and relaxations offer other ways to make the problem more manageable. Three techniques illustrate these different approaches, for example."
-      },
-      {
-        "type": "ul",
-        "items": [
-          "SCA: solve a sequence of simpler problems. Instead of tackling the original nonconvex problem directly, successive convex approximation (SCA) constructs a convex surrogate around the current iterate and solves it repeatedly. Each solution provides a new point around which to build the next subproblem. Under suitable conditions, this process can converge to a stationary point, although it does not generally guarantee a global optimum.",
-          "Lagrangian methods: expose the relationships between constraints and decisions. By attaching multipliers to constraints, we can interpret them as prices associated with limited resources or constraint violations. When the problem has suitable separable structure, dualizing coupling constraints can break it into smaller subproblems that are easier to handle individually. The dual problem can also provide a bound on the primal optimum, although a nonzero duality gap may remain.",
-          "SDR: trade a difficult constraint for a larger convex problem. For a quadratic beamforming problem with a complex vector w, define W = wwᴴ. The quadratic expressions can then be represented using the matrix W, but the exact formulation also requires W to have rank one. Dropping that rank constraint gives a semidefinite relaxation (SDR), which is convex for suitable formulations. The tradeoff is that the matrix variable is much larger, and the relaxed solution may not have rank one. If so, an additional recovery step, such as randomization, may be needed to obtain a feasible beamforming vector for the original problem."
-        ]
-      },
-      {
-        "type": "equation",
-        "text": "wH A w = tr(AW),   W = wwH",
+        "text": "Advantages: It can automatically extract features from complex data and fit nonlinear relationships that are difficult to describe with traditional analytical models. It offers advantages in high-dimensional signal processing, complex pattern recognition, and state prediction.",
         "parts": [
           {
             "tag": "strong",
-            "text": "w"
+            "text": "Advantages:"
           },
           {
-            "tag": "sup",
-            "text": "H"
-          },
-          {
-            "text": " "
-          },
-          {
-            "tag": "strong",
-            "text": "A"
-          },
-          {
-            "text": " "
-          },
-          {
-            "tag": "strong",
-            "text": "w"
-          },
-          {
-            "text": " = tr("
-          },
-          {
-            "tag": "strong",
-            "text": "AW"
-          },
-          {
-            "text": "),   "
-          },
-          {
-            "tag": "strong",
-            "text": "W"
-          },
-          {
-            "text": " = "
-          },
-          {
-            "tag": "strong",
-            "text": "ww"
-          },
-          {
-            "tag": "sup",
-            "text": "H"
+            "text": " It can automatically extract features from complex data and fit nonlinear relationships that are difficult to describe with traditional analytical models. It offers advantages in high-dimensional signal processing, complex pattern recognition, and state prediction."
           }
         ]
       },
       {
         "type": "p",
-        "text": "The quadratic expression in w becomes linear in W; the rank-one requirement carries the remaining difficulty."
+        "text": "Limitations: It usually relies on large amounts of representative training data and is constrained by the distribution of that data. Changes in the channel model, SNR, antenna configuration, or communication environment may reduce its ability to generalize. Model interpretability is also relatively limited, and the outputs do not inherently satisfy physical constraints such as limits on transmit power and spectrum resources. Additional design is needed to enforce these constraints.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Limitations:"
+          },
+          {
+            "text": " It usually relies on large amounts of representative training data and is constrained by the distribution of that data. Changes in the channel model, SNR, antenna configuration, or communication environment may reduce its ability to generalize. Model interpretability is also relatively limited, and the outputs do not inherently satisfy physical constraints such as limits on transmit power and spectrum resources. Additional design is needed to enforce these constraints."
+          }
+        ]
       },
       {
         "type": "h2",
-        "text": "Alternating Updates Should Be Cheap"
+        "text": "2. Reinforcement Learning (RL)"
       },
       {
         "type": "p",
-        "text": "A jointly difficult optimization problem can sometimes be handled more easily by optimizing one block of variables at a time while keeping the others fixed. If each block update has a simpler structure than the original problem, alternating optimization can turn a difficult joint optimization into a sequence of manageable subproblems."
+        "text": "Reinforcement learning is a learning paradigm for sequential decision-making. An agent observes the state of the environment, takes an action, and updates its policy using rewards from the environment, with the aim of maximizing long-term cumulative return. Deep reinforcement learning (DRL) further uses deep neural networks to represent a policy or value function."
       },
       {
         "type": "p",
-        "text": "But splitting the problem is only part of the solution. What matters in practice is how expensive each update is. If every block requires another costly iterative optimization, the algorithm may still be slow even when each subproblem is smaller. This is why closed-form updates are especially valuable: they reduce the computational effort per iteration and make the algorithm easier to implement and analyze."
+        "text": "In wireless communications, RL is mainly used for dynamic resource allocation, user scheduling, power control, beam management, and interference coordination. It is particularly suited to situations in which current decisions continue to affect future network states."
       },
       {
         "type": "p",
-        "text": "WMMSE provides a useful example. In the standard formulation, the receiver filters and MSE weights can be updated explicitly when the other variables are fixed. The precoder update is also structured: under a sum-power constraint, it can often be expressed in terms of a Lagrange multiplier found through a one-dimensional search. Instead of solving the entire problem at once, WMMSE alternates between these updates, making each step relatively efficient."
+        "text": "Advantages: It does not necessarily require an accurate state-transition model in advance. Through interaction with the environment, it can learn complex decision-making policies and account for how current actions affect future network performance.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Advantages:"
+          },
+          {
+            "text": " It does not necessarily require an accurate state-transition model in advance. Through interaction with the environment, it can learn complex decision-making policies and account for how current actions affect future network performance."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Limitations: Training usually requires extensive interaction with the environment, resulting in low sample efficiency. Reward design directly affects the learning outcome; a poorly designed reward may lead the policy away from the actual communication objectives. Differences between a simulation environment and a real network—the sim-to-real gap—also mean that a trained policy may not transfer directly to a real system. Safe exploration, training stability, and policy generalization are further important concerns.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Limitations:"
+          },
+          {
+            "text": " Training usually requires extensive interaction with the environment, resulting in low sample efficiency. Reward design directly affects the learning outcome; a poorly designed reward may lead the policy away from the actual communication objectives. Differences between a simulation environment and a real network—the sim-to-real gap—also mean that a trained policy may not transfer directly to a real system. Safe exploration, training stability, and policy generalization are further important concerns."
+          }
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "3. Optimization"
+      },
+      {
+        "type": "p",
+        "text": "Optimization is a mathematical framework for modeling and solving problems. It defines objective functions, decision variables, and constraints to find optimal or approximately optimal decisions. It is not a machine learning method. In wireless communications, it is widely used for power control, spectrum allocation, beamforming, resource scheduling, and network energy-efficiency optimization."
+      },
+      {
+        "type": "p",
+        "text": "Advantages: It uses mathematical models and physical constraints to explicitly describe the objectives and the feasible solution space. Problems with suitable mathematical structure can offer rigorous guarantees of optimality or convergence, and the results are relatively easy to interpret.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Advantages:"
+          },
+          {
+            "text": " It uses mathematical models and physical constraints to explicitly describe the objectives and the feasible solution space. Problems with suitable mathematical structure can offer rigorous guarantees of optimality or convergence, and the results are relatively easy to interpret."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Limitations: The quality of the solution depends on the accuracy of the mathematical model. When wireless channels, user behavior, and network traffic are difficult to model accurately, the optimization results may differ from those of the real system. Nonconvex, combinatorial, and high-dimensional problems can also be computationally expensive, making it difficult to meet the real-time decision-making requirements of dynamic wireless networks.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Limitations:"
+          },
+          {
+            "text": " The quality of the solution depends on the accuracy of the mathematical model. When wireless channels, user behavior, and network traffic are difficult to model accurately, the optimization results may differ from those of the real system. Nonconvex, combinatorial, and high-dimensional problems can also be computationally expensive, making it difficult to meet the real-time decision-making requirements of dynamic wireless networks."
+          }
+        ]
+      },
+      {
+        "type": "h2",
+        "text": "4. Relationships and Method Selection"
+      },
+      {
+        "type": "p",
+        "text": "The three approaches are not mutually exclusive. They provide different ways to address a problem:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          {
+            "text": "Optimization: Specify the objectives, mathematical model, and feasibility constraints to determine how to solve for optimal decisions.",
+            "parts": [
+              {
+                "tag": "strong",
+                "text": "Optimization:"
+              },
+              {
+                "text": " Specify the objectives, mathematical model, and feasibility constraints to determine how to solve for optimal decisions."
+              }
+            ]
+          },
+          {
+            "text": "Deep learning: Learn complex feature representations and input–output mappings from data to extract patterns, predict states, or approximate solutions.",
+            "parts": [
+              {
+                "tag": "strong",
+                "text": "Deep learning:"
+              },
+              {
+                "text": " Learn complex feature representations and input–output mappings from data to extract patterns, predict states, or approximate solutions."
+              }
+            ]
+          },
+          {
+            "text": "Reinforcement learning: Learn sequential decision-making policies through interaction with the environment to improve long-term returns in a dynamic setting.",
+            "parts": [
+              {
+                "tag": "strong",
+                "text": "Reinforcement learning:"
+              },
+              {
+                "text": " Learn sequential decision-making policies through interaction with the environment to improve long-term returns in a dynamic setting."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "In practical wireless communications research, the choice of method should depend on the problem itself:"
+      },
+      {
+        "type": "ol",
+        "items": [
+          "If the system model is well defined, the objectives and constraints are clear, and traditional algorithms can solve the problem efficiently, mathematical optimization should be considered first.",
+          "If the task mainly involves extracting complex signal features, learning nonlinear mappings, or predicting states, deep learning can be considered.",
+          "If the system state keeps changing, current actions affect future states, and long-term decision-making returns matter, reinforcement learning can be considered."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A dynamic problem does not necessarily require reinforcement learning. Repeated optimization and model predictive control (MPC) can also handle dynamic systems. RL should be introduced only when it offers practical advantages in areas such as incomplete models, long-term decision-making, or online computational efficiency."
+      },
+      {
+        "type": "p",
+        "text": "The three approaches can also be combined. For example, communication theory can provide the physical model, deep learning can extract complex features, and reinforcement learning can perform dynamic resource allocation."
+      },
+      {
+        "type": "h2",
+        "text": "5. Integrating Wireless Domain Knowledge with AI (Domain-Knowledge-Guided AI)"
+      },
+      {
+        "type": "p",
+        "text": "An important research idea in combining wireless communications with AI goes beyond simply applying deep learning or reinforcement learning to a communication problem. It incorporates existing domain theories, physical laws, mathematical models, and system constraints into AI learning and decision-making, helping AI learn more efficiently and produce more reliable solutions."
+      },
+      {
+        "type": "p",
+        "text": "The central idea is to use domain knowledge to provide AI with prior information and structural constraints, narrowing the learning space, reducing unproductive exploration, and lowering dependence on training data and environmental interaction, while improving generalization and decision reliability.",
+        "parts": [
+          {
+            "text": "The central idea is to "
+          },
+          {
+            "tag": "strong",
+            "text": "use domain knowledge to provide AI with prior information and structural constraints, narrowing the learning space, reducing unproductive exploration, and lowering dependence on training data and environmental interaction, while improving generalization and decision reliability."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "This can be achieved in several ways:"
+      },
+      {
+        "type": "h3",
+        "text": "(1) Knowledge-Guided Deep Learning"
+      },
+      {
+        "type": "p",
+        "text": "The physical models and mathematical structure of communication systems can be incorporated into a neural network’s input representations, architecture, and loss functions. For example, multipath propagation, time–frequency correlations, and MIMO signal models can guide the design of feature-extraction modules. Physical equations can be used to construct a physics-informed loss, or traditional signal-processing and iterative optimization algorithms can be unfolded into trainable networks through deep unfolding. This retains the structural strengths of traditional communication theory while using data to learn complex relationships that traditional models cannot describe accurately."
+      },
+      {
+        "type": "h3",
+        "text": "(2) Knowledge-Guided Reinforcement Learning"
+      },
+      {
+        "type": "p",
+        "text": "Communication system knowledge can be incorporated into the design of states, actions, rewards, and environments. For example, CSI, SINR, channel capacity, and queue states can be used to construct the state space. Spectrum, power, and QoS constraints can restrict the action space. Throughput, latency, and energy consumption can inform the reward function, while channel models and network protocols can provide a training environment consistent with real communication behavior. This can reduce unproductive exploration and help the agent learn policies that meet communication requirements more effectively."
+      },
+      {
+        "type": "h3",
+        "text": "(3) Combining Optimization Theory with Machine Learning (Learning to Optimize)"
+      },
+      {
+        "type": "p",
+        "text": "The mathematical structure of traditional optimization algorithms can guide neural network design, or machine learning can approximate the process of solving complex optimization problems. For example, deep unfolding maps an iterative algorithm into multiple trainable network layers. Learning to optimize uses neural networks to learn algorithm parameters or decision-making policies to improve the efficiency of solving complex problems."
+      },
+      {
+        "type": "p",
+        "text": "With these combinations, AI can use existing wireless communications knowledge to guide learning rather than relying entirely on data-driven black-box learning. This can improve sample efficiency, model generalization, physical consistency, and reliability in practical deployment."
+      },
+      {
+        "type": "p",
+        "text": "More domain knowledge is not always better. Inaccurate physical models or assumptions that do not match the real communication environment may instead restrict AI’s ability to learn. It is therefore necessary to decide which knowledge is reliable, which knowledge is suitable for incorporation, and which complex relationships should be learned from data."
+      },
+      {
+        "type": "p",
+        "text": "The ultimate goal is not to replace communication theory with AI, but to let communication theory guide AI learning, then use AI to address the limitations of traditional models and algorithms, enabling more efficient, reliable, and intelligent wireless communication systems.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "The ultimate goal is not to replace communication theory with AI, but to let communication theory guide AI learning, then use AI to address the limitations of traditional models and algorithms, enabling more efficient, reliable, and intelligent wireless communication systems."
+          }
+        ]
       }
     ]
   },
@@ -942,253 +1042,153 @@ window.BLOG_POSTS = [
     ]
   },
   {
-    "slug": "deep-learning-reinforcement-learning-and-optimization",
-    "title": "Deep Learning, Reinforcement Learning, and Optimization in Wireless Communications: Roles and Integration",
+    "slug": "optimization-starts-with-the-system",
+    "title": "What Makes an Optimization Problem Worth Solving",
     "lang": "en",
     "published": true,
-    "summary": "The roles, advantages, limitations, and integration of deep learning, reinforcement learning, and optimization in wireless communications.",
+    "summary": "My view of meaningful objectives, real system bottlenecks, performance benchmarks, and solutions that reveal structure.",
     "blocks": [
       {
-        "type": "h2",
-        "text": "1. Deep Learning (DL)"
-      },
-      {
         "type": "p",
-        "text": "Deep learning is a representation learning approach built around multilayer neural networks. It uses training data to learn complex feature representations and input–output mappings. In wireless communications, it is mainly used for channel estimation, signal detection, modulation recognition, and channel prediction. It can also be used to approximate solutions to optimization problems such as beamforming and resource allocation."
-      },
-      {
-        "type": "p",
-        "text": "Advantages: It can automatically extract features from complex data and fit nonlinear relationships that are difficult to describe with traditional analytical models. It offers advantages in high-dimensional signal processing, complex pattern recognition, and state prediction.",
-        "parts": [
-          {
-            "tag": "strong",
-            "text": "Advantages:"
-          },
-          {
-            "text": " It can automatically extract features from complex data and fit nonlinear relationships that are difficult to describe with traditional analytical models. It offers advantages in high-dimensional signal processing, complex pattern recognition, and state prediction."
-          }
-        ]
-      },
-      {
-        "type": "p",
-        "text": "Limitations: It usually relies on large amounts of representative training data and is constrained by the distribution of that data. Changes in the channel model, SNR, antenna configuration, or communication environment may reduce its ability to generalize. Model interpretability is also relatively limited, and the outputs do not inherently satisfy physical constraints such as limits on transmit power and spectrum resources. Additional design is needed to enforce these constraints.",
-        "parts": [
-          {
-            "tag": "strong",
-            "text": "Limitations:"
-          },
-          {
-            "text": " It usually relies on large amounts of representative training data and is constrained by the distribution of that data. Changes in the channel model, SNR, antenna configuration, or communication environment may reduce its ability to generalize. Model interpretability is also relatively limited, and the outputs do not inherently satisfy physical constraints such as limits on transmit power and spectrum resources. Additional design is needed to enforce these constraints."
-          }
-        ]
+        "text": "With limited power and time, improving one part of a system usually costs something elsewhere. More power can improve a link but cost energy or create interference. More beam training can improve alignment but take time away from data. Optimization is a way to make a good decision within those tradeoffs."
       },
       {
         "type": "h2",
-        "text": "2. Reinforcement Learning (RL)"
+        "text": "Start with the problem the system actually has"
       },
       {
         "type": "p",
-        "text": "Reinforcement learning is a learning paradigm for sequential decision-making. An agent observes the state of the environment, takes an action, and updates its policy using rewards from the environment, with the aim of maximizing long-term cumulative return. Deep reinforcement learning (DRL) further uses deep neural networks to represent a policy or value function."
+        "text": "The objective should mean something in the real system: useful throughput, reliability, latency, energy, or secrecy. The constraints should come from the same place—available power, RF chains, hardware settings, and what the system actually knows about its channels."
       },
       {
         "type": "p",
-        "text": "In wireless communications, RL is mainly used for dynamic resource allocation, user scheduling, power control, beam management, and interference coordination. It is particularly suited to situations in which current decisions continue to affect future network states."
-      },
-      {
-        "type": "p",
-        "text": "Advantages: It does not necessarily require an accurate state-transition model in advance. Through interaction with the environment, it can learn complex decision-making policies and account for how current actions affect future network performance.",
-        "parts": [
-          {
-            "tag": "strong",
-            "text": "Advantages:"
-          },
-          {
-            "text": " It does not necessarily require an accurate state-transition model in advance. Through interaction with the environment, it can learn complex decision-making policies and account for how current actions affect future network performance."
-          }
-        ]
-      },
-      {
-        "type": "p",
-        "text": "Limitations: Training usually requires extensive interaction with the environment, resulting in low sample efficiency. Reward design directly affects the learning outcome; a poorly designed reward may lead the policy away from the actual communication objectives. Differences between a simulation environment and a real network—the sim-to-real gap—also mean that a trained policy may not transfer directly to a real system. Safe exploration, training stability, and policy generalization are further important concerns.",
-        "parts": [
-          {
-            "tag": "strong",
-            "text": "Limitations:"
-          },
-          {
-            "text": " Training usually requires extensive interaction with the environment, resulting in low sample efficiency. Reward design directly affects the learning outcome; a poorly designed reward may lead the policy away from the actual communication objectives. Differences between a simulation environment and a real network—the sim-to-real gap—also mean that a trained policy may not transfer directly to a real system. Safe exploration, training stability, and policy generalization are further important concerns."
-          }
-        ]
+        "text": "Combining technique names and then optimizing the combination rarely feels like a satisfying starting point. I care more about the bottleneck: what is holding the system back, what can be changed, and what must be sacrificed to improve it? That gives the mathematics a reason to exist."
       },
       {
         "type": "h2",
-        "text": "3. Optimization"
+        "text": "Optimization also gives a benchmark"
       },
       {
         "type": "p",
-        "text": "Optimization is a mathematical framework for modeling and solving problems. It defines objective functions, decision variables, and constraints to find optimal or approximately optimal decisions. It is not a machine learning method. In wireless communications, it is widely used for power control, spectrum allocation, beamforming, resource scheduling, and network energy-efficiency optimization."
+        "text": "A practical system may need a fast, reusable solution rather than run an optimizer every time. An optimized reference helps show the price of that convenience: how much performance is exchanged for speed and simplicity, under the same resources and assumptions? That gap makes the engineering decision tangible."
       },
       {
         "type": "p",
-        "text": "Advantages: It uses mathematical models and physical constraints to explicitly describe the objectives and the feasible solution space. Problems with suitable mathematical structure can offer rigorous guarantees of optimality or convergence, and the results are relatively easy to interpret.",
-        "parts": [
-          {
-            "tag": "strong",
-            "text": "Advantages:"
-          },
-          {
-            "text": " It uses mathematical models and physical constraints to explicitly describe the objectives and the feasible solution space. Problems with suitable mathematical structure can offer rigorous guarantees of optimality or convergence, and the results are relatively easy to interpret."
-          }
-        ]
-      },
-      {
-        "type": "p",
-        "text": "Limitations: The quality of the solution depends on the accuracy of the mathematical model. When wireless channels, user behavior, and network traffic are difficult to model accurately, the optimization results may differ from those of the real system. Nonconvex, combinatorial, and high-dimensional problems can also be computationally expensive, making it difficult to meet the real-time decision-making requirements of dynamic wireless networks.",
-        "parts": [
-          {
-            "tag": "strong",
-            "text": "Limitations:"
-          },
-          {
-            "text": " The quality of the solution depends on the accuracy of the mathematical model. When wireless channels, user behavior, and network traffic are difficult to model accurately, the optimization results may differ from those of the real system. Nonconvex, combinatorial, and high-dimensional problems can also be computationally expensive, making it difficult to meet the real-time decision-making requirements of dynamic wireless networks."
-          }
-        ]
+        "text": "A local solution supplies a useful design reference; a global solution or proven bound tells more about the remaining room for improvement. The comparison becomes especially meaningful when it includes computation and training overhead."
       },
       {
         "type": "h2",
-        "text": "4. Relationships and Method Selection"
+        "text": "Think about computational cost while building the model"
       },
       {
         "type": "p",
-        "text": "The three approaches are not mutually exclusive. They provide different ways to address a problem:"
+        "text": "Solver efficiency is shaped long before the solver starts. The way a problem is modeled determines not only how many variables the solver must handle, but also the structure of the constraints and the complexity of the search. A few examples show why these details matter."
       },
       {
         "type": "ul",
         "items": [
-          {
-            "text": "Optimization: Specify the objectives, mathematical model, and feasibility constraints to determine how to solve for optimal decisions.",
-            "parts": [
-              {
-                "tag": "strong",
-                "text": "Optimization:"
-              },
-              {
-                "text": " Specify the objectives, mathematical model, and feasibility constraints to determine how to solve for optimal decisions."
-              }
-            ]
-          },
-          {
-            "text": "Deep learning: Learn complex feature representations and input–output mappings from data to extract patterns, predict states, or approximate solutions.",
-            "parts": [
-              {
-                "tag": "strong",
-                "text": "Deep learning:"
-              },
-              {
-                "text": " Learn complex feature representations and input–output mappings from data to extract patterns, predict states, or approximate solutions."
-              }
-            ]
-          },
-          {
-            "text": "Reinforcement learning: Learn sequential decision-making policies through interaction with the environment to improve long-term returns in a dynamic setting.",
-            "parts": [
-              {
-                "tag": "strong",
-                "text": "Reinforcement learning:"
-              },
-              {
-                "text": " Learn sequential decision-making policies through interaction with the environment to improve long-term returns in a dynamic setting."
-              }
-            ]
-          }
+          "Variable dimension. If each of K users has an N-element complex beamforming vector, the model contains NK complex entries, equivalent to 2NK real variables. Increasing the number of users or antennas expands the optimization problem. If the beamformers are optimized independently over T time slots, the variable count grows with T as well.",
+          "Constraint count. Suppose each user must satisfy one quality-of-service (QoS) requirement in every time slot. Across T slots, this gives KT constraints. A finer time grid can therefore increase both the number of decisions and the number of conditions that must be satisfied.",
+          "Constraint structure. The number of constraints alone does not tell us how difficult a problem is to solve. Simple scalar power limits are generally much easier to handle than a large positive-semidefinite matrix constraint. Semidefinite relaxation (SDR), for example, lifts a complex beamforming vector into an N × N Hermitian matrix. This matrix has N² real degrees of freedom, a substantial increase over the original vector representation. The relaxation can make the problem convex, but that improvement in mathematical structure may come at a higher computational cost.",
+          "Discrete decisions. Suppose M binary variables represent whether individual components are active or inactive. They define 2ᴹ possible activation patterns. Unlike a simple increase in continuous variables, adding binary decisions can introduce combinatorial complexity that grows exponentially with M."
         ]
       },
       {
         "type": "p",
-        "text": "In practical wireless communications research, the choice of method should depend on the problem itself:"
-      },
-      {
-        "type": "ol",
-        "items": [
-          "If the system model is well defined, the objectives and constraints are clear, and traditional algorithms can solve the problem efficiently, mathematical optimization should be considered first.",
-          "If the task mainly involves extracting complex signal features, learning nonlinear mappings, or predicting states, deep learning can be considered.",
-          "If the system state keeps changing, current actions affect future states, and long-term decision-making returns matter, reinforcement learning can be considered."
-        ]
-      },
-      {
-        "type": "p",
-        "text": "A dynamic problem does not necessarily require reinforcement learning. Repeated optimization and model predictive control (MPC) can also handle dynamic systems. RL should be introduced only when it offers practical advantages in areas such as incomplete models, long-term decision-making, or online computational efficiency."
-      },
-      {
-        "type": "p",
-        "text": "The three approaches can also be combined. For example, communication theory can provide the physical model, deep learning can extract complex features, and reinforcement learning can perform dynamic resource allocation."
+        "text": "A good model captures the important tradeoff with manageable computational work. Eliminating redundant variables and exposing sparsity, separable blocks, or shared structure can be as valuable as choosing a better solver. These decisions belong in the modeling stage."
       },
       {
         "type": "h2",
-        "text": "5. Integrating Wireless Domain Knowledge with AI (Domain-Knowledge-Guided AI)"
+        "text": "Find Structure in a Difficult Problem"
       },
       {
         "type": "p",
-        "text": "An important research idea in combining wireless communications with AI goes beyond simply applying deep learning or reinforcement learning to a communication problem. It incorporates existing domain theories, physical laws, mathematical models, and system constraints into AI learning and decision-making, helping AI learn more efficiently and produce more reliable solutions."
+        "text": "Wireless optimization problems can be difficult for different reasons. Interference couples the decisions made for different users, some constraints are nonconvex, and discrete choices introduce combinatorial complexity."
       },
       {
         "type": "p",
-        "text": "The central idea is to use domain knowledge to provide AI with prior information and structural constraints, narrowing the learning space, reducing unproductive exploration, and lowering dependence on training data and environmental interaction, while improving generalization and decision reliability.",
+        "text": "The first step is to understand where the difficulty comes from. Sometimes an equivalent reformulation reveals useful structure. When an exact reformulation is not enough, approximations and relaxations offer other ways to make the problem more manageable. Three techniques illustrate these different approaches, for example."
+      },
+      {
+        "type": "ul",
+        "items": [
+          "SCA: solve a sequence of simpler problems. Instead of tackling the original nonconvex problem directly, successive convex approximation (SCA) constructs a convex surrogate around the current iterate and solves it repeatedly. Each solution provides a new point around which to build the next subproblem. Under suitable conditions, this process can converge to a stationary point, although it does not generally guarantee a global optimum.",
+          "Lagrangian methods: expose the relationships between constraints and decisions. By attaching multipliers to constraints, we can interpret them as prices associated with limited resources or constraint violations. When the problem has suitable separable structure, dualizing coupling constraints can break it into smaller subproblems that are easier to handle individually. The dual problem can also provide a bound on the primal optimum, although a nonzero duality gap may remain.",
+          "SDR: trade a difficult constraint for a larger convex problem. For a quadratic beamforming problem with a complex vector w, define W = wwᴴ. The quadratic expressions can then be represented using the matrix W, but the exact formulation also requires W to have rank one. Dropping that rank constraint gives a semidefinite relaxation (SDR), which is convex for suitable formulations. The tradeoff is that the matrix variable is much larger, and the relaxed solution may not have rank one. If so, an additional recovery step, such as randomization, may be needed to obtain a feasible beamforming vector for the original problem."
+        ]
+      },
+      {
+        "type": "equation",
+        "text": "wH A w = tr(AW),   W = wwH",
         "parts": [
           {
-            "text": "The central idea is to "
+            "tag": "strong",
+            "text": "w"
+          },
+          {
+            "tag": "sup",
+            "text": "H"
+          },
+          {
+            "text": " "
           },
           {
             "tag": "strong",
-            "text": "use domain knowledge to provide AI with prior information and structural constraints, narrowing the learning space, reducing unproductive exploration, and lowering dependence on training data and environmental interaction, while improving generalization and decision reliability."
-          }
-        ]
-      },
-      {
-        "type": "p",
-        "text": "This can be achieved in several ways:"
-      },
-      {
-        "type": "h3",
-        "text": "(1) Knowledge-Guided Deep Learning"
-      },
-      {
-        "type": "p",
-        "text": "The physical models and mathematical structure of communication systems can be incorporated into a neural network’s input representations, architecture, and loss functions. For example, multipath propagation, time–frequency correlations, and MIMO signal models can guide the design of feature-extraction modules. Physical equations can be used to construct a physics-informed loss, or traditional signal-processing and iterative optimization algorithms can be unfolded into trainable networks through deep unfolding. This retains the structural strengths of traditional communication theory while using data to learn complex relationships that traditional models cannot describe accurately."
-      },
-      {
-        "type": "h3",
-        "text": "(2) Knowledge-Guided Reinforcement Learning"
-      },
-      {
-        "type": "p",
-        "text": "Communication system knowledge can be incorporated into the design of states, actions, rewards, and environments. For example, CSI, SINR, channel capacity, and queue states can be used to construct the state space. Spectrum, power, and QoS constraints can restrict the action space. Throughput, latency, and energy consumption can inform the reward function, while channel models and network protocols can provide a training environment consistent with real communication behavior. This can reduce unproductive exploration and help the agent learn policies that meet communication requirements more effectively."
-      },
-      {
-        "type": "h3",
-        "text": "(3) Combining Optimization Theory with Machine Learning (Learning to Optimize)"
-      },
-      {
-        "type": "p",
-        "text": "The mathematical structure of traditional optimization algorithms can guide neural network design, or machine learning can approximate the process of solving complex optimization problems. For example, deep unfolding maps an iterative algorithm into multiple trainable network layers. Learning to optimize uses neural networks to learn algorithm parameters or decision-making policies to improve the efficiency of solving complex problems."
-      },
-      {
-        "type": "p",
-        "text": "With these combinations, AI can use existing wireless communications knowledge to guide learning rather than relying entirely on data-driven black-box learning. This can improve sample efficiency, model generalization, physical consistency, and reliability in practical deployment."
-      },
-      {
-        "type": "p",
-        "text": "More domain knowledge is not always better. Inaccurate physical models or assumptions that do not match the real communication environment may instead restrict AI’s ability to learn. It is therefore necessary to decide which knowledge is reliable, which knowledge is suitable for incorporation, and which complex relationships should be learned from data."
-      },
-      {
-        "type": "p",
-        "text": "The ultimate goal is not to replace communication theory with AI, but to let communication theory guide AI learning, then use AI to address the limitations of traditional models and algorithms, enabling more efficient, reliable, and intelligent wireless communication systems.",
-        "parts": [
+            "text": "A"
+          },
+          {
+            "text": " "
+          },
           {
             "tag": "strong",
-            "text": "The ultimate goal is not to replace communication theory with AI, but to let communication theory guide AI learning, then use AI to address the limitations of traditional models and algorithms, enabling more efficient, reliable, and intelligent wireless communication systems."
+            "text": "w"
+          },
+          {
+            "text": " = tr("
+          },
+          {
+            "tag": "strong",
+            "text": "AW"
+          },
+          {
+            "text": "),   "
+          },
+          {
+            "tag": "strong",
+            "text": "W"
+          },
+          {
+            "text": " = "
+          },
+          {
+            "tag": "strong",
+            "text": "ww"
+          },
+          {
+            "tag": "sup",
+            "text": "H"
           }
         ]
+      },
+      {
+        "type": "p",
+        "text": "The quadratic expression in w becomes linear in W; the rank-one requirement carries the remaining difficulty."
+      },
+      {
+        "type": "h2",
+        "text": "Alternating Updates Should Be Cheap"
+      },
+      {
+        "type": "p",
+        "text": "A jointly difficult optimization problem can sometimes be handled more easily by optimizing one block of variables at a time while keeping the others fixed. If each block update has a simpler structure than the original problem, alternating optimization can turn a difficult joint optimization into a sequence of manageable subproblems."
+      },
+      {
+        "type": "p",
+        "text": "But splitting the problem is only part of the solution. What matters in practice is how expensive each update is. If every block requires another costly iterative optimization, the algorithm may still be slow even when each subproblem is smaller. This is why closed-form updates are especially valuable: they reduce the computational effort per iteration and make the algorithm easier to implement and analyze."
+      },
+      {
+        "type": "p",
+        "text": "WMMSE provides a useful example. In the standard formulation, the receiver filters and MSE weights can be updated explicitly when the other variables are fixed. The precoder update is also structured: under a sum-power constraint, it can often be expressed in terms of a Lagrange multiplier found through a one-dimensional search. Instead of solving the entire problem at once, WMMSE alternates between these updates, making each step relatively efficient."
       }
     ]
   }
