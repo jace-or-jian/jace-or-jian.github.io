@@ -743,10 +743,6 @@ window.BLOG_POSTS = [
         "text": "A wave travels 1 km in about 3.3 μs; the train takes 12 seconds. Putting those numbers together makes the scale difference feel real. The wave reaches the train quickly."
       },
       {
-        "type": "h2",
-        "text": "The Doppler intuition still has something to it"
-      },
-      {
         "type": "equation",
         "text": "f_D = (v cos θ / c) f_c = v cos θ / λ\n|f_D|_max ≈ 972 Hz at 300 km/h and 3.5 GHz"
       },
@@ -776,7 +772,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "h2",
-        "text": "Why cell-free caught my attention"
+        "text": "Cell-Free Architecture"
       },
       {
         "type": "p",
