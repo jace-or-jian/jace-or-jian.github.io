@@ -2060,14 +2060,18 @@ window.BLOG_POSTS = [
   },
   {
     "slug": "multipath-doppler-and-coherence",
-    "title": "Multipath and Motion: Reading the Interference Pattern",
+    "title": "Multipath and Motion: Understanding Wireless Channels Through Interference Patterns",
     "lang": "en",
     "published": true,
-    "summary": "Connecting delayed paths, frequency selectivity, and motion through one picture of superposition.",
+    "summary": "Understanding multipath fading, motion, Doppler spread, delay spread, coherence time, and coherence bandwidth through one interference pattern.",
     "blocks": [
       {
         "type": "p",
-        "text": "A transmitted signal rarely reaches the receiver along just one path. It may arrive directly, reflect off a wall, scatter from objects, or diffract around an edge. These copies arrive with different amplitudes, phases, and delays. When they combine at the receiver, they can reinforce or cancel one another, creating the phenomenon known as multipath fading."
+        "text": "A transmitted signal rarely reaches the receiver along just one path. It may travel directly to the receiver, reflect off a wall, scatter from objects, or diffract around an edge. The receiver therefore usually receives several copies of the signal along different paths."
+      },
+      {
+        "type": "p",
+        "text": "These copies have different amplitudes, phases, and delays. When they combine, they reinforce one another at some positions and cancel one another at others, producing multipath fading."
       },
       {
         "type": "figure",
@@ -2078,11 +2082,23 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "I like to picture this as an invisible interference landscape spread across space: bright patches where the waves reinforce each other, and dark patches where they cancel. If the environment and the receiver stay still, this pattern stays fixed."
+        "text": "I like to picture this as an invisible interference pattern spread across space. Like the bright and dark fringes in an optical interference experiment, radio waves combine constructively at some positions to create stronger-signal regions, while cancelling one another at other positions to create weaker-signal regions."
       },
       {
         "type": "p",
-        "text": "The key is the relative phase between paths. For two paths with a delay difference Δτ, the phase difference at frequency f is"
+        "text": "If the transmitter and the surrounding environment remain unchanged, this pattern also remains relatively fixed in space. The receiver's position determines which part of the pattern we actually observe."
+      },
+      {
+        "type": "h2",
+        "text": "1. Spatial Interference Pattern"
+      },
+      {
+        "type": "p",
+        "text": "The key to this interference pattern is the relative phase between different propagation paths."
+      },
+      {
+        "type": "p",
+        "text": "For two paths with a delay difference Δτ, the phase difference at frequency f can be expressed as:"
       },
       {
         "type": "equation",
@@ -2090,15 +2106,15 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "where ΔL is the path-length difference and λ is the wavelength. Even a small change in path length can alter the relative phase and change how the waves combine."
+        "text": "Here, ΔL is the difference in path length and λ is the wavelength."
       },
       {
         "type": "p",
-        "text": "When I move, the lengths of paths arriving from different directions change at different rates. Their relative phases shift, so I move through the interference landscape, passing through regions of stronger and weaker signal."
+        "text": "Even a small change in path length can alter the relative phase between the two paths and change how they combine."
       },
       {
         "type": "p",
-        "text": "This also explains how motion changes the channel over time. As I move, each path experiences a Doppler shift determined by my motion relative to that path. The wider the spread of these shifts, the faster the relative phases change and the more quickly the interference pattern evolves. This is why a larger Doppler spread generally means a shorter coherence time."
+        "text": "This also explains why the received signal keeps changing as the receiver moves. The lengths of paths arriving from different directions change at different rates, shifting their relative phases. As I move through space, it is as though I am passing through this fixed interference pattern, encountering regions of stronger and weaker signal in turn."
       },
       {
         "type": "figure",
@@ -2108,16 +2124,64 @@ window.BLOG_POSTS = [
         "height": 864
       },
       {
-        "type": "p",
-        "text": "The same idea applies along the frequency axis. Imagine staying in one place and sweeping the signal frequency. The physical path lengths remain fixed, but the phase difference between paths changes with frequency. A path with a larger delay difference accumulates relative phase more quickly as the frequency changes, causing the peaks and dips in the channel response to occur more closely together."
+        "type": "h2",
+        "text": "2. Motion and Temporal Variation"
       },
       {
         "type": "p",
-        "text": "Finally, the relationship between coherence bandwidth and signal bandwidth determines the type of fading we observe. If the signal bandwidth is much smaller than the coherence bandwidth, the channel response is approximately uniform across the signal band, producing flat fading. If the signal bandwidth is wide enough to span substantial variations in the channel response, different frequency components experience different gains and phases, producing frequency-selective fading."
+        "text": "If we imagine the spatial interference pattern as a static picture, the receiver's movement is like travelling through that picture."
       },
       {
         "type": "p",
-        "text": "A wider Doppler spread shortens coherence time; a larger RMS delay spread narrows coherence bandwidth."
+        "text": "From the receiver's perspective, a signal-strength distribution that is fixed in space becomes a fluctuation over time as its position changes."
+      },
+      {
+        "type": "p",
+        "text": "In channel terms, each propagation path experiences a Doppler shift due to relative motion. Since the paths usually arrive from different directions, their Doppler shifts generally differ as well."
+      },
+      {
+        "type": "p",
+        "text": "These different frequency shifts cause the relative phases between paths to change continuously, making the interference pattern observed by the receiver evolve over time."
+      },
+      {
+        "type": "p",
+        "text": "A larger Doppler spread generally means that the relative phases change more quickly, and so does the observed interference pattern. The interval over which the received channel remains similar becomes shorter: in other words, the coherence time decreases."
+      },
+      {
+        "type": "h2",
+        "text": "3. Frequency Variation and Delay Spread"
+      },
+      {
+        "type": "p",
+        "text": "Alongside moving through space and observing changes over time, we can also examine the same interference pattern from a frequency perspective."
+      },
+      {
+        "type": "p",
+        "text": "Suppose I stay at a fixed position and change only the frequency of the transmitted signal. The physical path lengths remain unchanged, but the phase differences between paths still vary with frequency."
+      },
+      {
+        "type": "p",
+        "text": "For paths with a larger delay difference, even a small frequency change can produce a substantial change in relative phase. Peaks and dips in the channel response therefore occur more closely together along the frequency axis."
+      },
+      {
+        "type": "p",
+        "text": "This is the connection between delay spread and coherence bandwidth: larger differences in path delays generally cause the channel response to vary more rapidly with frequency, resulting in a smaller coherence bandwidth."
+      },
+      {
+        "type": "h2",
+        "text": "4. Coherence Time and Coherence Bandwidth"
+      },
+      {
+        "type": "p",
+        "text": "We can now connect the spatial, temporal, and frequency perspectives."
+      },
+      {
+        "type": "p",
+        "text": "In time, a larger Doppler spread means that the observed interference pattern changes more quickly, so the coherence time is shorter."
+      },
+      {
+        "type": "p",
+        "text": "In frequency, a larger root-mean-square (RMS) delay spread means that the interference pattern changes more quickly as frequency varies, so the coherence bandwidth is smaller."
       },
       {
         "type": "equation",
@@ -2152,6 +2216,22 @@ window.BLOG_POSTS = [
             "text": "τ"
           }
         ]
+      },
+      {
+        "type": "p",
+        "text": "These parameters also help characterize the fading we observe."
+      },
+      {
+        "type": "p",
+        "text": "If the signal bandwidth is much smaller than the coherence bandwidth, the channel response is approximately the same across the entire signal band. Different frequency components experience similar gains and phases, producing flat fading."
+      },
+      {
+        "type": "p",
+        "text": "If the signal bandwidth is wide enough to span several pronounced peaks and dips in the interference pattern, different frequency components experience different gains and phases, producing frequency-selective fading."
+      },
+      {
+        "type": "p",
+        "text": "From this perspective, multipath fading, Doppler spread, delay spread, coherence time, and coherence bandwidth are closely connected concepts. They can all be understood through the same interference pattern: the relative phases of different propagation paths determine how signals combine, while changes in position, time, and frequency determine how that pattern appears."
       }
     ]
   },
