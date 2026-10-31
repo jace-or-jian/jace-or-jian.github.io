@@ -1906,18 +1906,26 @@ window.BLOG_POSTS = [
   },
   {
     "slug": "high-speed-train-doppler-and-cell-free",
-    "title": "Thoughts from a High-Speed Train Ride",
+    "title": "Wireless Communication on High-Speed Trains: Doppler Effects and Cell-Free Architecture",
     "lang": "en",
     "published": true,
-    "summary": "How intermittent train connectivity led me from Doppler intuition to thinking about cells and user-centric service.",
+    "summary": "How a train ride led me from Doppler shifts and channel variation to cellular handover and user-centric cell-free service.",
     "blocks": [
       {
         "type": "p",
-        "text": "Sometimes the connection suddenly gets worse on a high-speed train. My first thought was Doppler: perhaps the train was simply moving too fast. Later, comparing that speed with the speed of electromagnetic waves made me hesitate. Learning about cellular handover then gave the experience a different meaning: I had been thinking mainly about the wave, while the network also had to keep changing how it served me."
+        "text": "Sometimes, while travelling on a high-speed train, the wireless connection suddenly gets worse. My first thought was the Doppler effect: perhaps the train was simply moving too fast."
+      },
+      {
+        "type": "p",
+        "text": "Later, however, comparing the train's speed with the propagation speed of electromagnetic waves made me question whether that explanation was sufficient. As I learned about cellular handover, I began to realize that the problem concerns both how radio waves propagate and how the network continually adapts its service as users move."
       },
       {
         "type": "h2",
-        "text": "Getting a feel for the speed of the wave"
+        "text": "1. Doppler Effect and Channel Variation"
+      },
+      {
+        "type": "p",
+        "text": "First, consider the orders of magnitude involved:"
       },
       {
         "type": "equation",
@@ -1925,43 +1933,112 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "A wave travels 1 km in about 3.3 μs; the train takes 12 seconds. Putting those numbers together makes the scale difference feel real. The wave reaches the train quickly."
+        "text": "An electromagnetic wave takes only about 3.3 μs to travel 1 km, while the train takes about 12 seconds to cover the same distance. The time scales are vastly different: the wave reaches the train almost instantaneously."
+      },
+      {
+        "type": "p",
+        "text": "The Doppler shift can be expressed as:"
       },
       {
         "type": "equation",
-        "text": "f_D = (v cos θ / c) f_c = v cos θ / λ\n|f_D|_max ≈ 972 Hz at 300 km/h and 3.5 GHz"
+        "text": "f_D = (v cos θ / c) f_c = v cos θ / λ\n|f_D|_max ≈ 972 Hz at 300 km/h and 3.5 GHz",
+        "parts": [
+          {
+            "text": "f"
+          },
+          {
+            "tag": "sub",
+            "text": "D"
+          },
+          {
+            "text": " = (v cos θ / c) f"
+          },
+          {
+            "tag": "sub",
+            "text": "c"
+          },
+          {
+            "text": " = v cos θ / λ\n|f"
+          },
+          {
+            "tag": "sub",
+            "text": "D"
+          },
+          {
+            "text": "|"
+          },
+          {
+            "tag": "sub",
+            "text": "max"
+          },
+          {
+            "text": " ≈ 972 Hz at 300 km/h and 3.5 GHz"
+          }
+        ]
       },
       {
         "type": "p",
-        "text": "At 3.5 GHz, the wavelength is about 8.6 cm, and a train moving at 300 km/h covers 8.3 cm in just 1 ms. For a path along the direction of motion, that changes the received phase by almost a full cycle. Comparing movement with wavelength explains why Doppler can matter even when v/c is tiny."
+        "text": "At 3.5 GHz, the wavelength is about 8.6 cm. A train travelling at 300 km/h moves about 8.3 cm in just 1 ms, nearly a full wavelength. If its motion is aligned with the propagation path, the received signal's phase can change by almost a full cycle during that interval."
       },
       {
         "type": "p",
-        "text": "At train speeds, larger Doppler shifts and faster channel variations make accurate reception harder. If frequency compensation or channel tracking falls behind, decoding errors and retransmissions increase, slowing the connection. Along the route, maintaining the connection also requires the network to transfer service between cells."
+        "text": "This helped me understand why Doppler can significantly affect wireless communication even when v/c is tiny. What matters is not just speed relative to the speed of light, but also the distance travelled relative to the signal's wavelength."
+      },
+      {
+        "type": "p",
+        "text": "At high speeds, larger Doppler shifts and faster channel variations make signal processing at the receiver more difficult. If frequency compensation or channel tracking cannot keep up, decoding errors and retransmissions can increase, ultimately reducing the data rate."
+      },
+      {
+        "type": "p",
+        "text": "Still, I do not see rapid channel variation as the biggest challenge for high-speed train communication. As the train moves along the track, the network also has to keep changing which base station serves the user."
       },
       {
         "type": "h2",
-        "text": "Passing through cells"
+        "text": "2. Cellular Handover"
       },
       {
         "type": "p",
-        "text": "As the train moves, one serving cell becomes less suitable and another becomes more useful. The network measures, decides, and executes a handover. What feels like one continuous connection from my seat is supported by a sequence of network decisions."
+        "text": "As the train moves, the current serving cell may gradually become less suitable, while another cell offers better signal conditions."
+      },
+      {
+        "type": "p",
+        "text": "Through measurement, decision-making, and execution, the network performs a handover, transferring the user's connection from one serving cell to another."
+      },
+      {
+        "type": "p",
+        "text": "To a passenger on the train, the connection may seem continuous. Behind that experience, however, the network must keep making mobility-management decisions."
+      },
+      {
+        "type": "p",
+        "text": "The time a train spends within a service region can be roughly expressed as:"
       },
       {
         "type": "equation",
-        "text": "Time across a service region ≈ L / v\nFor an illustrative L = 1 km: about 12 s"
+        "text": "Time across a service region ≈ L / v"
       },
       {
         "type": "p",
-        "text": "A train moves through coverage quickly, leaving less time for each transition. Carriage attenuation, tunnels, weak coverage, and shared capacity also affect the experience. Handover became an important explanation to keep in mind alongside those radio conditions."
+        "text": "For example, if the service region is L = 1 km long, a train travelling at 300 km/h takes only about 12 seconds to pass through it."
+      },
+      {
+        "type": "p",
+        "text": "High-speed movement therefore shortens the time a user remains within a coverage region, leaving the network less time to complete measurements and handover."
       },
       {
         "type": "h2",
-        "text": "Cell-Free Architecture"
+        "text": "3. User-Centric Cell-Free Architecture"
       },
       {
         "type": "p",
-        "text": "User-centric cell-free massive MIMO offers a different picture: a group of distributed access points cooperates around the user, and the group changes as the user moves."
+        "text": "User-centric cell-free massive MIMO offers a different approach to network architecture."
+      },
+      {
+        "type": "p",
+        "text": "Conventional cellular networks organize service mainly around individual cells. In user-centric cell-free massive MIMO, multiple distributed access points (APs) cooperate to serve the user. As the user moves, the set of serving APs can change dynamically."
+      },
+      {
+        "type": "p",
+        "text": "For example:"
       },
       {
         "type": "equation",
@@ -1969,11 +2046,15 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "I like the idea that the service follows the user. A shared access point can maintain continuity while another joins or leaves the serving group. That feels more natural for a moving train than thinking entirely in terms of separate regions and cell edges."
+        "text": "As the user moves, AP₁ can gradually leave the serving set while AP₃ joins. If AP₂ continues serving the user throughout this process, it can help maintain connection continuity."
       },
       {
         "type": "p",
-        "text": "The challenge is keeping the serving group up to date as the train moves. The access points need fresh channel information and synchronized transmission, and the network has to decide when each one should join or leave. These updates create coordination overhead. For the train journey, the useful question is whether the network can make those changes smoothly enough to maintain the connection without noticeable interruptions."
+        "text": "This architecture also brings new challenges. As the train moves, the network needs to update channel state information (CSI) promptly, coordinate synchronized transmissions among APs, and decide which APs should join or leave the current serving set. All of these operations create additional coordination overhead."
+      },
+      {
+        "type": "p",
+        "text": "For high-speed trains, the key question is whether the network can make these updates smoothly enough to reduce noticeable connection interruptions while maintaining stable service. From this perspective, cell-free architecture changes how users are served at the network level, making the coordination and transition of serving nodes during movement a central challenge."
       }
     ]
   },
