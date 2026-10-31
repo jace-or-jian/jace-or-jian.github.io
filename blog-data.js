@@ -1331,54 +1331,207 @@ window.BLOG_POSTS = [
   },
   {
     "slug": "covert-communication-and-physical-layer-security",
-    "title": "How I Understand Covert Communication and PLS",
+    "title": "How I Understand Covert Communication and Physical-Layer Security",
     "lang": "en",
     "published": true,
-    "summary": "Hiding a transmission, hiding its message, and why the kind of uncertainty and the chosen performance measure matter.",
+    "summary": "My understanding of covert communication, the square-root law, uncertainty and covertness metrics, physical-layer security, and wiretap coding.",
     "blocks": [
       {
         "type": "p",
-        "text": "Covert communication hides the existence of a transmission; physical-layer security (PLS) hides its content. Willie tries to notice activity, while Eve tries to learn the message. In both cases, the physical channel becomes part of the protection."
+        "text": "In wireless communication, security can mean more than preventing others from reading the transmitted information. It can also mean preventing them from knowing that communication is taking place."
+      },
+      {
+        "type": "p",
+        "text": "These correspond to two different security goals: covert communication focuses on whether communication activity can be detected, while physical-layer security (PLS) focuses on whether the transmitted information can be learned by an eavesdropper."
+      },
+      {
+        "type": "p",
+        "text": "In these settings, Willie typically denotes an observer trying to detect communication activity, while Eve denotes an eavesdropper trying to learn the message. Both approaches use the physical properties of wireless channels to provide protection, but they address different questions."
       },
       {
         "type": "h2",
-        "text": "Hiding a signal inside the background"
+        "text": "1. Covert Communication"
+      },
+      {
+        "type": "p",
+        "text": "The central idea of covert communication is to make Alice's transmitted signal blend as closely as possible into the background noise that Willie already expects to receive."
+      },
+      {
+        "type": "p",
+        "text": "Willie needs to distinguish between two hypotheses:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "H₀: Alice is not transmitting.",
+          "H₁: Alice is transmitting."
+        ]
+      },
+      {
+        "type": "p",
+        "text": "In a simple channel model, Willie's received signal can be written as:"
       },
       {
         "type": "equation",
-        "text": "H₀: Yᵢ = Zᵢ\nH₁: Yᵢ = h_W Xᵢ + Zᵢ,   i = 1, …, n"
+        "text": "H₀: Yᵢ = Zᵢ\nH₁: Yᵢ = h_W Xᵢ + Zᵢ,   i = 1, …, n",
+        "parts": [
+          {
+            "text": "H₀: Yᵢ = Zᵢ\nH₁: Yᵢ = "
+          },
+          {
+            "text": "h"
+          },
+          {
+            "tag": "sub",
+            "text": "W"
+          },
+          {
+            "text": " Xᵢ + Zᵢ,   i = 1, …, n"
+          }
+        ]
       },
       {
         "type": "p",
-        "text": "Keeping Alice’s added signal small enough, or ambiguous enough, lets it blend into what Willie already expects to see."
+        "text": "Here, Yᵢ is the signal received by Willie, Zᵢ is the background noise, Xᵢ is Alice's transmitted signal, and h_W is the channel coefficient from Alice to Willie.",
+        "parts": [
+          {
+            "text": "Here, Yᵢ is the signal received by Willie, Zᵢ is the background noise, Xᵢ is Alice's transmitted signal, and "
+          },
+          {
+            "text": "h"
+          },
+          {
+            "tag": "sub",
+            "text": "W"
+          },
+          {
+            "text": " is the channel coefficient from Alice to Willie."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The goal of covert communication is to make the received signals under these two hypotheses as difficult to distinguish as possible."
+      },
+      {
+        "type": "p",
+        "text": "Willie can use a detector to decide whether communication is taking place, but two kinds of error are possible: a false alarm (P_FA), in which he declares communication when none is occurring, and a missed detection (P_MD), in which he fails to detect an ongoing transmission.",
+        "parts": [
+          {
+            "text": "Willie can use a detector to decide whether communication is taking place, but two kinds of error are possible: a false alarm ("
+          },
+          {
+            "text": "P"
+          },
+          {
+            "tag": "sub",
+            "text": "FA"
+          },
+          {
+            "text": "), in which he declares communication when none is occurring, and a missed detection ("
+          },
+          {
+            "text": "P"
+          },
+          {
+            "tag": "sub",
+            "text": "MD"
+          },
+          {
+            "text": "), in which he fails to detect an ongoing transmission."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Covertness can be measured by the minimum sum of these two error probabilities over all detectors:"
       },
       {
         "type": "equation",
-        "text": "ξ* = min_detector (P_FA + P_MD) ≥ 1 − ε"
+        "text": "ξ* = min_detector (P_FA + P_MD) ≥ 1 − ε",
+        "parts": [
+          {
+            "text": "ξ* = "
+          },
+          {
+            "text": "min"
+          },
+          {
+            "tag": "sub",
+            "text": "detector"
+          },
+          {
+            "text": " ("
+          },
+          {
+            "text": "P"
+          },
+          {
+            "tag": "sub",
+            "text": "FA"
+          },
+          {
+            "text": " + "
+          },
+          {
+            "text": "P"
+          },
+          {
+            "tag": "sub",
+            "text": "MD"
+          },
+          {
+            "text": ") ≥ 1 − ε"
+          }
+        ]
       },
       {
         "type": "p",
-        "text": "With equal priors, ξ*/2 is the best average detection error. A sum near one means the observations give Willie little advantage over guessing."
+        "text": "When ξ* is close to 1, Willie has difficulty distinguishing H₀ from H₁. For hypotheses with equal prior probabilities, the minimum average detection error probability is ξ*/2."
       },
       {
         "type": "p",
-        "text": "A channel use is one input–output opportunity in the signal model, usually a symbol dimension. A codeword spans n such uses, carrying the message across them. This makes blocklength a physical resource to think about alongside power."
+        "text": "Two other concepts worth noting are channel use and blocklength. A channel use is one input–output opportunity in the channel model, while the blocklength n is the number of channel uses spanned by a codeword. The length of a transmission is therefore an important resource in covert communication."
       },
       {
         "type": "h2",
-        "text": "Why the square root stays in my mind"
+        "text": "2. The Square-Root Law"
       },
       {
         "type": "p",
-        "text": "In the classical AWGN model with known noise statistics, Willie estimates average energy more accurately as n grows. For real independent Gaussian observations with noise variance σ² and added signal variance q:"
+        "text": "In the classical additive white Gaussian noise (AWGN) model, if Willie knows the background noise statistics, increasing the number of observations n allows him to estimate the average received energy more accurately by accumulating more data."
+      },
+      {
+        "type": "p",
+        "text": "Suppose the background noise variance is σ² and Alice's signal increases the received signal variance by q. Define:"
       },
       {
         "type": "equation",
-        "text": "D(P₁ⁿ ∥ P₀ⁿ) ≈ nr²/4\nr = q/σ² ≪ 1"
+        "text": "r = q / σ² ≪ 1"
       },
       {
         "type": "p",
-        "text": "Keeping this divergence bounded asks for received signal power of order 1/√n. Bob’s low-SNR rate per use then has the same scaling, leading to:"
+        "text": "For independent, real-valued Gaussian observations at low signal power, the Kullback–Leibler (KL) divergence between the distributions under the two hypotheses is approximately:"
+      },
+      {
+        "type": "equation",
+        "text": "D(P₁ⁿ ∥ P₀ⁿ) ≈ nr² / 4"
+      },
+      {
+        "type": "p",
+        "text": "Limiting Willie's ability to distinguish H₀ from H₁ requires controlling the difference between these distributions. Under the conditions of the classical square-root law, this means:"
+      },
+      {
+        "type": "equation",
+        "text": "r = O(1/√n)"
+      },
+      {
+        "type": "p",
+        "text": "As the blocklength increases, Alice must therefore reduce the signal power received at Willie on the order of 1/√n."
+      },
+      {
+        "type": "p",
+        "text": "With Bob also operating in the low-SNR regime, the information transmitted per channel use is approximately proportional to the SNR. This leads to:"
       },
       {
         "type": "equation",
@@ -1386,59 +1539,311 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "There is still more information to send with a longer block, but the per-use rate gets smaller. Low power is the price of hiding from an observer who keeps accumulating evidence."
+        "text": "This is the classical square-root law."
+      },
+      {
+        "type": "p",
+        "text": "It does not mean that a longer transmission carries less information. The total amount of information still increases with n, but it grows as √n rather than linearly with n."
+      },
+      {
+        "type": "p",
+        "text": "I find this result interesting: the longer communication continues, the more opportunities Willie has to accumulate evidence, so Alice must further limit her signal strength. Low power is the price of hiding from an observer who keeps watching."
       },
       {
         "type": "h2",
-        "text": "The uncertainty under H₀ feels especially important"
+        "text": "3. Channel Uncertainty and Covertness Metrics"
       },
       {
         "type": "p",
-        "text": "Random noise samples and an unknown background power create different kinds of uncertainty. With a stable, known baseline, averaging helps Willie expose an added signal. With an uncertain baseline, the same energy increase may look like background variation even under H₀."
+        "text": "The preceding analysis assumes that Willie knows the background noise statistics. In a real wireless environment, however, an observer may not have accurate knowledge of this information."
       },
       {
         "type": "p",
-        "text": "Uncertainty introduced under H₁ often increases the coefficient of the square-root law: more covert bits can be sent, while the growth remains proportional to √n. The more promising possibility for changing that growth is uncertainty already present under H₀, such as background noise power that Willie cannot accurately determine. If it persists as observations accumulate, it may allow growth beyond the square-root law."
-      },
-      {
-        "type": "h2",
-        "text": "The viewpoint changes what counts as covert"
+        "text": "It helps to distinguish two kinds of uncertainty: uncertainty about the signal under H₁, and uncertainty about the background noise under H₀."
       },
       {
         "type": "p",
-        "text": "For states S known to Willie, the metric can be chosen as:"
+        "text": "Random noise samples and unknown background noise power are different sources of uncertainty. With a stable, known noise baseline, Willie can discover an additional signal by repeatedly averaging his observations. If the background noise power itself is uncertain, however, the same change in received energy may be explained as normal background variation."
+      },
+      {
+        "type": "p",
+        "text": "Uncertainty under H₁ can often improve the constant factor in the square-root law, allowing Alice to transmit more covert information while the growth still remains proportional to √n."
+      },
+      {
+        "type": "p",
+        "text": "Uncertainty under H₀ is more interesting in this respect. If Willie cannot accurately determine the background noise power, and that uncertainty persists as the number of observations grows, some models can allow covert information to grow faster than the traditional square-root scaling."
+      },
+      {
+        "type": "p",
+        "text": "Beyond uncertainty itself, another important question is how to evaluate covertness. Suppose the system has a random state S that is known to Willie, such as a channel state or noise power level. Three different covertness metrics can be used:"
+      },
+      {
+        "type": "p",
+        "text": "Average:",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Average:"
+          }
+        ]
       },
       {
         "type": "equation",
-        "text": "Average: E_S[ξ*(S)] ≥ 1 − ε\nOutage: Pr_S{ξ*(S) < 1 − ε} ≤ δ\nEvery state: inf_s ξ*(s) ≥ 1 − ε"
+        "text": "E_S[ξ*(S)] ≥ 1 − ε",
+        "parts": [
+          {
+            "text": "E"
+          },
+          {
+            "tag": "sub",
+            "text": "S"
+          },
+          {
+            "text": "[ξ*(S)] ≥ 1 − ε"
+          }
+        ]
       },
       {
         "type": "p",
-        "text": "The relationship between uncertainty and covertness depends strongly on the metric. Greater channel variability may improve average covertness because favorable realizations contribute to the average. Under an outage metric, larger fluctuations may create more states in which the covertness requirement fails. The same variability can therefore improve the average while increasing outage risk. Something useful from one viewpoint becomes a source of risk from another."
+        "text": "Outage:",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Outage:"
+          }
+        ]
+      },
+      {
+        "type": "equation",
+        "text": "Pr_S{ξ*(S) < 1 − ε} ≤ δ",
+        "parts": [
+          {
+            "text": "Pr"
+          },
+          {
+            "tag": "sub",
+            "text": "S"
+          },
+          {
+            "text": "{ξ*(S) < 1 − ε} ≤ δ"
+          }
+        ]
       },
       {
         "type": "p",
-        "text": "For a specific system, choosing the metric that matches its actual operating needs is essential. Average performance, tolerance for occasional exposure, and protection in every state correspond to different requirements; the metric should reflect the one the system actually needs."
+        "text": "Worst-case:",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Worst-case:"
+          }
+        ]
+      },
+      {
+        "type": "equation",
+        "text": "inf_s ξ*(s) ≥ 1 − ε",
+        "parts": [
+          {
+            "text": "inf"
+          },
+          {
+            "tag": "sub",
+            "text": "s"
+          },
+          {
+            "text": " ξ*(s) ≥ 1 − ε"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "These metrics express different security requirements. The average metric concerns mean covertness performance. The outage metric concerns the probability that covertness falls below the requirement. The worst-case metric requires every possible state to satisfy the covertness condition."
+      },
+      {
+        "type": "p",
+        "text": "The same channel uncertainty may therefore improve average covertness while increasing outage risk. For a particular system, it is important to choose a metric that matches its actual requirements."
       },
       {
         "type": "h2",
-        "text": "PLS: create a channel advantage, then use it"
+        "text": "4. Physical-Layer Security"
       },
       {
         "type": "p",
-        "text": "Bob and Eve receive the same transmission through different paths, so their observations can have very different quality. This advantage can also be actively created: steer more useful energy toward Bob, inject artificial noise toward Eve, or choose a favorable transmission opportunity."
+        "text": "Physical-layer security focuses on protecting the information content of a transmission that is already taking place."
       },
       {
         "type": "p",
-        "text": "The aim is to give Bob a clearer signal while making Eve’s observation less informative. Propagation and signal design become resources for security, and beamforming takes on another purpose."
-      },
-      {
-        "type": "h3",
-        "text": "Wiretap coding: a public codebook with deliberate confusion"
+        "text": "Bob and Eve may receive the same transmitted signal through different propagation paths, resulting in different reception quality. If Bob has a better channel than Eve, Alice can use that channel advantage to keep the information secret."
       },
       {
         "type": "p",
-        "text": "I picture a codebook as a collection of possible transmitted waveforms. Through Bob’s better channel, the received waveform is easier to match to the intended codeword. Through Eve’s noisier channel, many candidates can remain plausible."
+        "text": "This advantage can arise naturally from the propagation environment or be created through system design. For example:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          {
+            "text": "Beamforming: Concentrates more useful energy toward Bob.",
+            "parts": [
+              {
+                "tag": "strong",
+                "text": "Beamforming:"
+              },
+              {
+                "text": " Concentrates more useful energy toward Bob."
+              }
+            ]
+          },
+          {
+            "text": "Artificial Noise: Injects artificial noise toward Eve without substantially degrading Bob's reception.",
+            "parts": [
+              {
+                "tag": "strong",
+                "text": "Artificial Noise:"
+              },
+              {
+                "text": " Injects artificial noise toward Eve without substantially degrading Bob's reception."
+              }
+            ]
+          },
+          {
+            "text": "Transmission Opportunity Selection: Chooses more favourable times, frequencies, or channel states for transmission.",
+            "parts": [
+              {
+                "tag": "strong",
+                "text": "Transmission Opportunity Selection:"
+              },
+              {
+                "text": " Chooses more favourable times, frequencies, or channel states for transmission."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "For a simple real-valued Gaussian wiretap channel, the secrecy capacity is:"
+      },
+      {
+        "type": "equation",
+        "text": "C_s = [C_B − C_E]⁺\n= [½ log₂(1 + γ_B) − ½ log₂(1 + γ_E)]⁺",
+        "parts": [
+          {
+            "text": "C"
+          },
+          {
+            "tag": "sub",
+            "text": "s"
+          },
+          {
+            "text": " = ["
+          },
+          {
+            "text": "C"
+          },
+          {
+            "tag": "sub",
+            "text": "B"
+          },
+          {
+            "text": " − "
+          },
+          {
+            "text": "C"
+          },
+          {
+            "tag": "sub",
+            "text": "E"
+          },
+          {
+            "text": "]⁺\n= [½ log₂(1 + "
+          },
+          {
+            "text": "γ"
+          },
+          {
+            "tag": "sub",
+            "text": "B"
+          },
+          {
+            "text": ") − ½ log₂(1 + "
+          },
+          {
+            "text": "γ"
+          },
+          {
+            "tag": "sub",
+            "text": "E"
+          },
+          {
+            "text": ")]⁺"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Here, C_B and C_E are the channel capacities of Bob and Eve, respectively; γ_B and γ_E are their received SNRs; and [x]⁺ = max(x, 0).",
+        "parts": [
+          {
+            "text": "Here, "
+          },
+          {
+            "text": "C"
+          },
+          {
+            "tag": "sub",
+            "text": "B"
+          },
+          {
+            "text": " and "
+          },
+          {
+            "text": "C"
+          },
+          {
+            "tag": "sub",
+            "text": "E"
+          },
+          {
+            "text": " are the channel capacities of Bob and Eve, respectively; "
+          },
+          {
+            "text": "γ"
+          },
+          {
+            "tag": "sub",
+            "text": "B"
+          },
+          {
+            "text": " and "
+          },
+          {
+            "text": "γ"
+          },
+          {
+            "tag": "sub",
+            "text": "E"
+          },
+          {
+            "text": " are their received SNRs; and [x]⁺ = max(x, 0)."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "This formula directly expresses the design goal of PLS: improve Bob's reception while reducing the useful information available to Eve. The difference between their channel capacities determines the achievable secrecy rate."
+      },
+      {
+        "type": "h2",
+        "text": "5. Wiretap Coding and Secure Communication"
+      },
+      {
+        "type": "p",
+        "text": "Gaining a channel advantage is only the first step. The system also needs suitable coding to protect the transmitted content. This is where wiretap coding comes in."
+      },
+      {
+        "type": "p",
+        "text": "I find it helpful to picture a codebook as a collection of waveforms that might be transmitted. Alice can prepare several possible codewords for the same message and randomly choose one to transmit:"
       },
       {
         "type": "equation",
@@ -1446,35 +1851,56 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Wiretap coding assigns multiple codewords to each message and randomly chooses one for transmission. The codebook and the grouping can be public; the random choice is private. With suitable coding rates, Bob can distinguish the transmission reliably, while Eve’s observations stay compatible with different messages."
+        "text": "The codebook and the way codewords are grouped can be public, while the random choice r remains private from Eve."
+      },
+      {
+        "type": "p",
+        "text": "Through his better channel, Bob can reliably identify the corresponding codeword and recover the message. Eve's poorer channel, meanwhile, may prevent her from determining which message Alice actually sent, even when she knows the entire codebook."
+      },
+      {
+        "type": "p",
+        "text": "With suitable coding rates and randomization, both of the following can hold:"
       },
       {
         "type": "equation",
-        "text": "Bob: Pr{M̂_B ≠ M} → 0\nEve: I(M; Z_Eⁿ ∣ C) → 0"
-      },
-      {
-        "type": "h3",
-        "text": "The advantage appears directly in secrecy capacity"
+        "text": "Bob: Pr{M̂_B ≠ M} → 0\nEve: I(M; Z_Eⁿ | C) → 0",
+        "parts": [
+          {
+            "text": "Bob: Pr{"
+          },
+          {
+            "text": "M̂"
+          },
+          {
+            "tag": "sub",
+            "text": "B"
+          },
+          {
+            "text": " ≠ M} → 0\nEve: I(M; "
+          },
+          {
+            "text": "Z"
+          },
+          {
+            "tag": "sub",
+            "text": "E"
+          },
+          {
+            "text": "ⁿ | C) → 0"
+          }
+        ]
       },
       {
         "type": "p",
-        "text": "For a scalar real Gaussian wiretap channel:"
-      },
-      {
-        "type": "equation",
-        "text": "C_s = [C_B − C_E]⁺\n= [½ log₂(1 + γ_B) − ½ log₂(1 + γ_E)]⁺"
+        "text": "The first condition says that Bob's decoding error probability approaches zero. The second says that the information Eve obtains about the original message approaches zero, a typical expression of strong secrecy."
       },
       {
         "type": "p",
-        "text": "The capacity gap gives the design goal: improve Bob’s reception, reduce Eve’s useful information, and use the difference to carry secret bits. Channel shaping creates the opportunity; wiretap coding uses it."
-      },
-      {
-        "type": "h2",
-        "text": "Another route to secure communication"
+        "text": "Wiretap coding therefore does not prevent Eve from seeing the signal. It prevents her from learning the message effectively from her received signal, even when she knows the coding structure."
       },
       {
         "type": "p",
-        "text": "PLS and covert communication add another route to secure communication alongside mathematical cryptography and wired connections. They can work together with those established choices, adding protection through the physical channel and the waveform itself. Having that extra possibility is exciting. Who knows what these ideas might grow into in the future?"
+        "text": "Looking back at these two approaches, covert communication aims to hide communication activity, while PLS aims to protect its content. They can work alongside traditional cryptography and other security mechanisms to provide protection at different levels. Who knows how these ideas will develop in the future?"
       }
     ]
   },
