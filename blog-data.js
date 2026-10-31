@@ -2424,34 +2424,74 @@ window.BLOG_POSTS = [
   },
   {
     "slug": "some-thoughts-on-6g-making-space-more-useful",
-    "title": "Some Thoughts on 6G: Making Space More Useful",
+    "title": "Some Thoughts on 6G: Making Better Use of Spatial Resources",
     "lang": "en",
     "published": true,
-    "summary": "How higher frequencies, larger arrays, and wider bandwidth interact—and what remains after the costs of using them.",
+    "summary": "How higher frequencies, larger arrays, near-field focusing, and wideband beamforming create opportunities and tradeoffs in using spatial resources.",
     "blocks": [
       {
         "type": "p",
-        "text": "One goal of 6G is to support higher data rates, which requires access to wider bandwidths. With lower frequency bands already crowded, finding large blocks of available spectrum pushes research toward higher carrier frequencies."
+        "text": "One important goal of 6G is to achieve higher data rates, which calls for wider communication bandwidths. As spectrum in lower frequency bands becomes increasingly crowded, the search for larger blocks of available spectrum is also pushing wireless communication toward higher carrier frequencies."
       },
       {
         "type": "p",
-        "text": "The next challenge is receiving enough energy. With comparable antenna gains, higher frequencies bring greater free-space path loss. This is closely related to antenna size: elements are often roughly half a wavelength in size, so shorter wavelengths mean smaller elements with smaller effective receiving areas. Combining many elements into a larger array helps collect more of the incoming energy."
+        "text": "Higher frequencies, however, bring new challenges. One is how to collect enough signal energy at the receiver. With comparable antenna gains, free-space path loss increases with frequency. There is also an opportunity: antenna-element spacing is typically designed on the scale of the wavelength, with half-wavelength spacing being common. Shorter wavelengths allow more elements to fit within the same physical aperture. Combining many elements into a larger antenna array and coherently combining their received signals provides higher array gain, helping compensate for high-frequency propagation loss."
       },
       {
         "type": "p",
-        "text": "The transmitter faces a related limitation: generating sufficient power becomes difficult at very high frequencies. Transmit arrays help by directing the available power toward the receiver. Both ends therefore depend heavily on antenna gain, producing highly directional links with narrow beams. This makes precise alignment essential: user movement can move the receiver outside the beam, while blockage can interrupt the path. Maintaining the link becomes as important as providing more bandwidth."
+        "text": "The transmitter faces a similar limitation: generating sufficient transmit power is difficult at very high frequencies. A transmit array therefore uses beamforming to concentrate its limited energy toward the receiver. Both ends of the link increasingly rely on antenna gain, resulting in highly directional links with narrow beams."
       },
       {
         "type": "p",
-        "text": "A larger array does more than increase antenna gain. It also changes how the wave propagates across practical link distances. A common estimate of the far-field boundary is the Rayleigh distance, R ≈ 2D²/λ, where D is the array aperture and λ is the wavelength. At 10 GHz, where the wavelength is about 3 cm, an aperture of 1.5 m gives a Rayleigh distance of roughly 150 m. Even at frequencies well below THz, a sufficiently large array can therefore operate in the radiative near field over typical communication distances."
+        "text": "Narrower beams make alignment more important. User movement can take the receiver away from the beam direction, while blockage can interrupt the propagation path altogether. Maintaining stable beam alignment therefore becomes just as important as pursuing wider bandwidth and higher gain."
+      },
+      {
+        "type": "h2",
+        "text": "1. Near-Field Beam Focusing"
       },
       {
         "type": "p",
-        "text": "This creates an opportunity as well as a challenge. In the far field, beamforming mainly controls the direction of the transmitted energy. In the near field, the curvature of the wavefront also depends on the receiver's distance. By adjusting the phase across the array, the system can focus energy at a particular location, potentially separating users by both angle and distance. But this more precise spatial control also makes the link more sensitive to changes in the user's position and the array's orientation. If a device rotates, its antenna orientation and polarization alignment with the incoming field can change even when its position remains the same. A practical system may need to track both position and orientation to maintain a reliable link."
+        "text": "Larger antenna arrays can increase antenna gain and also change the propagation characteristics that matter at practical communication distances."
       },
       {
         "type": "p",
-        "text": "Wide bandwidth introduces a different challenge. Conventional phase shifters apply frequency-independent phase shifts, so a beam designed for the center frequency may point in slightly different directions at other frequencies. This effect, known as beam squint, can become significant for wideband signals and large arrays."
+        "text": "A common estimate of the far-field boundary is the Rayleigh distance:"
+      },
+      {
+        "type": "equation",
+        "text": "R ≈ 2D² / λ"
+      },
+      {
+        "type": "p",
+        "text": "Here, D is the array aperture and λ is the wavelength."
+      },
+      {
+        "type": "p",
+        "text": "For example, at 10 GHz, the wavelength is about 3 cm. With an array aperture of 1.5 m, the Rayleigh distance is approximately 150 m. Even at frequencies well below THz, a sufficiently large array can therefore place typical communication distances within the radiative near field."
+      },
+      {
+        "type": "p",
+        "text": "This creates new opportunities. In the far field, beamforming mainly controls the direction in which a signal propagates. In the near field, wavefront curvature also varies with the receiver's distance. By adjusting the phases across the antenna elements, the system can control the beam direction and focus energy at a particular position in space, potentially using both angle and distance to distinguish users."
+      },
+      {
+        "type": "p",
+        "text": "More precise spatial control also makes the link more sensitive to the user's position and the array's orientation. Even if a device stays in the same place, rotation can change its antenna orientation and polarization alignment with the incoming electromagnetic field. A practical system may therefore need to track both the user's position and the device's orientation to maintain a reliable link."
+      },
+      {
+        "type": "h2",
+        "text": "2. Wideband Beamforming and Beam Squint"
+      },
+      {
+        "type": "p",
+        "text": "Alongside array size and spatial focusing, wideband signals introduce another challenge for beamforming."
+      },
+      {
+        "type": "p",
+        "text": "Conventional phase shifters typically apply fixed phase offsets that are independent of frequency. A beam designed for the centre frequency may therefore point in slightly different directions at other frequencies. This effect is called beam squint and deserves particular attention in wideband systems with large antenna arrays."
+      },
+      {
+        "type": "p",
+        "text": "The residual phase difference can be expressed as:"
       },
       {
         "type": "equation",
@@ -2478,11 +2518,43 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Here Δτ is the propagation-delay difference between elements. Moving farther from the design frequency leaves a larger phase mismatch, especially when the delay differences across the array are large. True-time-delay hardware can reduce this problem by aligning signals across the band, but it adds hardware complexity, loss, and cost."
+        "text": "Here, Δτ is the propagation-delay difference between antenna elements."
       },
       {
         "type": "p",
-        "text": "Engineering is about trade-offs: gains in one direction usually come at a cost elsewhere. The same applies to 6G. Higher performance may demand more power, more complex hardware, or greater computational effort. A useful design should strike a balance that fits the application. Different requirements call for different choices of frequency, bandwidth, array size, and architecture. The task is to understand which gains are worth their cost, and how much complexity the actual requirements justify."
+        "text": "As the operating frequency moves away from the design centre frequency, the residual phase error increases with the frequency offset. Larger-aperture arrays can have greater delay differences across their elements, making beam squint more pronounced."
+      },
+      {
+        "type": "p",
+        "text": "One approach is to use true-time-delay (TTD) hardware. TTD directly controls signal delay, allowing beams to remain aligned over a wider frequency range than fixed phase shifts alone can provide."
+      },
+      {
+        "type": "p",
+        "text": "This approach also increases hardware complexity, signal loss, and cost. Improving wideband beam performance therefore comes at a price."
+      },
+      {
+        "type": "h2",
+        "text": "3. Design Trade-offs in 6G"
+      },
+      {
+        "type": "p",
+        "text": "These considerations suggest that 6G development involves both pursuing higher frequencies and wider bandwidths and making better use of spatial resources."
+      },
+      {
+        "type": "p",
+        "text": "Higher frequencies allow more antenna elements to fit within a limited physical aperture. Larger arrays provide higher gain and finer spatial control, while near-field focusing adds further freedom to the spatial design."
+      },
+      {
+        "type": "p",
+        "text": "At the same time, narrower beams require more precise alignment, larger arrays can bring practical links into the near field, and wider bandwidth can aggravate beam squint and make hardware implementation more difficult."
+      },
+      {
+        "type": "p",
+        "text": "Engineering design is fundamentally about tradeoffs: improving performance in one area usually comes at a cost elsewhere. For 6G, higher performance may require more power, more complex hardware architectures, or greater computational effort."
+      },
+      {
+        "type": "p",
+        "text": "A good system design therefore needs to balance frequency, bandwidth, array size, and architecture according to the actual application requirements. What matters is understanding the cost of each performance improvement and whether that cost is worth paying."
       }
     ]
   },
