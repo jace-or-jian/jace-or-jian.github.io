@@ -2237,18 +2237,18 @@ window.BLOG_POSTS = [
   },
   {
     "slug": "isac-the-same-wave-different-unknowns",
-    "title": "Integrated Sensing and Communication: One Waveform, Two Purposes",
+    "title": "Integrated Sensing and Communication: Shared Waveforms and Environmental Information",
     "lang": "en",
     "published": true,
-    "summary": "Connecting waveform design, multipath, and sensing architectures through the same observation model.",
+    "summary": "How communication and sensing share waveforms, balance their design requirements, address practical challenges, and read environmental information from wireless channels.",
     "blocks": [
       {
         "type": "p",
-        "text": "The search for wider bandwidths pushes communication toward higher frequency bands, including THz. This benefits sensing as well as communication. Wider bandwidth improves range resolution by making echoes with small delay differences easier to distinguish. Shorter wavelengths also allow more antenna elements to fit into a given physical aperture, improving angular resolution."
+        "text": "The demand for greater bandwidth is pushing wireless communication toward higher frequency bands, including the terahertz (THz) band. This benefits wireless sensing as well as communication. Wider bandwidth improves range resolution, making echoes with small delay differences easier to distinguish. Shorter wavelengths allow more antenna elements to fit within the same physical aperture and improve angular resolution."
       },
       {
         "type": "p",
-        "text": "This is why integrated sensing and communication (ISAC) feels like a natural convergence. Both functions transmit and receive electromagnetic waves, and both can be described using a common signal model:"
+        "text": "This is why I see integrated sensing and communication (ISAC) as a natural convergence. Both communication and sensing involve transmitting and receiving electromagnetic waves, and both can be described by the same signal model:"
       },
       {
         "type": "equation",
@@ -2256,19 +2256,43 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Here, X is the transmitted signal, H represents the channel or propagation environment, and N is noise. The difference lies in what we want to recover. Communication estimates the channel and uses it to decode the unknown data in X. Sensing, by contrast, uses a known reference signal to infer the environment from the received echoes. The delays, angles, and Doppler shifts in those echoes reveal information about the targets."
+        "text": "Here, X is the transmitted signal, H represents the wireless channel or propagation environment, and N is noise. The difference lies in what we want to learn from the received signal."
       },
       {
         "type": "p",
-        "text": "This distinction also explains why the same data-bearing waveform can serve both purposes. The communication receiver initially treats the transmitted data as unknown, while a sensing processor with access to the transmitted symbols can use them as a reference for analyzing the echoes. The waveform does not have to be designed exclusively for either communication or sensing."
+        "text": "In communication, we estimate the channel H and use it to recover the unknown data X from the received signal. In sensing, the transmitted signal is usually a known reference, and we analyze the received echoes to infer the surrounding environment. The delays, angles, and Doppler shifts in those echoes provide information about targets."
       },
       {
         "type": "p",
-        "text": "There is still a tradeoff in how that waveform is designed. Communication needs to encode information efficiently, while sensing benefits from waveforms whose delay and Doppler responses make targets easy to distinguish. Chirps are a familiar radar example because their structure can provide useful sensing properties. OFDM, on the other hand, carries data through symbols distributed across multiple subcarriers. Even its transmitted waveform depends on those data symbols, but once the symbols are known, the actual OFDM signal can also serve as a sensing reference."
+        "text": "The same data-bearing waveform can therefore serve both communication and sensing. A communication receiver initially treats the transmitted data as unknown, while a sensing processor with access to the transmitted symbols can use them as a reference for analyzing propagation echoes. In other words, a waveform does not necessarily have to be designed exclusively for either communication or sensing."
+      },
+      {
+        "type": "h2",
+        "text": "1. ISAC Waveform Design"
       },
       {
         "type": "p",
-        "text": "The key trade-off is between randomness and deterministic structure in waveform design. Random data symbols provide the flexibility needed to carry information, while a more deterministic waveform can be designed to provide desirable sensing properties. ISAC waveform design must balance these two needs, allowing the signal to carry data while preserving its usefulness for sensing."
+        "text": "Although the same waveform can serve both tasks, their waveform requirements are not identical."
+      },
+      {
+        "type": "p",
+        "text": "Communication needs to encode and transmit information efficiently, while sensing benefits from a waveform with useful delay and Doppler responses that make different targets easier to distinguish."
+      },
+      {
+        "type": "p",
+        "text": "For example, a linear chirp is a common radar waveform whose frequency changes linearly over time. Its structure offers useful properties for certain range and velocity estimation tasks."
+      },
+      {
+        "type": "p",
+        "text": "OFDM, by contrast, carries data through symbols distributed across multiple subcarriers. Its actual transmitted waveform is relatively random because it depends on those data symbols. As long as the receiver has access to the transmitted symbols, however, the actual OFDM waveform can also serve as a sensing reference."
+      },
+      {
+        "type": "p",
+        "text": "Waveform design therefore involves an important tradeoff between the randomness needed to carry information and the deterministic structure that sensing benefits from."
+      },
+      {
+        "type": "p",
+        "text": "Random data symbols provide the flexibility needed to transmit information, while waveforms with specific structures may offer more desirable sensing performance. ISAC waveform design must balance these needs so that a signal can carry data and sense the environment effectively."
       },
       {
         "type": "figure",
@@ -2279,35 +2303,89 @@ window.BLOG_POSTS = [
       },
       {
         "type": "h2",
-        "text": "Practical challenges"
+        "text": "2. Practical Challenges"
       },
       {
         "type": "p",
-        "text": "Multipath can help MIMO because different spatial paths give the receiver different mixtures of the transmitted streams. When those mixtures are independent, the channel rank increases and more streams can be separated. Radar uses echo delay to infer target range. A reflected detour adds delay without adding a new target; if treated as a direct echo, that extra delay becomes a false target position. The same path can therefore help recover data while making the target’s location ambiguous."
+        "text": "Although communication and sensing can share a waveform, they interpret the propagation environment differently. This is particularly clear in multipath propagation."
       },
       {
         "type": "p",
-        "text": "Another challenge is self-interference. In a monostatic system that transmits while listening, direct leakage from the transmitter can overwhelm weak target echoes."
+        "text": "Multipath can sometimes help MIMO communication because different spatial paths give the receiver different mixtures of the transmitted data streams. When those mixtures are sufficiently independent, the channel matrix can have a higher rank, allowing the receiver to separate more streams."
       },
       {
         "type": "p",
-        "text": "THz could offer an opportunity to reduce self-interference within a compact device. At 300 GHz, just 1 cm of antenna spacing already spans ten wavelengths. For wavelength-scaled antennas, the reactive near field is confined to a small physical region, so a short separation can move the receiving antenna beyond the region of strong reactive coupling. Together with suitable antenna orientation and shielding, this could provide useful isolation while keeping the transmitter and receiver close together."
+        "text": "For radar sensing, however, multipath can create ambiguity in target localization. Radar estimates target range from echo delay, but a reflected path may be longer than the direct path. If the system interprets this additional propagation delay as a direct target echo, it may infer a false target position."
       },
       {
         "type": "p",
-        "text": "Their proximity also gives the remaining direct leakage a useful timing feature. It travels only the short distance between the antennas, while a target echo makes a much longer round trip: τₗₑₐₖ ≈ d/c, compared with τₑ꜀ₕₒ ≈ 2R/c. With sufficient bandwidth, receiver processing can exploit this delay difference to distinguish direct leakage from distant echoes. Combining physical isolation with this separation could make simultaneous transmission and sensing more practical."
+        "text": "The same multipath mechanism can therefore increase spatial degrees of freedom in communication while making target positions more ambiguous in sensing."
       },
       {
         "type": "p",
-        "text": "Separating the transmitter and receiver reduces direct coupling, but the two stations must synchronize their clocks and frequency references. A clock mismatch can make an echo appear to have travelled longer or shorter than it actually did, giving an incorrect target range. A frequency mismatch can likewise be mistaken for a Doppler shift from target motion."
+        "text": "Another important challenge is self-interference. In a monostatic system that transmits and receives simultaneously, the transmitted signal can leak directly into the receiver, with power far exceeding that of weak target echoes."
+      },
+      {
+        "type": "p",
+        "text": "The THz band may offer opportunities to suppress self-interference in compact devices. At 300 GHz, the wavelength is about 1 mm, so an antenna spacing of just 1 cm spans ten wavelengths. For antennas whose dimensions scale with wavelength, the region of strong reactive near-field coupling is usually confined to a small physical area. Suitable spacing may therefore move the receiving antenna outside that region. Combined with appropriate antenna orientation and shielding, this can provide some physical isolation while keeping the transmitter and receiver close together."
+      },
+      {
+        "type": "p",
+        "text": "The distance between the transmit and receive antennas also creates a useful delay feature. Direct leakage travels only the short distance between the antennas, while a target echo follows a longer round-trip path:"
+      },
+      {
+        "type": "equation",
+        "text": "τ_leak ≈ d/c\nτ_echo ≈ 2R/c",
+        "parts": [
+          {
+            "text": "τ"
+          },
+          {
+            "tag": "sub",
+            "text": "leak"
+          },
+          {
+            "text": " ≈ d/c\n"
+          },
+          {
+            "text": "τ"
+          },
+          {
+            "tag": "sub",
+            "text": "echo"
+          },
+          {
+            "text": " ≈ 2R/c"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Here, d is the distance between the transmit and receive antennas, and R is the target range. If the system's bandwidth and receiver processing can resolve the delay difference, the receiver can use it to distinguish direct leakage from echoes of distant targets."
+      },
+      {
+        "type": "p",
+        "text": "Combining physical isolation with delay-domain processing may therefore make simultaneous transmission and sensing more practical. Physical isolation remains important: if direct leakage is too strong, it can saturate the receiver front end before digital processing has a chance to separate the paths."
+      },
+      {
+        "type": "p",
+        "text": "Synchronization is another concern. When the transmitter and receiver use independent clocks and frequency references, they need sufficiently accurate synchronization. A clock offset can make an echo appear to have travelled for longer or shorter than it actually did, causing an incorrect range estimate. Similarly, a frequency offset can be mistaken for a Doppler shift caused by target motion."
       },
       {
         "type": "h2",
-        "text": "RF sensing"
+        "text": "3. RF Sensing and Environmental Information"
       },
       {
         "type": "p",
-        "text": "I also see RF sensing as another form of ISAC: using communication signals themselves to learn about the environment. The transmitted wave interacts with objects through reflection, refraction, scattering, and diffraction before reaching the receiver. Those interactions change the paths’ strengths, phases, and delays. CSI records their combined effect; for one antenna pair, a multipath model is:"
+        "text": "I also see RF sensing as an important approach to ISAC: using communication signals directly to learn about the surrounding environment."
+      },
+      {
+        "type": "p",
+        "text": "Before reaching the receiver, the transmitted signal interacts with objects through reflection, refraction, scattering, and diffraction. These interactions change the amplitudes, phases, and delays of different propagation paths."
+      },
+      {
+        "type": "p",
+        "text": "Channel state information (CSI) records the combined effect of those paths. For a transmit–receive antenna pair, a multipath channel can be represented as:"
       },
       {
         "type": "equation",
@@ -2315,7 +2393,32 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Each path contributes a complex gain αℓ and a delay τℓ. A reflecting surface adds a path; an edge can bend energy into a shadowed region. Reading these traces across frequency, time, and antennas gives clues about the environment. More intriguingly, even humid air and dry dust particles can noticeably affect the signal, leaving traces of their presence. A communication receiver estimates H to recover the message. RF sensing turns that same H into something worth reading in its own right—the environment has written itself into the signal."
+        "text": "Each propagation path is described by a complex gain αℓ and a propagation delay τℓ."
+      },
+      {
+        "type": "p",
+        "text": "For example, a reflecting surface may introduce a new path, while an object's edge may diffract electromagnetic energy into an otherwise blocked region. By observing how CSI varies across frequency, time, and antennas, we can obtain clues about the surrounding environment."
+      },
+      {
+        "type": "p",
+        "text": "More interestingly, some physical properties of the environment can also affect wireless signals. In suitable frequency bands and propagation conditions, humidity and suspended particles may change absorption, attenuation, or scattering, leaving corresponding changes in the channel."
+      },
+      {
+        "type": "p",
+        "text": "For a communication receiver, H is mainly channel information to estimate and compensate for in order to recover the transmitted message. In RF sensing, H itself becomes a source of information worth studying because it contains traces left by the propagation environment."
+      },
+      {
+        "type": "p",
+        "text": "From this perspective, communication uses the channel to recover information, while sensing reads the environmental information contained in the channel. The same wireless signal can carry data and help us understand the world it passes through.",
+        "parts": [
+          {
+            "text": "From this perspective, communication uses the channel to recover information, while sensing reads the environmental information contained in the channel. "
+          },
+          {
+            "tag": "strong",
+            "text": "The same wireless signal can carry data and help us understand the world it passes through."
+          }
+        ]
       }
     ]
   },
