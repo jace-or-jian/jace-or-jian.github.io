@@ -2,30 +2,70 @@
 window.BLOG_POSTS = [
   {
     "slug": "thz-bandwidth-and-beam-alignment",
-    "title": "THz Communication: Bandwidth, Propagation, and Beam Alignment",
+    "title": "THz Communication: Bandwidth Advantages, Propagation, and Beam Alignment",
     "lang": "en",
     "published": true,
-    "summary": "Why the bandwidth appeals to me, how I picture THz propagation, and why sensing fits naturally into beam maintenance.",
+    "summary": "How wide bandwidth, THz propagation, antenna arrays, and beam alignment connect to sensing-assisted link reliability.",
     "blocks": [
       {
         "type": "p",
-        "text": "THz offers much wider bandwidths, so higher data rates can come from using more spectrum without pushing spectral efficiency ever higher through more complex modulation. The main challenge is keeping those wideband links reliable."
+        "text": "Terahertz (THz) communication has attracted widespread interest, largely because it offers extremely wide available bandwidths. Compared with conventional microwave and millimetre-wave communication, the THz band opens up new possibilities for higher data rates. However, wider spectrum does not make reliable communication links easy to establish. As the carrier frequency increases, propagation loss, blockage, atmospheric absorption, and beam alignment become more significant challenges."
+      },
+      {
+        "type": "p",
+        "text": "The central question in THz communication is therefore not only how to make use of greater bandwidth, but also how to establish and maintain reliable wireless connections in complex propagation environments. Starting with the appeal of bandwidth, I will discuss THz propagation, antenna arrays, and the connection between beam management and sensing."
       },
       {
         "type": "h2",
-        "text": "More bandwidth, more room"
+        "text": "1. Why Is THz Bandwidth So Attractive?"
+      },
+      {
+        "type": "p",
+        "text": "One direct way to increase data rates is to increase the available bandwidth, without relying entirely on higher-order modulation to improve spectral efficiency."
+      },
+      {
+        "type": "p",
+        "text": "According to Shannon's channel capacity formula:"
       },
       {
         "type": "equation",
-        "text": "C = B log₂(1 + SNR)\nSNR = Pᵣ / (N₀B)"
+        "text": "C = B log₂(1 + SNR)"
       },
       {
         "type": "p",
-        "text": "Bandwidth offers another way to increase communication rate. At a fixed SNR, channel capacity grows linearly with bandwidth B. But if the received power stays fixed, increasing bandwidth also increases the total noise power, so capacity grows more slowly than linearly. In other words, a wider band can increase data rates without relying solely on higher spectral efficiency."
+        "text": "Here, B is the bandwidth and SNR is the signal-to-noise ratio. If the SNR remains constant, channel capacity increases linearly with bandwidth."
       },
       {
         "type": "p",
-        "text": "The same bandwidth is valuable for sensing, too. For a monostatic radar, range resolution is approximately ΔR = c/(2B), so a 10 GHz bandwidth corresponds to about 1.5 cm. Wider bandwidth also makes it easier to distinguish objects that are close together in range."
+        "text": "In practical communication systems, however, the received power is usually limited. As bandwidth increases, so does the total thermal noise power collected by the receiver:"
+      },
+      {
+        "type": "equation",
+        "text": "SNR = Pᵣ / (N₀B)"
+      },
+      {
+        "type": "p",
+        "text": "Here, Pᵣ is the received power and N₀ is the noise power spectral density."
+      },
+      {
+        "type": "p",
+        "text": "This means that increasing bandwidth alone cannot make the data rate grow linearly without limit. Even so, wider spectrum still offers substantial room for higher data rates, especially as spectrum in conventional frequency bands becomes increasingly scarce."
+      },
+      {
+        "type": "p",
+        "text": "The value of bandwidth also extends beyond communication. For a monostatic radar system, range resolution is approximately:"
+      },
+      {
+        "type": "equation",
+        "text": "ΔR = c / (2B)"
+      },
+      {
+        "type": "p",
+        "text": "Here, c is the speed of light. For example, a bandwidth of 10 GHz provides a range resolution of about 1.5 cm. The greater the bandwidth, the easier it is to distinguish two targets that are very close together in range."
+      },
+      {
+        "type": "p",
+        "text": "Wideband THz systems therefore offer potential benefits for both high-speed data transmission and high-resolution sensing."
       },
       {
         "type": "figure",
@@ -36,35 +76,67 @@ window.BLOG_POSTS = [
       },
       {
         "type": "h2",
-        "text": "Where THz could be useful"
+        "text": "2. THz Propagation and Practical Challenges"
       },
       {
         "type": "p",
-        "text": "THz is well suited to short-range links that need high data rates, such as indoor communications and dense outdoor hotspots. Typical distances are a few to a few tens of metres, usually under 100 m. Inter-satellite links are another interesting use case because the signal travels through space without atmospheric gas absorption."
+        "text": "THz communication is particularly well suited to short-range applications that require high data rates, such as indoor wireless communication and densely deployed outdoor hotspots. Typical communication distances may range from a few metres to a few tens of metres, usually within 100 m. Inter-satellite communication is another application worth exploring: the main propagation path through space is free from atmospheric gas absorption, although any atmospheric propagation near a terminal still needs to be considered."
       },
       {
         "type": "p",
-        "text": "Making these links practical requires enough received power. THz sits between electronics and photonics, where generating sufficient transmit power remains difficult. Meanwhile, wider bandwidth increases thermal noise power, kTB. With limited transmit power and more noise across the band, high antenna gain becomes essential to maintaining a usable SNR."
+        "text": "To understand why THz links can be difficult to maintain, we first need to look at their propagation characteristics."
       },
       {
-        "type": "h2",
-        "text": "The propagation picture"
-      },
-      {
-        "type": "p",
-        "text": "A shorter wavelength makes the propagation environment much more important to a THz link. Across roughly 0.1–10 THz, the wavelength shrinks from about 3 mm to 30 μm. At these scales, obstacles, surface texture, and atmospheric absorption can all have a significant impact on how the signal propagates."
+        "type": "h3",
+        "text": "2.1 Short Wavelengths Make the Environment More Important"
       },
       {
         "type": "p",
-        "text": "At lower microwave frequencies, diffraction can help a signal bend around obstacles. As the wavelength gets shorter, obstacles become electrically larger and diffraction generally becomes weaker. A person or an object can therefore block a THz link much more severely, making a clear path more valuable and unexpected blockage more disruptive. Maintaining a reliable connection may require an alternative propagation path."
+        "text": "One defining feature of the THz band is its very short wavelength. Across roughly 0.1–10 THz, for example, the wavelength decreases from about 3 mm to 30 μm."
       },
       {
         "type": "p",
-        "text": "Shorter wavelengths also make ordinary surface features more significant. Consider a surface variation of 0.1 mm: it is only one-thousandth of a wavelength at 3 GHz, but one-tenth of a wavelength at 300 GHz. The same surface can therefore behave much more roughly at THz frequencies. Surface roughness reduces the strength of specular reflection and scatters more energy in other directions. As a result, the texture of a wall can determine how useful its reflected path is."
+        "text": "As the wavelength becomes shorter, obstacles and surface structures in the surrounding environment have a more pronounced effect on signal propagation."
       },
       {
         "type": "p",
-        "text": "When the direct link is blocked, natural reflections may still provide an alternative route. Sensing or a channel map can help locate useful reflecting surfaces and identify the directions in which the transmitter and receiver should point their beams. This environmental information gives the system a starting point for finding and tracking a reflected path. At THz, precise alignment remains essential because the beams are narrow. Propagation and reflection losses also mean that a geometrically available path may deliver too little power to support the link."
+        "text": "At lower microwave frequencies, diffraction can help electromagnetic waves bend around some obstacles. With a shorter wavelength, however, the same obstacle becomes electrically larger, and diffraction generally becomes weaker."
+      },
+      {
+        "type": "p",
+        "text": "A person or another object can therefore cause more severe blockage of a THz link. Compared with lower-frequency communication, THz communication relies more heavily on a clear line-of-sight (LoS) path. Once that direct path is blocked, the link may suffer substantial signal attenuation or even an interruption."
+      },
+      {
+        "type": "p",
+        "text": "The system therefore needs to do more than find an available propagation path. It also needs to consider whether other paths can maintain communication if the direct path fails."
+      },
+      {
+        "type": "h3",
+        "text": "2.2 Surface Roughness and Reflected Paths"
+      },
+      {
+        "type": "p",
+        "text": "Short wavelengths also make small features on ordinary surfaces more important."
+      },
+      {
+        "type": "p",
+        "text": "Consider a surface variation of 0.1 mm. At 3 GHz, the wavelength is about 10 cm, so this variation is only one-thousandth of a wavelength. At 300 GHz, the wavelength is about 1 mm, and the same variation is already one-tenth of a wavelength."
+      },
+      {
+        "type": "p",
+        "text": "The same surface can therefore exhibit very different electromagnetic behaviour at different frequencies. At THz frequencies, surface roughness can weaken specular reflection and scatter more energy in other directions. The surface structures of walls, furniture, and other objects may directly affect whether a reflected path can be used effectively. The specific effect also depends on the roughness distribution and the angle of incidence."
+      },
+      {
+        "type": "p",
+        "text": "When the direct path is blocked, natural reflections in the environment can sometimes provide an alternative route. For example, a signal may reach the receiver by reflecting off a wall or another surface to bypass an obstacle."
+      },
+      {
+        "type": "p",
+        "text": "The challenge is that the system needs to know which surfaces can provide useful reflected paths and where the transmitter and receiver should point their beams."
+      },
+      {
+        "type": "p",
+        "text": "This is where environmental sensing or a channel map can help. Information about the surroundings allows the system to identify potential reflecting surfaces and guide the search for alternative paths and beam directions. However, even when a reflected path exists geometrically, its propagation loss may be too high to provide sufficient received power."
       },
       {
         "type": "figure",
@@ -76,7 +148,15 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "An RIS provides more control over the reflected wave. By adjusting the reflection phases across its elements, it can make those contributions reinforce toward the receiver. Rather than relying entirely on how an ordinary surface happens to reflect energy, the system can deliberately shape a reflected path around the blockage."
+        "text": "Beyond natural reflections, a reconfigurable intelligent surface (RIS) offers a more actively controllable way to shape a reflected path."
+      },
+      {
+        "type": "p",
+        "text": "An RIS consists of multiple controllable reflecting elements. By adjusting their reflection phases, the system can control the relative phases of the reflected electromagnetic waves so that they combine as coherently as possible near the receiver, strengthening the signal in the target direction."
+      },
+      {
+        "type": "p",
+        "text": "Rather than relying entirely on existing natural reflections, an RIS allows the system to deliberately shape the reflected path to some extent. This offers another possibility for establishing an alternative route around an obstacle."
       },
       {
         "type": "figure",
@@ -87,12 +167,40 @@ window.BLOG_POSTS = [
         "maxWidth": 320
       },
       {
+        "type": "h3",
+        "text": "2.3 Atmospheric Absorption and Usable Spectrum"
+      },
+      {
         "type": "p",
-        "text": "Obstacles and surfaces are only part of the problem. Water vapour and oxygen also absorb electromagnetic energy at specific molecular resonance frequencies, creating frequency-dependent propagation loss and transmission windows. The usable bandwidth therefore depends not just on the available spectrum, but also on the carrier frequency, humidity, and link distance. The key question becomes: where can the available bandwidth be used most effectively while maintaining a reliable link?"
+        "text": "Obstacles and surface reflections are not the only factors that THz communication needs to account for."
+      },
+      {
+        "type": "p",
+        "text": "Atmospheric molecules, including water vapour and oxygen, absorb electromagnetic energy near specific molecular resonance frequencies, producing frequency-selective propagation loss. As a result, propagation characteristics can differ substantially across THz frequency bands."
+      },
+      {
+        "type": "p",
+        "text": "Absorption is strong near certain frequencies, while other frequency ranges offer transmission windows with relatively low loss."
+      },
+      {
+        "type": "p",
+        "text": "The bandwidth that a THz system can actually use therefore depends not only on spectrum availability, but also on factors such as carrier frequency, humidity, and communication distance."
+      },
+      {
+        "type": "p",
+        "text": "In other words, THz communication requires both sufficiently wide spectrum and frequency ranges in which that spectrum can be used effectively under actual propagation conditions."
       },
       {
         "type": "h2",
-        "text": "Small elements, a large collective aperture"
+        "text": "3. Antenna Arrays: Compensating for Propagation Loss with High Gain"
+      },
+      {
+        "type": "p",
+        "text": "The propagation characteristics discussed above mean that THz links often need higher antenna gain to compensate for propagation loss."
+      },
+      {
+        "type": "p",
+        "text": "Antenna gain and effective aperture are related by:"
       },
       {
         "type": "equation",
@@ -100,43 +208,131 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "For a given antenna gain, the effective aperture decreases with the square of the wavelength. However, shorter wavelengths also allow more antenna elements to fit into a given physical area. By combining these elements in an array, their signals can be steered to form a directional beam with high gain."
-      },
-      {
-        "type": "h2",
-        "text": "Near-field wavefronts"
+        "text": "Here, Aₑ is the effective antenna aperture, G is the antenna gain, and λ is the wavelength."
       },
       {
         "type": "p",
-        "text": "With a large array and a short wavelength, even modest differences in propagation distance across the aperture can produce substantial phase differences. As a result, wavefront curvature can matter even at typical indoor communication distances. A common estimate of the far-field boundary is the Rayleigh distance:"
+        "text": "For a given antenna gain, a shorter wavelength corresponds to a smaller effective aperture. At the same time, shorter wavelengths allow more antenna elements to fit within the same physical area."
+      },
+      {
+        "type": "p",
+        "text": "By combining many antenna elements into an array and controlling the phases of the signals transmitted by different elements, the system can use coherent superposition to form a directional beam with high gain."
+      },
+      {
+        "type": "p",
+        "text": "This is why large antenna arrays and beamforming are so important in THz communication: they concentrate limited transmit power in the target direction, increasing the signal strength at the receiver."
+      },
+      {
+        "type": "h3",
+        "text": "3.1 The Near Field: From Beam Steering to Spatial Focusing"
+      },
+      {
+        "type": "p",
+        "text": "With a large array and a short operating wavelength, the propagation distances from different positions on the array to the receiver may differ enough to matter, even over relatively short indoor distances."
+      },
+      {
+        "type": "p",
+        "text": "These path-length differences produce different phase shifts, making wavefront curvature impossible to ignore."
+      },
+      {
+        "type": "p",
+        "text": "The Rayleigh distance is commonly used to estimate the boundary between the near field and the far field:"
       },
       {
         "type": "equation",
-        "text": "R ≈ 2D²/λ"
+        "text": "R ≈ 2D² / λ"
       },
       {
         "type": "p",
-        "text": "At 300 GHz, the wavelength is about 1 mm. For an aperture of 20 cm, the Rayleigh distance is approximately 80 m. This means that an indoor receiver may lie in the radiative near field, where the wavefront is still noticeably curved."
+        "text": "Here, D is the physical aperture of the antenna array and λ is the wavelength."
       },
       {
         "type": "p",
-        "text": "In the far field, the wavefront can often be approximated as planar, and the array mainly steers the beam toward a particular direction. In the near field, the phase pattern across the array also depends on the receiver's distance. By compensating for the different path lengths from each element to a target point, the array can make the signals arrive in phase at that point, focusing energy there. This is the basic idea behind near-field focusing and wavefront engineering."
+        "text": "For example, at 300 GHz, the wavelength is about 1 mm. If the array aperture is 20 cm, the corresponding Rayleigh distance is approximately 80 m. An indoor receiver may therefore lie in the radiative near field, where the wavefront still has noticeable curvature."
+      },
+      {
+        "type": "p",
+        "text": "In the far field, the wavefront can usually be approximated as a plane wave, and the array mainly controls the beam direction by adjusting the relative phases across its elements."
+      },
+      {
+        "type": "p",
+        "text": "In the near field, the propagation distance from each position on the array to the target receiver differs. Beam control therefore needs to account for both the direction and the distance of the receiver relative to the array."
+      },
+      {
+        "type": "p",
+        "text": "By compensating for the different propagation distances from individual elements to the target point, the system can make their signals arrive in phase at that position, concentrating energy at a specific point in space."
+      },
+      {
+        "type": "p",
+        "text": "This is the basic idea behind near-field focusing, and it provides a foundation for near-field wavefront engineering."
       },
       {
         "type": "h2",
-        "text": "The beam has to stay useful"
+        "text": "4. Beam Alignment: A Challenge That Continues After Connection"
       },
       {
         "type": "p",
-        "text": "High antenna gain helps compensate for the propagation losses at THz frequencies, but it comes at the cost of a narrower beam. The transmitter and receiver first need to find a suitable beam pair to establish the link. Once the link is established, they must keep the beams aligned. As users move or obstacles enter the path, maintaining that alignment becomes an ongoing task."
+        "text": "High-gain antenna arrays help THz links overcome propagation loss, but this high gain usually comes with narrower beams."
       },
       {
         "type": "p",
-        "text": "This is where sensing can help. By tracking movement, the system can predict where the user will be and adjust the beam before the link loses alignment. Sensing can also detect an approaching blockage early enough for the system to prepare an alternative reflected path or switch to another connection. In this way, sensing helps communication remain reliable as the environment changes."
+        "text": "A narrow beam concentrates more energy in the target direction, while also requiring more precise alignment between the transmitter and receiver."
       },
       {
         "type": "p",
-        "text": "The tradeoff is clear: narrower beams provide higher gain, but they also demand more precise alignment and more frequent updates. This is why I see THz communication and sensing as closely connected. The more directional the link becomes, the more valuable it is to know where the user and potential blockers are, and how they are moving."
+        "text": "Before establishing a communication link, the system first needs to find a suitable pair of transmit and receive beams. This process is commonly called beam training or beam search."
+      },
+      {
+        "type": "p",
+        "text": "Finding a suitable beam pair, however, does not resolve the whole problem. Once the connection is established, the system must continue to maintain beam alignment."
+      },
+      {
+        "type": "p",
+        "text": "For example, as a user moves, their position and orientation relative to the base station change. A beam that was initially aligned with the user may gradually drift away from the target, reducing the received signal strength."
+      },
+      {
+        "type": "p",
+        "text": "Similarly, a person or another object entering the propagation path can suddenly block the link."
+      },
+      {
+        "type": "p",
+        "text": "Beam management therefore involves both finding suitable beams during initial access and continuously tracking the environment and the user's state during communication, so that beam directions can be adjusted as conditions change."
+      },
+      {
+        "type": "h2",
+        "text": "5. How Can Sensing Help Maintain Reliable THz Communication?"
+      },
+      {
+        "type": "p",
+        "text": "This is one of the main reasons I see a natural connection between THz communication and sensing."
+      },
+      {
+        "type": "p",
+        "text": "Because THz communication relies heavily on directional beams, the system needs timely information about the user's position and motion, as well as changes in the surrounding environment."
+      },
+      {
+        "type": "p",
+        "text": "By sensing the user's motion, the system can estimate where the user is likely to be next and adjust the beam in advance, rather than waiting until the current beam has drifted off target and communication quality has already declined."
+      },
+      {
+        "type": "p",
+        "text": "Environmental sensing can also help identify potential blockers. When the system detects an object approaching the current propagation path, it can start looking for an alternative reflected path or switch to another available communication link before blockage occurs."
+      },
+      {
+        "type": "p",
+        "text": "Sensing can therefore provide environmental information and support beam search, beam tracking, and link recovery."
+      },
+      {
+        "type": "p",
+        "text": "There is an interesting tradeoff here: narrower beams generally offer higher antenna gain, but they also require more accurate alignment and more frequent updates."
+      },
+      {
+        "type": "p",
+        "text": "This is why I see such a close connection between THz communication and sensing. The more a communication system relies on highly directional beams, the more precisely it needs to know where the user is, what potential obstacles are nearby, and how those objects are moving."
+      },
+      {
+        "type": "p",
+        "text": "From this perspective, sensing is more than an extra feature added to a communication system. It is an important part of helping future THz systems adapt to dynamic propagation environments and maintain reliable communication."
       }
     ]
   },
