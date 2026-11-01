@@ -22,7 +22,7 @@
   };
 
   const makeSection = (id, eyebrow, title) => {
-    const icons = { education: "📖", research: "🔬", publications: "📝", projects: "🛰️", awards: "🏅", news: "🔥" };
+    const icons = { research: "🔬", publications: "📝", projects: "🛰️", awards: "🏅", news: "🔥" };
     const section = el("section", "section-block");
     section.id = id;
     section.dataset.section = id;
@@ -41,7 +41,7 @@
   const renderProfile = () => {
     const profile = data.profile;
     document.title = `${profile.name} · Academic Homepage`;
-    document.querySelector('meta[name="description"]').content = `Academic homepage of ${profile.name} — research, publications, education, and news.`;
+    document.querySelector('meta[name="description"]').content = `Academic homepage of ${profile.name} — research, publications, projects, and news.`;
     document.querySelectorAll("[data-short-name]").forEach((node) => (node.textContent = profile.shortName));
     document.querySelectorAll("[data-initials]").forEach((node) => (node.textContent = profile.initials));
     document.getElementById("profile-name").textContent = profile.name;
@@ -118,27 +118,6 @@
     const tags = el("div", "interest-tags");
     data.about.interests.forEach((interest) => tags.append(el("span", "interest-tag", interest)));
     strip.append(tags);
-  };
-
-  const renderEducation = (root) => {
-    const section = makeSection("education", data.education.eyebrow, data.education.title);
-    const timeline = el("div", "timeline");
-    data.education.items.forEach((item) => {
-      const entry = el("article", "timeline-item");
-      const date = el("p", "timeline-date", item.period);
-      const body = el("div", "timeline-body");
-      body.append(el("h3", "", item.degree), el("p", "timeline-school", item.school));
-      if (item.location) body.append(el("p", "timeline-location", item.location));
-      if (item.details?.length) {
-        const list = el("ul", "detail-list");
-        item.details.forEach((detail) => list.append(el("li", "", detail)));
-        body.append(list);
-      }
-      entry.append(date, body);
-      timeline.append(entry);
-    });
-    section.append(timeline);
-    root.append(section);
   };
 
   const renderResearch = (root) => {
@@ -410,7 +389,7 @@
 
   const renderSections = () => {
     const root = document.getElementById("dynamic-sections");
-    const renderers = { education: renderEducation, research: renderResearch, experience: renderExperience, notes: renderNotes, news: renderNews };
+    const renderers = { research: renderResearch, experience: renderExperience, notes: renderNotes, news: renderNews };
     Object.entries(renderers).forEach(([key, renderer]) => {
       if (data[key]?.show !== false) renderer(root);
     });

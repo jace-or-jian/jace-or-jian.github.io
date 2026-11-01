@@ -8,7 +8,6 @@
 
 - `profile`：姓名、身份、学校、地址、邮箱、头像和社交链接
 - `about`：自我介绍、按钮和研究兴趣
-- `education`：教育经历
 - `research`：研究方向
 - `publications`：论文、作者、会议/期刊和相关链接
 - `awards`、`news`：奖项和动态

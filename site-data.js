@@ -24,6 +24,7 @@ window.SITE_DATA = {
   about: {
     heading: "Hi, and welcome! I’m Jiajie Jian — glad you’re here.",
     paragraphs: [
+      "I’m currently pursuing a master’s degree at Chongqing University, after earning my B.Eng. from Sichuan Normal University in 2024.",
       "A little about my work: I develop algorithms and system designs for next-generation wireless systems, drawing on signal processing, optimization, and machine learning. My current research focuses on integrated sensing and communication (ISAC) and physical-layer security in dynamic wireless environments.",
     ],
     actions: [
@@ -39,31 +40,12 @@ window.SITE_DATA = {
 
   navigation: [
     { id: "about", label: "About" },
-    { id: "education", label: "Education" },
     { id: "research", label: "Research" },
     { id: "publications", label: "Publications" },
     { id: "projects", label: "Projects" },
     { id: "awards", label: "Awards" },
     { id: "news", label: "News" },
   ],
-
-  education: {
-    show: true,
-    title: "Education",
-    eyebrow: "Background",
-    items: [
-      {
-        period: "Sep. 2024 — Expected Jun. 2027",
-        degree: "M.Sc. in Information and Communication Engineering",
-        school: "Chongqing University",
-      },
-      {
-        period: "Sep. 2020 — Jun. 2024",
-        degree: "B.Eng. in Electronic Information Engineering",
-        school: "Sichuan Normal University",
-      },
-    ],
-  },
 
   research: {
     show: true,
