@@ -156,7 +156,7 @@ window.SITE_DATA = {
       },
       {
         year: "2026",
-        venue: "IEEE Wireless Communications Letters · Submitted",
+        venue: "IEEE Wireless Communications Letters · Accepted for publication",
         title: "Resilient Beamforming for Anti-Jamming MIMO-ISAC",
         authors: "Jiajie Jian, Shu Fu, Tingting Chen, and Min Liu",
         description: "A statistical approach to anti-jamming MIMO-ISAC that estimates interference statistics from ongoing transmit–receive samples and jointly designs communication and sensing beamformers without prior knowledge of the jammer’s channels or transmit covariance.",
@@ -237,6 +237,7 @@ window.SITE_DATA = {
     title: "News",
     eyebrow: "Updates",
     items: [
+      { date: "2026.11", text: "Our paper, “Resilient Beamforming for Anti-Jamming MIMO-ISAC,” has been accepted for publication in IEEE Wireless Communications Letters." },
       { date: "2026.10", text: "Our paper, “Cross-Boundary Covert UAV Task Offloading: Risk-Aware Trajectory and Scheduling,” has been accepted for publication in IEEE Transactions on Mobile Computing." },
       { date: "2026.09", text: "I received the National Scholarship for Graduate Students, the highest-level national scholarship awarded to graduate students in China." },
       { date: "2026.06", text: "Our paper on bidirectional covertness and security in FD-ISAC was published in IEEE Transactions on Vehicular Technology." },
