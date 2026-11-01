@@ -22,7 +22,7 @@
   };
 
   const makeSection = (id, eyebrow, title) => {
-    const icons = { education: "📖", research: "🔬", publications: "📝", projects: "🛰️", awards: "🏅", skills: "📚", news: "🔥" };
+    const icons = { education: "📖", research: "🔬", publications: "📝", projects: "🛰️", awards: "🏅", news: "🔥" };
     const section = el("section", "section-block");
     section.id = id;
     section.dataset.section = id;
@@ -345,21 +345,6 @@
     root.append(section);
   };
 
-  const renderSkills = (root) => {
-    const section = makeSection("skills", data.skills.eyebrow, data.skills.title);
-    const grid = el("div", "skills-grid");
-    data.skills.groups.forEach((group) => {
-      const card = el("article", "skill-group");
-      card.append(el("h3", "", group.label));
-      const items = el("div", "skill-items");
-      group.items.forEach((item) => items.append(el("span", "", item)));
-      card.append(items);
-      grid.append(card);
-    });
-    section.append(grid);
-    root.append(section);
-  };
-
   const renderNews = (root) => {
     const section = makeSection("news", data.news.eyebrow, data.news.title);
     const list = el("div", "news-list");
@@ -425,7 +410,7 @@
 
   const renderSections = () => {
     const root = document.getElementById("dynamic-sections");
-    const renderers = { education: renderEducation, research: renderResearch, experience: renderExperience, notes: renderNotes, skills: renderSkills, news: renderNews };
+    const renderers = { education: renderEducation, research: renderResearch, experience: renderExperience, notes: renderNotes, news: renderNews };
     Object.entries(renderers).forEach(([key, renderer]) => {
       if (data[key]?.show !== false) renderer(root);
     });

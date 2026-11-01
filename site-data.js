@@ -44,7 +44,6 @@ window.SITE_DATA = {
     { id: "publications", label: "Publications" },
     { id: "projects", label: "Projects" },
     { id: "awards", label: "Awards" },
-    { id: "skills", label: "Skills" },
     { id: "news", label: "News" },
   ],
 
@@ -230,17 +229,6 @@ window.SITE_DATA = {
     items: [
       { year: "2027", title: "Selected as an Outstanding Graduate", organization: "Chongqing University" },
       { year: "2026", title: "National Scholarship for Graduate Students", organization: "China" },
-    ],
-  },
-
-  skills: {
-    show: true,
-    title: "Skills",
-    eyebrow: "Toolbox",
-    groups: [
-      { label: "Programming and Tools", items: ["Python", "PyTorch", "MATLAB", "CVX", "LaTeX"] },
-      { label: "Methods", items: ["Optimization Theory", "Statistical Signal Processing", "Matrix Analysis", "Machine Learning"] },
-      { label: "Languages", items: ["English (IELTS 7.5, 2026)", "Mandarin (native)"] },
     ],
   },
 

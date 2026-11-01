@@ -292,7 +292,6 @@ main {
 
 .timeline-item::before,
 .award-item::before,
-.skill-group::before,
 .news-item::before {
   position: absolute;
   left: 11px;
@@ -738,37 +737,6 @@ main {
   font-weight: 700;
 }
 
-.skills-grid {
-  display: block;
-}
-
-.skill-group {
-  position: relative;
-  display: block;
-  margin: 7px 0;
-  padding-left: 29px;
-}
-
-.skill-group h3,
-.skill-items {
-  display: inline;
-  margin: 0;
-  font-size: 15px;
-}
-
-.skill-group h3 {
-  color: var(--ink);
-  font-weight: 700;
-}
-
-.skill-group h3::after {
-  content: ": ";
-}
-
-.skill-items span:not(:last-child)::after {
-  content: ", ";
-}
-
 .news-list {
   display: block;
 }
@@ -1041,9 +1009,7 @@ footer p:last-child::before {
   .timeline-body h3,
   .award-year,
   .award-item h3,
-  .award-item p,
-  .skill-group h3,
-  .skill-items {
+  .award-item p {
     font-size: 14px;
   }
 
@@ -1059,14 +1025,12 @@ footer p:last-child::before {
   .research-grid,
   .simple-list,
   .award-item,
-  .skill-group,
   .news-item {
     padding-left: 24px;
   }
 
   .timeline-item::before,
   .award-item::before,
-  .skill-group::before,
   .news-item::before {
     left: 8px;
   }

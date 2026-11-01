@@ -11,7 +11,7 @@
 - `education`：教育经历
 - `research`：研究方向
 - `publications`：论文、作者、会议/期刊和相关链接
-- `awards`、`skills`、`news`：奖项、技能和动态
+- `awards`、`news`：奖项和动态
 
 如果暂时不需要某个板块，将该板块的 `show: true` 改成 `show: false` 即可；导航也会自动隐藏对应项目。
 
