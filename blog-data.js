@@ -2610,6 +2610,14 @@ window.BLOG_POSTS = [
         "text": "With limited power and time, improving one part of a system usually costs something elsewhere. More power can improve a link but cost energy or create interference. More beam training can improve alignment but take time away from data. Optimization is a way to make a good decision within those tradeoffs."
       },
       {
+        "type": "figure",
+        "src": "assets/notes/optimization-landscape-irregular.png",
+        "alt": "A colorful three-dimensional objective landscape with an irregular feasible region. A descending search path ends at a local minimum while a lower global minimum is marked in another valley.",
+        "width": 2389,
+        "height": 1881,
+        "maxWidth": 800
+      },
+      {
         "type": "h2",
         "text": "Start with the problem the system actually has"
       },
