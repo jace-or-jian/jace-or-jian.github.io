@@ -2058,6 +2058,14 @@ window.BLOG_POSTS = [
         "text": "As the user moves, AP₁ can gradually leave the serving set while AP₃ joins. If AP₂ continues serving the user throughout this process, it can help maintain connection continuity."
       },
       {
+        "type": "figure",
+        "src": "assets/notes/cellular-handover-vs-cell-free.png",
+        "alt": "Conventional cellular handover changes the serving base station from BS 1 to BS 2. User-centric Cell-Free cooperation changes the serving set from AP 1 and AP 2 to AP 2 and AP 3, with AP 2 retained.",
+        "width": 2232,
+        "height": 1308,
+        "maxWidth": 780
+      },
+      {
         "type": "p",
         "text": "This architecture also brings new challenges. As the train moves, the network needs to update channel state information (CSI) promptly, coordinate synchronized transmissions among APs, and decide which APs should join or leave the current serving set. All of these operations create additional coordination overhead."
       },
@@ -2483,6 +2491,13 @@ window.BLOG_POSTS = [
         "text": "This creates new opportunities. In the far field, beamforming mainly controls the direction in which a signal propagates. In the near field, wavefront curvature also varies with the receiver's distance. By adjusting the phases across the antenna elements, the system can control the beam direction and focus energy at a particular position in space, potentially using both angle and distance to distinguish users."
       },
       {
+        "type": "figure",
+        "src": "assets/notes/near-field-beam-focusing.png",
+        "alt": "A large antenna array illustrates near-field spherical waves and localized beam focusing, compared with far-field planar waves and directional beam steering.",
+        "width": 2740,
+        "height": 1167
+      },
+      {
         "type": "p",
         "text": "More precise spatial control also makes the link more sensitive to the user's position and the array's orientation. Even if a device stays in the same place, rotation can change its antenna orientation and polarization alignment with the incoming electromagnetic field. A practical system may therefore need to track both the user's position and the device's orientation to maintain a reliable link."
       },
@@ -2536,6 +2551,14 @@ window.BLOG_POSTS = [
       {
         "type": "p",
         "text": "One approach is to use true-time-delay (TTD) hardware. TTD directly controls signal delay, allowing beams to remain aligned over a wider frequency range than fixed phase shifts alone can provide."
+      },
+      {
+        "type": "figure",
+        "src": "assets/notes/phase-shifters-vs-ttd-beam-squint.png",
+        "alt": "At 80, 100, and 120 GHz, fixed phase shifters produce different main-beam directions. Ideal true time delays align all three beam peaks with the same 45-degree target direction.",
+        "width": 1674,
+        "height": 1584,
+        "maxWidth": 680
       },
       {
         "type": "p",
