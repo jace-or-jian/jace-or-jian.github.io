@@ -1103,6 +1103,19 @@ window.BLOG_POSTS = [
         "text": "Deep learning is a representation learning approach built around multilayer neural networks. It uses training data to learn complex feature representations and input–output mappings. In wireless communications, it is mainly used for channel estimation, signal detection, modulation recognition, and channel prediction. It can also be used to approximate solutions to optimization problems such as beamforming and resource allocation."
       },
       {
+        "type": "figure",
+        "src": "assets/notes/deep-neural-network-comsol.png",
+        "alt": "COMSOL diagram of a deep neural network with an input layer, three fully connected hidden layers, and an output layer.",
+        "width": 679,
+        "height": 390,
+        "maxWidth": 679
+      },
+      {
+        "type": "source",
+        "label": "Source: COMSOL documentation",
+        "url": "https://doc.comsol.com/6.3/doc/com.comsol.help.comsol/comsol_ref_definitions.21.057.html"
+      },
+      {
         "type": "p",
         "text": "Advantages: It can automatically extract features from complex data and fit nonlinear relationships that are difficult to describe with traditional analytical models. It offers advantages in high-dimensional signal processing, complex pattern recognition, and state prediction.",
         "parts": [
@@ -1135,6 +1148,19 @@ window.BLOG_POSTS = [
       {
         "type": "p",
         "text": "Reinforcement learning is a learning paradigm for sequential decision-making. An agent observes the state of the environment, takes an action, and updates its policy using rewards from the environment, with the aim of maximizing long-term cumulative return. Deep reinforcement learning (DRL) further uses deep neural networks to represent a policy or value function."
+      },
+      {
+        "type": "figure",
+        "src": "assets/notes/rl-agent-environment-mathworks.png",
+        "alt": "MathWorks diagram showing an agent and environment exchanging observations, actions and rewards, with the reinforcement learning algorithm updating the policy.",
+        "width": 480,
+        "height": 384,
+        "maxWidth": 480
+      },
+      {
+        "type": "source",
+        "label": "Source: MathWorks documentation",
+        "url": "https://www.mathworks.com/help/reinforcement-learning/ug/reinforcement-learning-environments.html"
       },
       {
         "type": "p",
