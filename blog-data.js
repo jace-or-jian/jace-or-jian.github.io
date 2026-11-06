@@ -1358,6 +1358,14 @@ window.BLOG_POSTS = [
         "text": "In these settings, Willie typically denotes an observer trying to detect communication activity, while Eve denotes an eavesdropper trying to learn the message. Both approaches use the physical properties of wireless channels to provide protection, but they address different questions."
       },
       {
+        "type": "figure",
+        "src": "assets/notes/covert-vs-physical-layer-security-v2.png",
+        "alt": "Observation-focused comparison: Willie faces similar noise-only and signal-plus-noise observations with overlapping distributions; Eve observes a transmission but remains uncertain between message candidates, while Bob recovers the intended message.",
+        "width": 2352,
+        "height": 1268,
+        "maxWidth": 800
+      },
+      {
         "type": "h2",
         "text": "1. Covert Communication"
       },
