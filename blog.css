@@ -74,6 +74,7 @@
 .blog-prose blockquote { margin: 28px 0; padding: 14px 22px; border-left: 2px solid var(--link); background: var(--surface-muted); color: var(--muted); }
 .blog-prose pre { overflow-x: auto; padding: 20px; background: var(--surface-muted); font-size: 14px; }
 .note-figure { margin: 32px 0; }
+.blog-image-credits { max-width: 800px; margin: 0 0 14px; color: var(--muted); font-size: 11px; line-height: 1.65; }
 .note-figure-link { display: block; border: 1px solid var(--line-strong); border-radius: 8px; overflow: hidden; background: #fff; }
 .note-figure img { display: block; width: 100%; height: auto; }
 .note-figure figcaption { margin-top: 10px; font-size: 13px; line-height: 1.65; color: var(--muted); }
