@@ -259,6 +259,15 @@ window.BLOG_POSTS = [
         "text": "In the near field, the propagation distance from each position on the array to the target receiver differs. Beam control therefore needs to account for both the direction and the distance of the receiver relative to the array."
       },
       {
+        "type": "figure",
+        "src": "assets/notes/plane-and-spherical-wavefronts.png",
+        "alt": "Side-by-side comparison of a uniform plane wave with parallel propagation paths and a non-uniform spherical wave with curved wavefronts and varying amplitudes across an antenna array.",
+        "caption": "Plane-wave approximation in the far field (left) and spherical-wave propagation in the near field (right).",
+        "width": 547,
+        "height": 353,
+        "maxWidth": 547
+      },
+      {
         "type": "p",
         "text": "By compensating for the different propagation distances from individual elements to the target point, the system can make their signals arrive in phase at that position, concentrating energy at a specific point in space."
       },
