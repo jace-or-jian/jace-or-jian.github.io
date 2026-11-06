@@ -2292,6 +2292,14 @@ window.BLOG_POSTS = [
         "text": "The same data-bearing waveform can therefore serve both communication and sensing. A communication receiver initially treats the transmitted data as unknown, while a sensing processor with access to the transmitted symbols can use them as a reference for analyzing propagation echoes. In other words, a waveform does not necessarily have to be designed exclusively for either communication or sensing."
       },
       {
+        "type": "figure",
+        "src": "assets/notes/isac-shared-waveform-tasks-3d.png",
+        "alt": "Three-dimensional ISAC scene: one shared waveform travels from a base station to a communication user who recovers a message, and illuminates a moving vehicle whose reflected echo returns to the base station for range and velocity estimation.",
+        "width": 1723,
+        "height": 913,
+        "maxWidth": 800
+      },
+      {
         "type": "h2",
         "text": "1. ISAC Waveform Design"
       },
