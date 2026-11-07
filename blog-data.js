@@ -276,6 +276,19 @@ window.BLOG_POSTS = [
         "text": "This is the basic idea behind near-field focusing, and it provides a foundation for near-field wavefront engineering."
       },
       {
+        "type": "p",
+        "text": "Near-field wavefront engineering can also shape the path of a beam. For example, a carefully designed phase profile can make the strongest part of a THz beam follow a curved trajectory around an obstacle, helping maintain a wireless link when the direct path is blocked."
+      },
+      {
+        "type": "figure",
+        "src": "assets/notes/curved-thz-beams-wavefront-engineering.png",
+        "alt": "Conceptual illustration of curved terahertz beams linking an indoor access point to devices around people and furniture.",
+        "caption": "Illustration by the Mittleman Group, via Brown University.",
+        "width": 1600,
+        "height": 1169,
+        "maxWidth": 680
+      },
+      {
         "type": "h2",
         "text": "4. Beam Alignment: A Challenge That Continues After Connection"
       },
