@@ -2,7 +2,7 @@
 window.BLOG_POSTS = [
   {
     "slug": "thz-bandwidth-and-beam-alignment",
-    "title": "THz Communication: Bandwidth Advantages, Propagation, and Beam Alignment",
+    "title": "THz Propagation and Beam Alignment",
     "lang": "en",
     "published": true,
     "summary": "How wide bandwidth, THz propagation, antenna arrays, and beam alignment connect to sensing-assisted link reliability.",
@@ -360,7 +360,7 @@ window.BLOG_POSTS = [
   },
   {
     "slug": "wireless-layers-and-beamforming",
-    "title": "Beamforming: From Wireless System Layers to Antenna Architectures",
+    "title": "Antenna Arrays and Beamforming Architectures",
     "lang": "en",
     "published": true,
     "summary": "From PHY and MAC to beam formation, antenna elements, RF chains, digital, analog, and hybrid architectures, and lens antennas.",
@@ -1102,7 +1102,7 @@ window.BLOG_POSTS = [
   },
   {
     "slug": "deep-learning-reinforcement-learning-and-optimization",
-    "title": "Deep Learning, Reinforcement Learning, and Optimization in Wireless Communications: Roles and Integration",
+    "title": "Deep Learning, Reinforcement Learning, and Optimization in Wireless Systems",
     "lang": "en",
     "published": true,
     "summary": "The roles, advantages, limitations, and integration of deep learning, reinforcement learning, and optimization in wireless communications.",
@@ -1379,7 +1379,7 @@ window.BLOG_POSTS = [
   },
   {
     "slug": "covert-communication-and-physical-layer-security",
-    "title": "How I Understand Covert Communication and Physical-Layer Security",
+    "title": "Covert Communication and Physical-Layer Security",
     "lang": "en",
     "published": true,
     "summary": "My understanding of covert communication, the square-root law, uncertainty and covertness metrics, physical-layer security, and wiretap coding.",
@@ -1962,7 +1962,7 @@ window.BLOG_POSTS = [
   },
   {
     "slug": "high-speed-train-doppler-and-cell-free",
-    "title": "Wireless Communication on High-Speed Trains: Doppler Effects and Cell-Free Architecture",
+    "title": "Doppler and Handover on High-Speed Trains",
     "lang": "en",
     "published": true,
     "summary": "How a train ride led me from Doppler shifts and channel variation to cellular handover and user-centric cell-free service.",
@@ -2124,7 +2124,7 @@ window.BLOG_POSTS = [
   },
   {
     "slug": "multipath-doppler-and-coherence",
-    "title": "Multipath and Motion: Understanding Wireless Channels Through Interference Patterns",
+    "title": "Multipath Fading and Channel Coherence",
     "lang": "en",
     "published": true,
     "summary": "Understanding multipath fading, motion, Doppler spread, delay spread, coherence time, and coherence bandwidth through one interference pattern.",
@@ -2301,7 +2301,7 @@ window.BLOG_POSTS = [
   },
   {
     "slug": "isac-the-same-wave-different-unknowns",
-    "title": "Integrated Sensing and Communication: Shared Waveforms and Environmental Information",
+    "title": "Waveform Design and RF Sensing in ISAC",
     "lang": "en",
     "published": true,
     "summary": "How communication and sensing share waveforms, balance their design requirements, address practical challenges, and read environmental information from wireless channels.",
@@ -2496,7 +2496,7 @@ window.BLOG_POSTS = [
   },
   {
     "slug": "some-thoughts-on-6g-making-space-more-useful",
-    "title": "Some Thoughts on 6G: Making Better Use of Spatial Resources",
+    "title": "Near-Field Focusing and Beam Squint in 6G",
     "lang": "en",
     "published": true,
     "summary": "How higher frequencies, larger arrays, near-field focusing, and wideband beamforming create opportunities and tradeoffs in using spatial resources.",
@@ -2647,7 +2647,7 @@ window.BLOG_POSTS = [
   },
   {
     "slug": "optimization-starts-with-the-system",
-    "title": "What Makes an Optimization Problem Worth Solving",
+    "title": "Formulating Optimization Problems in Wireless Systems",
     "lang": "en",
     "published": true,
     "summary": "My view of meaningful objectives, real system bottlenecks, performance benchmarks, and solutions that reveal structure.",
