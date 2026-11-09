@@ -3308,7 +3308,26 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Take beam training, for example. In a fixed time slot, I can spend more time looking for a better beam or start sending data sooner. To compare those choices, I would count how much data actually reaches the receiver over the whole slot."
+        "text": "Consider a wireless camera sending video to a receiver. The real objective is to get as much video data as possible to the receiver within each fixed-length time slot. The bottleneck is poor beam alignment, which causes packets to be lost. Spending more time on beam training can reduce those losses, but it also leaves less time to send the video. So the decision needs to optimize is how much of the slot to spend on beam training.",
+        "parts": [
+          {
+            "text": "Consider a wireless camera sending video to a receiver. "
+          },
+          {
+            "tag": "strong",
+            "text": "The real objective"
+          },
+          {
+            "text": " is to get as much video data as possible to the receiver within each fixed-length time slot. "
+          },
+          {
+            "tag": "strong",
+            "text": "The bottleneck"
+          },
+          {
+            "text": " is poor beam alignment, which causes packets to be lost. Spending more time on beam training can reduce those losses, but it also leaves less time to send the video. So the decision needs to optimize is how much of the slot to spend on beam training."
+          }
+        ]
       },
       {
         "type": "figure",
