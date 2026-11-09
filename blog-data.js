@@ -3307,6 +3307,14 @@ window.BLOG_POSTS = [
         "text": "Combining technique names and then optimizing the combination rarely feels like a satisfying starting point. I care more about the bottleneck: what is holding the system back, what can be changed, and what must be sacrificed to improve it? That gives the mathematics a reason to exist."
       },
       {
+        "type": "figure",
+        "src": "assets/notes/beam-training-tradeoff.svg",
+        "alt": "Three equal-length time slots compare short, balanced, and long beam training. Short training leaves more time for data but poor alignment loses packets. Balanced training aligns the beam and delivers the most packets in this example. Long training aligns the beam but leaves little time to send data.",
+        "width": 900,
+        "height": 490,
+        "maxWidth": 800
+      },
+      {
         "type": "h2",
         "text": "Optimization also gives a benchmark"
       },
