@@ -3184,7 +3184,7 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "More precise spatial control also makes the link more sensitive to the user's position and the array's orientation. Even if a device stays in the same place, rotation can change its antenna orientation and polarization alignment with the incoming electromagnetic field. A practical system may therefore need to track both the user's position and the device's orientation to maintain a reliable link."
+        "text": "More precise spatial control also makes the link more sensitive to the user's position and the device's orientation. If a device moves straight towards the array, from 15 metres away to 5 metres, its direction stays the same. The paths from the edge and centre of the array to the device now differ more in length, so the array may need to adjust its phase settings to keep the signal focused on the device. Even if a device stays in the same place, rotation can change its antenna orientation and polarization alignment with the incoming electromagnetic field. A practical system may therefore need to track both the user's position and the device's orientation to maintain a reliable link."
       },
       {
         "type": "h2",
