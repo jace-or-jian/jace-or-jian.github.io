@@ -2916,14 +2916,14 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "For me, the common thread is the interference pattern formed by multiple paths. Where I stand, how I move, and which frequency I use each reveal a different part of that pattern.",
+        "text": "In short, Doppler spread, delay spread, coherence time, and coherence bandwidth all fit into the same physical picture. They are all tied to the interference pattern formed by multiple propagation paths. Looking at that pattern across space, time, and frequency reveals different aspects of it.",
         "parts": [
           {
-            "text": "For me, the common thread is the interference pattern formed by multiple paths. "
+            "text": "In short, Doppler spread, delay spread, coherence time, and coherence bandwidth all fit into the same physical picture. "
           },
           {
             "tag": "strong",
-            "text": "Where I stand, how I move, and which frequency I use each reveal a different part of that pattern."
+            "text": "They are all tied to the interference pattern formed by multiple propagation paths. Looking at that pattern across space, time, and frequency reveals different aspects of it."
           }
         ]
       }
