@@ -3284,14 +3284,14 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "With limited power and time, improving one part of a system usually costs something elsewhere. More power can improve a link but cost energy or create interference. More beam training can improve alignment but take time away from data. Optimization is a way to make a good decision within those tradeoffs."
+        "text": "With limited power and time, improving one part of a system usually costs something elsewhere. More power can improve a link but cost energy or create interference. More beam training can improve alignment but take time away from data. In that case, I would compare the choices by how much data reaches the receiver over the whole time slot. Optimization is a way to make a good decision within those tradeoffs."
       },
       {
         "type": "figure",
-        "src": "assets/notes/optimization-landscape-irregular.png",
-        "alt": "A colorful three-dimensional objective landscape with an irregular feasible region. A descending search path ends at a local minimum while a lower global minimum is marked in another valley.",
-        "width": 2389,
-        "height": 1881,
+        "src": "assets/notes/beam-training-tradeoff.svg",
+        "alt": "Three equal-length time slots compare short, balanced, and long beam training. Short training leaves more time for data but poor alignment loses packets. Balanced training aligns the beam and delivers the most packets in this example. Long training aligns the beam but leaves little time to send data.",
+        "width": 900,
+        "height": 490,
         "maxWidth": 800
       },
       {
@@ -3307,14 +3307,6 @@ window.BLOG_POSTS = [
         "text": "Combining technique names and then optimizing the combination rarely feels like a satisfying starting point. I care more about the bottleneck: what is holding the system back, what can be changed, and what must be sacrificed to improve it? That gives the mathematics a reason to exist."
       },
       {
-        "type": "figure",
-        "src": "assets/notes/beam-training-tradeoff.svg",
-        "alt": "Three equal-length time slots compare short, balanced, and long beam training. Short training leaves more time for data but poor alignment loses packets. Balanced training aligns the beam and delivers the most packets in this example. Long training aligns the beam but leaves little time to send data.",
-        "width": 900,
-        "height": 490,
-        "maxWidth": 800
-      },
-      {
         "type": "h2",
         "text": "Optimization also gives a benchmark"
       },
@@ -3325,6 +3317,14 @@ window.BLOG_POSTS = [
       {
         "type": "p",
         "text": "A local solution supplies a useful design reference; a global solution or proven bound tells more about the remaining room for improvement. The comparison becomes especially meaningful when it includes computation and training overhead."
+      },
+      {
+        "type": "figure",
+        "src": "assets/notes/optimization-landscape-irregular.png",
+        "alt": "A colorful three-dimensional objective landscape with an irregular feasible region. A descending search path ends at a local minimum while a lower global minimum is marked in another valley.",
+        "width": 2389,
+        "height": 1881,
+        "maxWidth": 800
       },
       {
         "type": "h2",
