@@ -2392,11 +2392,11 @@ window.BLOG_POSTS = [
     "blocks": [
       {
         "type": "p",
-        "text": "A transmitted signal rarely reaches the receiver along just one path. It may travel directly to the receiver, reflect off a wall, scatter from objects, or diffract around an edge. The receiver therefore usually receives several copies of the signal along different paths."
+        "text": "Radio signals rarely travel from transmitter to receiver along a single path. A signal may arrive directly, reflect off a wall, scatter from objects, or diffract around the edge of an obstacle. The receiver therefore picks up several copies of the same signal, each with its own amplitude, phase, and propagation delay."
       },
       {
         "type": "p",
-        "text": "These copies have different amplitudes, phases, and delays. When they combine, they reinforce one another at some positions and cancel one another at others, producing multipath fading."
+        "text": "When these copies add together, they can reinforce or cancel one another, producing multipath fading."
       },
       {
         "type": "figure",
@@ -2407,11 +2407,11 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "I like to picture this as an invisible interference pattern spread across space. Like the bright and dark fringes in an optical interference experiment, radio waves combine constructively at some positions to create stronger-signal regions, while cancelling one another at other positions to create weaker-signal regions."
+        "text": "I like to picture this as an invisible interference pattern spread across space. Like the bright and dark fringes in an optical interference experiment, radio waves combine constructively at some locations, where the signal is stronger, and destructively at others, where it is weaker."
       },
       {
         "type": "p",
-        "text": "If the transmitter and the surrounding environment remain unchanged, this pattern also remains relatively fixed in space. The receiver's position determines which part of the pattern we actually observe."
+        "text": "This picture gives me a way to connect spatial fading, variation over time, and frequency selectivity. All three emerge when we observe the same multipath environment from different angles."
       },
       {
         "type": "h2",
@@ -2419,27 +2419,219 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "The key to this interference pattern is the relative phase between different propagation paths."
-      },
-      {
-        "type": "p",
-        "text": "For two paths with a delay difference Δτ, the phase difference at frequency f can be expressed as:"
+        "text": "What shapes this pattern is the relative phase between propagation paths. In the simplest case, the receiver picks up two paths, and the received signal is the sum of two complex terms."
       },
       {
         "type": "equation",
-        "text": "Δφ = 2πfΔτ = 2πΔL/λ"
+        "text": "Er = A1ejφ₁ + A2ejφ₂",
+        "parts": [
+          {
+            "text": "E"
+          },
+          {
+            "tag": "sub",
+            "text": "r"
+          },
+          {
+            "text": " = A"
+          },
+          {
+            "tag": "sub",
+            "text": "1"
+          },
+          {
+            "text": "e"
+          },
+          {
+            "tag": "sup",
+            "text": "jφ₁"
+          },
+          {
+            "text": " + A"
+          },
+          {
+            "tag": "sub",
+            "text": "2"
+          },
+          {
+            "text": "e"
+          },
+          {
+            "tag": "sup",
+            "text": "jφ₂"
+          }
+        ]
       },
       {
         "type": "p",
-        "text": "Here, ΔL is the difference in path length and λ is the wavelength."
+        "text": "The received power depends on their phase difference, Δφ."
+      },
+      {
+        "type": "equation",
+        "text": "|Er|² = A1² + A2² + 2A1A2 cos(Δφ)",
+        "parts": [
+          {
+            "text": "|E"
+          },
+          {
+            "tag": "sub",
+            "text": "r"
+          },
+          {
+            "text": "|² = A"
+          },
+          {
+            "tag": "sub",
+            "text": "1"
+          },
+          {
+            "text": "² + A"
+          },
+          {
+            "tag": "sub",
+            "text": "2"
+          },
+          {
+            "text": "² + 2A"
+          },
+          {
+            "tag": "sub",
+            "text": "1"
+          },
+          {
+            "text": "A"
+          },
+          {
+            "tag": "sub",
+            "text": "2"
+          },
+          {
+            "text": " cos(Δφ)"
+          }
+        ]
       },
       {
         "type": "p",
-        "text": "Even a small change in path length can alter the relative phase between the two paths and change how they combine."
+        "text": "When the two paths are nearly in phase, they reinforce each other. When they are close to 180° apart, they partially cancel. If their amplitudes are also nearly equal, the received power can drop sharply."
       },
       {
         "type": "p",
-        "text": "This also explains why the received signal keeps changing as the receiver moves. The lengths of paths arriving from different directions change at different rates, shifting their relative phases. As I move through space, it is as though I am passing through this fixed interference pattern, encountering regions of stronger and weaker signal in turn."
+        "text": "For two paths with a delay difference Δτ, the difference in propagation phase lag at frequency f is given by"
+      },
+      {
+        "type": "equation",
+        "text": "Δφ = 2πfΔτ = 2πΔL / λ"
+      },
+      {
+        "type": "p",
+        "text": "Here, ΔL is the difference in path length and λ is the wavelength. A small change in path length can substantially shift the relative phase if that change is appreciable compared with the wavelength."
+      },
+      {
+        "type": "p",
+        "text": "With the transmitter and its surroundings held fixed, the interference pattern at a given frequency stays in place. The receiver's position determines which part of it we see. I think of it as an invisible landscape of strong and weak signals, with the strength at each point set by how all the paths arriving there add up."
+      },
+      {
+        "type": "p",
+        "text": "A strong direct path can change the shape of this landscape. When it dominates the reflected and scattered paths, deep cancellation is less likely."
+      },
+      {
+        "type": "h2",
+        "text": "2. Motion and Temporal Variation"
+      },
+      {
+        "type": "p",
+        "text": "If the spatial interference pattern is a still picture, a moving receiver is travelling through it."
+      },
+      {
+        "type": "p",
+        "text": "As the receiver moves, the lengths of the different paths change. Paths arriving from different directions generally change length at different rates, so their phases shift relative to one another."
+      },
+      {
+        "type": "p",
+        "text": "For a receiver travelling at speed v, the Doppler shift of path i is"
+      },
+      {
+        "type": "equation",
+        "text": "fD,i = (v / λ) cos θi",
+        "parts": [
+          {
+            "text": "f"
+          },
+          {
+            "tag": "sub",
+            "text": "D,i"
+          },
+          {
+            "text": " = (v / λ) cos θ"
+          },
+          {
+            "tag": "sub",
+            "text": "i"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Here, θi is the angle between the receiver's direction of motion and the bearing from which path i arrives. Over a short interval in which two path Doppler shifts are approximately constant, their relative phase evolves as",
+        "parts": [
+          {
+            "text": "Here, θ"
+          },
+          {
+            "tag": "sub",
+            "text": "i"
+          },
+          {
+            "text": " is the angle between the receiver's direction of motion and the bearing from which path i arrives. Over a short interval in which two path Doppler shifts are approximately constant, their relative phase evolves as"
+          }
+        ]
+      },
+      {
+        "type": "equation",
+        "text": "Δφ(t) = Δφ(0) + 2π(fD,1 − fD,2)t",
+        "parts": [
+          {
+            "text": "Δφ(t) = Δφ(0) + 2π(f"
+          },
+          {
+            "tag": "sub",
+            "text": "D,1"
+          },
+          {
+            "text": " − f"
+          },
+          {
+            "tag": "sub",
+            "text": "D,2"
+          },
+          {
+            "text": ")t"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "As the phase difference changes, the two paths move between constructive and destructive interference."
+      },
+      {
+        "type": "p",
+        "text": "Doppler spread, BD, describes how widely the paths' Doppler shifts are distributed. A wider spread means the phases can drift apart faster, so the combined channel can fluctuate more rapidly.",
+        "parts": [
+          {
+            "text": "Doppler spread, B"
+          },
+          {
+            "tag": "sub",
+            "text": "D"
+          },
+          {
+            "text": ", describes how widely the paths' Doppler shifts are distributed. A wider spread means the phases can drift apart faster, so the combined channel can fluctuate more rapidly."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "From the moving receiver's point of view, a signal-strength pattern that is fixed in space becomes a signal that rises and falls over time. The simulation below shows what the receiver would see as it travels along a route twelve wavelengths long."
       },
       {
         "type": "figure",
@@ -2449,68 +2641,12 @@ window.BLOG_POSTS = [
         "height": 864
       },
       {
-        "type": "h2",
-        "text": "2. Motion and Temporal Variation"
-      },
-      {
         "type": "p",
-        "text": "If we imagine the spatial interference pattern as a static picture, the receiver's movement is like travelling through that picture."
-      },
-      {
-        "type": "p",
-        "text": "From the receiver's perspective, a signal-strength distribution that is fixed in space becomes a fluctuation over time as its position changes."
-      },
-      {
-        "type": "p",
-        "text": "In channel terms, each propagation path experiences a Doppler shift due to relative motion. Since the paths usually arrive from different directions, their Doppler shifts generally differ as well."
-      },
-      {
-        "type": "p",
-        "text": "These different frequency shifts cause the relative phases between paths to change continuously, making the interference pattern observed by the receiver evolve over time."
-      },
-      {
-        "type": "p",
-        "text": "A larger Doppler spread generally means that the relative phases change more quickly, and so does the observed interference pattern. The interval over which the received channel remains similar becomes shorter: in other words, the coherence time decreases."
-      },
-      {
-        "type": "h2",
-        "text": "3. Frequency Variation and Delay Spread"
-      },
-      {
-        "type": "p",
-        "text": "Alongside moving through space and observing changes over time, we can also examine the same interference pattern from a frequency perspective."
-      },
-      {
-        "type": "p",
-        "text": "Suppose I stay at a fixed position and change only the frequency of the transmitted signal. The physical path lengths remain unchanged, but the phase differences between paths still vary with frequency."
-      },
-      {
-        "type": "p",
-        "text": "For paths with a larger delay difference, even a small frequency change can produce a substantial change in relative phase. Peaks and dips in the channel response therefore occur more closely together along the frequency axis."
-      },
-      {
-        "type": "p",
-        "text": "This is the connection between delay spread and coherence bandwidth: larger differences in path delays generally cause the channel response to vary more rapidly with frequency, resulting in a smaller coherence bandwidth."
-      },
-      {
-        "type": "h2",
-        "text": "4. Coherence Time and Coherence Bandwidth"
-      },
-      {
-        "type": "p",
-        "text": "We can now connect the spatial, temporal, and frequency perspectives."
-      },
-      {
-        "type": "p",
-        "text": "In time, a larger Doppler spread means that the observed interference pattern changes more quickly, so the coherence time is shorter."
-      },
-      {
-        "type": "p",
-        "text": "In frequency, a larger root-mean-square (RMS) delay spread means that the interference pattern changes more quickly as frequency varies, so the coherence bandwidth is smaller."
+        "text": "This is how Doppler spread connects to coherence time, the time scale over which the channel remains strongly correlated."
       },
       {
         "type": "equation",
-        "text": "Tc ∝ 1/BD\nBc ∝ 1/στ",
+        "text": "Tc ∝ 1 / BD",
         "parts": [
           {
             "text": "T"
@@ -2520,21 +2656,129 @@ window.BLOG_POSTS = [
             "text": "c"
           },
           {
-            "text": " ∝ 1/B"
+            "text": " ∝ 1 / B"
           },
           {
             "tag": "sub",
             "text": "D"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "A wider Doppler spread therefore means a shorter coherence time. As the receiver passes through the pattern more quickly, the channel it observes can change in less time."
+      },
+      {
+        "type": "h2",
+        "text": "3. Frequency Variation and Delay Spread"
+      },
+      {
+        "type": "p",
+        "text": "So far, I have looked at the interference pattern across positions and over time. I can also stay in one place and change the transmit frequency. The physical lengths of the paths stay the same, but their relative phases still change with frequency."
+      },
+      {
+        "type": "p",
+        "text": "The channel frequency response can be written as"
+      },
+      {
+        "type": "equation",
+        "text": "H(f) = ∑l=1L al e−j2πfτₗ",
+        "parts": [
+          {
+            "text": "H(f) = ∑"
           },
           {
-            "text": "\nB"
+            "tag": "sub",
+            "text": "l=1"
+          },
+          {
+            "tag": "sup",
+            "text": "L"
+          },
+          {
+            "text": " a"
+          },
+          {
+            "tag": "sub",
+            "text": "l"
+          },
+          {
+            "text": " e"
+          },
+          {
+            "tag": "sup",
+            "text": "−j2πfτₗ"
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Here, al is the complex gain of path l and τl is its propagation delay. Each path contributes its own term, and their phase relationships depend on frequency.",
+        "parts": [
+          {
+            "text": "Here, a"
+          },
+          {
+            "tag": "sub",
+            "text": "l"
+          },
+          {
+            "text": " is the complex gain of path l and τ"
+          },
+          {
+            "tag": "sub",
+            "text": "l"
+          },
+          {
+            "text": " is its propagation delay. Each path contributes its own term, and their phase relationships depend on frequency."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "If two paths have a delay difference Δτ, a frequency change Δf changes the difference in their propagation phase lag by"
+      },
+      {
+        "type": "equation",
+        "text": "Δφ = 2πΔfΔτ"
+      },
+      {
+        "type": "p",
+        "text": "The larger the delay difference, the smaller the frequency change needed to noticeably shift the relative phase. A pair of paths can reinforce each other at one frequency and partially cancel at another. The result is a frequency response with peaks and dips that are typically closer together when the delays differ more."
+      },
+      {
+        "type": "p",
+        "text": "This connects delay spread to coherence bandwidth. Delay spread describes how far apart the path delays are. A common measure is the root-mean-square (RMS) delay spread, στ, which measures the spread of the delays around their power-weighted mean.",
+        "parts": [
+          {
+            "text": "This connects delay spread to coherence bandwidth. Delay spread describes how far apart the path delays are. A common measure is the root-mean-square (RMS) delay spread, σ"
+          },
+          {
+            "tag": "sub",
+            "text": "τ"
+          },
+          {
+            "text": ", which measures the spread of the delays around their power-weighted mean."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Coherence bandwidth is the frequency scale over which the channel response remains strongly correlated."
+      },
+      {
+        "type": "equation",
+        "text": "Bc ∝ 1 / στ",
+        "parts": [
+          {
+            "text": "B"
           },
           {
             "tag": "sub",
             "text": "c"
           },
           {
-            "text": " ∝ 1/σ"
+            "text": " ∝ 1 / σ"
           },
           {
             "tag": "sub",
@@ -2544,19 +2788,136 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "These parameters also help characterize the fading we observe."
+        "text": "A larger delay spread typically means a smaller coherence bandwidth, so the channel response varies more quickly across frequency."
+      },
+      {
+        "type": "h2",
+        "text": "4. Coherence Time and Coherence Bandwidth"
       },
       {
         "type": "p",
-        "text": "If the signal bandwidth is much smaller than the coherence bandwidth, the channel response is approximately the same across the entire signal band. Different frequency components experience similar gains and phases, producing flat fading."
+        "text": "The same multipath interference pattern can be viewed in three ways."
+      },
+      {
+        "type": "table",
+        "headers": [
+          "Perspective",
+          "What changes",
+          "Channel property"
+        ],
+        "rows": [
+          [
+            "Space",
+            "Receiver position",
+            "Spatial interference pattern"
+          ],
+          [
+            "Time",
+            "Time as the receiver moves",
+            "Doppler spread"
+          ],
+          [
+            "Frequency",
+            "Signal frequency",
+            "Delay spread"
+          ]
+        ]
       },
       {
         "type": "p",
-        "text": "If the signal bandwidth is wide enough to span several pronounced peaks and dips in the interference pattern, different frequency components experience different gains and phases, producing frequency-selective fading."
+        "text": "These relationships give us two scales for describing the channel."
+      },
+      {
+        "type": "equation",
+        "text": "Tc ∝ 1 / BD",
+        "parts": [
+          {
+            "text": "T"
+          },
+          {
+            "tag": "sub",
+            "text": "c"
+          },
+          {
+            "text": " ∝ 1 / B"
+          },
+          {
+            "tag": "sub",
+            "text": "D"
+          }
+        ]
+      },
+      {
+        "type": "equation",
+        "text": "Bc ∝ 1 / στ",
+        "parts": [
+          {
+            "text": "B"
+          },
+          {
+            "tag": "sub",
+            "text": "c"
+          },
+          {
+            "text": " ∝ 1 / σ"
+          },
+          {
+            "tag": "sub",
+            "text": "τ"
+          }
+        ]
       },
       {
         "type": "p",
-        "text": "From this perspective, multipath fading, Doppler spread, delay spread, coherence time, and coherence bandwidth are closely connected concepts. They can all be understood through the same interference pattern: the relative phases of different propagation paths determine how signals combine, while changes in position, time, and frequency determine how that pattern appears."
+        "text": "Coherence time tells us how quickly the channel changes over time. Coherence bandwidth tells us how quickly its response changes across frequency. Comparing coherence bandwidth with the bandwidth of the transmitted signal helps distinguish two kinds of fading."
+      },
+      {
+        "type": "h3",
+        "text": "Flat Fading"
+      },
+      {
+        "type": "p",
+        "text": "If the signal bandwidth Bs is much smaller than the coherence bandwidth Bc, the channel response is nearly constant across the signal band. Its frequency components experience nearly the same gain and phase shift, so the whole band fades together.",
+        "parts": [
+          {
+            "text": "If the signal bandwidth B"
+          },
+          {
+            "tag": "sub",
+            "text": "s"
+          },
+          {
+            "text": " is much smaller than the coherence bandwidth B"
+          },
+          {
+            "tag": "sub",
+            "text": "c"
+          },
+          {
+            "text": ", the channel response is nearly constant across the signal band. Its frequency components experience nearly the same gain and phase shift, so the whole band fades together."
+          }
+        ]
+      },
+      {
+        "type": "h3",
+        "text": "Frequency-Selective Fading"
+      },
+      {
+        "type": "p",
+        "text": "If the signal bandwidth is comparable to or larger than the coherence bandwidth, different frequency components can experience noticeably different gains and phase shifts. Some frequencies may see constructive interference while others see destructive interference."
+      },
+      {
+        "type": "p",
+        "text": "For me, the common thread is the interference pattern formed by multiple paths. Where I stand, how I move, and which frequency I use each reveal a different part of that pattern.",
+        "parts": [
+          {
+            "text": "For me, the common thread is the interference pattern formed by multiple paths. "
+          },
+          {
+            "tag": "strong",
+            "text": "Where I stand, how I move, and which frequency I use each reveal a different part of that pattern."
+          }
+        ]
       }
     ]
   },

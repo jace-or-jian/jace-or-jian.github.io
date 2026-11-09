@@ -67,6 +67,25 @@
             const p = node("p", "note-source");
             p.append(link(block.label, block.url)); body.append(p); return;
           }
+          if (block.type === "table") {
+            const table = node("table", "note-table");
+            const head = node("thead");
+            const headerRow = node("tr");
+            block.headers.forEach(label => {
+              const header = node("th", "", label);
+              header.scope = "col";
+              headerRow.append(header);
+            });
+            head.append(headerRow);
+            const rows = node("tbody");
+            block.rows.forEach(cells => {
+              const row = node("tr");
+              cells.forEach(cell => row.append(node("td", "", cell)));
+              rows.append(row);
+            });
+            table.append(head, rows);
+            body.append(table); return;
+          }
           if (block.type === "equation") {
             const equation = node("div", "note-equation");
             if (Array.isArray(block.parts) && block.parts.length) {
