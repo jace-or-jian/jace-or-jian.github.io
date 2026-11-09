@@ -144,7 +144,8 @@ window.BLOG_POSTS = [
         "alt": "A direct wireless path is blocked by a person while a wall-reflected path remains available with lower received signal strength.",
         "width": 941,
         "height": 967,
-        "maxWidth": 640
+        "maxWidth": 640,
+        "webpSrcset": "assets/notes/webp/blocked-link-wall-reflection-640.webp 640w, assets/notes/webp/blocked-link-wall-reflection-941.webp 941w"
       },
       {
         "type": "p",
@@ -164,7 +165,8 @@ window.BLOG_POSTS = [
         "alt": "A reconfigurable intelligent surface redirects a reflected wireless path around a line-of-sight blockage.",
         "width": 320,
         "height": 320,
-        "maxWidth": 320
+        "maxWidth": 320,
+        "webpSrcset": "assets/notes/webp/ris-reflected-path-320.webp 320w"
       },
       {
         "type": "h3",
@@ -265,7 +267,8 @@ window.BLOG_POSTS = [
         "caption": "Plane-wave approximation in the far field (left) and spherical-wave propagation in the near field (right).",
         "width": 547,
         "height": 353,
-        "maxWidth": 547
+        "maxWidth": 547,
+        "webpSrcset": "assets/notes/webp/plane-and-spherical-wavefronts-547.webp 547w"
       },
       {
         "type": "p",
@@ -286,7 +289,8 @@ window.BLOG_POSTS = [
         "caption": "Illustration by the Mittleman Group, via Brown University.",
         "width": 1600,
         "height": 1169,
-        "maxWidth": 680
+        "maxWidth": 680,
+        "webpSrcset": "assets/notes/webp/curved-thz-beams-wavefront-engineering-640.webp 640w, assets/notes/webp/curved-thz-beams-wavefront-engineering-960.webp 960w, assets/notes/webp/curved-thz-beams-wavefront-engineering-1600.webp 1600w"
       },
       {
         "type": "h2",
@@ -560,7 +564,8 @@ window.BLOG_POSTS = [
         "src": "assets/notes/beamforming-interference.png",
         "alt": "Two phased arrays with opposite phase progressions. Overlapping wave fronts illustrate constructive interference along the steered beam and destructive interference in other directions.",
         "width": 1024,
-        "height": 572
+        "height": 572,
+        "webpSrcset": "assets/notes/webp/beamforming-interference-640.webp 640w, assets/notes/webp/beamforming-interference-1024.webp 1024w"
       },
       {
         "type": "h3",
@@ -587,7 +592,8 @@ window.BLOG_POSTS = [
         "src": "assets/notes/antenna-radiation-evolution.png",
         "alt": "A schematic progression from omnidirectional horizontal coverage to sector radiation and an antenna array producing multiple beams in azimuth and elevation.",
         "width": 2048,
-        "height": 1536
+        "height": 1536,
+        "webpSrcset": "assets/notes/webp/antenna-radiation-evolution-640.webp 640w, assets/notes/webp/antenna-radiation-evolution-960.webp 960w, assets/notes/webp/antenna-radiation-evolution-1600.webp 1600w"
       },
       {
         "type": "h3",
@@ -622,7 +628,8 @@ window.BLOG_POSTS = [
         "src": "assets/notes/multiuser-beamforming.png",
         "alt": "An antenna array directs separate beams toward users, vehicles, and buildings to illustrate spatially directed communication.",
         "width": 750,
-        "height": 507
+        "height": 507,
+        "webpSrcset": "assets/notes/webp/multiuser-beamforming-750.webp 750w"
       },
       {
         "type": "p",
@@ -1015,7 +1022,8 @@ window.BLOG_POSTS = [
         "src": "assets/notes/hybrid-beamforming-delays.png",
         "alt": "Digital baseband precoding feeds multiple RF chains. Each illustrated branch includes analog phase shifters and delay elements before its antenna subarray, with beams directed toward different users.",
         "width": 2500,
-        "height": 1347
+        "height": 1347,
+        "webpSrcset": "assets/notes/webp/hybrid-beamforming-delays-640.webp 640w, assets/notes/webp/hybrid-beamforming-delays-960.webp 960w, assets/notes/webp/hybrid-beamforming-delays-1600.webp 1600w"
       },
       {
         "type": "h2",
@@ -1121,7 +1129,8 @@ window.BLOG_POSTS = [
         "alt": "COMSOL diagram of a deep neural network with an input layer, three fully connected hidden layers, and an output layer.",
         "width": 679,
         "height": 390,
-        "maxWidth": 679
+        "maxWidth": 679,
+        "webpSrcset": "assets/notes/webp/deep-neural-network-comsol-679.webp 679w"
       },
       {
         "type": "source",
@@ -1168,7 +1177,8 @@ window.BLOG_POSTS = [
         "alt": "MathWorks diagram showing an agent and environment exchanging observations, actions and rewards, with the reinforcement learning algorithm updating the policy.",
         "width": 480,
         "height": 384,
-        "maxWidth": 480
+        "maxWidth": 480,
+        "webpSrcset": "assets/notes/webp/rl-agent-environment-mathworks-480.webp 480w"
       },
       {
         "type": "source",
@@ -1402,7 +1412,8 @@ window.BLOG_POSTS = [
         "alt": "Observation-focused comparison: Willie faces similar noise-only and signal-plus-noise observations with overlapping distributions; Eve observes a transmission but remains uncertain between message candidates, while Bob recovers the intended message.",
         "width": 2352,
         "height": 1268,
-        "maxWidth": 800
+        "maxWidth": 800,
+        "webpSrcset": "assets/notes/webp/covert-vs-physical-layer-security-v2-640.webp 640w, assets/notes/webp/covert-vs-physical-layer-security-v2-960.webp 960w, assets/notes/webp/covert-vs-physical-layer-security-v2-1600.webp 1600w"
       },
       {
         "type": "h2",
@@ -2355,7 +2366,8 @@ window.BLOG_POSTS = [
         "alt": "Conventional cellular handover changes the serving base station from BS 1 to BS 2. User-centric Cell-Free cooperation changes the serving set from AP 1 and AP 2 to AP 2 and AP 3, with AP 2 retained.",
         "width": 2232,
         "height": 1308,
-        "maxWidth": 780
+        "maxWidth": 780,
+        "webpSrcset": "assets/notes/webp/cellular-handover-vs-cell-free-640.webp 640w, assets/notes/webp/cellular-handover-vs-cell-free-960.webp 960w, assets/notes/webp/cellular-handover-vs-cell-free-1600.webp 1600w"
       },
       {
         "type": "p",
@@ -2403,7 +2415,8 @@ window.BLOG_POSTS = [
         "src": "assets/notes/wireless-propagation-paths.png",
         "alt": "A transmitter reaches a vehicle through a direct line-of-sight path, reflection from a building, scattering from a tree, and diffraction around a rooftop.",
         "width": 2400,
-        "height": 1790
+        "height": 1790,
+        "webpSrcset": "assets/notes/webp/wireless-propagation-paths-640.webp 640w, assets/notes/webp/wireless-propagation-paths-960.webp 960w, assets/notes/webp/wireless-propagation-paths-1600.webp 1600w"
       },
       {
         "type": "p",
@@ -2638,7 +2651,8 @@ window.BLOG_POSTS = [
         "src": "assets/notes/multipath-spatial.png",
         "alt": "Simulated received power along a twelve-wavelength route: scattered paths produce repeated fluctuations and deep dips; adding a strong direct path reduces the fluctuations.",
         "width": 1620,
-        "height": 864
+        "height": 864,
+        "webpSrcset": "assets/notes/webp/multipath-spatial-640.webp 640w, assets/notes/webp/multipath-spatial-960.webp 960w"
       },
       {
         "type": "p",
@@ -2966,7 +2980,8 @@ window.BLOG_POSTS = [
         "alt": "Three-dimensional ISAC scene: one shared waveform travels from a base station to a communication user who recovers a message, and illuminates a moving vehicle whose reflected echo returns to the base station for range and velocity estimation.",
         "width": 1723,
         "height": 913,
-        "maxWidth": 800
+        "maxWidth": 800,
+        "webpSrcset": "assets/notes/webp/isac-shared-waveform-tasks-3d-640.webp 640w, assets/notes/webp/isac-shared-waveform-tasks-3d-960.webp 960w, assets/notes/webp/isac-shared-waveform-tasks-3d-1600.webp 1600w"
       },
       {
         "type": "h2",
@@ -3001,7 +3016,8 @@ window.BLOG_POSTS = [
         "src": "assets/notes/isac-ofdm-and-chirp.png?v=2",
         "alt": "Simulated OFDM with random QPSK data compared with a linear-frequency radar chirp at equal duration and mean power. Real waveforms appear above time-frequency energy maps; the chirp has a clear frequency sweep.",
         "width": 1800,
-        "height": 1152
+        "height": 1152,
+        "webpSrcset": "assets/notes/webp/isac-ofdm-and-chirp-640.webp 640w, assets/notes/webp/isac-ofdm-and-chirp-960.webp 960w"
       },
       {
         "type": "h2",
@@ -3180,7 +3196,8 @@ window.BLOG_POSTS = [
         "src": "assets/notes/near-field-beam-focusing.png",
         "alt": "A large antenna array illustrates near-field spherical waves and localized beam focusing, compared with far-field planar waves and directional beam steering.",
         "width": 2740,
-        "height": 1167
+        "height": 1167,
+        "webpSrcset": "assets/notes/webp/near-field-beam-focusing-640.webp 640w, assets/notes/webp/near-field-beam-focusing-960.webp 960w, assets/notes/webp/near-field-beam-focusing-1600.webp 1600w"
       },
       {
         "type": "p",
@@ -3243,7 +3260,8 @@ window.BLOG_POSTS = [
         "alt": "At 80, 100, and 120 GHz, fixed phase shifters produce different main-beam directions. Ideal true time delays align all three beam peaks with the same 45-degree target direction.",
         "width": 1674,
         "height": 1584,
-        "maxWidth": 680
+        "maxWidth": 680,
+        "webpSrcset": "assets/notes/webp/phase-shifters-vs-ttd-beam-squint-640.webp 640w, assets/notes/webp/phase-shifters-vs-ttd-beam-squint-960.webp 960w, assets/notes/webp/phase-shifters-vs-ttd-beam-squint-1600.webp 1600w"
       },
       {
         "type": "p",
@@ -3292,7 +3310,8 @@ window.BLOG_POSTS = [
         "alt": "A colorful three-dimensional objective landscape with an irregular feasible region. A descending search path ends at a local minimum while a lower global minimum is marked in another valley.",
         "width": 2389,
         "height": 1881,
-        "maxWidth": 800
+        "maxWidth": 800,
+        "webpSrcset": "assets/notes/webp/optimization-landscape-irregular-640.webp 640w, assets/notes/webp/optimization-landscape-irregular-960.webp 960w, assets/notes/webp/optimization-landscape-irregular-1600.webp 1600w"
       },
       {
         "type": "h2",

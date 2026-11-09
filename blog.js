@@ -48,6 +48,7 @@
         const article = node("article", "blog-article"); article.lang = post.lang || "en";
         article.append(node("h2", "blog-title", post.title));
         const body = node("div", "blog-prose");
+        let firstFigure = true;
         post.blocks.forEach(block => {
           if (block.type === "figure") {
             const figure = node("figure", "note-figure");
@@ -57,9 +58,32 @@
             }
             const a = link("", block.src, "note-figure-link");
             const img = node("img");
-            img.src = block.src; img.alt = block.alt; img.loading = "lazy";
+            img.alt = block.alt;
+            img.loading = firstFigure ? "eager" : "lazy";
+            if (firstFigure) img.fetchPriority = "high";
             img.width = block.width || 900; img.height = block.height || 560;
-            a.append(img); figure.append(a);
+            if (block.webpSrcset) {
+              const picture = node("picture");
+              const source = node("source");
+              const width = Math.min(block.maxWidth || 800, 800);
+              const sizes = [
+                `(max-width: 560px) min(calc(100vw - 24px), ${width}px)`,
+                `(max-width: 820px) min(calc(100vw - 34px), 720px, ${width}px)`,
+                `(max-width: 1080px) min(calc(100vw - 246px), ${width}px)`,
+                `min(calc(100vw - 268px), ${width}px)`
+              ];
+              if (!firstFigure) sizes.unshift("auto");
+              source.type = "image/webp";
+              source.sizes = sizes.join(", ");
+              source.srcset = block.webpSrcset;
+              picture.append(source, img);
+              a.append(picture);
+            } else {
+              a.append(img);
+            }
+            img.src = block.src;
+            firstFigure = false;
+            figure.append(a);
             if (block.caption) figure.append(node("figcaption", "", block.caption));
             body.append(figure); return;
           }
