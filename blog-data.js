@@ -2744,6 +2744,10 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
+        "text": "Suppose I stay in one spot and receive two copies of the same signal. One arrives 100 ns after the other. If I increase the frequency by 5 MHz, the phase difference changes by half a cycle. If the two copies were reinforcing each other at the original frequency, they now work against each other. I haven't moved, but the signal I receive can get weaker."
+      },
+      {
+        "type": "p",
         "text": "The larger the delay difference, the smaller the frequency change needed to noticeably shift the relative phase. A pair of paths can reinforce each other at one frequency and partially cancel at another. The result is a frequency response with peaks and dips that are typically closer together when the delays differ more."
       },
       {
@@ -2905,6 +2909,10 @@ window.BLOG_POSTS = [
       {
         "type": "p",
         "text": "If the signal bandwidth is comparable to or larger than the coherence bandwidth, different frequency components can experience noticeably different gains and phase shifts. Some frequencies may see constructive interference while others see destructive interference."
+      },
+      {
+        "type": "p",
+        "text": "Say I measure the channel at one frequency. If I keep using that frequency while moving, coherence time tells me roughly how long that measurement stays useful. If I stay in place and switch to a nearby frequency, coherence bandwidth tells me how far I can move in frequency before the channel response starts to differ appreciably."
       },
       {
         "type": "p",
