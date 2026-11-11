@@ -171,13 +171,40 @@
       body.append(el("h3", "", item.title), authorLine(item.authors));
       if (item.description) body.append(el("p", "publication-description", item.description));
       if (item.supplement) {
+        const { label, description, linkLabel, url, cover, figure } = item.supplement;
         const supplement = el("aside", "publication-extension");
         supplement.append(
           el("p", "publication-extension-kicker", "Research Extension"),
-          el("h4", "publication-extension-title", item.supplement.label),
-          el("p", "publication-extension-description", item.supplement.description),
-          externalLink(`${item.supplement.linkLabel} ↗`, item.supplement.url, "publication-extension-link"),
+          el("h4", "publication-extension-title", label),
+          el("p", "publication-extension-description", description),
         );
+        if (cover && figure) {
+          const previews = el("div", "publication-extension-previews");
+          [
+            { ...cover, label: linkLabel, url },
+            figure,
+          ].forEach((preview) => {
+            const link = externalLink("", preview.url || preview.src, "publication-extension-preview");
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            const image = el("img");
+            image.src = preview.src;
+            image.alt = preview.alt;
+            image.width = preview.width;
+            image.height = preview.height;
+            image.loading = "lazy";
+            image.decoding = "async";
+            const caption = el("span", "publication-extension-preview-caption", preview.label);
+            const arrow = el("span", "", "↗");
+            arrow.setAttribute("aria-hidden", "true");
+            caption.append(arrow);
+            link.append(image, caption);
+            previews.append(link);
+          });
+          supplement.append(previews);
+        } else {
+          supplement.append(externalLink(`${linkLabel} ↗`, url, "publication-extension-link"));
+        }
         body.append(supplement);
       }
       if (item.supplementaryNote) body.append(el("p", "publication-supplementary", item.supplementaryNote));

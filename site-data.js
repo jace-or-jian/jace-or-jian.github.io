@@ -88,6 +88,19 @@ window.SITE_DATA = {
           description: "An information-theoretic characterization of when concurrent downlink transmission improves the covert square-root-law coefficient, and by how much.",
           linkLabel: "Explore the proof sketch",
           url: "files/publications/information-theoretic-proof-sketch.pdf",
+          cover: {
+            src: "assets/publications/fd-isac-proof-sketch-cover.webp",
+            alt: "Opening page of the proof sketch, showing the system model and equations",
+            width: 837,
+            height: 591,
+          },
+          figure: {
+            src: "assets/publications/fd-isac-covert-payload.webp",
+            alt: "Normalized achievable covert payload versus blocklength, with the FD-ISAC curve above the AWGN reference",
+            label: "Covert payload vs. blocklength",
+            width: 808,
+            height: 568,
+          },
         },
         figures: [
           {

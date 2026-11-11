@@ -19,6 +19,46 @@
 .theme-editorial .disclosure-content .section-title { font-size: 19px; }
 .theme-editorial .disclosure-content .publication h4,
 .theme-editorial .disclosure-content .project h4 { margin: 0 0 6px; color: var(--heading); font-family: var(--display); font-size: 20px; font-weight: 680; letter-spacing: -.012em; line-height: 1.34; }
+.publication-extension-previews {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 14px;
+}
+.publication-extension-preview {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--link);
+  overflow: hidden;
+  text-decoration: none;
+}
+.publication-extension-preview:hover { border-color: var(--link); }
+.publication-extension-preview:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.publication-extension-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1.42;
+  object-fit: contain;
+  padding: 8px;
+  background: #fff;
+}
+.publication-extension-preview-caption {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex: 1;
+  gap: 8px;
+  padding: 8px 10px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+.publication-extension-preview:hover .publication-extension-preview-caption { text-decoration: underline; }
 .theme-editorial .content-column .publication-body > .publication-highlights { grid-column: 1 / -1; grid-row: 12; margin-top: 16px; border-top: 1px solid var(--line); }
 .publication-highlights-toggle { padding: 12px 0; color: var(--link); font-size: 13px; font-weight: 600; cursor: pointer; }
 .publication-highlights-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
@@ -76,6 +116,7 @@
 .homepage-notes a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .homepage-notes a span { flex-shrink: 0; }
 @media (max-width: 560px) {
+  .publication-extension-previews { grid-template-columns: minmax(0, 1fr); }
   .disclosure-toggle { padding: 18px 16px; gap: 12px; }
   .disclosure-copy h2 { font-size: 20px; }
   .disclosure-action { gap: 8px; font-size: 14px; }
