@@ -342,6 +342,7 @@
     section.id = id;
     section.dataset.section = id;
     const details = el("details", "section-disclosure");
+    details.open = true;
     const summary = el("summary", "disclosure-toggle");
     const copy = el("div", "disclosure-copy");
     copy.append(el("h2", "", title), el("p", "", subtitle));
