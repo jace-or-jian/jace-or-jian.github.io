@@ -93,7 +93,10 @@
   const renderAbout = () => {
     document.getElementById("hero-heading").textContent = data.about.heading;
     const copy = document.getElementById("intro-copy");
-    data.about.paragraphs.forEach((paragraph) => copy.append(el("p", "", paragraph)));
+    if (copy.children.length !== data.about.paragraphs.length ||
+        data.about.paragraphs.some((paragraph, index) => copy.children[index].textContent !== paragraph)) {
+      copy.replaceChildren(...data.about.paragraphs.map(paragraph => el("p", "", paragraph)));
+    }
 
     const actions = document.getElementById("hero-actions");
     data.about.actions.forEach((action) => {
@@ -410,21 +413,40 @@
     root.append(section);
   };
 
+  const notesSource = document.currentScript?.dataset.notesSrc;
+
   const renderNotes = (root) => {
     const { section, content } = makeDisclosure("notes", "Notes & Reflections", "Some thoughts I’ve written down.");
     const list = el("ul", "homepage-notes");
-    (window.BLOG_POSTS || []).filter(post => post.published !== false).forEach(post => {
-      const item = el("li");
-      const link = externalLink(post.title, `blog.html#${encodeURIComponent(post.slug)}`);
-      link.lang = post.lang || "en";
-      const arrow = el("span", "", "↗");
-      arrow.setAttribute("aria-hidden", "true");
-      link.append(arrow);
-      item.append(link);
-      list.append(item);
-    });
+    const fallback = el("li");
+    fallback.append(externalLink("Browse notes", "blog.html"));
+    list.append(fallback);
     content.append(list);
     root.append(section);
+    if (!notesSource) return;
+
+    const observer = new IntersectionObserver(entries => {
+      if (!entries.some(entry => entry.isIntersecting)) return;
+      observer.disconnect();
+      const postsScript = document.createElement("script");
+      postsScript.src = notesSource;
+      postsScript.addEventListener("load", () => {
+        const posts = (window.BLOG_POSTS || []).filter(post => post.published !== false);
+        if (!posts.length) return;
+        list.replaceChildren(...posts.map(post => {
+          const item = el("li");
+          const link = externalLink(post.title, `blog.html#${encodeURIComponent(post.slug)}`);
+          link.lang = post.lang || "en";
+          const arrow = el("span", "", "↗");
+          arrow.setAttribute("aria-hidden", "true");
+          link.append(arrow);
+          item.append(link);
+          return item;
+        }));
+      }, { once: true });
+      document.head.append(postsScript);
+    }, { rootMargin: "200px" });
+    observer.observe(list);
   };
 
   const renderSections = () => {
