@@ -294,6 +294,25 @@
     root.append(section);
   };
 
+  const renderProjectFigure = (figure, projectTitle) => {
+    const figureElement = el("figure", "project-figure");
+    const imageLink = document.createElement("a");
+    imageLink.href = figure.url || figure.src;
+    imageLink.target = "_blank";
+    imageLink.rel = "noopener noreferrer";
+    imageLink.setAttribute("aria-label", `Open full-size figure: ${figure.caption || projectTitle}`);
+
+    const image = document.createElement("img");
+    image.src = figure.src;
+    image.alt = figure.alt || "";
+    image.loading = "lazy";
+    image.decoding = "async";
+    imageLink.append(image);
+    figureElement.append(imageLink);
+    if (figure.caption) figureElement.append(el("figcaption", "", figure.caption));
+    return figureElement;
+  };
+
   const renderProjects = (root) => {
     const section = makeSection("projects", data.projects.eyebrow, data.projects.title);
     const list = el("div", "project-list");
@@ -303,33 +322,26 @@
       meta.append(el("span", "project-period", item.period), el("span", "project-status", item.status));
 
       const body = el("div", "project-body");
-      body.append(el("h3", "", item.title));
-      if (item.description) body.append(el("p", "project-description", item.description));
+      const intro = item.scene ? el("div", "project-intro") : body;
+      if (item.scene) intro.append(meta);
+      intro.append(el("h3", "", item.title));
+      if (item.description) intro.append(el("p", "project-description", item.description));
+      if (item.scene) {
+        intro.append(renderProjectFigure(item.scene, item.title));
+        body.classList.add("project-body-with-scene");
+        body.append(intro);
+      }
 
       if (item.figures?.length) {
         const gallery = el("div", "project-figures");
         item.figures.forEach((figure) => {
-          const figureElement = el("figure", "project-figure");
-          const imageLink = document.createElement("a");
-          imageLink.href = figure.url || figure.src;
-          imageLink.target = "_blank";
-          imageLink.rel = "noopener noreferrer";
-          imageLink.setAttribute("aria-label", `Open full-size figure: ${figure.caption || item.title}`);
-
-          const image = document.createElement("img");
-          image.src = figure.src;
-          image.alt = figure.alt || "";
-          image.loading = "lazy";
-          image.decoding = "async";
-          imageLink.append(image);
-          figureElement.append(imageLink);
-          if (figure.caption) figureElement.append(el("figcaption", "", figure.caption));
-          gallery.append(figureElement);
+          gallery.append(renderProjectFigure(figure, item.title));
         });
         body.append(gallery);
       }
 
-      article.append(meta, body);
+      if (!item.scene) article.append(meta);
+      article.append(body);
       list.append(article);
     });
     section.append(list);

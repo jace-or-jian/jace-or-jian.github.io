@@ -190,13 +190,13 @@ window.SITE_DATA = {
         status: "Ongoing work · Co-author · Manuscript and experiments in preparation",
         title: "Diffusion-Assisted EKF Tracking for UAV-ISAC Beam Alignment",
         description: "A diffusion-assisted EKF combines historical UAV states with innovation-aware DDIM refinement to reduce nonlinear tracking drift, providing reliable state estimates that improve downstream beam alignment and beamforming.",
+        scene: {
+          src: "assets/projects/diffusion-assisted-uav-isac-system.png",
+          url: "files/projects/diffusion-assisted-uav-isac-system.pdf",
+          alt: "UAV-ISAC system model with a base station sensing mobile UAVs while serving communication users",
+          caption: "UAV-ISAC system model",
+        },
         figures: [
-          {
-            src: "assets/projects/diffusion-assisted-uav-isac-system.png",
-            url: "files/projects/diffusion-assisted-uav-isac-system.pdf",
-            alt: "UAV-ISAC system model with a base station sensing mobile UAVs while serving communication users",
-            caption: "UAV-ISAC system model",
-          },
           {
             src: "assets/projects/uav-tracking-results.png",
             alt: "Position, azimuth, and elevation tracking RMSE results across 50 UAV trajectories",
@@ -206,6 +206,11 @@ window.SITE_DATA = {
             src: "assets/projects/uav-tracking-demo.gif",
             alt: "Animated comparison of EKF and diffusion-refined UAV tracking in top-down and altitude views",
             caption: "Animated 3D tracking demo",
+          },
+          {
+            src: "assets/projects/uav-beam-tracking-3d.gif",
+            alt: "Animated predictive beam steering toward a UAV, with pointing error, gain, and a beam-centered view",
+            caption: "Animated 3D predictive beam tracking",
           },
           {
             src: "assets/projects/beam-alignment-vs-horizon.png",
