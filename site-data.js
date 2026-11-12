@@ -82,6 +82,7 @@ window.SITE_DATA = {
         venue: "IEEE Transactions on Vehicular Technology",
         title: "Bidirectional Covertness and Security Enhancement in FD-ISAC Systems",
         authors: "Jiajie Jian, Min Liu, Shu Fu, and Yongming Huang",
+        shortAuthors: "Jiajie Jian et al.",
         description: "A secure full-duplex ISAC design that provides bidirectional protection through robust joint transceiver optimization and native-signal reuse.",
         supplement: {
           label: "Information-Theoretic Extension of Covert FD-ISAC",
@@ -127,6 +128,7 @@ window.SITE_DATA = {
         venue: "IEEE Transactions on Mobile Computing · Accepted for publication",
         title: "Cross-Boundary Covert UAV Task Offloading: Risk-Aware Trajectory and Scheduling",
         authors: "Jiajie Jian, Zan Li, Shu Fu, Jiangbo Si, and Min Liu",
+        shortAuthors: "Jiajie Jian et al.",
         description: "A risk-aware framework that jointly optimizes UAV trajectories and edge-server scheduling to maximize task offloading across no-fly-zone boundaries under a mission-level covert-risk budget.",
         abstract: "Unmanned aerial vehicle (UAV)-enabled mobile edge computing (MEC) can extend onboard computing capability through wireless task offloading. For privacy-sensitive aerial services, however, even the occurrence and timing of offloading can expose service activity to unauthorized monitoring, while practical airspace restrictions limit mobility for mitigating such exposure. This paper investigates cross-boundary covert task offloading, where a task-generating UAV outside a polygonal no-fly zone (NFZ) offloads to multiple edge servers (ESs) inside it under surveillance by a ground warden Willie. We maximize completed offloaded workload by jointly optimizing the UAV trajectory, ES scheduling, and spectral efficiency subject to flight, task-arrival, edge-execution, and mission-level covertness constraints. To characterize rare but consequential covert failures, we derive the per-slot covert-outage probability over Nakagami-m fading and define mission-level outage as at least one covertness violation, whose probability constraint is exactly transformed into an additive covert-risk budget. To tackle the resulting mixed discrete-continuous non-convex problem, we develop a two-stage framework that constructs homotopy-guided convex corridors and performs joint offloading and trajectory optimization under covert-risk and computation constraints. Numerical results show that the proposed framework outperforms designed benchmarks. More importantly, under this risk-aware framework, channel fading undermines covertness differently across links: signal fluctuations cause sudden exposure via leakage spikes, while background fluctuations weaken protection through deep fades.",
         figures: [
@@ -154,6 +156,7 @@ window.SITE_DATA = {
         venue: "IEEE Wireless Communications Letters · Accepted for publication",
         title: "Resilient Beamforming for Anti-Jamming MIMO-ISAC",
         authors: "Jiajie Jian, Shu Fu, Tingting Chen, and Min Liu",
+        shortAuthors: "Jiajie Jian et al.",
         description: "A statistical approach to anti-jamming MIMO-ISAC that estimates interference statistics from ongoing transmit–receive samples and jointly designs communication and sensing beamformers without prior knowledge of the jammer’s channels or transmit covariance.",
         abstract: "This paper develops a statistical approach to anti-jamming multiple-input multiple-output integrated sensing and communication (MIMO-ISAC). Without prior knowledge of the jammer’s channels or transmit covariance, the base station estimates interference statistics from ongoing transmit–receive samples. We derive an unbiased jamming-plus-noise covariance estimator and characterize its finite-sample error. For the single-target model, we establish that a dedicated sensing covariance of rank at most one is sufficient for optimality without worsening estimation accuracy. We jointly optimize transceivers to maximize communication sum-rate under sensing and per-antenna power constraints through alternating optimization with a reduced-dimensional dual formulation. A reactive jammer is optimized via projected gradient descent to challenge both communication and sensing.",
         figures: [

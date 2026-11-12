@@ -171,7 +171,7 @@
       meta.append(el("span", "publication-year", item.year), el("span", "publication-venue", item.venue));
       const body = el("div", "publication-body");
       if (item.featured) body.append(el("p", "featured-label", "Featured work"));
-      body.append(el("h3", "", item.title), authorLine(item.authors));
+      body.append(el("h3", "", item.title), authorLine(item.shortAuthors || item.authors));
       if (item.description) body.append(el("p", "publication-description", item.description));
       if (item.supplement) {
         const { label, description, linkLabel, url, cover, figure } = item.supplement;
