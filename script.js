@@ -420,16 +420,12 @@
   const notesSource = document.currentScript?.dataset.notesSrc;
 
   const renderNotes = (root) => {
-    const section = el("section", "section-block");
-    section.id = "notes";
-    section.dataset.section = "notes";
-    const heading = el("div", "section-heading");
-    heading.append(el("h2", "section-title", "Notes & Reflections"));
+    const { section, content } = makeDisclosure("notes", "Notes & Reflections", "Some thoughts I’ve written down.");
     const list = el("ul", "homepage-notes");
     const fallback = el("li");
     fallback.append(externalLink("Browse notes", "blog.html"));
     list.append(fallback);
-    section.append(heading, list);
+    content.append(list);
     root.append(section);
     if (!notesSource) return;
 
@@ -467,8 +463,8 @@
       const target = document.getElementById(location.hash.slice(1));
       if (!target) return;
       const details = target.matches(".disclosure-section") ? target.querySelector("details") : target.closest("details");
-      if (details) details.open = true;
-      if (details || target.id === "notes") {
+      if (details) {
+        details.open = true;
         requestAnimationFrame(() => target.scrollIntoView({ block: "start" }));
       }
     };
