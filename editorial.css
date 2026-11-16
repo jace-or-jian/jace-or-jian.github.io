@@ -132,7 +132,7 @@ body.theme-editorial::before {
 }
 
 .theme-editorial .sidebar-inner {
-  top: 100px;
+  position: static;
   overflow: hidden;
   padding: 22px;
   border: 1px solid var(--line);

@@ -53,7 +53,7 @@ personal_webpage/
 
 ## Notes & Reflections 博客
 
-侧栏入口指向 `blog.html`，文章地址为 `blog.html#文章slug`，支持直接访问、刷新和浏览器前进后退。
+顶部导航的 Notes 入口指向 `blog.html`，文章地址为 `blog.html#文章slug`，支持直接访问、刷新和浏览器前进后退。
 
 在 `blog-data.js` 的数组里添加文章：`slug` 是唯一且固定的链接标识，`title` 是标题，`tags` 是标签数组，`summary` 是摘要，`lang` 是正文语言。`blocks` 按顺序填写正文，支持 p、h2、h3、blockquote、ul、ol、pre、equation、figure、source；列表使用 items 数组，其余使用 text。所有文本作为纯文本显示，不执行 HTML。列表按数组顺序排列，不显示日期；可将重要主题放在前面。
 

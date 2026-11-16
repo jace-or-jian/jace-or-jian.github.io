@@ -27,11 +27,11 @@
     let title = "Notes & Reflections";
     let description = "Notes & Reflections";
     if (!slug) {
-      root.append(node("h2", "blog-title", title));
+      root.append(node("h1", "blog-title", title));
       const list = node("div", "blog-list");
       posts.forEach(p => {
         const item = node("article", "blog-card"); item.lang = p.lang || "en";
-        const heading = node("h3");
+        const heading = node("h2");
         heading.append(link(p.title, `#${encodeURIComponent(p.slug)}`, "blog-post-link"));
         item.append(heading);
         list.append(item);
@@ -39,14 +39,14 @@
       if (!posts.length) list.append(node("p", "blog-intro", "No entries yet. Check back soon."));
       root.append(list);
     } else {
-      root.append(link("← All notes", "index.html#notes", "blog-back"));
+      root.append(link("← All notes", "blog.html", "blog-back"));
       if (!post) {
         title = "Entry not found";
-        root.append(node("h2", "blog-title", title), node("p", "blog-intro", "This entry is unavailable. Browse all entries to continue."));
+        root.append(node("h1", "blog-title", title), node("p", "blog-intro", "This entry is unavailable. Browse all entries to continue."));
       } else {
         title = post.title; description = post.summary;
         const article = node("article", "blog-article"); article.lang = post.lang || "en";
-        article.append(node("h2", "blog-title", post.title));
+        article.append(node("h1", "blog-title", post.title));
         const body = node("div", "blog-prose");
         let firstFigure = true;
         post.blocks.forEach(block => {
@@ -69,8 +69,7 @@
               const sizes = [
                 `(max-width: 560px) min(calc(100vw - 24px), ${width}px)`,
                 `(max-width: 820px) min(calc(100vw - 34px), 720px, ${width}px)`,
-                `(max-width: 1080px) min(calc(100vw - 246px), ${width}px)`,
-                `min(calc(100vw - 268px), ${width}px)`
+                `min(calc(100vw - 40px), ${width}px)`
               ];
               if (!firstFigure) sizes.unshift("auto");
               source.type = "image/webp";
@@ -128,7 +127,7 @@
           else appendInline(element, block);
           body.append(element);
         });
-        article.append(body, link("← Back to all notes", "index.html#notes", "blog-back"));
+        article.append(body, link("← Back to all notes", "blog.html", "blog-back"));
         root.append(article);
       }
     }

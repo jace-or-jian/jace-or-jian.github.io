@@ -3,6 +3,7 @@
 
   const data = window.SITE_DATA;
   if (!data) return;
+  const isBlog = document.body.dataset.page === "blog";
 
   const el = (tag, className, text) => {
     const node = document.createElement(tag);
@@ -42,8 +43,6 @@
     const profile = data.profile;
     document.title = `${profile.name} · Academic Homepage`;
     document.querySelector('meta[name="description"]').content = `Academic homepage of ${profile.name} — research, publications, projects, and news.`;
-    document.querySelectorAll("[data-short-name]").forEach((node) => (node.textContent = profile.shortName));
-    document.querySelectorAll("[data-initials]").forEach((node) => (node.textContent = profile.initials));
     document.getElementById("profile-name").textContent = profile.name;
 
     const photo = document.getElementById("profile-photo");
@@ -81,9 +80,14 @@
     navigation.forEach((item) => {
       const sectionData = ["about", "experience", "notes"].includes(item.id) ? { show: true } : data[item.id];
       if (sectionData && sectionData.show !== false) {
+        const href = item.id === "notes" ? "blog.html" : `${isBlog ? "index.html" : ""}#${item.id}`;
         [desktop, mobile].forEach((container) => {
-          const link = externalLink(item.label, `${document.body.dataset.page === "blog" ? "index.html" : ""}#${item.id}`, "nav-link");
+          const link = externalLink(item.label, href, "nav-link");
           link.dataset.target = item.id;
+          if (item.id === "notes" && isBlog) {
+            link.classList.add("is-active");
+            link.setAttribute("aria-current", "true");
+          }
           container.append(link);
         });
       }
@@ -644,11 +648,14 @@
       });
 
     window.addEventListener("resize", hideImagePreview);
+    window.addEventListener("scroll", hideImagePreview, { passive: true });
   };
 
-  renderProfile();
+  document.querySelectorAll("[data-short-name]").forEach((node) => (node.textContent = data.profile.shortName));
+  document.querySelectorAll("[data-initials]").forEach((node) => (node.textContent = data.profile.initials));
   renderNavigation();
-  if (document.body.dataset.page !== "blog") {
+  if (!isBlog) {
+    renderProfile();
     renderAbout();
     renderSections();
   }
