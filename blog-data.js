@@ -1353,6 +1353,41 @@ window.BLOG_POSTS = [
       },
       {
         "type": "h3",
+        "text": "Model-Based Machine Learning for Communications"
+      },
+      {
+        "type": "figure",
+        "src": "assets/notes/model-based-machine-learning-for-communications.png",
+        "alt": "Three receiver designs. (a) A classical iterative receiver uses a prior channel model. (b) Deep unfolding maps successive iterations onto trainable layers. (c) A hybrid receiver inserts a neural network into the original feedback loop.",
+        "caption": "Classical iterative inference, deep unfolding, and a DNN-aided hybrid algorithm. From Shlezinger et al. (2021), Model-Based Machine Learning for Communications, Fig. 1.2.",
+        "width": 795,
+        "height": 727
+      },
+      {
+        "type": "p",
+        "text": "The figure shows how wireless communications theory can shape the design of a learning-based receiver. In (a), a conventional iterative receiver uses the channel model p(y | s) to describe how a transmitted signal s gives rise to the received observation y, while the update rule specifies how to use that information to recover s. In (b), deep unfolding turns a fixed number of iterations into trainable layers, so the original algorithm guides the network architecture. In (c), a hybrid receiver retains the iterative procedure and uses a neural network to learn the intermediate computation that previously depended on the channel model. These approaches show that communications theory can determine both how the network is built and what it should learn. For example, when designing a receiver, one can first identify which relationships have reliable physical or mathematical descriptions and which computations become inaccurate when idealized assumptions diverge from actual channel conditions. Learning can then be applied to those sensitive computations. Theory provides structure and constraints for learning, while data helps capture aspects of the real environment that the model describes poorly.",
+        "parts": [
+          {
+            "text": "The figure shows how wireless communications theory can shape the design of a learning-based receiver. In (a), a conventional iterative receiver uses the channel model p(y | s) to describe how a transmitted signal s gives rise to the received observation y, while the update rule specifies how to use that information to recover s. In (b), deep unfolding turns a fixed number of iterations into trainable layers, so the original algorithm guides the network architecture. In (c), a hybrid receiver retains the iterative procedure and uses a neural network to learn the intermediate computation that previously depended on the channel model. These approaches show that communications theory can determine both "
+          },
+          {
+            "tag": "strong",
+            "text": "how the network is built"
+          },
+          {
+            "text": " and "
+          },
+          {
+            "tag": "strong",
+            "text": "what it should learn"
+          },
+          {
+            "text": ". For example, when designing a receiver, one can first identify which relationships have reliable physical or mathematical descriptions and which computations become inaccurate when idealized assumptions diverge from actual channel conditions. Learning can then be applied to those sensitive computations. Theory provides structure and constraints for learning, while data helps capture aspects of the real environment that the model describes poorly."
+          }
+        ]
+      },
+      {
+        "type": "h3",
         "text": "(2) Knowledge-Guided Reinforcement Learning"
       },
       {
