@@ -23,7 +23,7 @@
     root.replaceChildren();
     let slug;
     try { slug = decodeURIComponent(location.hash.slice(1)); } catch { slug = "invalid"; }
-    const post = posts.find(p => p.slug === slug);
+    const post = posts.find(p => p.slug === slug || p.aliases?.includes(slug));
     let title = "Notes & Reflections";
     let description = "Notes & Reflections";
     if (!slug) {
