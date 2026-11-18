@@ -162,3 +162,26 @@
   .theme-editorial .disclosure-content .publication h4,
   .theme-editorial .disclosure-content .project h4 { font-size: 17px; }
 }
+
+/* TMC: explain the rare-event insight before the methods gallery. */
+.publication-insight { margin: 0 0 28px; padding: 24px; border: 1px solid var(--line-strong); border-radius: 10px; background: rgb(var(--palette-accent-rgb) / 3%); }
+.publication-insight-kicker { margin: 0 0 8px; color: var(--link); font-size: 11px; font-weight: 650; letter-spacing: .09em; text-transform: uppercase; }
+.theme-editorial .disclosure-content .publication .publication-insight-title { margin: 0 0 10px; font-size: 23px; line-height: 1.3; }
+.publication-insight-intro { max-width: 70ch; margin: 0 0 22px; color: var(--muted); font-size: 15px; line-height: 1.7; }
+.publication-insight-charts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.publication-insight-chart { display: flex; flex-direction: column; min-width: 0; margin: 0; padding: 18px; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+.publication-insight-chart figcaption { flex: 1; }
+.publication-insight-chart h5 { margin: 0 0 8px; color: var(--heading); font-family: var(--display); font-size: 18px; font-weight: 650; line-height: 1.4; }
+.publication-insight-chart figcaption p { margin: 0 0 16px; color: var(--muted); font-size: 14px; line-height: 1.65; }
+.publication-insight-chart a { display: block; padding: 8px; border-radius: 4px; background: #fff; }
+.publication-insight-chart a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.publication-insight-chart img { display: block; width: 100%; height: auto; }
+.publication-insight-source { margin: 10px 0 0; color: var(--muted); font-size: 11px; }
+.publication-insight-takeaway { margin: 22px 0 0; padding-left: 16px; border-left: 3px solid var(--accent); color: var(--heading); font-size: 15px; line-height: 1.75; }
+.publication-insight-note { margin: 12px 0 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
+@media (max-width: 760px) {
+  .publication-insight { padding: 18px 16px; }
+  .publication-insight-charts { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .publication-insight-chart { padding: 16px; }
+  .theme-editorial .disclosure-content .publication .publication-insight-title { font-size: 21px; }
+}

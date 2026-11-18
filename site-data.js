@@ -139,6 +139,17 @@ window.SITE_DATA = {
           },
         ],
         highlights: {
+          label: "Key insight, method & results",
+          insight: {
+            title: "When average cover is not enough",
+            intro: "A mission can look well hidden on average and still have vulnerable moments. Our risk-aware perspective asks what happens when the signal suddenly strengthens or its background cover briefly fades.",
+            figures: [
+              { src: "assets/publications/tmc-signal-spikes.webp", alt: "Exposure risk falls as the UAV-to-monitor channel becomes less variable; averaging over more fading blocks also reduces risk", title: "A sudden signal spike", caption: "An unusually strong signal at the monitor can make a transmission easier to detect. Smoothing these spikes reduces exposure risk.", source: "Paper Fig. 2(a)", width: 716, height: 580 },
+              { src: "assets/publications/tmc-cover-fades.webp", alt: "Exposure risk falls as the background interference channel becomes less prone to deep fades, at fixed average interference power", title: "A brief loss of cover", caption: "Background interference helps hide the transmission, but a deep fade can briefly remove that protection. Fewer deep fades mean fewer vulnerable moments.", source: "Paper Fig. 2(b)", width: 726, height: 580 },
+            ],
+            takeaway: "At the same average cover level, reducing sudden losses of protection can lower exposure risk. This is why we account for rare events when planning where and when the UAV transmits.",
+            note: "Theorem 1 · Trends shown for the high-covertness and low-leakage conditions analyzed in the paper.",
+          },
           intro: "From a non-convex no-fly zone to tractable flight corridors for joint trajectory and offloading optimization.",
           figures: [
             { src: "assets/publications/tmc-homotopy-paths.png", alt: "Two distinct routes around opposite sides of a polygonal no-fly zone on a visibility graph", title: "Choose distinct bypass routes", caption: "A visibility graph identifies routes around different sides of the no-fly zone, retaining distinct homotopy classes.", source: "Paper Fig. 3(a)" },

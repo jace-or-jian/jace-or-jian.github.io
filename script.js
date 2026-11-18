@@ -256,8 +256,41 @@
       }
       if (item.highlights) {
         const details = el("details", "publication-highlights");
-        const summary = el("summary", "publication-highlights-toggle", "Method & key results");
+        const summary = el("summary", "publication-highlights-toggle", item.highlights.label || "Method & key results");
         const panel = el("div", "publication-highlights-content");
+        if (item.highlights.insight) {
+          const insight = item.highlights.insight;
+          const overview = el("section", "publication-insight");
+          overview.append(
+            el("p", "publication-insight-kicker", "Risk-aware perspective"),
+            el("h4", "publication-insight-title", insight.title),
+            el("p", "publication-insight-intro", insight.intro),
+          );
+          const charts = el("div", "publication-insight-charts");
+          insight.figures.forEach((figure) => {
+            const card = el("figure", "publication-insight-chart");
+            const caption = el("figcaption");
+            caption.append(el("h5", "", figure.title), el("p", "", figure.caption));
+            const link = externalLink("", figure.src);
+            link.target = "_blank";
+            link.rel = "noopener noreferrer";
+            link.setAttribute("aria-label", `Open full-size figure: ${figure.title}`);
+            const image = el("img");
+            image.src = figure.src;
+            image.alt = figure.alt;
+            image.width = figure.width;
+            image.height = figure.height;
+            image.loading = "lazy";
+            image.decoding = "async";
+            link.append(image);
+            card.append(caption, link, el("p", "publication-insight-source", figure.source));
+            charts.append(card);
+          });
+          const takeaway = el("p", "publication-insight-takeaway");
+          takeaway.append(el("strong", "", "Why this matters. "), document.createTextNode(insight.takeaway));
+          overview.append(charts, takeaway, el("p", "publication-insight-note", insight.note));
+          panel.append(overview);
+        }
         panel.append(el("p", "publication-highlights-intro", item.highlights.intro));
         const grid = el("div", "publication-highlights-grid");
         if (item.highlights.steps?.length) {
