@@ -2,7 +2,7 @@
 window.BLOG_POSTS = [
   {
     "slug": "understanding-deep-learning-data-to-features",
-    "title": "Understanding Deep Learning: How Does Data Become Features?",
+    "title": "From Data to Features: How Neural Networks Learn",
     "lang": "en",
     "published": true,
     "summary": "How training updates parameters, how neural networks construct features, and how depth and task objectives shape learned representations.",
