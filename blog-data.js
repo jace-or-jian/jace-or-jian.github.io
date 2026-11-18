@@ -1,6 +1,386 @@
 // Personal study notes, displayed in array order.
 window.BLOG_POSTS = [
   {
+    "slug": "understanding-deep-learning-data-to-features",
+    "title": "Understanding Deep Learning: How Does Data Become Features?",
+    "lang": "en",
+    "published": true,
+    "summary": "How training updates parameters, how neural networks construct features, and how depth and task objectives shape learned representations.",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "We often say that, through training, a deep learning model learns to recognise images, understand text, or predict an outcome."
+      },
+      {
+        "type": "p",
+        "text": "At the level of computation, this process is straightforward: the computer receives numerical data, performs a series of mathematical operations, and produces more numbers. A photograph, a cat, or the digit 8 enters the model as a numerical representation."
+      },
+      {
+        "type": "p",
+        "text": "Learning takes place through changes to the way these numbers are transformed."
+      },
+      {
+        "type": "p",
+        "text": "During training, a neural network continually adjusts its internal parameters so that raw data, after passing through multiple layers of computation, takes on a representation that helps solve a particular task. Understanding this process involves four connected ideas: parameters, features, network layers, and task objectives."
+      },
+      {
+        "type": "h2",
+        "text": "1. Training Changes the Parameters Within a Fixed Architecture"
+      },
+      {
+        "type": "p",
+        "text": "A neural network has two main components: its architecture and its parameters."
+      },
+      {
+        "type": "p",
+        "text": "The architecture determines how many layers the data passes through and how those layers are connected. The parameters determine the numerical transformations performed along those connections. We commonly describe these parameters as weights W and biases b."
+      },
+      {
+        "type": "p",
+        "text": "The architecture establishes the computational path; the parameters determine the specific calculations along it."
+      },
+      {
+        "type": "p",
+        "text": "Consider handwritten digit recognition. Suppose we feed the network an image labelled as the digit 7. After a series of calculations, it might produce the following predicted probabilities:"
+      },
+      {
+        "type": "ul",
+        "items": [
+          "Digit 7: 0.15",
+          "Digit 1: 0.70",
+          "Digit 9: 0.10",
+          "Other digits combined: 0.05"
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The model's highest-scoring prediction is wrong."
+      },
+      {
+        "type": "p",
+        "text": "Training aims to reduce errors like this."
+      },
+      {
+        "type": "p",
+        "text": "The network first performs a forward pass, using its current weights and biases to calculate a prediction. A loss function then measures the discrepancy between that prediction and the true label. Backpropagation computes the gradients of the loss with respect to the parameters. An optimiser uses those gradients to update the weights and biases."
+      },
+      {
+        "type": "figure",
+        "src": "assets/notes/deep-learning-forward-backpropagation.png",
+        "alt": "Forward computation produces a prediction, the loss function compares it with the true labels, and backpropagation computes gradients through the network.",
+        "width": 2513,
+        "height": 1313,
+        "caption": "Figure 1. The training process: a forward pass produces a prediction, and backpropagation computes gradients that an optimiser uses to update the parameters."
+      },
+      {
+        "type": "p",
+        "text": "This process repeats over many training examples. As training progresses, the parameters change, and so do the network's outputs. Digits that the model initially confused become easier to distinguish."
+      },
+      {
+        "type": "p",
+        "text": "Training primarily searches for a suitable set of parameters that enables a given network architecture to perform its task.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Training primarily searches for a suitable set of parameters that enables a given network architecture to perform its task."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Once the trained model is put to use, it enters the inference stage."
+      },
+      {
+        "type": "p",
+        "text": "During inference, the model usually keeps its parameters fixed. Given a new handwritten digit image, it performs a forward pass using the learned weights and biases to produce a prediction."
+      },
+      {
+        "type": "p",
+        "text": "Parameter updates are therefore a central difference between training and inference. During training, prediction errors guide parameter updates; during inference, the model normally uses the current parameters to calculate an output."
+      },
+      {
+        "type": "p",
+        "text": "Training produces a set of learned parameters. The model can recognise new images because those parameters encode patterns learned from the training data."
+      },
+      {
+        "type": "h2",
+        "text": "2. Features Are Representations Formed by Transforming Data"
+      },
+      {
+        "type": "p",
+        "text": "The parameters determine how the data changes inside the network."
+      },
+      {
+        "type": "p",
+        "text": "Consider a handwritten digit image with a size of 28 × 28 pixels. The computer receives 784 pixel values, each describing the brightness at a particular location."
+      },
+      {
+        "type": "p",
+        "text": "For example:"
+      },
+      {
+        "type": "pre",
+        "text": "[0, 0, 12, 255, 180, ...]"
+      },
+      {
+        "type": "p",
+        "text": "These are the raw input values."
+      },
+      {
+        "type": "p",
+        "text": "They are arranged by pixel location, and the digit's shape is encoded in their spatial pattern. The network must transform this pattern into a representation useful for recognition."
+      },
+      {
+        "type": "p",
+        "text": "This is the process of feature extraction."
+      },
+      {
+        "type": "p",
+        "text": "Each layer computes a transformation of the preceding layer's output. A basic fully connected layer can be written as:"
+      },
+      {
+        "type": "equation",
+        "text": "h = f(Wx + b)"
+      },
+      {
+        "type": "p",
+        "text": "Here, x is the input, W and b are the weights and biases, f is the activation function, and h is the layer's output."
+      },
+      {
+        "type": "p",
+        "text": "Through successive transformations, the original 784 pixel values become new numerical representations."
+      },
+      {
+        "type": "p",
+        "text": "For example, one layer might output:"
+      },
+      {
+        "type": "pre",
+        "text": "[0.92, 0.05, 0.88, 0.01, ...]"
+      },
+      {
+        "type": "p",
+        "text": "This sequence of numbers is the feature representation formed at that layer."
+      },
+      {
+        "type": "p",
+        "text": "Each value contributes to a representation constructed by the network. Its role depends on the learned parameters and on how later layers use it. A recognisable concept can be represented across many values, while a single value can contribute to several patterns."
+      },
+      {
+        "type": "p",
+        "text": "The network constructs features through mathematical transformations of the input.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "The network constructs features through mathematical transformations of the input."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Raw data contains many kinds of information, with different degrees of relevance to the task. Multiple layers can gradually reorganise that information into a form that makes useful patterns easier for subsequent computations to use."
+      },
+      {
+        "type": "p",
+        "text": "For handwritten digit recognition, the network needs a representation that helps distinguish digits across variations in pixel brightness and writing style."
+      },
+      {
+        "type": "p",
+        "text": "Deep learning therefore involves learning both how to compute and how to represent data."
+      },
+      {
+        "type": "h2",
+        "text": "3. More Layers Enable More Complex Feature Combinations"
+      },
+      {
+        "type": "p",
+        "text": "A single layer can transform data. Stacking layers allows the network to compose these transformations and build more complex representations."
+      },
+      {
+        "type": "p",
+        "text": "Consider handwritten digit recognition again."
+      },
+      {
+        "type": "p",
+        "text": "A single pixel indicates brightness at one location. Recognising a line requires relationships between pixels; recognising the digit 8 requires relationships across the image."
+      },
+      {
+        "type": "p",
+        "text": "The network builds representations at different levels."
+      },
+      {
+        "type": "p",
+        "text": "In typical image recognition networks, layers near the input often learn local patterns such as edges, orientations, and textures."
+      },
+      {
+        "type": "p",
+        "text": "Later layers combine these local patterns into more complex structures. Line segments in different directions may form a contour, and several contours may combine into a more complete shape."
+      },
+      {
+        "type": "p",
+        "text": "Deeper layers can form representations associated with overall structure and object categories."
+      },
+      {
+        "type": "figure",
+        "src": "assets/notes/deep-learning-feature-visualization.png",
+        "alt": "Feature visualisations progress from edges and textures to patterns, parts, and object-like structures across layers of GoogLeNet.",
+        "width": 1035,
+        "height": 460,
+        "caption": "Figure 2. Feature visualisations from different layers of GoogLeNet, ranging from edges and textures to patterns, parts, and object-like structures. These synthesised images illustrate patterns that strongly activate selected channels."
+      },
+      {
+        "type": "p",
+        "text": "For the digit 8, a useful overall pattern is the arrangement of two loop-like structures, one above the other, across variations in the individual curves."
+      },
+      {
+        "type": "p",
+        "text": "This is the idea of a feature hierarchy: relatively simple local patterns are combined into more complex structures and, eventually, representations useful for the task."
+      },
+      {
+        "type": "p",
+        "text": "Each layer transforms the current representation. Some information is retained, some is weakened, and new relationships between components emerge."
+      },
+      {
+        "type": "p",
+        "text": "Depth provides more stages of computation for building these relationships. It describes the opportunity to construct increasingly complex representations, rather than the amount of information stored."
+      },
+      {
+        "type": "p",
+        "text": "This progression from local patterns to higher-level representations is particularly intuitive in image recognition. Its specific form depends on the network architecture and the task."
+      },
+      {
+        "type": "p",
+        "text": "The value of depth lies in the ability to combine and transform information through successive computational stages."
+      },
+      {
+        "type": "h2",
+        "text": "4. The Task Objective Shapes What the Model Learns to Use"
+      },
+      {
+        "type": "p",
+        "text": "The training objective guides the representations formed throughout the network."
+      },
+      {
+        "type": "p",
+        "text": "The same data can lead to very different feature representations under different tasks."
+      },
+      {
+        "type": "p",
+        "text": "Suppose we train two models on face images: one for identity recognition and another for facial expression recognition."
+      },
+      {
+        "type": "p",
+        "text": "Both receive face images, but the information they need differs."
+      },
+      {
+        "type": "p",
+        "text": "The identity recognition model must determine whether two images show the same person. Lighting, expression, and camera angle can interfere with this judgment. The model therefore needs to preserve information useful for distinguishing identities while reducing the effect of these variations."
+      },
+      {
+        "type": "p",
+        "text": "For expression recognition, changes around the mouth, eyebrows, and eyes can be essential evidence. The model needs to remain sensitive to these changes because they help distinguish expressions."
+      },
+      {
+        "type": "p",
+        "text": "The same face image can therefore produce substantially different representations in the two models."
+      },
+      {
+        "type": "p",
+        "text": "These differences arise from the training objectives."
+      },
+      {
+        "type": "p",
+        "text": "For identity recognition, a useful feature space places different photographs of the same person close together while separating different identities."
+      },
+      {
+        "type": "p",
+        "text": "For expression recognition, a useful representation captures similarities between images with the same expression and distinguishes different expressions."
+      },
+      {
+        "type": "p",
+        "text": "During training, the loss function provides an optimisation signal based on the model's current predictions. Backpropagation and parameter updates change the network's computations, gradually shaping representations that support the task."
+      },
+      {
+        "type": "p",
+        "text": "The representation develops under the combined influence of the task, the training data, and the network architecture."
+      },
+      {
+        "type": "p",
+        "text": "What information is worth retaining, and what variation can be ignored, depends largely on the problem the model needs to solve."
+      },
+      {
+        "type": "p",
+        "text": "Feature extraction is therefore a goal-directed process of organising information. The same input can be represented differently when the objective changes."
+      },
+      {
+        "type": "h2",
+        "text": "5. Deep Learning Learns Parameters and Representations Together"
+      },
+      {
+        "type": "p",
+        "text": "A network architecture provides a path for processing data through successive layers. During training, the loss function, backpropagation, and the optimiser guide updates to the weights and biases, shaping the calculations performed along that path."
+      },
+      {
+        "type": "p",
+        "text": "As data passes through the layers, it takes on different feature representations. Shallow layers may capture local patterns, while deeper layers may form more complex and abstract representations."
+      },
+      {
+        "type": "p",
+        "text": "The task objective guides this process. The model learns to represent information in a way that helps it solve the task."
+      },
+      {
+        "type": "p",
+        "text": "Two connected learning processes are involved:"
+      },
+      {
+        "type": "p",
+        "text": "Learning parameters. Updating the weights and biases changes how the network processes data.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Learning parameters."
+          },
+          {
+            "tag": "span",
+            "text": " Updating the weights and biases changes how the network processes data."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Learning representations. Successive transformations produce features useful for the task.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "Learning representations."
+          },
+          {
+            "tag": "span",
+            "text": " Successive transformations produce features useful for the task."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "These processes happen together. Parameters determine how features are formed, while the training objective influences parameter updates through the loss and its gradients. Together, they shape the representations the model develops."
+      },
+      {
+        "type": "p",
+        "text": "When a model learns to recognise the digit 8, training has produced a numerical computation that can identify relevant patterns in the input and use them to make a prediction."
+      },
+      {
+        "type": "p",
+        "text": "The model learns to construct useful features from data and use those features to perform a task.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "The model learns to construct useful features from data and use those features to perform a task."
+          }
+        ]
+      }
+    ]
+  },
+  {
     "slug": "thz-bandwidth-and-beam-alignment",
     "title": "THz Propagation and Beam Alignment",
     "lang": "en",
