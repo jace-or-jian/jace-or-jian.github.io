@@ -1,6 +1,175 @@
 // Personal study notes, displayed in array order.
 window.BLOG_POSTS = [
   {
+    "slug": "from-mmwave-to-thz",
+    "title": "From mmWave to THz",
+    "lang": "en",
+    "published": true,
+    "summary": "How spatial reuse helped millimeter-wave cellular networks take shape, and why terahertz communications bring new constraints in propagation, hardware, beam control, and deployment cost.",
+    "blocks": [
+      {
+        "type": "p",
+        "text": "As mobile data demand grows, operators seek greater spatial reuse: using the same spectrum simultaneously at different locations. This naturally drives urban cellular networks toward denser deployments and smaller cells. That trend, in turn, creates a setting well suited to millimeter-wave communications. Over short links, such as those in a roughly 200-meter microcell, rain attenuation and atmospheric absorption in suitable frequency bands can become manageable additions to the link budget, even if they appear prohibitive when evaluated over kilometers. Meanwhile, the abundant bandwidth and compact directional antenna arrays available at millimeter-wave frequencies offer precisely the capacity that small cells need. The demand for spatial reuse and the strengths of short-range, wideband, directional transmission fit together naturally. Advances in chip technology and wireless backhaul further help turn this physical compatibility into practical deployment opportunities.",
+        "parts": [
+          {
+            "text": "As mobile data demand grows, operators seek greater spatial reuse: using the same spectrum simultaneously at different locations. This naturally drives urban cellular networks toward denser deployments and smaller cells. "
+          },
+          {
+            "tag": "strong",
+            "text": "That trend, in turn, creates a setting well suited to millimeter-wave communications."
+          },
+          {
+            "text": " Over short links, such as those in a roughly 200-meter microcell, rain attenuation and atmospheric absorption in suitable frequency bands can become manageable additions to the link budget, even if they appear prohibitive when evaluated over kilometers. Meanwhile, the abundant bandwidth and compact directional antenna arrays available at millimeter-wave frequencies offer precisely the capacity that small cells need. "
+          },
+          {
+            "tag": "strong",
+            "text": "The demand for spatial reuse and the strengths of short-range, wideband, directional transmission fit together naturally."
+          },
+          {
+            "text": " Advances in chip technology and wireless backhaul further help turn this physical compatibility into practical deployment opportunities."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The same pursuit of capacity makes sub-terahertz and terahertz communications natural directions to explore for 6G. More bandwidth and more compact antenna arrays promise higher data rates and greater spatial reuse within smaller areas. But moving to higher frequencies requires more than simply shrinking a millimeter-wave cell: it also changes the constraints imposed by propagation, RF hardware, and beam control.",
+        "parts": [
+          {
+            "text": "The same pursuit of capacity makes sub-terahertz and terahertz communications natural directions to explore for 6G. More bandwidth and more compact antenna arrays promise higher data rates and greater spatial reuse within smaller areas. "
+          },
+          {
+            "tag": "strong",
+            "text": "But moving to higher frequencies requires more than simply shrinking a millimeter-wave cell: it also changes the constraints imposed by propagation, RF hardware, and beam control."
+          }
+        ]
+      },
+      {
+        "type": "figure",
+        "src": "assets/notes/mmwave-to-thz-propagation.png",
+        "alt": "Frequency-dependent free-space path loss and atmospheric absorption for a 100-meter link, with shaded regions marking legacy wireless, 5G millimeter-wave, and terahertz frequencies.",
+        "caption": "Propagation from mmWave to THz. Free-space path loss and atmospheric absorption over a 100 m link at 15 °C and 59% relative humidity. Source: Josep M. Jornet, Edward W. Knightly, and Daniel M. Mittleman, Nature Communications (2023), Fig. 1. Reproduced without modification under CC BY 4.0.",
+        "maxWidth": 685,
+        "width": 996,
+        "height": 827
+      },
+      {
+        "type": "source",
+        "label": "Source: Wireless communications sensing and security above 100 GHz — Jornet et al. (2023), Fig. 1",
+        "url": "https://doi.org/10.1038/s41467-023-36621-x"
+      },
+      {
+        "type": "source",
+        "label": "Image license: Creative Commons Attribution 4.0 (CC BY 4.0)",
+        "url": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      {
+        "type": "p",
+        "text": "At 140–300 GHz and beyond, weaker diffraction makes it harder for signals to reach around corners and maintain connections under blockage. When surface roughness becomes significant relative to the wavelength, reflections can also exhibit stronger diffuse scattering. Meanwhile, molecular absorption peaks, particularly those associated with water vapor, create substantial differences in attenuation across frequency bands, making the choice of transmission window dependent on both distance and atmospheric conditions. Continuous coverage therefore often requires shorter links, more careful node placement, and alternative propagation paths. The achievable range still depends on frequency, antenna gain, transmit power, and the deployment environment; there is no universal “tens-of-meters limit.”"
+      },
+      {
+        "type": "figure",
+        "src": "assets/notes/thz-transmission-windows.png",
+        "alt": "Atmospheric transmittance from 100 GHz to 1 THz, with seven transmission windows marked between molecular absorption features for a 100-meter sea-level link.",
+        "caption": "Transmission windows above 100 GHz. Seven transmission windows identified by ETSI between 100 GHz and 1 THz for a 100 m sea-level link at 15 °C and a water vapor density of 7.5 g/m³. Source: Theodore S. Rappaport, Todd E. Humphreys, and Shuai Nie, npj Wireless Technology (2025), Fig. 4. Reproduced without modification under CC BY-NC-ND 4.0.",
+        "maxWidth": 685,
+        "width": 685,
+        "height": 507
+      },
+      {
+        "type": "source",
+        "label": "Source: Spectrum opportunities for the wireless future: from direct-to-device satellite applications to 6G cellular — Rappaport et al. (2025), Fig. 4",
+        "url": "https://doi.org/10.1038/s44459-025-00008-9"
+      },
+      {
+        "type": "source",
+        "label": "Image license: Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 (CC BY-NC-ND 4.0)",
+        "url": "https://creativecommons.org/licenses/by-nc-nd/4.0/"
+      },
+      {
+        "type": "p",
+        "text": "A deeper challenge is that shortening the link can reduce propagation loss, but it does not automatically resolve RF hardware and power constraints. As operating frequencies approach the high-frequency capabilities of the chosen transistor technology, it becomes harder to achieve sufficient amplifier gain, output power, and efficiency simultaneously. Frequency multiplication also amplifies phase noise. The system must therefore answer two questions: how much signal survives the channel, and how much power the hardware consumes to generate a sufficiently strong and clean signal in the first place. Terahertz communications do not simply transition from being “channel-limited” to being “hardware-limited.” Instead, propagation loss, RF capability, and energy budgets become increasingly intertwined.",
+        "parts": [
+          {
+            "text": "A deeper challenge is that "
+          },
+          {
+            "tag": "strong",
+            "text": "shortening the link can reduce propagation loss, but it does not automatically resolve RF hardware and power constraints."
+          },
+          {
+            "text": " As operating frequencies approach the high-frequency capabilities of the chosen transistor technology, it becomes harder to achieve sufficient amplifier gain, output power, and efficiency simultaneously. Frequency multiplication also amplifies phase noise. The system must therefore answer two questions: how much signal survives the channel, and how much power the hardware consumes to generate a sufficiently strong and clean signal in the first place. Terahertz communications do not simply transition from being “channel-limited” to being “hardware-limited.” Instead, "
+          },
+          {
+            "tag": "strong",
+            "text": "propagation loss, RF capability, and energy budgets become increasingly intertwined."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "Compensating for link loss with high-gain antenna arrays introduces another set of challenges. For a fixed physical aperture, the Rayleigh distance, 2D²/λ, increases as the wavelength decreases. When users fall within the radiative near field of a large-aperture array, the conventional plane-wave approximation may no longer be adequate. Beam design then extends from primarily steering toward an angle to focusing at a location defined by both angle and distance. This provides an additional distance dimension for separating users, while making channel estimation and beam tracking more demanding. Ultra-wideband transmission adds another complication: with conventional phase shifters, beams can shift with frequency, causing different subcarriers to point in different directions or focus at different locations. A new tension emerges: maintaining the link calls for larger arrays and more concentrated energy, yet larger arrays and wider bandwidths make precise focusing and continuous tracking more difficult.",
+        "parts": [
+          {
+            "text": "Compensating for link loss with high-gain antenna arrays introduces another set of challenges. For a fixed physical aperture, the Rayleigh distance, 2D²/λ, increases as the wavelength decreases. When users fall within the radiative near field of a large-aperture array, the conventional plane-wave approximation may no longer be adequate. Beam design then extends from primarily "
+          },
+          {
+            "tag": "strong",
+            "text": "steering toward an angle to focusing at a location defined by both angle and distance"
+          },
+          {
+            "text": ". This provides an additional distance dimension for separating users, while making channel estimation and beam tracking more demanding. Ultra-wideband transmission adds another complication: with conventional phase shifters, beams can shift with frequency, causing different subcarriers to point in different directions or focus at different locations. A new tension emerges: "
+          },
+          {
+            "tag": "strong",
+            "text": "maintaining the link calls for larger arrays and more concentrated energy, yet larger arrays and wider bandwidths make precise focusing and continuous tracking more difficult."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "These technical constraints eventually meet the economics of deployment. Shorter links and denser access can help sustain connections and increase local capacity. But coverage areas can shrink without deployment costs shrinking alongside them. Every additional site brings its own requirements for space, power, backhaul, and maintenance. Millimeter-wave technology found a natural fit with urban small-cell deployments; at terahertz frequencies, that fit faces tighter hardware and cost constraints. For mobile access, short-range, high-capacity hotspots therefore become a natural starting point, while lower-frequency bands remain essential to wide-area coverage.",
+        "parts": [
+          {
+            "text": "These technical constraints eventually meet the economics of deployment. Shorter links and denser access can help sustain connections and increase local capacity. "
+          },
+          {
+            "tag": "strong",
+            "text": "But coverage areas can shrink without deployment costs shrinking alongside them."
+          },
+          {
+            "text": " Every additional site brings its own requirements for space, power, backhaul, and maintenance. Millimeter-wave technology found a natural fit with urban small-cell deployments; at terahertz frequencies, that fit faces tighter hardware and cost constraints. For mobile access, short-range, high-capacity hotspots therefore become a natural starting point, while lower-frequency bands remain essential to wide-area coverage."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "The tension between needing denser access and being unable to afford an ever-growing number of full base stations is an important motivation behind research into RIS, Cell-Free architectures, and related approaches. If installing a complete base station on every street corner is too expensive and power-hungry, could lighter infrastructure improve coverage and capacity? Reconfigurable intelligent surfaces (RIS) explore this possibility by placing controllable electromagnetic panels on walls and other structures. Acting like “programmable mirrors,” they redirect signals from existing base stations toward coverage gaps, potentially reducing the need for some additional small cells. Cell-Free architectures distribute service across multiple access points, using centralized or distributed processing to let several nodes serve users cooperatively. They explore whether coordinated access can use resources more efficiently than a collection of independently operating base stations. Whether either approach reduces total cost depends on the overhead of control, backhaul, and coordination. Their shared ambition, however, is clear: to obtain more coverage and capacity by improving how the propagation environment and the network are organized.",
+        "parts": [
+          {
+            "tag": "strong",
+            "text": "The tension between needing denser access and being unable to afford an ever-growing number of full base stations is an important motivation behind research into RIS, Cell-Free architectures, and related approaches."
+          },
+          {
+            "text": " If installing a complete base station on every street corner is too expensive and power-hungry, could lighter infrastructure improve coverage and capacity? Reconfigurable intelligent surfaces (RIS) explore this possibility by placing controllable electromagnetic panels on walls and other structures. Acting like “programmable mirrors,” they redirect signals from existing base stations toward coverage gaps, potentially reducing the need for some additional small cells. Cell-Free architectures distribute service across multiple access points, using centralized or distributed processing to let several nodes serve users cooperatively. They explore whether coordinated access can use resources more efficiently than a collection of independently operating base stations. Whether either approach reduces total cost depends on the overhead of control, backhaul, and coordination. Their shared ambition, however, is clear: to obtain more coverage and capacity by improving how the propagation environment and the network are organized."
+          }
+        ]
+      },
+      {
+        "type": "p",
+        "text": "From millimeter waves to terahertz, the underlying logic remains the same: use wider bandwidth and greater spatial reuse to increase capacity. What becomes more pronounced is the interaction among propagation, hardware, and deployment costs. If millimeter-wave development benefited from a natural alignment between small-cell demand and high-frequency capabilities, terahertz communications pose a further question: when shorter links help sustain connectivity but additional nodes become increasingly expensive, how can beam focusing, propagation control, and distributed cooperation unlock more spatial reuse at an affordable system cost?",
+        "parts": [
+          {
+            "text": "From millimeter waves to terahertz, the underlying logic remains the same: use wider bandwidth and greater spatial reuse to increase capacity. What becomes more pronounced is the interaction among propagation, hardware, and deployment costs. "
+          },
+          {
+            "tag": "strong",
+            "text": "If millimeter-wave development benefited from a natural alignment between small-cell demand and high-frequency capabilities, terahertz communications pose a further question: when shorter links help sustain connectivity but additional nodes become increasingly expensive, how can beam focusing, propagation control, and distributed cooperation unlock more spatial reuse at an affordable system cost?"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "slug": "understanding-deep-learning-data-to-features",
     "title": "From Data to Features: How Neural Networks Learn",
     "lang": "en",
