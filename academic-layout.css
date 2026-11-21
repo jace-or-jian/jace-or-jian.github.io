@@ -2,10 +2,33 @@
 html { scroll-padding-top: 64px; }
 
 body.theme-editorial {
+  /* Screen palette inspired by CQU's blue; the official standard is CMYK. */
+  --palette-bg: #ffffff;
+  --palette-surface: #ffffff;
+  --palette-primary: #252e39;
+  --palette-secondary: #4c5663;
+  --palette-accent: #004098;
+  --palette-highlight: #004098;
+  --palette-bg-rgb: 255 255 255;
+  --palette-surface-rgb: 255 255 255;
+  --palette-primary-rgb: 37 46 57;
+  --palette-secondary-rgb: 76 86 99;
+  --palette-accent-rgb: 0 64 152;
+  --palette-highlight-rgb: 0 64 152;
+  --paper: #ffffff;
+  --surface: #ffffff;
+  --surface-muted: #f6f8fb;
+  --ink: var(--palette-primary);
+  --heading: var(--palette-primary);
+  --muted: var(--palette-secondary);
+  --link: var(--palette-accent);
+  --accent: var(--palette-accent);
+  --accent-dark: #002d6b;
+  --accent-soft: rgb(0 64 152 / 6%);
   --page-width: 1160px;
   --sidebar-width: 190px;
-  --line: #e8ebef;
-  --line-strong: #dce1e7;
+  --line: #e7ebf0;
+  --line-strong: #dbe2eb;
   background: #fff;
   font-size: 16px;
   line-height: 1.7;
@@ -18,9 +41,10 @@ body.theme-editorial::before { display: none; }
   min-height: 64px;
   padding-inline: max(28px, calc((100% - var(--page-width)) / 2));
   gap: 40px;
-  border-bottom: 1px solid var(--line);
-  background: rgb(255 255 255 / 97%);
+  border-bottom: 1px solid var(--accent);
+  background: var(--accent);
   box-shadow: none;
+  backdrop-filter: none;
 }
 
 .theme-editorial .nav-links { justify-content: space-between; gap: 20px; }
@@ -79,7 +103,7 @@ body.theme-editorial::before { display: none; }
   padding: 26px 28px;
   border: 1px solid var(--line-strong);
   border-radius: 10px;
-  background: #fbfcfe;
+  background: #fff;
   box-shadow: none;
   animation: none;
 }
@@ -178,6 +202,44 @@ body.theme-editorial::before { display: none; }
 .theme-editorial .news-date { font-size: 14px; font-weight: 500; letter-spacing: 0; }
 .theme-editorial .news-item p { font-size: 16px; line-height: 1.65; }
 .theme-editorial footer { margin-top: 8px; padding: 24px 0; font-size: 13px; letter-spacing: 0; }
+
+/* One blue navigation band, with neutral surfaces throughout the content. */
+.theme-editorial .desktop-nav .nav-home,
+.theme-editorial .desktop-nav .nav-home:hover,
+.theme-editorial .desktop-nav .nav-link,
+.theme-editorial .desktop-nav .nav-link:hover,
+.theme-editorial .desktop-nav .nav-link.is-active { color: #fff; }
+.theme-editorial .desktop-nav .nav-link { opacity: .8; }
+.theme-editorial .desktop-nav .nav-link:hover,
+.theme-editorial .desktop-nav .nav-link.is-active { opacity: 1; }
+.theme-editorial .desktop-nav .nav-link::after { background: #fff; }
+.theme-editorial .desktop-nav a:focus-visible { outline-color: #fff; }
+.theme-editorial .mobile-header { background: var(--accent); border-color: var(--accent); box-shadow: none; backdrop-filter: none; }
+.theme-editorial .mobile-header .mobile-brand,
+.theme-editorial .mobile-header .brand-mark { color: #fff; }
+.theme-editorial .mobile-header .brand-mark { border-color: rgb(255 255 255 / 55%); }
+.theme-editorial .mobile-header .menu-button span { background: #fff; }
+.theme-editorial .mobile-header a:focus-visible,
+.theme-editorial .mobile-header button:focus-visible { outline-color: #fff; }
+.theme-editorial .mobile-nav { background: #fff; }
+.theme-editorial .mobile-nav .nav-link.is-active { color: var(--link); }
+.theme-editorial .sidebar-inner .profile h1 { color: var(--heading); }
+.theme-editorial .sidebar-inner .profile-meta .meta-item { color: var(--muted); }
+.theme-editorial .sidebar-inner .profile-meta .meta-item a { color: var(--link); }
+.theme-editorial .sidebar-inner .profile-meta .meta-icon { color: var(--muted); }
+.theme-editorial .button { box-shadow: none; }
+.theme-editorial .button-primary { color: #fff; background: var(--accent); border-color: var(--accent); }
+.theme-editorial .button-primary:hover,
+.theme-editorial .button-primary.is-copied { color: #fff; background: var(--accent-dark); border-color: var(--accent-dark); box-shadow: none; }
+.theme-editorial .publication-extension,
+.theme-editorial .publication-insight,
+.theme-editorial .method-flow { background: var(--surface-muted); box-shadow: none; }
+.theme-editorial .publication-figure a,
+.theme-editorial .project-figure a,
+.theme-editorial .publication-extension-preview { background: #fff; }
+.theme-editorial .publication-figure a:hover,
+.theme-editorial .project-figure a:hover { background: var(--surface-muted); }
+.theme-editorial .publication-extension-preview-caption { background: #fff; }
 
 @media (min-width: 821px) and (max-height: 580px) {
   .theme-editorial .sidebar-inner { position: static; }
