@@ -42,8 +42,7 @@ body.theme-editorial::before { display: none; }
 }
 
 .theme-editorial .sidebar-inner {
-  position: sticky;
-  top: 94px;
+  position: static;
   padding: 0;
   border: 0;
   background: transparent;
