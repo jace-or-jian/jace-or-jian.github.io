@@ -3,7 +3,7 @@ html { scroll-padding-top: 64px; }
 
 body.theme-editorial {
   --page-width: 1160px;
-  --sidebar-width: 220px;
+  --sidebar-width: 190px;
   --line: #e8ebef;
   --line-strong: #dce1e7;
   background: #fff;
@@ -17,7 +17,7 @@ body.theme-editorial::before { display: none; }
   width: 100%;
   min-height: 64px;
   padding-inline: max(28px, calc((100% - var(--page-width)) / 2));
-  gap: 48px;
+  gap: 40px;
   border-bottom: 1px solid var(--line);
   background: rgb(255 255 255 / 97%);
   box-shadow: none;
@@ -37,7 +37,7 @@ body.theme-editorial::before { display: none; }
 .theme-editorial .page-shell {
   width: min(calc(100% - 56px), var(--page-width));
   grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
-  gap: 48px;
+  gap: 40px;
   margin-top: 34px;
 }
 
@@ -49,8 +49,8 @@ body.theme-editorial::before { display: none; }
   box-shadow: none;
 }
 .theme-editorial .portrait-frame {
-  width: 190px;
-  height: 190px;
+  width: 166px;
+  height: 166px;
   margin: 0 0 20px;
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -184,10 +184,10 @@ body.theme-editorial::before { display: none; }
 }
 
 @media (min-width: 821px) and (max-width: 1099px) {
-  body.theme-editorial { --sidebar-width: 190px; }
+  body.theme-editorial { --sidebar-width: 170px; }
   .theme-editorial .desktop-nav,
   .theme-editorial .page-shell { gap: 32px; }
-  .theme-editorial .portrait-frame { width: 170px; height: 170px; }
+  .theme-editorial .portrait-frame { width: 150px; height: 150px; }
   .theme-editorial .nav-links { gap: 16px; }
   .theme-editorial .nav-link { font-size: 13px; }
 }
