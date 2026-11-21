@@ -570,17 +570,33 @@
     });
 
     const links = document.querySelectorAll(".nav-link");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (!visible) return;
-        links.forEach((link) => link.classList.toggle("is-active", link.dataset.target === visible.target.id));
-      },
-      { rootMargin: "-20% 0px -68%", threshold: [0.05, 0.25, 0.5] },
-    );
-    document.querySelectorAll("[data-section]").forEach((section) => observer.observe(section));
+    if (!isBlog) {
+      const sections = [...document.querySelectorAll("[data-section]")];
+      let navigationFrame;
+      const updateActiveSection = () => {
+        navigationFrame = undefined;
+        const readingLine = Math.min(140, window.innerHeight * 0.25);
+        let current = sections[0];
+        sections.forEach((section) => {
+          if (section.getBoundingClientRect().top <= readingLine) current = section;
+        });
+        links.forEach((link) => {
+          const active = link.dataset.target === current?.id;
+          link.classList.toggle("is-active", active);
+          if (active) link.setAttribute("aria-current", "location");
+          else link.removeAttribute("aria-current");
+        });
+      };
+      const scheduleNavigationUpdate = () => {
+        if (navigationFrame === undefined) navigationFrame = requestAnimationFrame(updateActiveSection);
+      };
+      window.addEventListener("scroll", scheduleNavigationUpdate, { passive: true });
+      window.addEventListener("resize", scheduleNavigationUpdate);
+      document.querySelectorAll("details").forEach((details) => {
+        details.addEventListener("toggle", scheduleNavigationUpdate);
+      });
+      updateActiveSection();
+    }
 
     const hoverQuery = window.matchMedia("(hover: hover) and (pointer: fine)");
     const preview = el("div", "image-hover-preview");
