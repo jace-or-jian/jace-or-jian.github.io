@@ -88,7 +88,7 @@ window.SITE_DATA = {
           label: "Information-Theoretic Extension of Covert FD-ISAC",
           description: "An information-theoretic characterization of when concurrent downlink transmission improves the covert square-root-law coefficient, and by how much.",
           linkLabel: "Explore the proof sketch",
-          url: "files/publications/information-theoretic-proof-sketch.pdf",
+          url: "files/publications/information-theoretic-proof-sketch.pdf#page=1",
           cover: {
             src: "assets/publications/fd-isac-proof-sketch-cover.webp",
             alt: "Opening page of the proof sketch, showing the system model and equations",
