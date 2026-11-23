@@ -1619,27 +1619,31 @@ window.BLOG_POSTS = [
       },
       {
         "type": "p",
-        "text": "Advantages: It can automatically extract features from complex data and fit nonlinear relationships that are difficult to describe with traditional analytical models. It offers advantages in high-dimensional signal processing, complex pattern recognition, and state prediction.",
+        "text": "Advantages: By learning representations directly from data, deep learning can extract useful features and capture nonlinear relationships that are difficult to describe analytically. This makes it useful for high-dimensional signal processing, complex pattern recognition, and state prediction.",
         "parts": [
           {
             "tag": "strong",
             "text": "Advantages:"
           },
           {
-            "text": " It can automatically extract features from complex data and fit nonlinear relationships that are difficult to describe with traditional analytical models. It offers advantages in high-dimensional signal processing, complex pattern recognition, and state prediction."
+            "text": " By learning representations directly from data, deep learning can extract useful features and capture nonlinear relationships that are difficult to describe analytically. This makes it useful for high-dimensional signal processing, complex pattern recognition, and state prediction."
           }
         ]
       },
       {
         "type": "p",
-        "text": "Limitations: It usually relies on large amounts of representative training data and is constrained by the distribution of that data. Changes in the channel model, SNR, antenna configuration, or communication environment may reduce its ability to generalize. Model interpretability is also relatively limited, and the outputs do not inherently satisfy physical constraints such as limits on transmit power and spectrum resources. Additional design is needed to enforce these constraints.",
+        "text": "In a typical offline training and online inference workflow, training uses the empirical distribution of a finite dataset to approximate the expected loss under the true data distribution, then applies gradient-based updates to seek parameters that generalize well to that distribution. During online deployment, these parameters remain fixed, and the model processes new inputs through forward computation without solving the training optimization problem again. If the deployment distribution differs from the training distribution, a phenomenon known as distribution shift, the learned parameters may become less suitable and performance can decline."
+      },
+      {
+        "type": "p",
+        "text": "Limitations: Changes in the channel model, SNR, antenna configuration, or communication environment can introduce such distribution shifts. Collecting sufficiently representative training data is therefore a major practical challenge. Model interpretability is also relatively limited, and the outputs do not inherently satisfy physical constraints such as limits on transmit power and spectrum resources. Additional design is needed to enforce these constraints.",
         "parts": [
           {
             "tag": "strong",
             "text": "Limitations:"
           },
           {
-            "text": " It usually relies on large amounts of representative training data and is constrained by the distribution of that data. Changes in the channel model, SNR, antenna configuration, or communication environment may reduce its ability to generalize. Model interpretability is also relatively limited, and the outputs do not inherently satisfy physical constraints such as limits on transmit power and spectrum resources. Additional design is needed to enforce these constraints."
+            "text": " Changes in the channel model, SNR, antenna configuration, or communication environment can introduce such distribution shifts. Collecting sufficiently representative training data is therefore a major practical challenge. Model interpretability is also relatively limited, and the outputs do not inherently satisfy physical constraints such as limits on transmit power and spectrum resources. Additional design is needed to enforce these constraints."
           }
         ]
       },
