@@ -65,6 +65,41 @@ body.theme-editorial::before { display: none; }
   margin-top: 34px;
 }
 
+/* One quiet column boundary; short blue marks identify only major sections. */
+@media (min-width: 821px) {
+  .theme-editorial .sidebar { position: relative; }
+  .theme-editorial .sidebar::after {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    right: -20px;
+    width: 1px;
+    background: var(--line-strong);
+    pointer-events: none;
+  }
+}
+
+.theme-editorial .hero > .section-kicker,
+.theme-editorial #dynamic-sections > .section-block > .section-heading .section-title,
+.theme-editorial #dynamic-sections > .disclosure-section > .section-disclosure > summary .disclosure-copy h2 {
+  position: relative;
+  padding-left: 14px;
+}
+
+.theme-editorial .hero > .section-kicker::before,
+.theme-editorial #dynamic-sections > .section-block > .section-heading .section-title::before,
+.theme-editorial #dynamic-sections > .disclosure-section > .section-disclosure > summary .disclosure-copy h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: .2em;
+  width: 3px;
+  height: 1em;
+  border-radius: 2px;
+  background: var(--accent);
+  pointer-events: none;
+}
+
 .theme-editorial .sidebar-inner {
   position: static;
   padding: 0;
@@ -247,6 +282,7 @@ body.theme-editorial::before { display: none; }
 
 @media (min-width: 821px) and (max-width: 1099px) {
   body.theme-editorial { --sidebar-width: 170px; }
+  .theme-editorial .sidebar::after { right: -16px; }
   .theme-editorial .desktop-nav,
   .theme-editorial .page-shell { gap: 32px; }
   .theme-editorial .portrait-frame { width: 150px; height: 150px; }
