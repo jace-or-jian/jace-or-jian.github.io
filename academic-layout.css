@@ -72,7 +72,7 @@ body.theme-editorial::before { display: none; }
     content: "";
     position: absolute;
     inset-block: 0;
-    right: -20px;
+    right: -12px;
     width: 1px;
     background: var(--line-strong);
     pointer-events: none;
@@ -282,7 +282,7 @@ body.theme-editorial::before { display: none; }
 
 @media (min-width: 821px) and (max-width: 1099px) {
   body.theme-editorial { --sidebar-width: 170px; }
-  .theme-editorial .sidebar::after { right: -16px; }
+  .theme-editorial .sidebar::after { right: -8px; }
   .theme-editorial .desktop-nav,
   .theme-editorial .page-shell { gap: 32px; }
   .theme-editorial .portrait-frame { width: 150px; height: 150px; }
