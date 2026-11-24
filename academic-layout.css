@@ -302,9 +302,10 @@ body.theme-editorial::before { display: none; }
   max-height: none;
 }
 
-/* Keep the expanded risk insight compact, with readable charts and copy. */
+/* Align the insight panel with the results below while keeping charts compact. */
 .theme-editorial .publication-insight {
-  max-width: 900px;
+  width: 100%;
+  max-width: none;
   margin-bottom: 22px;
   padding: 18px;
 }
