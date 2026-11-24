@@ -140,6 +140,15 @@ body.theme-editorial::before { display: none; }
 .theme-editorial .strip-label { font-size: 14px; font-weight: 600; text-transform: none; letter-spacing: 0; }
 .theme-editorial .interest-tag { font-size: 14px; }
 
+/* Use the outer right gutter to give the opening copy more breathing room. */
+@media (min-width: 1280px) {
+  .theme-editorial .profile-intro {
+    --intro-outset: min(128px, max(0px, calc((100vw - var(--page-width)) / 2 - 40px)));
+    width: calc(100% + var(--intro-outset));
+    column-gap: 88px;
+  }
+}
+
 .theme-editorial #dynamic-sections > .section-block { border-top: 1px solid var(--line); }
 .theme-editorial .content-column .section-heading {
   display: block;
