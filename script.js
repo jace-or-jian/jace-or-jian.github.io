@@ -326,6 +326,14 @@
         details.append(summary, panel);
         body.append(details);
       }
+      const extension = body.querySelector(":scope > .publication-extension");
+      const scene = body.querySelector(":scope > .publication-figures");
+      if (extension && scene) {
+        const media = el("div", "publication-media-pair");
+        extension.before(media);
+        media.append(scene, extension);
+        body.classList.add("publication-body-with-extension");
+      }
       article.append(meta, body);
       list.append(article);
     });
