@@ -16,10 +16,10 @@
     <link rel="stylesheet" href="editorial.css?v=66" />
     <link rel="stylesheet" href="homepage-sections.css?v=20261118-risk-insight" />
     <script src="site-data.js?v=20261122-pdf-first-page" defer></script>
-    <link rel="stylesheet" href="academic-layout.css?v=20261123-divider-left" />
+    <link rel="stylesheet" href="academic-layout.css?v=20261124-structure" />
     <script src="script.js?v=20261121-layout" data-notes-src="blog-data.js?v=20261118-data-to-features-title" defer></script>
   </head>
-  <body class="theme-editorial">
+  <body class="theme-editorial" data-page="home">
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <header class="mobile-header">
@@ -40,52 +40,52 @@
     <nav class="mobile-nav" id="mobile-navigation" aria-label="Mobile navigation"></nav>
 
     <nav class="desktop-nav" aria-label="Main navigation">
-      <a class="nav-home" href="#top" aria-label="Homepage">Homepage</a>
+      <a class="nav-home" href="#top" aria-label="Homepage" data-short-name>Jiajie Jian</a>
       <div class="nav-links" id="desktop-navigation"></div>
     </nav>
 
     <div class="page-shell">
-      <aside class="sidebar" aria-label="Profile">
-        <div class="sidebar-inner">
-          <a class="brand" href="#top" aria-label="Go to the top">
-            <span class="brand-mark" data-initials>JJ</span>
-            <span class="brand-wordmark">Academic homepage</span>
-          </a>
-
-          <div class="profile">
-            <div class="portrait-frame">
-              <img
-                id="profile-photo"
-                src="assets/jiajie-jian-library-portrait-blurred.webp"
-                alt="Professional headshot of Jiajie Jian"
-                width="480"
-                height="640"
-                decoding="async"
-                fetchpriority="high"
-              />
-            </div>
-            <p class="eyebrow">Hello, I’m</p>
-            <h1 id="profile-name">Jiajie Jian</h1>
-          </div>
-
-          <div class="profile-meta" id="profile-meta"></div>
-          <div class="profile-links" id="profile-links"></div>
-
-        </div>
-      </aside>
-
       <div class="content-column">
         <main id="main-content">
-          <section class="hero section-block" id="about" data-section="about">
-            <div class="section-kicker">About</div>
-            <h2 id="hero-heading">Hi, and welcome! I’m Jiajie Jian — glad you’re here.</h2>
-            <div class="intro-copy" id="intro-copy">
-              <p>I’m currently pursuing a master’s degree at Chongqing University, after earning my B.Eng. from Sichuan Normal University in 2024.</p>
-              <p>A little about my work: I develop algorithms and system designs for next-generation wireless systems, drawing on signal processing, optimization, and machine learning. My current research focuses on integrated sensing and communication (ISAC) and physical-layer security in dynamic wireless environments.</p>
-            </div>
-            <div class="hero-actions" id="hero-actions"></div>
-            <div class="research-strip" id="research-strip"></div>
-          </section>
+          <div class="profile-intro" id="about" data-section="about">
+            <aside class="sidebar" aria-label="Profile">
+              <div class="sidebar-inner">
+                <a class="brand" href="#top" aria-label="Go to the top">
+                  <span class="brand-mark" data-initials>JJ</span>
+                  <span class="brand-wordmark">Academic homepage</span>
+                </a>
+
+                <div class="profile">
+                  <div class="portrait-frame">
+                    <img
+                      id="profile-photo"
+                      src="assets/jiajie-jian-library-portrait-blurred.webp"
+                      alt="Professional headshot of Jiajie Jian"
+                      width="480"
+                      height="640"
+                      decoding="async"
+                      fetchpriority="high"
+                    />
+                  </div>
+                  <p class="eyebrow">Hello, I’m</p>
+                  <h1 id="profile-name">Jiajie Jian</h1>
+                </div>
+
+                <div class="profile-meta" id="profile-meta"></div>
+                <div class="profile-links" id="profile-links"></div>
+
+              </div>
+            </aside>
+            <section class="hero section-block" aria-label="About">
+              <p class="hero-greeting" id="hero-heading">Hi, and welcome! I’m Jiajie Jian — glad you’re here.</p>
+              <div class="intro-copy" id="intro-copy">
+                <p>I’m currently pursuing a master’s degree at Chongqing University, after earning my B.Eng. from Sichuan Normal University in 2024.</p>
+                <p>A little about my work: I develop algorithms and system designs for next-generation wireless systems, drawing on signal processing, optimization, and machine learning. My current research focuses on integrated sensing and communication (ISAC) and physical-layer security in dynamic wireless environments.</p>
+              </div>
+              <div class="hero-actions" id="hero-actions"></div>
+              <div class="research-strip" id="research-strip"></div>
+            </section>
+          </div>
 
           <div id="dynamic-sections"></div>
         </main>
