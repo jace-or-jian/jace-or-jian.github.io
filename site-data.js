@@ -125,7 +125,7 @@ window.SITE_DATA = {
       },
       {
         year: "2026",
-        venue: "IEEE Transactions on Mobile Computing · Accepted for publication",
+        venue: "IEEE Transactions on Mobile Computing",
         title: "Cross-Boundary Covert UAV Task Offloading: Risk-Aware Trajectory and Scheduling",
         authors: "Jiajie Jian, Zan Li, Shu Fu, Jiangbo Si, and Min Liu",
         shortAuthors: "Jiajie Jian et al.",
@@ -257,7 +257,7 @@ window.SITE_DATA = {
     eyebrow: "Updates",
     items: [
       { date: "2026.11", text: "Our paper, “Resilient Beamforming for Anti-Jamming MIMO-ISAC,” is now published online in IEEE Wireless Communications Letters." },
-      { date: "2026.10", text: "Our paper, “Cross-Boundary Covert UAV Task Offloading: Risk-Aware Trajectory and Scheduling,” has been accepted for publication in IEEE Transactions on Mobile Computing." },
+      { date: "2026.10", text: "Our paper, “Cross-Boundary Covert UAV Task Offloading: Risk-Aware Trajectory and Scheduling,” was accepted for publication in IEEE Transactions on Mobile Computing and is now available online." },
       { date: "2026.09", text: "I received the National Scholarship for Graduate Students, the highest-level national scholarship awarded to graduate students in China." },
       { date: "2026.06", text: "Our paper on bidirectional covertness and security in FD-ISAC was published in IEEE Transactions on Vehicular Technology." },
     ],
